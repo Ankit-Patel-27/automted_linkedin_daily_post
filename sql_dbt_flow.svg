@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050d0f"/>
+      <stop offset="100%" style="stop-color:#0d1f1a"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#00BFA5"/>
+    </marker>
+    <marker id="arrO" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#FF7043"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="36" text-anchor="middle" fill="#00BFA5" font-size="18" font-weight="700" filter="url(#glow)">dbt + SQL Transformation Architecture</text>
+  <text x="400" y="56" text-anchor="middle" fill="#8892a4" font-size="11">Staging → Intermediate → Marts · SCD Type 2 · Incremental Models · Data Quality</text>
+  <line x1="60" y1="66" x2="740" y2="66" stroke="#0d2520" stroke-width="1"/>
+
+  <!-- ── TOP: dbt project structure ── -->
+  <rect x="40" y="80" width="220" height="130" rx="8" fill="#051510" stroke="#00BFA5" stroke-width="1.5"/>
+  <text x="150" y="100" text-anchor="middle" fill="#00BFA5" font-size="11" font-weight="700">dbt Project Structure</text>
+  <line x1="55" y1="107" x2="245" y2="107" stroke="#004d40" stroke-width="1"/>
+  <text x="60" y="122" fill="#00897b" font-size="9">📁 models/</text>
+  <text x="75" y="136" fill="#4db6ac" font-size="9">├── staging/     ← raw source refs</text>
+  <text x="75" y="150" fill="#4db6ac" font-size="9">├── intermediate/ ← logic, joins</text>
+  <text x="75" y="164" fill="#4db6ac" font-size="9">└── marts/        ← business layer</text>
+  <text x="60" y="178" fill="#00897b" font-size="9">📁 tests/  📁 macros/  📁 snapshots/</text>
+  <text x="60" y="192" fill="#00897b" font-size="9">📄 dbt_project.yml  📄 profiles.yml</text>
+
+  <!-- ── dbt run modes ── -->
+  <rect x="280" y="80" width="230" height="130" rx="8" fill="#051510" stroke="#00BFA5" stroke-width="1.5"/>
+  <text x="395" y="100" text-anchor="middle" fill="#00BFA5" font-size="11" font-weight="700">Model Materializations</text>
+  <line x1="295" y1="107" x2="495" y2="107" stroke="#004d40" stroke-width="1"/>
+
+  <rect x="295" y="114" width="200" height="22" rx="4" fill="#00251a" stroke="#004d40" stroke-width="1"/>
+  <text x="395" y="130" text-anchor="middle" fill="#80cbc4" font-size="9">view  — lightweight, always fresh</text>
+
+  <rect x="295" y="142" width="200" height="22" rx="4" fill="#00251a" stroke="#004d40" stroke-width="1"/>
+  <text x="395" y="158" text-anchor="middle" fill="#80cbc4" font-size="9">table  — full refresh, simple</text>
+
+  <rect x="295" y="170" width="200" height="22" rx="4" fill="#003329" stroke="#00BFA5" stroke-width="1.5"/>
+  <text x="395" y="186" text-anchor="middle" fill="#00BFA5" font-size="10" font-weight="600">⚡ incremental  — append/merge</text>
+
+  <!-- ── SCD Type 2 box ── -->
+  <rect x="530" y="80" width="230" height="130" rx="8" fill="#051510" stroke="#FF7043" stroke-width="1.5"/>
+  <text x="645" y="100" text-anchor="middle" fill="#FF7043" font-size="11" font-weight="700">SCD Type 2 Pattern</text>
+  <line x1="545" y1="107" x2="745" y2="107" stroke="#4e1a00" stroke-width="1"/>
+  <text x="550" y="122" fill="#ff8a65" font-size="9">dbt snapshots → track row history</text>
+  <text x="550" y="138" fill="#bf360c" font-size="9">{% snapshot patient_snapshot %}</text>
+  <text x="550" y="153" fill="#bf360c" font-size="9">  unique_key="patient_id"</text>
+  <text x="550" y="168" fill="#bf360c" font-size="9">  strategy="timestamp"</text>
+  <text x="550" y="183" fill="#bf360c" font-size="9">  updated_at="updated_at"</text>
+  <text x="550" y="196" fill="#ff8a65" font-size="9">Adds dbt_valid_from / dbt_valid_to</text>
+
+  <!-- Flow arrows top row -->
+  <line x1="260" y1="145" x2="280" y2="145" stroke="#00BFA5" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="510" y1="145" x2="530" y2="145" stroke="#00BFA5" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── MIDDLE: SQL Patterns ── -->
+  <text x="60" y="233" fill="#8892a4" font-size="9" font-weight="600" letter-spacing="2">CORE SQL PATTERNS</text>
+
+  <!-- Window Functions -->
+  <rect x="40" y="242" width="220" height="90" rx="6" fill="#070d15" stroke="#4fc3f7" stroke-width="1.3"/>
+  <text x="150" y="260" text-anchor="middle" fill="#4fc3f7" font-size="10" font-weight="600">Window Functions</text>
+  <text x="55" y="275" fill="#0277bd" font-size="8.5">ROW_NUMBER() OVER (</text>
+  <text x="55" y="288" fill="#0277bd" font-size="8.5">  PARTITION BY patient_id</text>
+  <text x="55" y="301" fill="#0277bd" font-size="8.5">  ORDER BY visit_date DESC)</text>
+  <text x="55" y="315" fill="#0277bd" font-size="8.5">LAG()  LEAD()  RANK()  NTILE()</text>
+  <text x="55" y="325" fill="#0277bd" font-size="8.5">SUM() OVER (ROWS BETWEEN...)</text>
+
+  <!-- Incremental model -->
+  <rect x="280" y="242" width="230" height="90" rx="6" fill="#070d15" stroke="#00BFA5" stroke-width="1.3"/>
+  <text x="395" y="260" text-anchor="middle" fill="#00BFA5" font-size="10" font-weight="600">Incremental Model</text>
+  <text x="295" y="275" fill="#00695c" font-size="8.5">{% if is_incremental() %}</text>
+  <text x="295" y="288" fill="#00695c" font-size="8.5">  WHERE updated_at &gt;</text>
+  <text x="295" y="301" fill="#00695c" font-size="8.5">    (SELECT MAX(updated_at)</text>
+  <text x="295" y="314" fill="#00695c" font-size="8.5">     FROM {{ this }})</text>
+  <text x="295" y="327" fill="#00695c" font-size="8.5">{% endif %}   unique_key="id"</text>
+
+  <!-- CTEs -->
+  <rect x="530" y="242" width="230" height="90" rx="6" fill="#070d15" stroke="#FFC107" stroke-width="1.3"/>
+  <text x="645" y="260" text-anchor="middle" fill="#FFC107" font-size="10" font-weight="600">CTE Best Practices</text>
+  <text x="545" y="275" fill="#f57f17" font-size="8.5">WITH source AS (SELECT * FROM raw),</text>
+  <text x="545" y="289" fill="#f57f17" font-size="8.5">     renamed AS (SELECT id,</text>
+  <text x="545" y="303" fill="#f57f17" font-size="8.5">       UPPER(name) AS patient_name),</text>
+  <text x="545" y="317" fill="#f57f17" font-size="8.5">     final AS (SELECT * FROM renamed</text>
+  <text x="545" y="331" fill="#f57f17" font-size="8.5">              WHERE is_active = true)</text>
+
+  <!-- ── BOTTOM: dbt tests + CI/CD ── -->
+  <text x="60" y="356" fill="#8892a4" font-size="9" font-weight="600" letter-spacing="2">DATA QUALITY + CI/CD</text>
+
+  <rect x="40" y="364" width="220" height="76" rx="6" fill="#051510" stroke="#00C853" stroke-width="1.3"/>
+  <text x="150" y="382" text-anchor="middle" fill="#00C853" font-size="10" font-weight="600">dbt Tests</text>
+  <text x="55" y="398" fill="#2e7d32" font-size="9">not_null  ·  unique  ·  accepted_values</text>
+  <text x="55" y="412" fill="#2e7d32" font-size="9">relationships (FK integrity)</text>
+  <text x="55" y="426" fill="#2e7d32" font-size="9">custom: row_count, freshness</text>
+  <text x="55" y="434" fill="#2e7d32" font-size="8">dbt test --select tag:critical</text>
+
+  <rect x="280" y="364" width="230" height="76" rx="6" fill="#051510" stroke="#00C853" stroke-width="1.3"/>
+  <text x="395" y="382" text-anchor="middle" fill="#00C853" font-size="10" font-weight="600">dbt + GitHub Actions CI</text>
+  <text x="295" y="398" fill="#2e7d32" font-size="9">on: pull_request → dbt compile</text>
+  <text x="295" y="412" fill="#2e7d32" font-size="9">on: merge → dbt run --target prod</text>
+  <text x="295" y="426" fill="#2e7d32" font-size="9">dbt docs generate → auto publish</text>
+  <text x="295" y="440" fill="#2e7d32" font-size="9">Slim CI: dbt build --select state:modified+</text>
+
+  <rect x="530" y="364" width="230" height="76" rx="6" fill="#051510" stroke="#FF7043" stroke-width="1.3"/>
+  <text x="645" y="382" text-anchor="middle" fill="#FF7043" font-size="10" font-weight="600">Star Schema for Healthcare</text>
+  <text x="545" y="398" fill="#bf360c" font-size="9">fact_patient_visits (metrics)</text>
+  <text x="545" y="412" fill="#bf360c" font-size="9">dim_patient  ·  dim_provider</text>
+  <text x="545" y="426" fill="#bf360c" font-size="9">dim_diagnosis (ICD-10 codes)</text>
+  <text x="545" y="440" fill="#bf360c" font-size="9">dim_date  ·  dim_facility</text>
+
+  <text x="750" y="490" text-anchor="end" fill="#3a4258" font-size="9">#SQL #dbt #DataEngineering</text>
+</svg>

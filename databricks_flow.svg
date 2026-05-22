@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" font-family="'Segoe UI', Arial, sans-serif">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0e1117"/>
+      <stop offset="100%" style="stop-color:#1a1f2e"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF6B35"/>
+      <stop offset="100%" style="stop-color:#FF3D00"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E88E5"/>
+      <stop offset="100%" style="stop-color:#1565C0"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00C853"/>
+      <stop offset="100%" style="stop-color:#00897B"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrowO" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#FF6B35"/>
+    </marker>
+    <marker id="arrowB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#1E88E5"/>
+    </marker>
+    <marker id="arrowG" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#00C853"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="38" text-anchor="middle" fill="#FF6B35" font-size="18" font-weight="700" filter="url(#glow)">Databricks Lakehouse Architecture</text>
+  <text x="400" y="58" text-anchor="middle" fill="#8892a4" font-size="11">Delta Lake · Unity Catalog · Auto Loader · MLflow</text>
+  <line x1="60" y1="68" x2="740" y2="68" stroke="#2a3044" stroke-width="1"/>
+
+  <!-- LAYER 1: Data Sources -->
+  <text x="50" y="95" fill="#8892a4" font-size="10" font-weight="600" letter-spacing="2">DATA SOURCES</text>
+  <rect x="50" y="103" width="100" height="44" rx="6" fill="#1a2030" stroke="#FF6B35" stroke-width="1.2"/>
+  <text x="100" y="121" text-anchor="middle" fill="#FF6B35" font-size="10" font-weight="600">Kafka /</text>
+  <text x="100" y="136" text-anchor="middle" fill="#FF6B35" font-size="10" font-weight="600">Kinesis</text>
+
+  <rect x="165" y="103" width="100" height="44" rx="6" fill="#1a2030" stroke="#FF6B35" stroke-width="1.2"/>
+  <text x="215" y="121" text-anchor="middle" fill="#FF6B35" font-size="10" font-weight="600">S3 / ADLS</text>
+  <text x="215" y="136" text-anchor="middle" fill="#FF6B35" font-size="10" font-weight="600">Raw Files</text>
+
+  <rect x="280" y="103" width="100" height="44" rx="6" fill="#1a2030" stroke="#FF6B35" stroke-width="1.2"/>
+  <text x="330" y="121" text-anchor="middle" fill="#FF6B35" font-size="10" font-weight="600">JDBC / APIs</text>
+  <text x="330" y="136" text-anchor="middle" fill="#FF6B35" font-size="10" font-weight="600">Databases</text>
+
+  <!-- Arrow Sources → Auto Loader -->
+  <line x1="100" y1="147" x2="100" y2="175" stroke="#FF6B35" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowO)"/>
+  <line x1="215" y1="147" x2="215" y2="175" stroke="#FF6B35" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowO)"/>
+  <line x1="330" y1="147" x2="330" y2="175" stroke="#FF6B35" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowO)"/>
+
+  <!-- LAYER 2: Ingestion -->
+  <text x="50" y="175" fill="#8892a4" font-size="10" font-weight="600" letter-spacing="2">INGESTION</text>
+  <rect x="50" y="183" width="120" height="44" rx="6" fill="#1a2030" stroke="#1E88E5" stroke-width="1.2"/>
+  <text x="110" y="201" text-anchor="middle" fill="#1E88E5" font-size="10" font-weight="600">Auto Loader</text>
+  <text x="110" y="216" text-anchor="middle" fill="#64b5f6" font-size="9">cloudFiles</text>
+
+  <rect x="185" y="183" width="120" height="44" rx="6" fill="#1a2030" stroke="#1E88E5" stroke-width="1.2"/>
+  <text x="245" y="201" text-anchor="middle" fill="#1E88E5" font-size="10" font-weight="600">Structured</text>
+  <text x="245" y="216" text-anchor="middle" fill="#64b5f6" font-size="9">Streaming</text>
+
+  <rect x="320" y="183" width="120" height="44" rx="6" fill="#1a2030" stroke="#1E88E5" stroke-width="1.2"/>
+  <text x="380" y="201" text-anchor="middle" fill="#1E88E5" font-size="10" font-weight="600">Delta Live</text>
+  <text x="380" y="216" text-anchor="middle" fill="#64b5f6" font-size="9">Tables (DLT)</text>
+
+  <!-- Arrows Ingestion → Bronze -->
+  <line x1="110" y1="227" x2="110" y2="258" stroke="#1E88E5" stroke-width="1.5" marker-end="url(#arrowB)"/>
+  <line x1="245" y1="227" x2="245" y2="258" stroke="#1E88E5" stroke-width="1.5" marker-end="url(#arrowB)"/>
+  <line x1="380" y1="227" x2="380" y2="258" stroke="#1E88E5" stroke-width="1.5" marker-end="url(#arrowB)"/>
+
+  <!-- LAYER 3: Delta Lake Medallion -->
+  <text x="50" y="258" fill="#8892a4" font-size="10" font-weight="600" letter-spacing="2">DELTA LAKE — MEDALLION ARCHITECTURE</text>
+  <!-- Bronze -->
+  <rect x="50" y="266" width="120" height="52" rx="6" fill="#2a1800" stroke="#CD7F32" stroke-width="1.5"/>
+  <text x="110" y="286" text-anchor="middle" fill="#CD7F32" font-size="11" font-weight="700">🥉 Bronze</text>
+  <text x="110" y="302" text-anchor="middle" fill="#a0856a" font-size="9">Raw ingestion</text>
+  <text x="110" y="314" text-anchor="middle" fill="#a0856a" font-size="9">Append-only</text>
+
+  <!-- Arrow Bronze → Silver -->
+  <line x1="170" y1="292" x2="198" y2="292" stroke="#C0C0C0" stroke-width="1.5" marker-end="url(#arrowB)"/>
+
+  <!-- Silver -->
+  <rect x="198" y="266" width="120" height="52" rx="6" fill="#1a1f2e" stroke="#C0C0C0" stroke-width="1.5"/>
+  <text x="258" y="286" text-anchor="middle" fill="#C0C0C0" font-size="11" font-weight="700">🥈 Silver</text>
+  <text x="258" y="302" text-anchor="middle" fill="#9e9e9e" font-size="9">Cleaned / joined</text>
+  <text x="258" y="314" text-anchor="middle" fill="#9e9e9e" font-size="9">Z-order, CDF</text>
+
+  <!-- Arrow Silver → Gold -->
+  <line x1="318" y1="292" x2="346" y2="292" stroke="#FFD700" stroke-width="1.5" marker-end="url(#arrowB)"/>
+
+  <!-- Gold -->
+  <rect x="346" y="266" width="120" height="52" rx="6" fill="#1f1a00" stroke="#FFD700" stroke-width="1.5"/>
+  <text x="406" y="286" text-anchor="middle" fill="#FFD700" font-size="11" font-weight="700">🥇 Gold</text>
+  <text x="406" y="302" text-anchor="middle" fill="#b0a060" font-size="9">Aggregated</text>
+  <text x="406" y="314" text-anchor="middle" fill="#b0a060" font-size="9">Business-ready</text>
+
+  <!-- Unity Catalog box -->
+  <rect x="490" y="266" width="130" height="52" rx="6" fill="#1a1030" stroke="#9C27B0" stroke-width="1.5"/>
+  <text x="555" y="286" text-anchor="middle" fill="#CE93D8" font-size="10" font-weight="700">Unity Catalog</text>
+  <text x="555" y="301" text-anchor="middle" fill="#9C27B0" font-size="9">Governance / ACL</text>
+  <text x="555" y="314" text-anchor="middle" fill="#9C27B0" font-size="9">Data lineage</text>
+  <line x1="466" y1="292" x2="490" y2="292" stroke="#9C27B0" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- LAYER 4: Compute -->
+  <text x="50" y="348" fill="#8892a4" font-size="10" font-weight="600" letter-spacing="2">COMPUTE &amp; ML</text>
+  <rect x="50" y="356" width="110" height="44" rx="6" fill="#1a2030" stroke="#00C853" stroke-width="1.2"/>
+  <text x="105" y="374" text-anchor="middle" fill="#00C853" font-size="10" font-weight="600">Spark /</text>
+  <text x="105" y="389" text-anchor="middle" fill="#00C853" font-size="10" font-weight="600">PySpark</text>
+
+  <rect x="175" y="356" width="110" height="44" rx="6" fill="#1a2030" stroke="#00C853" stroke-width="1.2"/>
+  <text x="230" y="374" text-anchor="middle" fill="#00C853" font-size="10" font-weight="600">MLflow</text>
+  <text x="230" y="389" text-anchor="middle" fill="#00C853" font-size="9">Experiment tracking</text>
+
+  <rect x="300" y="356" width="110" height="44" rx="6" fill="#1a2030" stroke="#00C853" stroke-width="1.2"/>
+  <text x="355" y="374" text-anchor="middle" fill="#00C853" font-size="10" font-weight="600">Feature</text>
+  <text x="355" y="389" text-anchor="middle" fill="#00C853" font-size="10" font-weight="600">Store</text>
+
+  <rect x="425" y="356" width="110" height="44" rx="6" fill="#1a2030" stroke="#00C853" stroke-width="1.2"/>
+  <text x="480" y="374" text-anchor="middle" fill="#00C853" font-size="10" font-weight="600">Model</text>
+  <text x="480" y="389" text-anchor="middle" fill="#00C853" font-size="10" font-weight="600">Serving</text>
+
+  <!-- Arrows Gold → Compute -->
+  <line x1="406" y1="318" x2="406" y2="356" stroke="#00C853" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowG)"/>
+
+  <!-- LAYER 5: Serving -->
+  <text x="50" y="432" fill="#8892a4" font-size="10" font-weight="600" letter-spacing="2">SERVING</text>
+  <rect x="50" y="440" width="100" height="40" rx="6" fill="#1a2030" stroke="#FF6B35" stroke-width="1.2"/>
+  <text x="100" y="456" text-anchor="middle" fill="#FF6B35" font-size="9" font-weight="600">SQL Warehouse</text>
+  <text x="100" y="470" text-anchor="middle" fill="#FF6B35" font-size="9">BI / Tableau</text>
+
+  <rect x="165" y="440" width="100" height="40" rx="6" fill="#1a2030" stroke="#FF6B35" stroke-width="1.2"/>
+  <text x="215" y="456" text-anchor="middle" fill="#FF6B35" font-size="9" font-weight="600">Databricks</text>
+  <text x="215" y="470" text-anchor="middle" fill="#FF6B35" font-size="9">Dashboards</text>
+
+  <rect x="280" y="440" width="100" height="40" rx="6" fill="#1a2030" stroke="#FF6B35" stroke-width="1.2"/>
+  <text x="330" y="456" text-anchor="middle" fill="#FF6B35" font-size="9" font-weight="600">REST API /</text>
+  <text x="330" y="470" text-anchor="middle" fill="#FF6B35" font-size="9">LLM Apps</text>
+
+  <rect x="395" y="440" width="100" height="40" rx="6" fill="#1a2030" stroke="#FF6B35" stroke-width="1.2"/>
+  <text x="445" y="456" text-anchor="middle" fill="#FF6B35" font-size="9" font-weight="600">Redshift /</text>
+  <text x="445" y="470" text-anchor="middle" fill="#FF6B35" font-size="9">Snowflake</text>
+
+  <!-- Arrows Compute → Serving -->
+  <line x1="105" y1="400" x2="100" y2="440" stroke="#FF6B35" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrowO)"/>
+  <line x1="230" y1="400" x2="215" y2="440" stroke="#FF6B35" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrowO)"/>
+  <line x1="355" y1="400" x2="330" y2="440" stroke="#FF6B35" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrowO)"/>
+  <line x1="480" y1="400" x2="445" y2="440" stroke="#FF6B35" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrowO)"/>
+
+  <!-- Branding -->
+  <text x="750" y="490" text-anchor="end" fill="#3a4258" font-size="9">#DataEngineering #Databricks</text>
+</svg>

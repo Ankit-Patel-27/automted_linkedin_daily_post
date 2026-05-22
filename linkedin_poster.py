@@ -1,9 +1,8 @@
 """
 LinkedIn Publisher
-Uses the newer LinkedIn Posts API (2022-02) which:
-- Auto-fetches your member URN from the token (no manual URN needed)
-- No X-Restli-Protocol-Version header required
-- Simpler payload structure
+Uses ugcPosts API (v2) — the correct API for personal profile posting.
+The newer /rest/posts endpoint requires Marketing Developer Platform
+which is not available for personal apps.
 """
 
 import os
@@ -12,7 +11,6 @@ import requests
 from datetime import date
 
 
-# Map domain names → SVG image file in /images/
 DOMAIN_IMAGES = {
     "Databricks": "images/databricks_flow.svg",
     "AWS":        "images/aws_data_pipeline.svg",
@@ -21,42 +19,42 @@ DOMAIN_IMAGES = {
 }
 
 
-# ── Step 1: Get member URN from token ─────────────────────────────────────────
+# ── Get member URN from token ──────────────────────────────────────────────────
 
 def get_member_urn(access_token: str) -> str:
     """
-    Fetch the authenticated member's URN using /userinfo (OpenID Connect).
-    Falls back to LINKEDIN_PERSON_URN secret if API call fails.
+    Fetch authenticated member's URN.
+    Tries /userinfo (OpenID) first, then /v2/me, then falls back to secret.
     """
     headers = {"Authorization": f"Bearer {access_token}"}
 
-    # Try OpenID userinfo first
-    resp = requests.get("https://api.linkedin.com/v2/userinfo", headers=headers)
-    if resp.status_code == 200:
-        sub = resp.json().get("sub")
+    # OpenID userinfo — needs openid + profile scope
+    r = requests.get("https://api.linkedin.com/v2/userinfo", headers=headers)
+    if r.status_code == 200:
+        sub = r.json().get("sub", "")
         if sub:
             urn = f"urn:li:person:{sub}"
-            print(f"✓ Member URN from userinfo: {urn}")
+            print(f"✓ URN from userinfo: {urn}")
             return urn
 
-    # Try /v2/me as fallback
-    resp2 = requests.get("https://api.linkedin.com/v2/me", headers=headers)
-    if resp2.status_code == 200:
-        member_id = resp2.json().get("id")
-        if member_id:
-            urn = f"urn:li:member:{member_id}"
-            print(f"✓ Member URN from /v2/me: {urn}")
+    # /v2/me fallback — needs r_liteprofile scope
+    r2 = requests.get("https://api.linkedin.com/v2/me", headers=headers)
+    if r2.status_code == 200:
+        mid = r2.json().get("id", "")
+        if mid:
+            urn = f"urn:li:member:{mid}"
+            print(f"✓ URN from /v2/me: {urn}")
             return urn
 
-    # Final fallback: use the secret
+    # Secret fallback
     urn = os.environ.get("LINKEDIN_PERSON_URN", "")
     if urn:
         print(f"⚠ Using URN from secret: {urn}")
         return urn
 
     raise ValueError(
-        "Could not determine member URN. "
-        "Set LINKEDIN_PERSON_URN secret as urn:li:member:YOUR_NUMERIC_ID"
+        "Could not get member URN from API or secret. "
+        "Add LINKEDIN_PERSON_URN=urn:li:person:YOUR_ID to GitHub Secrets."
     )
 
 
@@ -66,23 +64,24 @@ def svg_to_png(svg_path: str, png_path: str) -> bool:
     try:
         import cairosvg
         cairosvg.svg2png(url=svg_path, write_to=png_path, output_width=800, output_height=500)
-        print(f"✓ Converted {svg_path} → {png_path}")
+        print(f"✓ {svg_path} → {png_path}")
         return True
     except Exception as e:
-        print(f"⚠ SVG→PNG failed (skipping image): {e}")
+        print(f"⚠ SVG→PNG failed (text-only post): {e}")
         return False
 
 
 def upload_image(access_token: str, person_urn: str, png_path: str) -> str | None:
-    """Upload image to LinkedIn, return asset URN or None."""
-    # Register upload
-    reg_resp = requests.post(
+    """Upload image via ugcPosts asset registration. Returns asset URN or None."""
+    headers = {
+        "Authorization": f"Bearer {access_token}",
+        "Content-Type": "application/json",
+        "X-Restli-Protocol-Version": "2.0.0",
+    }
+
+    reg = requests.post(
         "https://api.linkedin.com/v2/assets?action=registerUpload",
-        headers={
-            "Authorization": f"Bearer {access_token}",
-            "Content-Type": "application/json",
-            "X-Restli-Protocol-Version": "2.0.0",
-        },
+        headers=headers,
         json={
             "registerUploadRequest": {
                 "recipes": ["urn:li:digitalmediaRecipe:feedshare-image"],
@@ -95,77 +94,83 @@ def upload_image(access_token: str, person_urn: str, png_path: str) -> str | Non
         }
     )
 
-    if reg_resp.status_code != 200:
-        print(f"⚠ Image registration failed: {reg_resp.status_code} — posting text-only")
+    if reg.status_code != 200:
+        print(f"⚠ Image registration failed {reg.status_code} — text-only")
         return None
 
-    data       = reg_resp.json()
-    upload_url = data["value"]["uploadMechanism"]["com.linkedin.digitalmedia.uploading.MediaUploadHttpRequest"]["uploadUrl"]
-    asset_urn  = data["value"]["asset"]
+    upload_url = reg.json()["value"]["uploadMechanism"][
+        "com.linkedin.digitalmedia.uploading.MediaUploadHttpRequest"]["uploadUrl"]
+    asset_urn  = reg.json()["value"]["asset"]
 
-    # Upload image bytes
     with open(png_path, "rb") as f:
-        up_resp = requests.put(
+        up = requests.put(
             upload_url,
             headers={"Authorization": f"Bearer {access_token}", "Content-Type": "image/png"},
             data=f.read()
         )
 
-    if up_resp.status_code in (200, 201):
+    if up.status_code in (200, 201):
         print(f"✓ Image uploaded: {asset_urn}")
         return asset_urn
-    else:
-        print(f"⚠ Image upload failed: {up_resp.status_code} — posting text-only")
-        return None
+
+    print(f"⚠ Image upload failed {up.status_code} — text-only")
+    return None
 
 
-# ── Post publishing ────────────────────────────────────────────────────────────
+# ── Publish ────────────────────────────────────────────────────────────────────
 
 def publish_post(access_token: str, person_urn: str, text: str, asset_urn: str | None = None) -> str:
-    """
-    Publish using the newer LinkedIn Posts API (versioned: 202210).
-    Returns post ID on success, raises on failure.
-    """
+    """Publish via ugcPosts API — works for all personal LinkedIn apps."""
     headers = {
-        "Authorization":       f"Bearer {access_token}",
-        "Content-Type":        "application/json",
-        "LinkedIn-Version":    "202401",
+        "Authorization": f"Bearer {access_token}",
+        "Content-Type": "application/json",
         "X-Restli-Protocol-Version": "2.0.0",
     }
 
-    payload = {
-        "author":          person_urn,
-        "commentary":      text,
-        "visibility":      "PUBLIC",
-        "distribution": {
-            "feedDistribution":               "MAIN_FEED",
-            "targetEntities":                 [],
-            "thirdPartyDistributionChannels": []
-        },
-        "lifecycleState":  "PUBLISHED",
-        "isReshareDisabledByAuthor": False
-    }
-
     if asset_urn:
-        payload["content"] = {
-            "media": {
-                "altText": "Data Engineering Architecture Diagram",
-                "id":      asset_urn
-            }
+        share_content = {
+            "shareCommentary": {"text": text},
+            "shareMediaCategory": "IMAGE",
+            "media": [{
+                "status": "READY",
+                "description": {"text": "Data Engineering Architecture Diagram"},
+                "media": asset_urn,
+                "title": {"text": "Architecture Diagram"},
+            }]
+        }
+    else:
+        share_content = {
+            "shareCommentary": {"text": text},
+            "shareMediaCategory": "NONE",
         }
 
-    resp = requests.post("https://api.linkedin.com/rest/posts", headers=headers, json=payload)
+    payload = {
+        "author":         person_urn,
+        "lifecycleState": "PUBLISHED",
+        "specificContent": {
+            "com.linkedin.ugc.ShareContent": share_content
+        },
+        "visibility": {
+            "com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"
+        }
+    }
+
+    resp = requests.post(
+        "https://api.linkedin.com/v2/ugcPosts",
+        headers=headers,
+        json=payload
+    )
 
     if resp.status_code == 201:
-        post_id = resp.headers.get("x-restli-id", resp.headers.get("X-LinkedIn-Id", "unknown"))
+        post_id = resp.headers.get("x-restli-id", "unknown")
         print(f"✓ Post published! ID: {post_id}")
         return post_id
-    else:
-        print(f"✗ Publish failed: {resp.status_code} {resp.text}")
-        resp.raise_for_status()
+
+    print(f"✗ Publish failed: {resp.status_code} {resp.text}")
+    resp.raise_for_status()
 
 
-# ── Logging ────────────────────────────────────────────────────────────────────
+# ── Log ────────────────────────────────────────────────────────────────────────
 
 def log_post(post_data: dict, post_id: str, had_image: bool, log_path="post_history.json"):
     history = []
@@ -191,7 +196,7 @@ def log_post(post_data: dict, post_id: str, had_image: bool, log_path="post_hist
 def main():
     access_token = os.environ.get("LINKEDIN_ACCESS_TOKEN")
     if not access_token:
-        raise ValueError("LINKEDIN_ACCESS_TOKEN not set")
+        raise ValueError("LINKEDIN_ACCESS_TOKEN secret not set")
 
     if not os.path.exists("today_post.json"):
         raise FileNotFoundError("today_post.json not found — run post_generator.py first")
@@ -199,15 +204,14 @@ def main():
     with open("today_post.json") as f:
         post_data = json.load(f)
 
-    # Auto-fetch URN from token
     person_urn = get_member_urn(access_token)
 
     domain = post_data.get("domain", "")
-    print(f"\nPublishing [{post_data['format_type']}] · [{domain}] · {post_data['date']}")
-    print(f"Author URN: {person_urn}")
+    print(f"\n▶ [{post_data['format_type']}] · [{domain}] · {post_data['date']}")
+    print(f"  Author: {person_urn}")
     print(f"\n--- Preview ---\n{post_data['text'][:200]}...\n")
 
-    # Try image for technical posts
+    # Attach image only for technical domain posts
     asset_urn = None
     svg_file  = DOMAIN_IMAGES.get(domain)
 
@@ -216,7 +220,7 @@ def main():
         if svg_to_png(svg_file, png_file):
             asset_urn = upload_image(access_token, person_urn, png_file)
     elif svg_file:
-        print(f"⚠ Image not found: {svg_file} — text-only post")
+        print(f"⚠ Image not found: {svg_file} — text-only")
 
     post_id = publish_post(access_token, person_urn, post_data["text"], asset_urn)
     log_post(post_data, post_id, had_image=asset_urn is not None)

@@ -129,7 +129,7 @@ def publish_post(access_token: str, person_urn: str, text: str, asset_urn: str |
     headers = {
         "Authorization":       f"Bearer {access_token}",
         "Content-Type":        "application/json",
-        "LinkedIn-Version":    "202310",
+        "LinkedIn-Version":    "202401",
         "X-Restli-Protocol-Version": "2.0.0",
     }
 
@@ -204,9 +204,7 @@ def main():
 
     domain = post_data.get("domain", "")
     print(f"\nPublishing [{post_data['format_type']}] · [{domain}] · {post_data['date']}")
-    print(f"Author URN:")
-    for i in person_urn:
-        print(f"  {i}", end="")
+    print(f"Author URN: {person_urn}")
     print(f"\n--- Preview ---\n{post_data['text'][:200]}...\n")
 
     # Try image for technical posts

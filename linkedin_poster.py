@@ -23,8 +23,24 @@ DOMAIN_IMAGES = {
 }
 
 
-# ── Image helpers ──────────────────────────────────────────────────────────────
+def get_person_urn(access_token: str) -> str:
+    """Fetch the member URN directly from the access token."""
+    resp = requests.get(
+        "https://api.linkedin.com/v2/me",
+        headers={"Authorization": f"Bearer {access_token}"}
+    )
+    if resp.status_code == 200:
+        member_id = resp.json().get("id")
+        urn = f"urn:li:member:{member_id}"
+        print(f"✓ Fetched URN: {urn}")
+        return urn
+    else:
+        # Fall back to environment variable
+        print(f"⚠ Could not fetch URN from API ({resp.status_code}), using secret")
+        return os.environ.get("LINKEDIN_PERSON_URN")
+    
 
+# ── Image helpers ──────────────────────────────────────────────────────────────
 def svg_to_png(svg_path: str, png_path: str) -> bool:
     """Convert SVG → PNG using cairosvg (installed in workflow)."""
     try:
@@ -160,7 +176,7 @@ def log_published_post(post_data: dict, post_id: str, had_image: bool, log_path=
 
 def main():
     access_token = os.environ.get("LINKEDIN_ACCESS_TOKEN")
-    person_urn   = os.environ.get("LINKEDIN_PERSON_URN")
+    person_urn = get_person_urn(access_token)
 
     if not access_token:
         raise ValueError("LINKEDIN_ACCESS_TOKEN not set")

@@ -177,6 +177,7 @@ def log_published_post(post_data: dict, post_id: str, had_image: bool, log_path=
 def main():
     access_token = os.environ.get("LINKEDIN_ACCESS_TOKEN")
     person_urn = get_person_urn(access_token)
+    print(f"✓ Using person URN: {person_urn}")
 
     if not access_token:
         raise ValueError("LINKEDIN_ACCESS_TOKEN not set")

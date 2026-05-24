@@ -3,7 +3,7 @@ name: Daily LinkedIn Post
 on:
   schedule:
     # Runs every weekday at 9:00 AM IST (3:30 AM UTC)
-    - cron: "30 3 * * 1-5"
+    - cron: "30 3 * * *"
   workflow_dispatch:   # Allows manual trigger from GitHub Actions tab
 
 # Grant write permission to push topic tracker back to repo

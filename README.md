@@ -113,3 +113,51 @@ export LINKEDIN_PERSON_URN=urn:li:person:XXXXXXXXXXXXXXX
 python post_generator.py    # generates today_post.json
 python linkedin_poster.py   # publishes it
 ```
+
+
+---
+
+## New features (v2)
+
+### Telegram notifications
+Get notified on your phone for every post, failure, and weekly report.
+
+1. Open Telegram → search **@BotFather** → `/newbot` → follow steps → copy the token
+2. Search **@userinfobot** → start it → it shows your Chat ID
+3. Add to GitHub Secrets:
+
+| Secret | Value |
+|---|---|
+| `TELEGRAM_BOT_TOKEN` | From BotFather |
+| `TELEGRAM_CHAT_ID` | Your numeric chat ID |
+
+### Trending topics (optional)
+For posts that reference current industry news:
+1. Sign up free at https://serpapi.com (100 searches/month free)
+2. Add `SERPAPI_KEY` to GitHub Secrets
+
+### Token expiry reminder
+`token_meta.json` is created automatically on first run and tracks when your LinkedIn token was issued. You'll get a Telegram warning 7 days before it expires.
+
+### Post analytics
+`analytics_report.json` is updated daily with likes, comments, shares per post.
+A weekly summary is sent to Telegram every Monday.
+
+### First comment
+After each technical post, a first comment with the official docs link is added automatically — this boosts LinkedIn reach.
+
+### Retry logic
+If LinkedIn API is temporarily down, the poster retries 3 times with 30-second delays before failing.
+
+---
+
+## All GitHub Secrets
+
+| Secret | Required | Description |
+|---|---|---|
+| `GROQ_API_KEY` | ✅ | Groq API key |
+| `LINKEDIN_ACCESS_TOKEN` | ✅ | LinkedIn OAuth token (refresh every 60 days) |
+| `LINKEDIN_PERSON_URN` | ✅ | `urn:li:person:YOUR_ID` |
+| `TELEGRAM_BOT_TOKEN` | Optional | For phone notifications |
+| `TELEGRAM_CHAT_ID` | Optional | Your Telegram chat ID |
+| `SERPAPI_KEY` | Optional | For trending topic injection |

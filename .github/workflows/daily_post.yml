@@ -2,11 +2,9 @@ name: Daily LinkedIn Post
 
 on:
   schedule:
-    # Runs every weekday at 9:00 AM IST (3:30 AM UTC)
-    - cron: "30 3 * * *"
-  workflow_dispatch:   # Allows manual trigger from GitHub Actions tab
+    - cron: "30 3 * * *"   # Mon–Fri 9:00 AM IST
+  workflow_dispatch:
 
-# Grant write permission to push topic tracker back to repo
 permissions:
   contents: write
 
@@ -24,23 +22,56 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: sudo apt-get install -y libcairo2 libcairo2-dev pkg-config python3-dev && pip install groq requests cairosvg
+        run: |
+          sudo apt-get install -y libcairo2 libcairo2-dev pkg-config python3-dev
+          pip install groq requests cairosvg
 
       - name: Generate post
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          SERPAPI_KEY:  ${{ secrets.SERPAPI_KEY }}
         run: python post_generator.py
 
       - name: Publish to LinkedIn
         env:
           LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
-          LINKEDIN_PERSON_URN: ${{ secrets.LINKEDIN_PERSON_URN }}
+          LINKEDIN_PERSON_URN:   ${{ secrets.LINKEDIN_PERSON_URN }}
         run: python linkedin_poster.py
 
-      - name: Commit updated topic tracker and history
+      - name: Fetch analytics
+        env:
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_PERSON_URN:   ${{ secrets.LINKEDIN_PERSON_URN }}
+        run: python analytics.py
+        continue-on-error: true
+
+      - name: Success — clear failure report, check token, write weekly report
+        run: python notify.py success
+        continue-on-error: true
+
+      - name: Commit all logs to repo
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add used_topics.json post_history.json || true
-          git diff --staged --quiet || git commit -m "chore: update post log $(date +'%Y-%m-%d')"
+          git add used_topics.json post_history.json analytics_report.json \
+                  token_meta.json WEEKLY_REPORT.md || true
+          git rm --cached FAILURE_REPORT.md 2>/dev/null || true
+          git add -A
+          git diff --staged --quiet || git commit -m "chore: update logs $(date +'%Y-%m-%d')"
           git push
+
+      # ── Only runs if any previous step failed ──────────────────────────────
+      - name: Write failure report to repo
+        if: failure()
+        run: python notify.py failure "One or more steps failed — check Actions logs"
+        continue-on-error: true
+
+      - name: Commit failure report
+        if: failure()
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add FAILURE_REPORT.md token_meta.json expiry_warning.txt 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "chore: failure report $(date +'%Y-%m-%d')"
+          git push
+        continue-on-error: true

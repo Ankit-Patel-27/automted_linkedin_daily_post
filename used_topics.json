@@ -4,5 +4,11 @@
     "domain": "sql",
     "topic": "SQL query optimisation patterns for large analytical workloads",
     "date": "2026-05-22"
+  },
+  {
+    "type": "industry_take",
+    "domain": "aws",
+    "topic": "Kinesis Data Streams vs Kafka \u2014 real-time ingestion trade-offs",
+    "date": "2026-05-25"
   }
 ]

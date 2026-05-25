@@ -6,5 +6,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": false,
     "preview": "When it comes to SQL query optimisation for large analytical workloads, there's a common misconception that throwing mor..."
+  },
+  {
+    "date": "2026-05-25",
+    "post_id": "urn:li:share:7464587236722769920",
+    "format_type": "industry_take",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "As a data engineer in the healthcare space, I've had to make the call on whether to use Kinesis Data Streams or Kafka fo..."
   }
 ]

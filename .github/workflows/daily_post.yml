@@ -2,7 +2,7 @@ name: Daily LinkedIn Post
 
 on:
   schedule:
-    - cron: "30 3 * * *"   # Mon–Fri 9:00 AM IST
+    - cron: "30 3 * * *"   # 9:00 AM IST
   workflow_dispatch:
 
 permissions:
@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get install -y libcairo2 libcairo2-dev pkg-config python3-dev
-          pip install groq requests cairosvg
+          pip install groq requests matplotlib Pillow
 
       - name: Generate post
         env:

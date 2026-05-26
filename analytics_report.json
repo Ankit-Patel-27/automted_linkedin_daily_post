@@ -1,0 +1,51 @@
+{
+  "generated_date": "2026-05-26",
+  "posts_analysed": 3,
+  "total_likes": 0,
+  "total_comments": 0,
+  "total_shares": 0,
+  "best_format": "myth_vs_reality",
+  "format_avg_scores": {
+    "myth_vs_reality": 0.0,
+    "industry_take": 0.0,
+    "insight": 0.0
+  },
+  "posts": [
+    {
+      "date": "2026-05-22",
+      "post_id": "urn:li:share:7463686576426897408",
+      "format_type": "myth_vs_reality",
+      "domain": "SQL / Analytics Engineering",
+      "had_image": false,
+      "preview": "When it comes to SQL query optimisation for large analytical workloads, there's a common misconception that throwing mor...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-05-25",
+      "post_id": "urn:li:share:7464587236722769920",
+      "format_type": "industry_take",
+      "domain": "AWS",
+      "had_image": true,
+      "preview": "As a data engineer in the healthcare space, I've had to make the call on whether to use Kinesis Data Streams or Kafka fo...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-05-26",
+      "post_id": "urn:li:share:7464933337086930944",
+      "format_type": "insight",
+      "domain": "Databricks",
+      "had_image": true,
+      "preview": "I've seen firsthand how Databricks' Photon engine can supercharge Spark workloads - but it's not a silver bullet.\n\nWhen ...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    }
+  ]
+}

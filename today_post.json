@@ -1,0 +1,7 @@
+{
+  "text": "I've seen firsthand how Databricks' Photon engine can supercharge Spark workloads - but it's not a silver bullet.\n\nWhen I was working on a large-scale data processing pipeline using Apache Spark on Databricks, I decided to give Photon a shot. I was thrilled to see a 2-3x performance boost on our Spark SQL queries, especially when using `spark.sql.execution.mode=adaptive` and `spark.databricks.photon.enabled=true`.\n\nHowever, I soon realized that Photon isn't a straightforward enable-and-forget solution. It requires careful tuning, especially when dealing with skewed data or complex joins. For instance, I had to tweak my `spark.sql.shuffle.partitions` setting to ensure optimal performance.\n\nIn my experience, Photon shines when used with Databricks' Delta Lake, particularly with `delta.optimize.write=true` and `delta.checkpoint.interval=100`. But when working with existing Spark workloads or complex data pipelines, the benefits may be less pronounced.\n\nSo, I have to ask: What's been your experience with Databricks Photon? Have you seen significant performance gains, or have you encountered challenges that outweigh the benefits?\n\n#DataEngineering #DataPlatform #HealthcareData #TechLeadership  #Databricks #DeltaLake #ApacheSpark",
+  "format_type": "insight",
+  "domain": "Databricks",
+  "topic": "Databricks Photon engine \u2014 when it helps and when it doesn't",
+  "date": "2026-05-26"
+}

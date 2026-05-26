@@ -1,6 +1,10 @@
 """
-LinkedIn Publisher with retry logic.
-Uses ugcPosts API — correct for personal profile posting.
+LinkedIn Publisher
+- Technical posts (Databricks/AWS/PySpark/SQL) → architecture diagram
+- All other posts → branded card via card_generator.py
+- Every post gets an image
+- Retry logic (3 attempts, 30s delay)
+- Auto-adds first comment with resource link for technical posts
 """
 
 import os
@@ -10,16 +14,13 @@ import requests
 from datetime import date
 
 
-DOMAIN_IMAGES = {
-    "Databricks": "images/databricks_flow.svg",
-    "AWS":        "images/aws_data_pipeline.svg",
-    "PySpark":    "images/pyspark_flow.svg",
-    "SQL / dbt":  "images/sql_dbt_flow.svg",
-}
+TECHNICAL_DOMAINS = {"Databricks", "AWS", "PySpark", "SQL / dbt"}
 
-MAX_RETRIES = 3
-RETRY_DELAY = 30  # seconds
+MAX_RETRIES  = 3
+RETRY_DELAY  = 30
 
+
+# ── Member URN ─────────────────────────────────────────────────────────────────
 
 def get_member_urn(access_token: str) -> str:
     headers = {"Authorization": f"Bearer {access_token}"}
@@ -44,16 +45,23 @@ def get_member_urn(access_token: str) -> str:
     raise ValueError("Could not determine member URN")
 
 
-def svg_to_png(svg_path: str, png_path: str) -> bool:
-    try:
-        import cairosvg
-        cairosvg.svg2png(url=svg_path, write_to=png_path, output_width=800, output_height=500)
-        print(f"✓ {svg_path} → {png_path}")
-        return True
-    except Exception as e:
-        print(f"⚠ SVG→PNG failed: {e}")
-        return False
+# ── Image preparation ──────────────────────────────────────────────────────────
 
+
+def prepare_image(post_data: dict) -> str | None:
+    """
+    Returns path to a PNG ready for upload, or None on failure.
+    - Technical domain → convert architecture SVG to PNG
+    - All other formats → generate a branded card PNG
+    """
+    domain = post_data.get("domain", "")
+
+    from image_generator import get_image_for_post
+    success = get_image_for_post(post_data, "post_image.png")
+    return "post_image.png" if success else None
+
+
+# ── LinkedIn image upload ──────────────────────────────────────────────────────
 
 def upload_image(access_token: str, person_urn: str, png_path: str) -> str | None:
     headers = {
@@ -76,7 +84,7 @@ def upload_image(access_token: str, person_urn: str, png_path: str) -> str | Non
         }
     )
     if reg.status_code != 200:
-        print(f"⚠ Image registration failed {reg.status_code} — text-only")
+        print(f"⚠ Image registration failed {reg.status_code} — posting text-only")
         return None
 
     upload_url = reg.json()["value"]["uploadMechanism"][
@@ -92,12 +100,14 @@ def upload_image(access_token: str, person_urn: str, png_path: str) -> str | Non
     if up.status_code in (200, 201):
         print(f"✓ Image uploaded: {asset_urn}")
         return asset_urn
+
     print(f"⚠ Image upload failed {up.status_code} — text-only")
     return None
 
 
-def publish_post(access_token: str, person_urn: str, text: str, asset_urn: str | None = None) -> str:
-    """Publish post with retry logic."""
+# ── Publish ────────────────────────────────────────────────────────────────────
+
+def publish_post(access_token: str, person_urn: str, text: str, asset_urn: str | None) -> str:
     headers = {
         "Authorization": f"Bearer {access_token}",
         "Content-Type": "application/json",
@@ -110,9 +120,9 @@ def publish_post(access_token: str, person_urn: str, text: str, asset_urn: str |
             "shareMediaCategory": "IMAGE",
             "media": [{
                 "status": "READY",
-                "description": {"text": "Data Engineering Architecture Diagram"},
+                "description": {"text": "Data Engineering Visual"},
                 "media": asset_urn,
-                "title": {"text": "Architecture Diagram"},
+                "title": {"text": "Data Engineering"},
             }]
         }
     else:
@@ -129,57 +139,48 @@ def publish_post(access_token: str, person_urn: str, text: str, asset_urn: str |
     }
 
     for attempt in range(1, MAX_RETRIES + 1):
-        print(f"  Attempt {attempt}/{MAX_RETRIES}...")
+        print(f"  Publish attempt {attempt}/{MAX_RETRIES}...")
         resp = requests.post(
             "https://api.linkedin.com/v2/ugcPosts",
-            headers=headers,
-            json=payload
+            headers=headers, json=payload
         )
         if resp.status_code == 201:
             post_id = resp.headers.get("x-restli-id", "unknown")
-            print(f"✓ Post published! ID: {post_id}")
+            print(f"✓ Published! ID: {post_id}")
             return post_id
 
         print(f"  Failed: {resp.status_code} {resp.text}")
-
-        # Don't retry on auth errors — they won't self-heal
         if resp.status_code in (401, 403):
             resp.raise_for_status()
-
         if attempt < MAX_RETRIES:
-            print(f"  Waiting {RETRY_DELAY}s before retry...")
+            print(f"  Retrying in {RETRY_DELAY}s...")
             time.sleep(RETRY_DELAY)
 
     resp.raise_for_status()
 
 
+# ── First comment ──────────────────────────────────────────────────────────────
+
 def add_first_comment(access_token: str, post_id: str, person_urn: str, domain: str):
-    """
-    Post a first comment on the published post with a relevant link.
-    LinkedIn shows first comment prominently — boosts reach.
-    """
-    resource_links = {
+    links = {
         "Databricks": "📚 Databricks docs: https://docs.databricks.com",
         "AWS":        "📚 AWS Data & Analytics: https://aws.amazon.com/big-data/",
         "PySpark":    "📚 PySpark docs: https://spark.apache.org/docs/latest/api/python/",
         "SQL / dbt":  "📚 dbt docs: https://docs.getdbt.com",
     }
-    comment_text = resource_links.get(domain, "")
+    comment_text = links.get(domain, "")
     if not comment_text:
         return
 
-    encoded_id = requests.utils.quote(f"urn:li:ugcPost:{post_id}", safe="")
+    encoded = requests.utils.quote(f"urn:li:ugcPost:{post_id}", safe="")
     resp = requests.post(
-        f"https://api.linkedin.com/v2/socialActions/{encoded_id}/comments",
+        f"https://api.linkedin.com/v2/socialActions/{encoded}/comments",
         headers={
             "Authorization": f"Bearer {access_token}",
             "Content-Type": "application/json",
             "X-Restli-Protocol-Version": "2.0.0",
         },
-        json={
-            "actor": person_urn,
-            "message": {"text": comment_text}
-        }
+        json={"actor": person_urn, "message": {"text": comment_text}}
     )
     if resp.status_code == 201:
         print(f"✓ First comment added")
@@ -187,10 +188,13 @@ def add_first_comment(access_token: str, post_id: str, person_urn: str, domain: 
         print(f"⚠ Comment failed {resp.status_code} — non-critical")
 
 
-def log_post(post_data: dict, post_id: str, had_image: bool, log_path="post_history.json"):
+# ── Log ────────────────────────────────────────────────────────────────────────
+
+def log_post(post_data: dict, post_id: str, had_image: bool):
+    path    = "post_history.json"
     history = []
-    if os.path.exists(log_path):
-        with open(log_path) as f:
+    if os.path.exists(path):
+        with open(path) as f:
             history = json.load(f)
     history.append({
         "date":        str(date.today()),
@@ -201,10 +205,12 @@ def log_post(post_data: dict, post_id: str, had_image: bool, log_path="post_hist
         "preview":     post_data["text"][:120] + "...",
     })
     history = history[-90:]
-    with open(log_path, "w") as f:
+    with open(path, "w") as f:
         json.dump(history, f, indent=2)
-    print(f"✓ Logged to {log_path}")
+    print(f"✓ Logged to {path}")
 
+
+# ── Main ───────────────────────────────────────────────────────────────────────
 
 def main():
     access_token = os.environ.get("LINKEDIN_ACCESS_TOKEN")
@@ -224,20 +230,16 @@ def main():
     print(f"  Author: {person_urn}")
     print(f"\n--- Preview ---\n{post_data['text'][:200]}...\n")
 
-    # Image for technical posts
+    # Every post gets an image
+    png_path  = prepare_image(post_data)
     asset_urn = None
-    svg_file  = DOMAIN_IMAGES.get(domain)
-    if svg_file and os.path.exists(svg_file):
-        png_file = svg_file.replace(".svg", ".png")
-        if svg_to_png(svg_file, png_file):
-            asset_urn = upload_image(access_token, person_urn, png_file)
-    elif svg_file:
-        print(f"⚠ Image not found: {svg_file} — text-only")
+    if png_path:
+        asset_urn = upload_image(access_token, person_urn, png_path)
+    else:
+        print("⚠ No image available — posting text-only")
 
     post_id = publish_post(access_token, person_urn, post_data["text"], asset_urn)
     log_post(post_data, post_id, had_image=asset_urn is not None)
-
-    # Add first comment with resource link
     add_first_comment(access_token, post_id, person_urn, domain)
 
 

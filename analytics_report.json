@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-05-26",
-  "posts_analysed": 3,
+  "generated_date": "2026-05-27",
+  "posts_analysed": 4,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -8,7 +8,8 @@
   "format_avg_scores": {
     "myth_vs_reality": 0.0,
     "industry_take": 0.0,
-    "insight": 0.0
+    "insight": 0.0,
+    "project_spotlight": 0.0
   },
   "posts": [
     {
@@ -42,6 +43,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "I've seen firsthand how Databricks' Photon engine can supercharge Spark workloads - but it's not a silver bullet.\n\nWhen ...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-05-27",
+      "post_id": "urn:li:share:7465307836286279680",
+      "format_type": "project_spotlight",
+      "domain": "SQL / Analytics Engineering",
+      "had_image": true,
+      "preview": "## Project Spotlight: Optimizing SQL for Lightning-Fast Pipelines\n\nAs a data engineer, I've seen firsthand how inefficie...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

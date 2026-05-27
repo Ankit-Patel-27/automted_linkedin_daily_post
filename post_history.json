@@ -22,5 +22,13 @@
     "domain": "Databricks",
     "had_image": true,
     "preview": "I've seen firsthand how Databricks' Photon engine can supercharge Spark workloads - but it's not a silver bullet.\n\nWhen ..."
+  },
+  {
+    "date": "2026-05-27",
+    "post_id": "urn:li:share:7465307836286279680",
+    "format_type": "project_spotlight",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "## Project Spotlight: Optimizing SQL for Lightning-Fast Pipelines\n\nAs a data engineer, I've seen firsthand how inefficie..."
   }
 ]

@@ -2,7 +2,7 @@ name: Daily LinkedIn Post
 
 on:
   schedule:
-    - cron: "30 3 * * *"   # 9:00 AM IST
+    - cron: "0 1 * * *"   # 6:00 AM IST
   workflow_dispatch:
 
 permissions:

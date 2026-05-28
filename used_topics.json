@@ -22,5 +22,11 @@
     "domain": "sql",
     "topic": "SQL anti-patterns that kill pipeline performance",
     "date": "2026-05-27"
+  },
+  {
+    "type": "concept_explainer",
+    "domain": "aws",
+    "topic": "AWS Glue Data Quality \u2014 catching bad data before it hits production",
+    "date": "2026-05-28"
   }
 ]

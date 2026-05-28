@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-05-27",
-  "posts_analysed": 4,
+  "generated_date": "2026-05-28",
+  "posts_analysed": 5,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -9,7 +9,8 @@
     "myth_vs_reality": 0.0,
     "industry_take": 0.0,
     "insight": 0.0,
-    "project_spotlight": 0.0
+    "project_spotlight": 0.0,
+    "concept_explainer": 0.0
   },
   "posts": [
     {
@@ -55,6 +56,18 @@
       "domain": "SQL / Analytics Engineering",
       "had_image": true,
       "preview": "## Project Spotlight: Optimizing SQL for Lightning-Fast Pipelines\n\nAs a data engineer, I've seen firsthand how inefficie...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-05-28",
+      "post_id": "urn:li:share:7465630113200648192",
+      "format_type": "concept_explainer",
+      "domain": "AWS",
+      "had_image": true,
+      "preview": "As a data engineer, I've seen my fair share of bad data causing issues downstream. That's where AWS Glue Data Quality co...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

@@ -30,5 +30,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "## Project Spotlight: Optimizing SQL for Lightning-Fast Pipelines\n\nAs a data engineer, I've seen firsthand how inefficie..."
+  },
+  {
+    "date": "2026-05-28",
+    "post_id": "urn:li:share:7465630113200648192",
+    "format_type": "concept_explainer",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "As a data engineer, I've seen my fair share of bad data causing issues downstream. That's where AWS Glue Data Quality co..."
   }
 ]

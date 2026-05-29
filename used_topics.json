@@ -28,5 +28,11 @@
     "domain": "aws",
     "topic": "AWS Glue Data Quality \u2014 catching bad data before it hits production",
     "date": "2026-05-28"
+  },
+  {
+    "type": "open_to_work",
+    "domain": "databricks",
+    "topic": "Delta Lake ACID transactions and why they matter for healthcare data",
+    "date": "2026-05-29"
   }
 ]

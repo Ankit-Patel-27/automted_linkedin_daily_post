@@ -34,5 +34,11 @@
     "domain": "databricks",
     "topic": "Delta Lake ACID transactions and why they matter for healthcare data",
     "date": "2026-05-29"
+  },
+  {
+    "type": "achievement",
+    "domain": "sql",
+    "topic": "dbt incremental models \u2014 full refresh vs append vs merge strategies",
+    "date": "2026-05-30"
   }
 ]

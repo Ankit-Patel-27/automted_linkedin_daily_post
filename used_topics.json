@@ -40,5 +40,11 @@
     "domain": "sql",
     "topic": "dbt incremental models \u2014 full refresh vs append vs merge strategies",
     "date": "2026-05-30"
+  },
+  {
+    "type": "tip",
+    "domain": "pyspark",
+    "topic": "Spark execution plan \u2014 how to read and optimise it",
+    "date": "2026-05-31"
   }
 ]

@@ -46,5 +46,11 @@
     "domain": "pyspark",
     "topic": "Spark execution plan \u2014 how to read and optimise it",
     "date": "2026-05-31"
+  },
+  {
+    "type": "myth_vs_reality",
+    "domain": "databricks",
+    "topic": "Databricks Unity Catalog for data governance in regulated industries",
+    "date": "2026-06-01"
   }
 ]

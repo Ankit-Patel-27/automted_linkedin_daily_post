@@ -70,5 +70,13 @@
     "domain": "Databricks",
     "had_image": true,
     "preview": "Myth vs Reality: Databricks Unity Catalog for Data Governance\n\nAs a seasoned data engineer, I've seen many organizations..."
+  },
+  {
+    "date": "2026-06-02",
+    "post_id": "urn:li:share:7467447204098748416",
+    "format_type": "insight",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "**A well-designed star schema can be the difference between a healthcare analytics warehouse that's slow and cumbersome ..."
   }
 ]

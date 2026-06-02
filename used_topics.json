@@ -52,5 +52,11 @@
     "domain": "databricks",
     "topic": "Databricks Unity Catalog for data governance in regulated industries",
     "date": "2026-06-01"
+  },
+  {
+    "type": "insight",
+    "domain": "sql",
+    "topic": "Designing star schemas for healthcare analytics warehouses",
+    "date": "2026-06-02"
   }
 ]

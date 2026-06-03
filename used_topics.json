@@ -58,5 +58,11 @@
     "domain": "sql",
     "topic": "Designing star schemas for healthcare analytics warehouses",
     "date": "2026-06-02"
+  },
+  {
+    "type": "project_spotlight",
+    "domain": "aws",
+    "topic": "AWS ECS vs EKS for containerised data workloads",
+    "date": "2026-06-03"
   }
 ]

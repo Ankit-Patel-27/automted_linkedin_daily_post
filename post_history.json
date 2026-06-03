@@ -78,5 +78,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "**A well-designed star schema can be the difference between a healthcare analytics warehouse that's slow and cumbersome ..."
+  },
+  {
+    "date": "2026-06-03",
+    "post_id": "urn:li:share:7467818173053071360",
+    "format_type": "project_spotlight",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "## Project Spotlight: Containerized Data Workloads on AWS - ECS vs EKS\n\nAs a Lead Data Engineer at Tata Consultancy Serv..."
   }
 ]

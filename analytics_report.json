@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-06-03",
-  "posts_analysed": 11,
+  "generated_date": "2026-06-04",
+  "posts_analysed": 12,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -143,6 +143,18 @@
       "domain": "AWS",
       "had_image": true,
       "preview": "## Project Spotlight: Containerized Data Workloads on AWS - ECS vs EKS\n\nAs a Lead Data Engineer at Tata Consultancy Serv...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-06-04",
+      "post_id": "urn:li:share:7468178782173167617",
+      "format_type": "concept_explainer",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "As a seasoned data engineer, I've worked with massive datasets in PySpark, and one crucial optimization technique that h...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

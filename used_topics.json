@@ -64,5 +64,11 @@
     "domain": "aws",
     "topic": "AWS ECS vs EKS for containerised data workloads",
     "date": "2026-06-03"
+  },
+  {
+    "type": "concept_explainer",
+    "domain": "pyspark",
+    "topic": "Partitioning strategies in PySpark for large-scale ETL",
+    "date": "2026-06-04"
   }
 ]

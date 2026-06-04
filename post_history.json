@@ -86,5 +86,13 @@
     "domain": "AWS",
     "had_image": true,
     "preview": "## Project Spotlight: Containerized Data Workloads on AWS - ECS vs EKS\n\nAs a Lead Data Engineer at Tata Consultancy Serv..."
+  },
+  {
+    "date": "2026-06-04",
+    "post_id": "urn:li:share:7468178782173167617",
+    "format_type": "concept_explainer",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "As a seasoned data engineer, I've worked with massive datasets in PySpark, and one crucial optimization technique that h..."
   }
 ]

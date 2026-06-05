@@ -70,5 +70,11 @@
     "domain": "pyspark",
     "topic": "Partitioning strategies in PySpark for large-scale ETL",
     "date": "2026-06-04"
+  },
+  {
+    "type": "industry_take",
+    "domain": "databricks",
+    "topic": "Databricks Workflows vs Apache Airflow \u2014 when to use which",
+    "date": "2026-06-05"
   }
 ]

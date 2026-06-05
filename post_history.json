@@ -94,5 +94,13 @@
     "domain": "PySpark",
     "had_image": true,
     "preview": "As a seasoned data engineer, I've worked with massive datasets in PySpark, and one crucial optimization technique that h..."
+  },
+  {
+    "date": "2026-06-05",
+    "post_id": "urn:li:share:7468531023731970048",
+    "format_type": "industry_take",
+    "domain": "Databricks",
+    "had_image": true,
+    "preview": "As a data engineer in the healthcare space, I've had to make tough choices between Databricks Workflows and Apache Airfl..."
   }
 ]

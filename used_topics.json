@@ -82,5 +82,11 @@
     "domain": "sql",
     "topic": "Slowly Changing Dimensions (SCD Type 2) with dbt and Delta Lake",
     "date": "2026-06-06"
+  },
+  {
+    "type": "tip",
+    "domain": "aws",
+    "topic": "AWS Step Functions for orchestrating multi-step data pipelines",
+    "date": "2026-06-07"
   }
 ]

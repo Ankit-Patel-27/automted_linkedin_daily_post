@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-06-06",
-  "posts_analysed": 14,
+  "generated_date": "2026-06-07",
+  "posts_analysed": 15,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -179,6 +179,18 @@
       "domain": "SQL / Analytics Engineering",
       "had_image": false,
       "preview": "I recall a project where I had to implement Slowly Changing Dimensions (SCD Type 2) for a large-scale analytics pipeline...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-06-07",
+      "post_id": "urn:li:share:7469257287178706945",
+      "format_type": "tip",
+      "domain": "AWS",
+      "had_image": true,
+      "preview": "Tired of managing complex data pipelines with multiple steps and integrations? \nI've been there too. That's why I love u...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-06-07",
-  "posts_analysed": 15,
+  "generated_date": "2026-06-08",
+  "posts_analysed": 16,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -191,6 +191,18 @@
       "domain": "AWS",
       "had_image": true,
       "preview": "Tired of managing complex data pipelines with multiple steps and integrations? \nI've been there too. That's why I love u...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-06-08",
+      "post_id": "urn:li:share:7469626678844014592",
+      "format_type": "myth_vs_reality",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "Myth vs Reality: PySpark Broadcast Joins\n\nAs a seasoned data engineer, I've seen many teams struggle with optimizing the...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

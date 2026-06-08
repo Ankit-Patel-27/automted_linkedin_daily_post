@@ -118,5 +118,13 @@
     "domain": "AWS",
     "had_image": true,
     "preview": "Tired of managing complex data pipelines with multiple steps and integrations? \nI've been there too. That's why I love u..."
+  },
+  {
+    "date": "2026-06-08",
+    "post_id": "urn:li:share:7469626678844014592",
+    "format_type": "myth_vs_reality",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "Myth vs Reality: PySpark Broadcast Joins\n\nAs a seasoned data engineer, I've seen many teams struggle with optimizing the..."
   }
 ]

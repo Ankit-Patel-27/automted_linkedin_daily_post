@@ -88,5 +88,11 @@
     "domain": "aws",
     "topic": "AWS Step Functions for orchestrating multi-step data pipelines",
     "date": "2026-06-07"
+  },
+  {
+    "type": "myth_vs_reality",
+    "domain": "pyspark",
+    "topic": "PySpark broadcast joins \u2014 when and how to use them",
+    "date": "2026-06-08"
   }
 ]

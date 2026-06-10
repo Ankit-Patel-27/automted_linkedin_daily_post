@@ -100,5 +100,11 @@
     "domain": "databricks",
     "topic": "Delta Live Tables (DLT) pipelines \u2014 declarative ETL in practice",
     "date": "2026-06-09"
+  },
+  {
+    "type": "project_spotlight",
+    "domain": "sql",
+    "topic": "Materialised views in Redshift and Databricks SQL",
+    "date": "2026-06-10"
   }
 ]

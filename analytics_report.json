@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-06-09",
-  "posts_analysed": 17,
+  "generated_date": "2026-06-10",
+  "posts_analysed": 18,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -215,6 +215,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "I'm currently open to new opportunities as a Senior Data Engineer or Data Platform Lead, with a focus on the healthcare ...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-06-10",
+      "post_id": "urn:li:share:7470343240722972672",
+      "format_type": "project_spotlight",
+      "domain": "SQL / Analytics Engineering",
+      "had_image": false,
+      "preview": "Project Spotlight: Scaling Analytics with Materialized Views\n\nAs a Lead Data Engineer at Tata Consultancy Services, I wo...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

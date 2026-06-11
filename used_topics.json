@@ -106,5 +106,11 @@
     "domain": "sql",
     "topic": "Materialised views in Redshift and Databricks SQL",
     "date": "2026-06-10"
+  },
+  {
+    "type": "concept_explainer",
+    "domain": "aws",
+    "topic": "S3 lifecycle policies and Intelligent-Tiering for cost optimisation",
+    "date": "2026-06-11"
   }
 ]

@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-06-10",
-  "posts_analysed": 18,
+  "generated_date": "2026-06-11",
+  "posts_analysed": 19,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -227,6 +227,18 @@
       "domain": "SQL / Analytics Engineering",
       "had_image": false,
       "preview": "Project Spotlight: Scaling Analytics with Materialized Views\n\nAs a Lead Data Engineer at Tata Consultancy Services, I wo...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-06-11",
+      "post_id": "urn:li:share:7470708302000058369",
+      "format_type": "concept_explainer",
+      "domain": "AWS",
+      "had_image": true,
+      "preview": "As a data engineer, I've worked with massive datasets on AWS, and one thing that's crucial for cost optimisation is mana...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

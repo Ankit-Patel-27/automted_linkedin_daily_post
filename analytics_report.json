@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-06-11",
-  "posts_analysed": 19,
+  "generated_date": "2026-06-12",
+  "posts_analysed": 20,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -239,6 +239,18 @@
       "domain": "AWS",
       "had_image": true,
       "preview": "As a data engineer, I've worked with massive datasets on AWS, and one thing that's crucial for cost optimisation is mana...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-06-12",
+      "post_id": "urn:li:share:7471075997833027585",
+      "format_type": "industry_take",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "As a data engineer in the healthcare space, I've seen firsthand the challenges of working with large datasets. One issue...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

@@ -112,5 +112,11 @@
     "domain": "aws",
     "topic": "S3 lifecycle policies and Intelligent-Tiering for cost optimisation",
     "date": "2026-06-11"
+  },
+  {
+    "type": "industry_take",
+    "domain": "pyspark",
+    "topic": "Spark shuffle \u2014 what it is and how to reduce it",
+    "date": "2026-06-12"
   }
 ]

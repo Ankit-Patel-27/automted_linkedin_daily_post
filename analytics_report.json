@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-06-12",
-  "posts_analysed": 20,
+  "generated_date": "2026-06-13",
+  "posts_analysed": 21,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -251,6 +251,18 @@
       "domain": "PySpark",
       "had_image": true,
       "preview": "As a data engineer in the healthcare space, I've seen firsthand the challenges of working with large datasets. One issue...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-06-13",
+      "post_id": "urn:li:share:7471431374743228416",
+      "format_type": "achievement",
+      "domain": "Databricks",
+      "had_image": true,
+      "preview": "I recall a particularly challenging project where I had to optimize our machine learning pipeline for predicting patient...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

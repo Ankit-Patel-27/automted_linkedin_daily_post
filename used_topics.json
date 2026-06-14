@@ -124,5 +124,11 @@
     "domain": "databricks",
     "topic": "Databricks Feature Store for ML pipelines in biotech",
     "date": "2026-06-13"
+  },
+  {
+    "type": "insight",
+    "domain": "sql",
+    "topic": "Using dbt macros to build reusable SQL components",
+    "date": "2026-06-14"
   }
 ]

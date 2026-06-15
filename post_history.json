@@ -174,5 +174,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": false,
     "preview": "I've saved countless hours of repetitive SQL coding by mastering dbt macros - and I'm excited to share my top learnings ..."
+  },
+  {
+    "date": "2026-06-15",
+    "post_id": "urn:li:share:7472171632099254274",
+    "format_type": "tip",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "When it comes to managing data infrastructure as code on AWS, choosing the right tool can make all the difference. \nI've..."
   }
 ]

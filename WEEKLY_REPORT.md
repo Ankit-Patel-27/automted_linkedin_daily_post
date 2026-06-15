@@ -1,6 +1,6 @@
 # 📊 Weekly LinkedIn Analytics Report
 
-**Generated:** 2026-06-08
+**Generated:** 2026-06-15
 **Period:** Last 30 days
 
 ---
@@ -9,7 +9,7 @@
 
 | Metric | Value |
 |---|---|
-| Posts analysed | 16 |
+| Posts analysed | 23 |
 | Total likes | 0 |
 | Total comments | 0 |
 | Total shares | 0 |
@@ -38,16 +38,16 @@
 
 | Date | Format | Domain | ❤️ | 💬 | 🔁 |
 |---|---|---|---|---|---|
+| 2026-06-15 | tip | AWS | 0 | 0 | 0 |
+| 2026-06-14 | insight | SQL / Analytics Engineering | 0 | 0 | 0 |
+| 2026-06-13 | achievement | Databricks | 0 | 0 | 0 |
+| 2026-06-12 | industry_take | PySpark | 0 | 0 | 0 |
+| 2026-06-11 | concept_explainer | AWS | 0 | 0 | 0 |
+| 2026-06-10 | project_spotlight | SQL / Analytics Engineering | 0 | 0 | 0 |
+| 2026-06-09 | open_to_work | Databricks | 0 | 0 | 0 |
 | 2026-06-08 | myth_vs_reality | PySpark | 0 | 0 | 0 |
 | 2026-06-07 | tip | AWS | 0 | 0 | 0 |
 | 2026-06-06 | achievement | SQL / Analytics Engineering | 0 | 0 | 0 |
-| 2026-06-05 | industry_take | Databricks | 0 | 0 | 0 |
-| 2026-06-04 | concept_explainer | PySpark | 0 | 0 | 0 |
-| 2026-06-03 | project_spotlight | AWS | 0 | 0 | 0 |
-| 2026-06-02 | insight | SQL / Analytics Engineering | 0 | 0 | 0 |
-| 2026-06-01 | myth_vs_reality | Databricks | 0 | 0 | 0 |
-| 2026-05-31 | tip | PySpark | 0 | 0 | 0 |
-| 2026-05-30 | achievement | SQL / Analytics Engineering | 0 | 0 | 0 |
 
 ---
 

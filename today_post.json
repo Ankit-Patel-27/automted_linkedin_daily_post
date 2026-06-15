@@ -1,7 +1,7 @@
 {
-  "text": "I've saved countless hours of repetitive SQL coding by mastering dbt macros - and I'm excited to share my top learnings with you.\n\nAs a data engineer, I've worked on numerous projects that involve complex SQL transformations. \nOne challenge I faced was writing and maintaining identical SQL code across multiple models. \nThat's when I discovered dbt macros.\n\nI started using dbt's `macro` function to create reusable SQL components. \nFor instance, I created a macro for generating surrogate keys: \n`{% macro generate_surrogate_key(column_name) %}{{ column_name }}_sk{% endmacro %}`. \nThis macro can be easily invoked in any model using `{{ generate_surrogate_key('id') }}`.\n\nBy leveraging dbt macros, I've reduced code duplication and made my SQL code more maintainable. \nI've also created a library of reusable macros for common tasks, such as data validation and data masking.\n\nHave you used dbt macros in your analytics engineering projects? What are some of your favorite use cases? \n#DataEngineering #DataPlatform #HealthcareData #TechLeadership  #SQL #dbt #AnalyticsEngineering",
-  "format_type": "insight",
-  "domain": "SQL / Analytics Engineering",
-  "topic": "Using dbt macros to build reusable SQL components",
-  "date": "2026-06-14"
+  "text": "When it comes to managing data infrastructure as code on AWS, choosing the right tool can make all the difference. \nI've worked with both CloudFormation and Terraform at scale, and here are my top tips to help you decide:\n\n* **Start with CloudFormation for AWS-native resources**: Use AWS::CloudFormation::Stack to create stacks with resources like AWS::S3::Bucket and AWS::Redshift::Cluster. \n* **Use Terraform for multi-cloud and custom resources**: Leverage Terraform's provider ecosystem, e.g., aws_s3_bucket and aws_redshift_cluster, for resources not yet supported by CloudFormation. \n* **Modularize your code with both tools**: Break down large templates into smaller, reusable modules using CloudFormation's AWS::CloudFormation::Stack and Terraform's module blocks.\n\nSave this for your next data infrastructure project, share it with your team, and try it today! \n#DataEngineering #TechTips #LearnInPublic #DataPlatform #AWS #CloudEngineering #AWSCloud",
+  "format_type": "tip",
+  "domain": "AWS",
+  "topic": "CloudFormation vs Terraform for data infrastructure as code",
+  "date": "2026-06-15"
 }

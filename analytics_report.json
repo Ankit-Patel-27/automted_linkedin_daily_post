@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-06-15",
-  "posts_analysed": 23,
+  "generated_date": "2026-06-16",
+  "posts_analysed": 24,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -287,6 +287,18 @@
       "domain": "AWS",
       "had_image": true,
       "preview": "When it comes to managing data infrastructure as code on AWS, choosing the right tool can make all the difference. \nI've...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-06-16",
+      "post_id": "urn:li:share:7472536744614133760",
+      "format_type": "open_to_work",
+      "domain": "Databricks",
+      "had_image": true,
+      "preview": "I'm currently open to new opportunities as a Senior Data Engineer or Data Platform Lead, particularly in the healthcare ...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

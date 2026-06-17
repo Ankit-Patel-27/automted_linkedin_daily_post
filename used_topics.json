@@ -142,5 +142,11 @@
     "domain": "databricks",
     "topic": "Change Data Feed (CDF) in Delta Lake for CDC pipelines",
     "date": "2026-06-16"
+  },
+  {
+    "type": "myth_vs_reality",
+    "domain": "pyspark",
+    "topic": "Writing efficient PySpark transformations for 500M+ record datasets",
+    "date": "2026-06-17"
   }
 ]

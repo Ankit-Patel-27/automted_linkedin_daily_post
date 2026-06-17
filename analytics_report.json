@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-06-16",
-  "posts_analysed": 24,
+  "generated_date": "2026-06-17",
+  "posts_analysed": 25,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -299,6 +299,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "I'm currently open to new opportunities as a Senior Data Engineer or Data Platform Lead, particularly in the healthcare ...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-06-17",
+      "post_id": "urn:li:share:7472893256083755011",
+      "format_type": "myth_vs_reality",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "Myth vs Reality: Writing Efficient PySpark Transformations for 500M+ Record Datasets\n\nWhat most people do: Using `coales...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

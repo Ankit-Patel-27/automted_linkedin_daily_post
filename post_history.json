@@ -190,5 +190,13 @@
     "domain": "Databricks",
     "had_image": true,
     "preview": "I'm currently open to new opportunities as a Senior Data Engineer or Data Platform Lead, particularly in the healthcare ..."
+  },
+  {
+    "date": "2026-06-17",
+    "post_id": "urn:li:share:7472893256083755011",
+    "format_type": "myth_vs_reality",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "Myth vs Reality: Writing Efficient PySpark Transformations for 500M+ Record Datasets\n\nWhat most people do: Using `coales..."
   }
 ]

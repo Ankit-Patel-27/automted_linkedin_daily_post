@@ -198,5 +198,13 @@
     "domain": "PySpark",
     "had_image": true,
     "preview": "Myth vs Reality: Writing Efficient PySpark Transformations for 500M+ Record Datasets\n\nWhat most people do: Using `coales..."
+  },
+  {
+    "date": "2026-06-18",
+    "post_id": "urn:li:share:7473251738574270464",
+    "format_type": "concept_explainer",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "As a lead data engineer, I've often found myself deciding between CTEs, subqueries, and temp tables when tackling comple..."
   }
 ]

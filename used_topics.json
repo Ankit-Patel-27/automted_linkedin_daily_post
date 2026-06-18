@@ -148,5 +148,11 @@
     "domain": "pyspark",
     "topic": "Writing efficient PySpark transformations for 500M+ record datasets",
     "date": "2026-06-17"
+  },
+  {
+    "type": "concept_explainer",
+    "domain": "sql",
+    "topic": "CTEs vs subqueries vs temp tables \u2014 performance and readability trade-offs",
+    "date": "2026-06-18"
   }
 ]

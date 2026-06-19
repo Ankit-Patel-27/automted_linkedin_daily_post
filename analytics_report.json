@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-06-18",
-  "posts_analysed": 26,
+  "generated_date": "2026-06-19",
+  "posts_analysed": 27,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -323,6 +323,18 @@
       "domain": "SQL / Analytics Engineering",
       "had_image": true,
       "preview": "As a lead data engineer, I've often found myself deciding between CTEs, subqueries, and temp tables when tackling comple...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-06-19",
+      "post_id": "urn:li:share:7473620049128349696",
+      "format_type": "project_spotlight",
+      "domain": "Databricks",
+      "had_image": true,
+      "preview": "## Project Spotlight: Auto Loader vs COPY INTO for Incremental Ingestion\n\nAs a data engineer working with Databricks, I'...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

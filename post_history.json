@@ -214,5 +214,13 @@
     "domain": "Databricks",
     "had_image": true,
     "preview": "## Project Spotlight: Auto Loader vs COPY INTO for Incremental Ingestion\n\nAs a data engineer working with Databricks, I'..."
+  },
+  {
+    "date": "2026-06-20",
+    "post_id": "urn:li:share:7473965951961554944",
+    "format_type": "achievement",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "Here's a problem I solved: Optimizing Spark Job Performance with Caching and Persistence\n\nI recall a project where we we..."
   }
 ]

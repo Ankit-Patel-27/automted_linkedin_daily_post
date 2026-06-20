@@ -160,5 +160,11 @@
     "domain": "databricks",
     "topic": "Auto Loader vs COPY INTO for incremental ingestion",
     "date": "2026-06-19"
+  },
+  {
+    "type": "achievement",
+    "domain": "pyspark",
+    "topic": "Caching and persistence in Spark \u2014 .cache() vs .persist()",
+    "date": "2026-06-20"
   }
 ]

@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-06-19",
-  "posts_analysed": 27,
+  "generated_date": "2026-06-20",
+  "posts_analysed": 28,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -335,6 +335,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "## Project Spotlight: Auto Loader vs COPY INTO for Incremental Ingestion\n\nAs a data engineer working with Databricks, I'...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-06-20",
+      "post_id": "urn:li:share:7473965951961554944",
+      "format_type": "achievement",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "Here's a problem I solved: Optimizing Spark Job Performance with Caching and Persistence\n\nI recall a project where we we...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

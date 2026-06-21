@@ -222,5 +222,13 @@
     "domain": "PySpark",
     "had_image": true,
     "preview": "Here's a problem I solved: Optimizing Spark Job Performance with Caching and Persistence\n\nI recall a project where we we..."
+  },
+  {
+    "date": "2026-06-21",
+    "post_id": "urn:li:share:7474340116174409728",
+    "format_type": "insight",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "**Window functions are the unsung heroes of SQL, and mastering them can elevate your data engineering game!**\n\nAs a data..."
   }
 ]

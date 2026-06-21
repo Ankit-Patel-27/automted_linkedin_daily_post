@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-06-20",
-  "posts_analysed": 28,
+  "generated_date": "2026-06-21",
+  "posts_analysed": 29,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -347,6 +347,18 @@
       "domain": "PySpark",
       "had_image": true,
       "preview": "Here's a problem I solved: Optimizing Spark Job Performance with Caching and Persistence\n\nI recall a project where we we...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-06-21",
+      "post_id": "urn:li:share:7474340116174409728",
+      "format_type": "insight",
+      "domain": "SQL / Analytics Engineering",
+      "had_image": true,
+      "preview": "**Window functions are the unsung heroes of SQL, and mastering them can elevate your data engineering game!**\n\nAs a data...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

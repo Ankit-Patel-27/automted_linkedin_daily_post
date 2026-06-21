@@ -166,5 +166,11 @@
     "domain": "pyspark",
     "topic": "Caching and persistence in Spark \u2014 .cache() vs .persist()",
     "date": "2026-06-20"
+  },
+  {
+    "type": "insight",
+    "domain": "sql",
+    "topic": "Window functions every data engineer should master (RANK, LAG, LEAD)",
+    "date": "2026-06-21"
   }
 ]

@@ -230,5 +230,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "**Window functions are the unsung heroes of SQL, and mastering them can elevate your data engineering game!**\n\nAs a data..."
+  },
+  {
+    "date": "2026-06-22",
+    "post_id": "urn:li:share:7474709910921080832",
+    "format_type": "industry_take",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "As I navigate the complex landscape of healthcare data infrastructure, I'm often asked about the best ways to manage fin..."
   }
 ]

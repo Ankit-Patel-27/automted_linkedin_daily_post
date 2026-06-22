@@ -172,5 +172,11 @@
     "domain": "sql",
     "topic": "Window functions every data engineer should master (RANK, LAG, LEAD)",
     "date": "2026-06-21"
+  },
+  {
+    "type": "industry_take",
+    "domain": "aws",
+    "topic": "AWS Lake Formation fine-grained access control for PHI data",
+    "date": "2026-06-22"
   }
 ]

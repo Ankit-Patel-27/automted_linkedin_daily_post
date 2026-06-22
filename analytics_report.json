@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-06-21",
+  "generated_date": "2026-06-22",
   "posts_analysed": 29,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "myth_vs_reality",
+  "best_format": "industry_take",
   "format_avg_scores": {
-    "myth_vs_reality": 0.0,
     "industry_take": 0.0,
     "insight": 0.0,
     "project_spotlight": 0.0,
     "concept_explainer": 0.0,
     "open_to_work": 0.0,
     "achievement": 0.0,
-    "tip": 0.0
+    "tip": 0.0,
+    "myth_vs_reality": 0.0
   },
   "posts": [
-    {
-      "date": "2026-05-22",
-      "post_id": "urn:li:share:7463686576426897408",
-      "format_type": "myth_vs_reality",
-      "domain": "SQL / Analytics Engineering",
-      "had_image": false,
-      "preview": "When it comes to SQL query optimisation for large analytical workloads, there's a common misconception that throwing mor...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-05-25",
       "post_id": "urn:li:share:7464587236722769920",
@@ -359,6 +347,18 @@
       "domain": "SQL / Analytics Engineering",
       "had_image": true,
       "preview": "**Window functions are the unsung heroes of SQL, and mastering them can elevate your data engineering game!**\n\nAs a data...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-06-22",
+      "post_id": "urn:li:share:7474709910921080832",
+      "format_type": "industry_take",
+      "domain": "AWS",
+      "had_image": true,
+      "preview": "As I navigate the complex landscape of healthcare data infrastructure, I'm often asked about the best ways to manage fin...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

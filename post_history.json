@@ -238,5 +238,13 @@
     "domain": "AWS",
     "had_image": true,
     "preview": "As I navigate the complex landscape of healthcare data infrastructure, I'm often asked about the best ways to manage fin..."
+  },
+  {
+    "date": "2026-06-23",
+    "post_id": "urn:li:share:7475049827119259648",
+    "format_type": "tip",
+    "domain": "Databricks",
+    "had_image": true,
+    "preview": "Boost your query performance in Databricks with these game-changing tips on Z-ordering and liquid clustering!\n\nAs a seas..."
   }
 ]

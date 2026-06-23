@@ -178,5 +178,11 @@
     "domain": "aws",
     "topic": "AWS Lake Formation fine-grained access control for PHI data",
     "date": "2026-06-22"
+  },
+  {
+    "type": "tip",
+    "domain": "databricks",
+    "topic": "Z-ordering and liquid clustering for query optimisation",
+    "date": "2026-06-23"
   }
 ]

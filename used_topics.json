@@ -184,5 +184,11 @@
     "domain": "databricks",
     "topic": "Z-ordering and liquid clustering for query optimisation",
     "date": "2026-06-23"
+  },
+  {
+    "type": "myth_vs_reality",
+    "domain": "sql",
+    "topic": "dbt tests and data contracts \u2014 enforcing data quality at the model layer",
+    "date": "2026-06-24"
   }
 ]

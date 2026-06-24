@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-06-23",
-  "posts_analysed": 30,
+  "generated_date": "2026-06-24",
+  "posts_analysed": 31,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -371,6 +371,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "Boost your query performance in Databricks with these game-changing tips on Z-ordering and liquid clustering!\n\nAs a seas...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-06-24",
+      "post_id": "urn:li:share:7475412790028185601",
+      "format_type": "myth_vs_reality",
+      "domain": "SQL / Analytics Engineering",
+      "had_image": true,
+      "preview": "Myth vs Reality: dbt Tests and Data Contracts\n\nAs a seasoned data engineer, I've seen many teams struggle with data qual...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

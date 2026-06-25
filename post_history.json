@@ -254,5 +254,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "Myth vs Reality: dbt Tests and Data Contracts\n\nAs a seasoned data engineer, I've seen many teams struggle with data qual..."
+  },
+  {
+    "date": "2026-06-25",
+    "post_id": "urn:li:share:7475775944872325120",
+    "format_type": "concept_explainer",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "PySpark UDFs vs Pandas UDFs \u2014 performance difference explained\n\nAs a data engineer who's worked with PySpark at scale, I..."
   }
 ]

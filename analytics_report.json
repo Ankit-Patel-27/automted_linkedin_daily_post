@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-06-24",
+  "generated_date": "2026-06-25",
   "posts_analysed": 31,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "industry_take",
+  "best_format": "insight",
   "format_avg_scores": {
-    "industry_take": 0.0,
     "insight": 0.0,
     "project_spotlight": 0.0,
     "concept_explainer": 0.0,
     "open_to_work": 0.0,
     "achievement": 0.0,
     "tip": 0.0,
-    "myth_vs_reality": 0.0
+    "myth_vs_reality": 0.0,
+    "industry_take": 0.0
   },
   "posts": [
-    {
-      "date": "2026-05-25",
-      "post_id": "urn:li:share:7464587236722769920",
-      "format_type": "industry_take",
-      "domain": "AWS",
-      "had_image": true,
-      "preview": "As a data engineer in the healthcare space, I've had to make the call on whether to use Kinesis Data Streams or Kafka fo...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-05-26",
       "post_id": "urn:li:share:7464933337086930944",
@@ -383,6 +371,18 @@
       "domain": "SQL / Analytics Engineering",
       "had_image": true,
       "preview": "Myth vs Reality: dbt Tests and Data Contracts\n\nAs a seasoned data engineer, I've seen many teams struggle with data qual...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-06-25",
+      "post_id": "urn:li:share:7475775944872325120",
+      "format_type": "concept_explainer",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "PySpark UDFs vs Pandas UDFs \u2014 performance difference explained\n\nAs a data engineer who's worked with PySpark at scale, I...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

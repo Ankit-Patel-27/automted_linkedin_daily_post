@@ -190,5 +190,11 @@
     "domain": "sql",
     "topic": "dbt tests and data contracts \u2014 enforcing data quality at the model layer",
     "date": "2026-06-24"
+  },
+  {
+    "type": "concept_explainer",
+    "domain": "pyspark",
+    "topic": "PySpark UDFs vs Pandas UDFs \u2014 performance difference explained",
+    "date": "2026-06-25"
   }
 ]

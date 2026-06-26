@@ -262,5 +262,13 @@
     "domain": "PySpark",
     "had_image": true,
     "preview": "PySpark UDFs vs Pandas UDFs \u2014 performance difference explained\n\nAs a data engineer who's worked with PySpark at scale, I..."
+  },
+  {
+    "date": "2026-06-26",
+    "post_id": "urn:li:share:7476139078631964673",
+    "format_type": "project_spotlight",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "## Project Spotlight: Choosing the Right Compute for ETL on AWS\n\nAs a Lead Data Engineer at Tata Consultancy Services, I..."
   }
 ]

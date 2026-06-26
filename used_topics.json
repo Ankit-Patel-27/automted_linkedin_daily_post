@@ -196,5 +196,11 @@
     "domain": "pyspark",
     "topic": "PySpark UDFs vs Pandas UDFs \u2014 performance difference explained",
     "date": "2026-06-25"
+  },
+  {
+    "type": "project_spotlight",
+    "domain": "aws",
+    "topic": "AWS Glue vs EMR vs Lambda \u2014 choosing the right compute for ETL",
+    "date": "2026-06-26"
   }
 ]

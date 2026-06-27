@@ -202,5 +202,11 @@
     "domain": "aws",
     "topic": "AWS Glue vs EMR vs Lambda \u2014 choosing the right compute for ETL",
     "date": "2026-06-26"
+  },
+  {
+    "type": "open_to_work",
+    "domain": "databricks",
+    "topic": "Optimising small file problems in Delta Lake",
+    "date": "2026-06-27"
   }
 ]

@@ -278,5 +278,13 @@
     "domain": "Databricks",
     "had_image": true,
     "preview": "I'm Ankit Patel, a seasoned Lead Data Engineer with 5 years of experience, and I'm excited to explore new opportunities ..."
+  },
+  {
+    "date": "2026-06-28",
+    "post_id": "urn:li:share:7476866092120870913",
+    "format_type": "insight",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "**PySpark window functions are a game-changer for analyzing time-series healthcare data!**\n\nAs a data engineer, I've wor..."
   }
 ]

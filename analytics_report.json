@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-06-27",
+  "generated_date": "2026-06-28",
   "posts_analysed": 31,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "concept_explainer",
+  "best_format": "open_to_work",
   "format_avg_scores": {
-    "concept_explainer": 0.0,
     "open_to_work": 0.0,
     "achievement": 0.0,
     "tip": 0.0,
     "myth_vs_reality": 0.0,
     "insight": 0.0,
     "project_spotlight": 0.0,
+    "concept_explainer": 0.0,
     "industry_take": 0.0
   },
   "posts": [
-    {
-      "date": "2026-05-28",
-      "post_id": "urn:li:share:7465630113200648192",
-      "format_type": "concept_explainer",
-      "domain": "AWS",
-      "had_image": true,
-      "preview": "As a data engineer, I've seen my fair share of bad data causing issues downstream. That's where AWS Glue Data Quality co...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-05-29",
       "post_id": "urn:li:share:7465993588049465344",
@@ -383,6 +371,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "I'm Ankit Patel, a seasoned Lead Data Engineer with 5 years of experience, and I'm excited to explore new opportunities ...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-06-28",
+      "post_id": "urn:li:share:7476866092120870913",
+      "format_type": "insight",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "**PySpark window functions are a game-changer for analyzing time-series healthcare data!**\n\nAs a data engineer, I've wor...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

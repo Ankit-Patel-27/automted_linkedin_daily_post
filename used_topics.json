@@ -208,5 +208,11 @@
     "domain": "databricks",
     "topic": "Optimising small file problems in Delta Lake",
     "date": "2026-06-27"
+  },
+  {
+    "type": "insight",
+    "domain": "pyspark",
+    "topic": "PySpark window functions for time-series healthcare data",
+    "date": "2026-06-28"
   }
 ]

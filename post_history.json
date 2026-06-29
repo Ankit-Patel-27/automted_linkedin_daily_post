@@ -286,5 +286,13 @@
     "domain": "PySpark",
     "had_image": true,
     "preview": "**PySpark window functions are a game-changer for analyzing time-series healthcare data!**\n\nAs a data engineer, I've wor..."
+  },
+  {
+    "date": "2026-06-29",
+    "post_id": "urn:li:share:7477236570492940288",
+    "format_type": "achievement",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "I recall a particularly challenging project where we were migrating a large-scale data warehouse to the cloud. \n\nThe pro..."
   }
 ]

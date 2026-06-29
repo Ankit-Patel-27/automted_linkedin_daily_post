@@ -214,5 +214,11 @@
     "domain": "pyspark",
     "topic": "PySpark window functions for time-series healthcare data",
     "date": "2026-06-28"
+  },
+  {
+    "type": "achievement",
+    "domain": "sql",
+    "topic": "dbt tests and data contracts \u2014 enforcing data quality at the model layer",
+    "date": "2026-06-29"
   }
 ]

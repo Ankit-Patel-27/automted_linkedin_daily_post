@@ -220,5 +220,11 @@
     "domain": "sql",
     "topic": "dbt tests and data contracts \u2014 enforcing data quality at the model layer",
     "date": "2026-06-29"
+  },
+  {
+    "type": "industry_take",
+    "domain": "databricks",
+    "topic": "Auto Loader vs COPY INTO for incremental ingestion",
+    "date": "2026-06-30"
   }
 ]

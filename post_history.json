@@ -294,5 +294,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "I recall a particularly challenging project where we were migrating a large-scale data warehouse to the cloud. \n\nThe pro..."
+  },
+  {
+    "date": "2026-06-30",
+    "post_id": "urn:li:share:7477587326316146688",
+    "format_type": "industry_take",
+    "domain": "Databricks",
+    "had_image": true,
+    "preview": "As a data engineer in the healthcare space, I've had my fair share of battles with incremental data ingestion. Two popul..."
   }
 ]

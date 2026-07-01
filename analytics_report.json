@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-06-30",
+  "generated_date": "2026-07-01",
   "posts_analysed": 31,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "tip",
+  "best_format": "myth_vs_reality",
   "format_avg_scores": {
-    "tip": 0.0,
     "myth_vs_reality": 0.0,
     "insight": 0.0,
     "project_spotlight": 0.0,
     "concept_explainer": 0.0,
     "industry_take": 0.0,
     "achievement": 0.0,
+    "tip": 0.0,
     "open_to_work": 0.0
   },
   "posts": [
-    {
-      "date": "2026-05-31",
-      "post_id": "urn:li:share:7466719546117234691",
-      "format_type": "tip",
-      "domain": "PySpark",
-      "had_image": true,
-      "preview": "Cracking the Spark execution plan - a game-changer for PySpark performance!\n\nAs a seasoned data engineer, I've spent cou...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-01",
       "post_id": "urn:li:share:7467092977954525184",
@@ -383,6 +371,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "As a data engineer in the healthcare space, I've had my fair share of battles with incremental data ingestion. Two popul...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-01",
+      "post_id": "urn:li:share:7477954339811155969",
+      "format_type": "tip",
+      "domain": "AWS",
+      "had_image": true,
+      "preview": "When querying S3 data, are you choosing the right AWS service? \nAs a seasoned data engineer, I've seen teams struggle wi...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

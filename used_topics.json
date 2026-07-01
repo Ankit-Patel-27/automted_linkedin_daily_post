@@ -226,5 +226,11 @@
     "domain": "databricks",
     "topic": "Auto Loader vs COPY INTO for incremental ingestion",
     "date": "2026-06-30"
+  },
+  {
+    "type": "tip",
+    "domain": "aws",
+    "topic": "Redshift Spectrum vs Athena \u2014 when to query S3 directly",
+    "date": "2026-07-01"
   }
 ]

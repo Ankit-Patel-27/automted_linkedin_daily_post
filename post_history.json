@@ -302,5 +302,13 @@
     "domain": "Databricks",
     "had_image": true,
     "preview": "As a data engineer in the healthcare space, I've had my fair share of battles with incremental data ingestion. Two popul..."
+  },
+  {
+    "date": "2026-07-01",
+    "post_id": "urn:li:share:7477954339811155969",
+    "format_type": "tip",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "When querying S3 data, are you choosing the right AWS service? \nAs a seasoned data engineer, I've seen teams struggle wi..."
   }
 ]

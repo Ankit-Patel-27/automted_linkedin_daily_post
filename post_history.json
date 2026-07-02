@@ -310,5 +310,13 @@
     "domain": "AWS",
     "had_image": true,
     "preview": "When querying S3 data, are you choosing the right AWS service? \nAs a seasoned data engineer, I've seen teams struggle wi..."
+  },
+  {
+    "date": "2026-07-02",
+    "post_id": "urn:li:share:7478310598544408576",
+    "format_type": "concept_explainer",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "As a data engineer, I've often found myself deciding between CTEs, subqueries, and temp tables when tackling complex SQL..."
   }
 ]

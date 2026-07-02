@@ -232,5 +232,11 @@
     "domain": "aws",
     "topic": "Redshift Spectrum vs Athena \u2014 when to query S3 directly",
     "date": "2026-07-01"
+  },
+  {
+    "type": "concept_explainer",
+    "domain": "sql",
+    "topic": "CTEs vs subqueries vs temp tables \u2014 performance and readability trade-offs",
+    "date": "2026-07-02"
   }
 ]

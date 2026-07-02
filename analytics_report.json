@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-07-01",
+  "generated_date": "2026-07-02",
   "posts_analysed": 31,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "myth_vs_reality",
+  "best_format": "insight",
   "format_avg_scores": {
-    "myth_vs_reality": 0.0,
     "insight": 0.0,
     "project_spotlight": 0.0,
     "concept_explainer": 0.0,
     "industry_take": 0.0,
     "achievement": 0.0,
     "tip": 0.0,
+    "myth_vs_reality": 0.0,
     "open_to_work": 0.0
   },
   "posts": [
-    {
-      "date": "2026-06-01",
-      "post_id": "urn:li:share:7467092977954525184",
-      "format_type": "myth_vs_reality",
-      "domain": "Databricks",
-      "had_image": true,
-      "preview": "Myth vs Reality: Databricks Unity Catalog for Data Governance\n\nAs a seasoned data engineer, I've seen many organizations...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-02",
       "post_id": "urn:li:share:7467447204098748416",
@@ -383,6 +371,18 @@
       "domain": "AWS",
       "had_image": true,
       "preview": "When querying S3 data, are you choosing the right AWS service? \nAs a seasoned data engineer, I've seen teams struggle wi...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-02",
+      "post_id": "urn:li:share:7478310598544408576",
+      "format_type": "concept_explainer",
+      "domain": "SQL / Analytics Engineering",
+      "had_image": true,
+      "preview": "As a data engineer, I've often found myself deciding between CTEs, subqueries, and temp tables when tackling complex SQL...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

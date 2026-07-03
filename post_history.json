@@ -318,5 +318,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "As a data engineer, I've often found myself deciding between CTEs, subqueries, and temp tables when tackling complex SQL..."
+  },
+  {
+    "date": "2026-07-03",
+    "post_id": "urn:li:share:7478669108667019264",
+    "format_type": "myth_vs_reality",
+    "domain": "Databricks",
+    "had_image": true,
+    "preview": "Myth vs Reality: Change Data Feed (CDF) in Delta Lake for CDC pipelines\n\nAs a seasoned data engineer, I've seen many tea..."
   }
 ]

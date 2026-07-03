@@ -1,11 +1,5 @@
 [
   {
-    "type": "myth_vs_reality",
-    "domain": "sql",
-    "topic": "SQL query optimisation patterns for large analytical workloads",
-    "date": "2026-05-22"
-  },
-  {
     "type": "industry_take",
     "domain": "aws",
     "topic": "Kinesis Data Streams vs Kafka \u2014 real-time ingestion trade-offs",
@@ -238,5 +232,11 @@
     "domain": "sql",
     "topic": "CTEs vs subqueries vs temp tables \u2014 performance and readability trade-offs",
     "date": "2026-07-02"
+  },
+  {
+    "type": "myth_vs_reality",
+    "domain": "databricks",
+    "topic": "Change Data Feed (CDF) in Delta Lake for CDC pipelines",
+    "date": "2026-07-03"
   }
 ]

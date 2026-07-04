@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-07-03",
+  "generated_date": "2026-07-04",
   "posts_analysed": 31,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "project_spotlight",
+  "best_format": "concept_explainer",
   "format_avg_scores": {
-    "project_spotlight": 0.0,
     "concept_explainer": 0.0,
     "industry_take": 0.0,
     "achievement": 0.0,
     "tip": 0.0,
     "myth_vs_reality": 0.0,
     "open_to_work": 0.0,
+    "project_spotlight": 0.0,
     "insight": 0.0
   },
   "posts": [
-    {
-      "date": "2026-06-03",
-      "post_id": "urn:li:share:7467818173053071360",
-      "format_type": "project_spotlight",
-      "domain": "AWS",
-      "had_image": true,
-      "preview": "## Project Spotlight: Containerized Data Workloads on AWS - ECS vs EKS\n\nAs a Lead Data Engineer at Tata Consultancy Serv...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-04",
       "post_id": "urn:li:share:7468178782173167617",
@@ -383,6 +371,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "Myth vs Reality: Change Data Feed (CDF) in Delta Lake for CDC pipelines\n\nAs a seasoned data engineer, I've seen many tea...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-04",
+      "post_id": "urn:li:share:7479029853753815042",
+      "format_type": "open_to_work",
+      "domain": "AWS",
+      "had_image": true,
+      "preview": "I'm excited to explore new opportunities as a Senior Data Engineer or Data Platform Lead, particularly in the healthcare...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

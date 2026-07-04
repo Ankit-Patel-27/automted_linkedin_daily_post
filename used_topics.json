@@ -1,11 +1,5 @@
 [
   {
-    "type": "industry_take",
-    "domain": "aws",
-    "topic": "Kinesis Data Streams vs Kafka \u2014 real-time ingestion trade-offs",
-    "date": "2026-05-25"
-  },
-  {
     "type": "insight",
     "domain": "databricks",
     "topic": "Databricks Photon engine \u2014 when it helps and when it doesn't",
@@ -238,5 +232,11 @@
     "domain": "databricks",
     "topic": "Change Data Feed (CDF) in Delta Lake for CDC pipelines",
     "date": "2026-07-03"
+  },
+  {
+    "type": "open_to_work",
+    "domain": "aws",
+    "topic": "AWS Glue Catalog as a central metadata store",
+    "date": "2026-07-04"
   }
 ]

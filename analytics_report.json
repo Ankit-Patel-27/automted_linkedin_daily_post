@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-07-04",
+  "generated_date": "2026-07-05",
   "posts_analysed": 31,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "concept_explainer",
+  "best_format": "industry_take",
   "format_avg_scores": {
-    "concept_explainer": 0.0,
     "industry_take": 0.0,
     "achievement": 0.0,
     "tip": 0.0,
     "myth_vs_reality": 0.0,
     "open_to_work": 0.0,
     "project_spotlight": 0.0,
+    "concept_explainer": 0.0,
     "insight": 0.0
   },
   "posts": [
-    {
-      "date": "2026-06-04",
-      "post_id": "urn:li:share:7468178782173167617",
-      "format_type": "concept_explainer",
-      "domain": "PySpark",
-      "had_image": true,
-      "preview": "As a seasoned data engineer, I've worked with massive datasets in PySpark, and one crucial optimization technique that h...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-05",
       "post_id": "urn:li:share:7468531023731970048",
@@ -383,6 +371,18 @@
       "domain": "AWS",
       "had_image": true,
       "preview": "I'm excited to explore new opportunities as a Senior Data Engineer or Data Platform Lead, particularly in the healthcare...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-05",
+      "post_id": "urn:li:share:7479397466337976320",
+      "format_type": "insight",
+      "domain": "SQL / Analytics Engineering",
+      "had_image": true,
+      "preview": "**Optimising SQL queries is a make-or-break moment for large analytical workloads - I've seen it firsthand!**\n\nWhen work...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

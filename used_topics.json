@@ -1,11 +1,5 @@
 [
   {
-    "type": "insight",
-    "domain": "databricks",
-    "topic": "Databricks Photon engine \u2014 when it helps and when it doesn't",
-    "date": "2026-05-26"
-  },
-  {
     "type": "project_spotlight",
     "domain": "sql",
     "topic": "SQL anti-patterns that kill pipeline performance",
@@ -238,5 +232,11 @@
     "domain": "aws",
     "topic": "AWS Glue Catalog as a central metadata store",
     "date": "2026-07-04"
+  },
+  {
+    "type": "insight",
+    "domain": "sql",
+    "topic": "SQL query optimisation patterns for large analytical workloads",
+    "date": "2026-07-05"
   }
 ]

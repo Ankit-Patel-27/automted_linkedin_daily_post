@@ -1,11 +1,5 @@
 [
   {
-    "type": "project_spotlight",
-    "domain": "sql",
-    "topic": "SQL anti-patterns that kill pipeline performance",
-    "date": "2026-05-27"
-  },
-  {
     "type": "concept_explainer",
     "domain": "aws",
     "topic": "AWS Glue Data Quality \u2014 catching bad data before it hits production",
@@ -238,5 +232,11 @@
     "domain": "sql",
     "topic": "SQL query optimisation patterns for large analytical workloads",
     "date": "2026-07-05"
+  },
+  {
+    "type": "project_spotlight",
+    "domain": "pyspark",
+    "topic": "Avoiding data skew in PySpark with salting techniques",
+    "date": "2026-07-06"
   }
 ]

@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-07-05",
+  "generated_date": "2026-07-06",
   "posts_analysed": 31,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "industry_take",
+  "best_format": "achievement",
   "format_avg_scores": {
-    "industry_take": 0.0,
     "achievement": 0.0,
     "tip": 0.0,
     "myth_vs_reality": 0.0,
     "open_to_work": 0.0,
     "project_spotlight": 0.0,
     "concept_explainer": 0.0,
+    "industry_take": 0.0,
     "insight": 0.0
   },
   "posts": [
-    {
-      "date": "2026-06-05",
-      "post_id": "urn:li:share:7468531023731970048",
-      "format_type": "industry_take",
-      "domain": "Databricks",
-      "had_image": true,
-      "preview": "As a data engineer in the healthcare space, I've had to make tough choices between Databricks Workflows and Apache Airfl...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-06",
       "post_id": "urn:li:share:7468887700268417024",
@@ -383,6 +371,18 @@
       "domain": "SQL / Analytics Engineering",
       "had_image": true,
       "preview": "**Optimising SQL queries is a make-or-break moment for large analytical workloads - I've seen it firsthand!**\n\nWhen work...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-06",
+      "post_id": "urn:li:share:7479763454359425024",
+      "format_type": "project_spotlight",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "## Project Spotlight: Taming Data Skew in PySpark with Salting\n\nAs a Lead Data Engineer at Tata Consultancy Services, I ...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

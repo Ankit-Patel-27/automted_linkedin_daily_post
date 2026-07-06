@@ -342,5 +342,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "**Optimising SQL queries is a make-or-break moment for large analytical workloads - I've seen it firsthand!**\n\nWhen work..."
+  },
+  {
+    "date": "2026-07-06",
+    "post_id": "urn:li:share:7479763454359425024",
+    "format_type": "project_spotlight",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "## Project Spotlight: Taming Data Skew in PySpark with Salting\n\nAs a Lead Data Engineer at Tata Consultancy Services, I ..."
   }
 ]

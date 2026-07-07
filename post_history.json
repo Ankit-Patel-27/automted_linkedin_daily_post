@@ -350,5 +350,13 @@
     "domain": "PySpark",
     "had_image": true,
     "preview": "## Project Spotlight: Taming Data Skew in PySpark with Salting\n\nAs a Lead Data Engineer at Tata Consultancy Services, I ..."
+  },
+  {
+    "date": "2026-07-07",
+    "post_id": "urn:li:share:7480121271465275392",
+    "format_type": "industry_take",
+    "domain": "Databricks",
+    "had_image": true,
+    "preview": "My take on Databricks' Photon engine: a game-changer for healthcare and biotech data infrastructure, but not a silver bu..."
   }
 ]

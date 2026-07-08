@@ -1,11 +1,5 @@
 [
   {
-    "type": "open_to_work",
-    "domain": "databricks",
-    "topic": "Delta Lake ACID transactions and why they matter for healthcare data",
-    "date": "2026-05-29"
-  },
-  {
     "type": "achievement",
     "domain": "sql",
     "topic": "dbt incremental models \u2014 full refresh vs append vs merge strategies",
@@ -238,5 +232,11 @@
     "domain": "databricks",
     "topic": "Databricks Photon engine \u2014 when it helps and when it doesn't",
     "date": "2026-07-07"
+  },
+  {
+    "type": "achievement",
+    "domain": "sql",
+    "topic": "SQL anti-patterns that kill pipeline performance",
+    "date": "2026-07-08"
   }
 ]

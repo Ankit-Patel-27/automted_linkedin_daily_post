@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-07-07",
+  "generated_date": "2026-07-08",
   "posts_analysed": 31,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "tip",
+  "best_format": "myth_vs_reality",
   "format_avg_scores": {
-    "tip": 0.0,
     "myth_vs_reality": 0.0,
     "open_to_work": 0.0,
     "project_spotlight": 0.0,
     "concept_explainer": 0.0,
     "industry_take": 0.0,
     "achievement": 0.0,
-    "insight": 0.0
+    "insight": 0.0,
+    "tip": 0.0
   },
   "posts": [
-    {
-      "date": "2026-06-07",
-      "post_id": "urn:li:share:7469257287178706945",
-      "format_type": "tip",
-      "domain": "AWS",
-      "had_image": true,
-      "preview": "Tired of managing complex data pipelines with multiple steps and integrations? \nI've been there too. That's why I love u...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-08",
       "post_id": "urn:li:share:7469626678844014592",
@@ -383,6 +371,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "My take on Databricks' Photon engine: a game-changer for healthcare and biotech data infrastructure, but not a silver bu...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-08",
+      "post_id": "urn:li:share:7480474103154540544",
+      "format_type": "achievement",
+      "domain": "SQL / Analytics Engineering",
+      "had_image": true,
+      "preview": "I recall a particularly challenging project where I had to optimize our ETL pipelines, which were slowing down our data ...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

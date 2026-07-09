@@ -1,11 +1,5 @@
 [
   {
-    "type": "achievement",
-    "domain": "sql",
-    "topic": "dbt incremental models \u2014 full refresh vs append vs merge strategies",
-    "date": "2026-05-30"
-  },
-  {
     "type": "tip",
     "domain": "pyspark",
     "topic": "Spark execution plan \u2014 how to read and optimise it",
@@ -238,5 +232,11 @@
     "domain": "sql",
     "topic": "SQL anti-patterns that kill pipeline performance",
     "date": "2026-07-08"
+  },
+  {
+    "type": "concept_explainer",
+    "domain": "pyspark",
+    "topic": "PySpark structured streaming for near-real-time pipelines",
+    "date": "2026-07-09"
   }
 ]

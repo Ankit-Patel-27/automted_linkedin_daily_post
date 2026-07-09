@@ -366,5 +366,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "I recall a particularly challenging project where I had to optimize our ETL pipelines, which were slowing down our data ..."
+  },
+  {
+    "date": "2026-07-09",
+    "post_id": "urn:li:share:7480846057900294144",
+    "format_type": "concept_explainer",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "As a data engineer who's worked on building scalable data pipelines, I'm excited to share my experience with PySpark str..."
   }
 ]

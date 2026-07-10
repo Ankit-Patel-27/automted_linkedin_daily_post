@@ -1,11 +1,5 @@
 [
   {
-    "type": "tip",
-    "domain": "pyspark",
-    "topic": "Spark execution plan \u2014 how to read and optimise it",
-    "date": "2026-05-31"
-  },
-  {
     "type": "myth_vs_reality",
     "domain": "databricks",
     "topic": "Databricks Unity Catalog for data governance in regulated industries",
@@ -238,5 +232,11 @@
     "domain": "pyspark",
     "topic": "PySpark structured streaming for near-real-time pipelines",
     "date": "2026-07-09"
+  },
+  {
+    "type": "myth_vs_reality",
+    "domain": "aws",
+    "topic": "Kinesis Data Streams vs Kafka \u2014 real-time ingestion trade-offs",
+    "date": "2026-07-10"
   }
 ]

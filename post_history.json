@@ -374,5 +374,13 @@
     "domain": "PySpark",
     "had_image": true,
     "preview": "As a data engineer who's worked on building scalable data pipelines, I'm excited to share my experience with PySpark str..."
+  },
+  {
+    "date": "2026-07-10",
+    "post_id": "urn:li:share:7481208356817403904",
+    "format_type": "myth_vs_reality",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "Myth vs Reality: Kinesis Data Streams vs Kafka\n\nAs a seasoned data engineer, I've seen many teams struggle with choosing..."
   }
 ]

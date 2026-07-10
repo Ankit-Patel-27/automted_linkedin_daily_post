@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-07-09",
+  "generated_date": "2026-07-10",
   "posts_analysed": 31,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "open_to_work",
+  "best_format": "project_spotlight",
   "format_avg_scores": {
-    "open_to_work": 0.0,
     "project_spotlight": 0.0,
     "concept_explainer": 0.0,
     "industry_take": 0.0,
     "achievement": 0.0,
     "insight": 0.0,
     "tip": 0.0,
+    "open_to_work": 0.0,
     "myth_vs_reality": 0.0
   },
   "posts": [
-    {
-      "date": "2026-06-09",
-      "post_id": "urn:li:share:7469977710128181249",
-      "format_type": "open_to_work",
-      "domain": "Databricks",
-      "had_image": true,
-      "preview": "I'm currently open to new opportunities as a Senior Data Engineer or Data Platform Lead, with a focus on the healthcare ...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-10",
       "post_id": "urn:li:share:7470343240722972672",
@@ -383,6 +371,18 @@
       "domain": "PySpark",
       "had_image": true,
       "preview": "As a data engineer who's worked on building scalable data pipelines, I'm excited to share my experience with PySpark str...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-10",
+      "post_id": "urn:li:share:7481208356817403904",
+      "format_type": "myth_vs_reality",
+      "domain": "AWS",
+      "had_image": true,
+      "preview": "Myth vs Reality: Kinesis Data Streams vs Kafka\n\nAs a seasoned data engineer, I've seen many teams struggle with choosing...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-07-10",
+  "generated_date": "2026-07-11",
   "posts_analysed": 31,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "project_spotlight",
+  "best_format": "concept_explainer",
   "format_avg_scores": {
-    "project_spotlight": 0.0,
     "concept_explainer": 0.0,
     "industry_take": 0.0,
     "achievement": 0.0,
     "insight": 0.0,
     "tip": 0.0,
     "open_to_work": 0.0,
-    "myth_vs_reality": 0.0
+    "myth_vs_reality": 0.0,
+    "project_spotlight": 0.0
   },
   "posts": [
-    {
-      "date": "2026-06-10",
-      "post_id": "urn:li:share:7470343240722972672",
-      "format_type": "project_spotlight",
-      "domain": "SQL / Analytics Engineering",
-      "had_image": false,
-      "preview": "Project Spotlight: Scaling Analytics with Materialized Views\n\nAs a Lead Data Engineer at Tata Consultancy Services, I wo...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-11",
       "post_id": "urn:li:share:7470708302000058369",
@@ -383,6 +371,18 @@
       "domain": "AWS",
       "had_image": true,
       "preview": "Myth vs Reality: Kinesis Data Streams vs Kafka\n\nAs a seasoned data engineer, I've seen many teams struggle with choosing...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-11",
+      "post_id": "urn:li:share:7481560946734256129",
+      "format_type": "tip",
+      "domain": "Databricks",
+      "had_image": true,
+      "preview": "When building data platforms for healthcare, data integrity and reliability are non-negotiable. That's where Delta Lake'...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

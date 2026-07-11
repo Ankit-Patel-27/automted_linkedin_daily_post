@@ -382,5 +382,13 @@
     "domain": "AWS",
     "had_image": true,
     "preview": "Myth vs Reality: Kinesis Data Streams vs Kafka\n\nAs a seasoned data engineer, I've seen many teams struggle with choosing..."
+  },
+  {
+    "date": "2026-07-11",
+    "post_id": "urn:li:share:7481560946734256129",
+    "format_type": "tip",
+    "domain": "Databricks",
+    "had_image": true,
+    "preview": "When building data platforms for healthcare, data integrity and reliability are non-negotiable. That's where Delta Lake'..."
   }
 ]

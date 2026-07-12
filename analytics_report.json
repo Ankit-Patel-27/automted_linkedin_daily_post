@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-07-11",
+  "generated_date": "2026-07-12",
   "posts_analysed": 31,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "concept_explainer",
+  "best_format": "industry_take",
   "format_avg_scores": {
-    "concept_explainer": 0.0,
     "industry_take": 0.0,
     "achievement": 0.0,
     "insight": 0.0,
     "tip": 0.0,
     "open_to_work": 0.0,
     "myth_vs_reality": 0.0,
+    "concept_explainer": 0.0,
     "project_spotlight": 0.0
   },
   "posts": [
-    {
-      "date": "2026-06-11",
-      "post_id": "urn:li:share:7470708302000058369",
-      "format_type": "concept_explainer",
-      "domain": "AWS",
-      "had_image": true,
-      "preview": "As a data engineer, I've worked with massive datasets on AWS, and one thing that's crucial for cost optimisation is mana...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-12",
       "post_id": "urn:li:share:7471075997833027585",
@@ -383,6 +371,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "When building data platforms for healthcare, data integrity and reliability are non-negotiable. That's where Delta Lake'...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-12",
+      "post_id": "urn:li:share:7481926461642137600",
+      "format_type": "open_to_work",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "I'm currently open to new opportunities as a Senior Data Engineer or Data Platform Lead, with a focus on healthcare and ...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

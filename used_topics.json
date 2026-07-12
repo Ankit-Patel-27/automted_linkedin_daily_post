@@ -1,11 +1,5 @@
 [
   {
-    "type": "insight",
-    "domain": "sql",
-    "topic": "Designing star schemas for healthcare analytics warehouses",
-    "date": "2026-06-02"
-  },
-  {
     "type": "project_spotlight",
     "domain": "aws",
     "topic": "AWS ECS vs EKS for containerised data workloads",
@@ -238,5 +232,11 @@
     "domain": "databricks",
     "topic": "Delta Lake ACID transactions and why they matter for healthcare data",
     "date": "2026-07-11"
+  },
+  {
+    "type": "open_to_work",
+    "domain": "pyspark",
+    "topic": "Spark execution plan \u2014 how to read and optimise it",
+    "date": "2026-07-12"
   }
 ]

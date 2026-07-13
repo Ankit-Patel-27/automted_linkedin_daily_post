@@ -398,5 +398,13 @@
     "domain": "PySpark",
     "had_image": true,
     "preview": "I'm currently open to new opportunities as a Senior Data Engineer or Data Platform Lead, with a focus on healthcare and ..."
+  },
+  {
+    "date": "2026-07-13",
+    "post_id": "urn:li:share:7482289967268855808",
+    "format_type": "insight",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "**A well-designed star schema can be the difference between a healthcare analytics warehouse that's scalable and one tha..."
   }
 ]

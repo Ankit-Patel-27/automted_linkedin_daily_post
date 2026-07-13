@@ -1,11 +1,5 @@
 [
   {
-    "type": "project_spotlight",
-    "domain": "aws",
-    "topic": "AWS ECS vs EKS for containerised data workloads",
-    "date": "2026-06-03"
-  },
-  {
     "type": "concept_explainer",
     "domain": "pyspark",
     "topic": "Partitioning strategies in PySpark for large-scale ETL",
@@ -238,5 +232,11 @@
     "domain": "pyspark",
     "topic": "Spark execution plan \u2014 how to read and optimise it",
     "date": "2026-07-12"
+  },
+  {
+    "type": "insight",
+    "domain": "sql",
+    "topic": "Designing star schemas for healthcare analytics warehouses",
+    "date": "2026-07-13"
   }
 ]

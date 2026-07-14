@@ -1,11 +1,5 @@
 [
   {
-    "type": "concept_explainer",
-    "domain": "pyspark",
-    "topic": "Partitioning strategies in PySpark for large-scale ETL",
-    "date": "2026-06-04"
-  },
-  {
     "type": "industry_take",
     "domain": "databricks",
     "topic": "Databricks Workflows vs Apache Airflow \u2014 when to use which",
@@ -238,5 +232,11 @@
     "domain": "sql",
     "topic": "Designing star schemas for healthcare analytics warehouses",
     "date": "2026-07-13"
+  },
+  {
+    "type": "project_spotlight",
+    "domain": "databricks",
+    "topic": "Databricks Unity Catalog for data governance in regulated industries",
+    "date": "2026-07-14"
   }
 ]

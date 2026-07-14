@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-07-13",
+  "generated_date": "2026-07-14",
   "posts_analysed": 31,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "achievement",
+  "best_format": "insight",
   "format_avg_scores": {
-    "achievement": 0.0,
     "insight": 0.0,
     "tip": 0.0,
     "open_to_work": 0.0,
     "myth_vs_reality": 0.0,
     "concept_explainer": 0.0,
     "project_spotlight": 0.0,
+    "achievement": 0.0,
     "industry_take": 0.0
   },
   "posts": [
-    {
-      "date": "2026-06-13",
-      "post_id": "urn:li:share:7471431374743228416",
-      "format_type": "achievement",
-      "domain": "Databricks",
-      "had_image": true,
-      "preview": "I recall a particularly challenging project where I had to optimize our machine learning pipeline for predicting patient...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-14",
       "post_id": "urn:li:share:7471800618685358080",
@@ -383,6 +371,18 @@
       "domain": "SQL / Analytics Engineering",
       "had_image": true,
       "preview": "**A well-designed star schema can be the difference between a healthcare analytics warehouse that's scalable and one tha...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-14",
+      "post_id": "urn:li:share:7482643997367263232",
+      "format_type": "project_spotlight",
+      "domain": "Databricks",
+      "had_image": true,
+      "preview": "## Project Spotlight: Implementing Databricks Unity Catalog for Data Governance\n\nAs a Lead Data Engineer at Tata Consult...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

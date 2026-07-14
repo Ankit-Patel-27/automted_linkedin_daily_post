@@ -406,5 +406,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "**A well-designed star schema can be the difference between a healthcare analytics warehouse that's scalable and one tha..."
+  },
+  {
+    "date": "2026-07-14",
+    "post_id": "urn:li:share:7482643997367263232",
+    "format_type": "project_spotlight",
+    "domain": "Databricks",
+    "had_image": true,
+    "preview": "## Project Spotlight: Implementing Databricks Unity Catalog for Data Governance\n\nAs a Lead Data Engineer at Tata Consult..."
   }
 ]

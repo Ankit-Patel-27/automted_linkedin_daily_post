@@ -414,5 +414,13 @@
     "domain": "Databricks",
     "had_image": true,
     "preview": "## Project Spotlight: Implementing Databricks Unity Catalog for Data Governance\n\nAs a Lead Data Engineer at Tata Consult..."
+  },
+  {
+    "date": "2026-07-15",
+    "post_id": "urn:li:share:7483006743459860481",
+    "format_type": "industry_take",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "My take on partitioning strategies in PySpark for large-scale ETL\n\nAs a data engineer working on healthcare and biotech ..."
   }
 ]

@@ -1,11 +1,5 @@
 [
   {
-    "type": "industry_take",
-    "domain": "databricks",
-    "topic": "Databricks Workflows vs Apache Airflow \u2014 when to use which",
-    "date": "2026-06-05"
-  },
-  {
     "type": "achievement",
     "domain": "sql",
     "topic": "Slowly Changing Dimensions (SCD Type 2) with dbt and Delta Lake",
@@ -238,5 +232,11 @@
     "domain": "databricks",
     "topic": "Databricks Unity Catalog for data governance in regulated industries",
     "date": "2026-07-14"
+  },
+  {
+    "type": "industry_take",
+    "domain": "pyspark",
+    "topic": "Partitioning strategies in PySpark for large-scale ETL",
+    "date": "2026-07-15"
   }
 ]

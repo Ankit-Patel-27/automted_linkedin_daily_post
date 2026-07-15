@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-07-14",
+  "generated_date": "2026-07-15",
   "posts_analysed": 31,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "insight",
+  "best_format": "tip",
   "format_avg_scores": {
-    "insight": 0.0,
     "tip": 0.0,
     "open_to_work": 0.0,
     "myth_vs_reality": 0.0,
     "concept_explainer": 0.0,
     "project_spotlight": 0.0,
     "achievement": 0.0,
+    "insight": 0.0,
     "industry_take": 0.0
   },
   "posts": [
-    {
-      "date": "2026-06-14",
-      "post_id": "urn:li:share:7471800618685358080",
-      "format_type": "insight",
-      "domain": "SQL / Analytics Engineering",
-      "had_image": false,
-      "preview": "I've saved countless hours of repetitive SQL coding by mastering dbt macros - and I'm excited to share my top learnings ...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-15",
       "post_id": "urn:li:share:7472171632099254274",
@@ -383,6 +371,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "## Project Spotlight: Implementing Databricks Unity Catalog for Data Governance\n\nAs a Lead Data Engineer at Tata Consult...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-15",
+      "post_id": "urn:li:share:7483006743459860481",
+      "format_type": "industry_take",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "My take on partitioning strategies in PySpark for large-scale ETL\n\nAs a data engineer working on healthcare and biotech ...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

@@ -1,11 +1,5 @@
 [
   {
-    "type": "achievement",
-    "domain": "sql",
-    "topic": "Slowly Changing Dimensions (SCD Type 2) with dbt and Delta Lake",
-    "date": "2026-06-06"
-  },
-  {
     "type": "tip",
     "domain": "aws",
     "topic": "AWS Step Functions for orchestrating multi-step data pipelines",
@@ -238,5 +232,11 @@
     "domain": "pyspark",
     "topic": "Partitioning strategies in PySpark for large-scale ETL",
     "date": "2026-07-15"
+  },
+  {
+    "type": "achievement",
+    "domain": "aws",
+    "topic": "AWS ECS vs EKS for containerised data workloads",
+    "date": "2026-07-16"
   }
 ]

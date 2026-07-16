@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-07-15",
+  "generated_date": "2026-07-16",
   "posts_analysed": 31,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "tip",
+  "best_format": "open_to_work",
   "format_avg_scores": {
-    "tip": 0.0,
     "open_to_work": 0.0,
     "myth_vs_reality": 0.0,
     "concept_explainer": 0.0,
     "project_spotlight": 0.0,
     "achievement": 0.0,
     "insight": 0.0,
-    "industry_take": 0.0
+    "industry_take": 0.0,
+    "tip": 0.0
   },
   "posts": [
-    {
-      "date": "2026-06-15",
-      "post_id": "urn:li:share:7472171632099254274",
-      "format_type": "tip",
-      "domain": "AWS",
-      "had_image": true,
-      "preview": "When it comes to managing data infrastructure as code on AWS, choosing the right tool can make all the difference. \nI've...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-16",
       "post_id": "urn:li:share:7472536744614133760",
@@ -383,6 +371,18 @@
       "domain": "PySpark",
       "had_image": true,
       "preview": "My take on partitioning strategies in PySpark for large-scale ETL\n\nAs a data engineer working on healthcare and biotech ...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-16",
+      "post_id": "urn:li:share:7483371779550285824",
+      "format_type": "achievement",
+      "domain": "AWS",
+      "had_image": true,
+      "preview": "I recall a particularly challenging project where I had to migrate a large-scale data pipeline to the cloud. Our team wa...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

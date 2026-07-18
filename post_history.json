@@ -438,5 +438,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "As a data engineer, I've worked with dbt to build and manage data pipelines. One of its powerful features is incremental..."
+  },
+  {
+    "date": "2026-07-18",
+    "post_id": "urn:li:share:7484187045045669888",
+    "format_type": "tip",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "I've lost count of how many times data skew has brought my PySpark jobs to a grinding halt - but I've learned a thing or..."
   }
 ]

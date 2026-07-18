@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-07-17",
+  "generated_date": "2026-07-18",
   "posts_analysed": 31,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "myth_vs_reality",
+  "best_format": "concept_explainer",
   "format_avg_scores": {
-    "myth_vs_reality": 0.0,
     "concept_explainer": 0.0,
     "project_spotlight": 0.0,
     "achievement": 0.0,
     "insight": 0.0,
     "industry_take": 0.0,
     "tip": 0.0,
+    "myth_vs_reality": 0.0,
     "open_to_work": 0.0
   },
   "posts": [
-    {
-      "date": "2026-06-17",
-      "post_id": "urn:li:share:7472893256083755011",
-      "format_type": "myth_vs_reality",
-      "domain": "PySpark",
-      "had_image": true,
-      "preview": "Myth vs Reality: Writing Efficient PySpark Transformations for 500M+ Record Datasets\n\nWhat most people do: Using `coales...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-18",
       "post_id": "urn:li:share:7473251738574270464",
@@ -383,6 +371,18 @@
       "domain": "SQL / Analytics Engineering",
       "had_image": true,
       "preview": "As a data engineer, I've worked with dbt to build and manage data pipelines. One of its powerful features is incremental...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-18",
+      "post_id": "urn:li:share:7484187045045669888",
+      "format_type": "tip",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "I've lost count of how many times data skew has brought my PySpark jobs to a grinding halt - but I've learned a thing or...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

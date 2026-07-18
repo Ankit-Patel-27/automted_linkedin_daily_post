@@ -1,6 +1,6 @@
 """
 LinkedIn Post Generator — Ankit Patel
-Uses Groq (Llama 4) to generate daily job-hunting posts for a
+Uses Groq (Llama 3.3) to generate daily job-hunting posts for a
 Senior Data Engineer / Data Platform Lead in Healthcare/Biotech.
 """
 
@@ -10,7 +10,7 @@ import random
 from datetime import date
 from groq import Groq
 
-# ── Profile context ────────────────────────────────────────────────────────────
+# ── Profile context ─────────────────────────────────────────────────────────[...]
 PROFILE = """
 Name: Ankit Patel
 Current role: Lead Data Engineer at Tata Consultancy Services (5 years exp)
@@ -282,7 +282,7 @@ Write the full LinkedIn post now. Output only the post text, nothing else.
 """
 
     response = client.chat.completions.create(
-        model="meta-llama/llama-4-scout-17b-16e-instruct",
+        model="llama-3.3-70b-versatile",
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},

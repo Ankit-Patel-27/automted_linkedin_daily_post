@@ -446,5 +446,13 @@
     "domain": "PySpark",
     "had_image": true,
     "preview": "I've lost count of how many times data skew has brought my PySpark jobs to a grinding halt - but I've learned a thing or..."
+  },
+  {
+    "date": "2026-07-19",
+    "post_id": "urn:li:share:7484462181678428160",
+    "format_type": "myth_vs_reality",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "Myth vs Reality: AWS Glue Data Quality\nWhat most people do: Rely solely on AWS Glue's built-in data validation, thinking..."
   }
 ]

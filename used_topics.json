@@ -1,11 +1,5 @@
 [
   {
-    "type": "open_to_work",
-    "domain": "databricks",
-    "topic": "Delta Live Tables (DLT) pipelines \u2014 declarative ETL in practice",
-    "date": "2026-06-09"
-  },
-  {
     "type": "project_spotlight",
     "domain": "sql",
     "topic": "Materialised views in Redshift and Databricks SQL",
@@ -238,5 +232,11 @@
     "domain": "pyspark",
     "topic": "Avoiding data skew in PySpark with salting techniques",
     "date": "2026-07-18"
+  },
+  {
+    "type": "myth_vs_reality",
+    "domain": "aws",
+    "topic": "AWS Glue Data Quality \u2014 catching bad data before it hits production",
+    "date": "2026-07-19"
   }
 ]

@@ -454,5 +454,13 @@
     "domain": "AWS",
     "had_image": true,
     "preview": "Myth vs Reality: AWS Glue Data Quality\nWhat most people do: Rely solely on AWS Glue's built-in data validation, thinking..."
+  },
+  {
+    "date": "2026-07-20",
+    "post_id": "urn:li:share:7484828078901420032",
+    "format_type": "insight",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "**I've spent countless hours debugging Slowly Changing Dimensions (SCD Type 2) in production, only to realize that a sim..."
   }
 ]

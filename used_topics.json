@@ -1,11 +1,5 @@
 [
   {
-    "type": "project_spotlight",
-    "domain": "sql",
-    "topic": "Materialised views in Redshift and Databricks SQL",
-    "date": "2026-06-10"
-  },
-  {
     "type": "concept_explainer",
     "domain": "aws",
     "topic": "S3 lifecycle policies and Intelligent-Tiering for cost optimisation",
@@ -238,5 +232,11 @@
     "domain": "aws",
     "topic": "AWS Glue Data Quality \u2014 catching bad data before it hits production",
     "date": "2026-07-19"
+  },
+  {
+    "type": "insight",
+    "domain": "sql",
+    "topic": "Slowly Changing Dimensions (SCD Type 2) with dbt and Delta Lake",
+    "date": "2026-07-20"
   }
 ]

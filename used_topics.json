@@ -1,11 +1,5 @@
 [
   {
-    "type": "concept_explainer",
-    "domain": "aws",
-    "topic": "S3 lifecycle policies and Intelligent-Tiering for cost optimisation",
-    "date": "2026-06-11"
-  },
-  {
     "type": "industry_take",
     "domain": "pyspark",
     "topic": "Spark shuffle \u2014 what it is and how to reduce it",
@@ -238,5 +232,11 @@
     "domain": "sql",
     "topic": "Slowly Changing Dimensions (SCD Type 2) with dbt and Delta Lake",
     "date": "2026-07-20"
+  },
+  {
+    "type": "project_spotlight",
+    "domain": "pyspark",
+    "topic": "PySpark broadcast joins \u2014 when and how to use them",
+    "date": "2026-07-21"
   }
 ]

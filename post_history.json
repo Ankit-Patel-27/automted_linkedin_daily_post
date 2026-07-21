@@ -462,5 +462,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "**I've spent countless hours debugging Slowly Changing Dimensions (SCD Type 2) in production, only to realize that a sim..."
+  },
+  {
+    "date": "2026-07-21",
+    "post_id": "urn:li:share:7485185347371294720",
+    "format_type": "project_spotlight",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "I'd like to shine the spotlight on a recent project where I leveraged PySpark broadcast joins to optimize a critical ETL..."
   }
 ]

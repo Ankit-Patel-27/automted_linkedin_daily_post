@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-07-20",
+  "generated_date": "2026-07-21",
   "posts_analysed": 31,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "achievement",
+  "best_format": "insight",
   "format_avg_scores": {
-    "achievement": 0.0,
     "insight": 0.0,
     "industry_take": 0.0,
     "tip": 0.0,
     "myth_vs_reality": 0.0,
     "concept_explainer": 0.0,
     "project_spotlight": 0.0,
-    "open_to_work": 0.0
+    "open_to_work": 0.0,
+    "achievement": 0.0
   },
   "posts": [
-    {
-      "date": "2026-06-20",
-      "post_id": "urn:li:share:7473965951961554944",
-      "format_type": "achievement",
-      "domain": "PySpark",
-      "had_image": true,
-      "preview": "Here's a problem I solved: Optimizing Spark Job Performance with Caching and Persistence\n\nI recall a project where we we...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-21",
       "post_id": "urn:li:share:7474340116174409728",
@@ -383,6 +371,18 @@
       "domain": "SQL / Analytics Engineering",
       "had_image": true,
       "preview": "**I've spent countless hours debugging Slowly Changing Dimensions (SCD Type 2) in production, only to realize that a sim...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-21",
+      "post_id": "urn:li:share:7485185347371294720",
+      "format_type": "project_spotlight",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "I'd like to shine the spotlight on a recent project where I leveraged PySpark broadcast joins to optimize a critical ETL...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

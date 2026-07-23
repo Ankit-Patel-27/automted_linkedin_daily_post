@@ -1,45 +1,21 @@
 {
-  "generated_date": "2026-07-21",
-  "posts_analysed": 31,
+  "generated_date": "2026-07-23",
+  "posts_analysed": 30,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "insight",
+  "best_format": "tip",
   "format_avg_scores": {
-    "insight": 0.0,
-    "industry_take": 0.0,
     "tip": 0.0,
     "myth_vs_reality": 0.0,
     "concept_explainer": 0.0,
     "project_spotlight": 0.0,
     "open_to_work": 0.0,
-    "achievement": 0.0
+    "insight": 0.0,
+    "achievement": 0.0,
+    "industry_take": 0.0
   },
   "posts": [
-    {
-      "date": "2026-06-21",
-      "post_id": "urn:li:share:7474340116174409728",
-      "format_type": "insight",
-      "domain": "SQL / Analytics Engineering",
-      "had_image": true,
-      "preview": "**Window functions are the unsung heroes of SQL, and mastering them can elevate your data engineering game!**\n\nAs a data...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
-    {
-      "date": "2026-06-22",
-      "post_id": "urn:li:share:7474709910921080832",
-      "format_type": "industry_take",
-      "domain": "AWS",
-      "had_image": true,
-      "preview": "As I navigate the complex landscape of healthcare data infrastructure, I'm often asked about the best ways to manage fin...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-23",
       "post_id": "urn:li:share:7475049827119259648",
@@ -383,6 +359,18 @@
       "domain": "PySpark",
       "had_image": true,
       "preview": "I'd like to shine the spotlight on a recent project where I leveraged PySpark broadcast joins to optimize a critical ETL...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-23",
+      "post_id": "urn:li:share:7485910236638265344",
+      "format_type": "open_to_work",
+      "domain": "Databricks",
+      "had_image": true,
+      "preview": "I'm excited to share that I'm open to new opportunities as a Senior Data Engineer or Data Platform Lead in the healthcar...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

@@ -1,4 +1,4 @@
-⚠️ LINKEDIN TOKEN EXPIRING IN 3 DAYS (on 2026-07-25)
+⚠️ LINKEDIN TOKEN EXPIRING IN 2 DAYS (on 2026-07-25)
 
 Renew at: https://www.linkedin.com/developers/tools/oauth/token-generator
 Then update LINKEDIN_ACCESS_TOKEN in GitHub Secrets.

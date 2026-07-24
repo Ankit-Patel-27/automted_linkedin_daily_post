@@ -1,11 +1,5 @@
 [
   {
-    "type": "achievement",
-    "domain": "databricks",
-    "topic": "Databricks Feature Store for ML pipelines in biotech",
-    "date": "2026-06-13"
-  },
-  {
     "type": "insight",
     "domain": "sql",
     "topic": "Using dbt macros to build reusable SQL components",
@@ -238,5 +232,11 @@
     "domain": "databricks",
     "topic": "Delta Live Tables (DLT) pipelines \u2014 declarative ETL in practice",
     "date": "2026-07-23"
+  },
+  {
+    "type": "industry_take",
+    "domain": "sql",
+    "topic": "Materialised views in Redshift and Databricks SQL",
+    "date": "2026-07-24"
   }
 ]

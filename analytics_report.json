@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-07-23",
+  "generated_date": "2026-07-24",
   "posts_analysed": 30,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "tip",
+  "best_format": "myth_vs_reality",
   "format_avg_scores": {
-    "tip": 0.0,
     "myth_vs_reality": 0.0,
     "concept_explainer": 0.0,
     "project_spotlight": 0.0,
     "open_to_work": 0.0,
     "insight": 0.0,
     "achievement": 0.0,
-    "industry_take": 0.0
+    "industry_take": 0.0,
+    "tip": 0.0
   },
   "posts": [
-    {
-      "date": "2026-06-23",
-      "post_id": "urn:li:share:7475049827119259648",
-      "format_type": "tip",
-      "domain": "Databricks",
-      "had_image": true,
-      "preview": "Boost your query performance in Databricks with these game-changing tips on Z-ordering and liquid clustering!\n\nAs a seas...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-24",
       "post_id": "urn:li:share:7475412790028185601",
@@ -371,6 +359,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "I'm excited to share that I'm open to new opportunities as a Senior Data Engineer or Data Platform Lead in the healthcar...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-24",
+      "post_id": "urn:li:share:7486272090812178433",
+      "format_type": "industry_take",
+      "domain": "SQL / Analytics Engineering",
+      "had_image": true,
+      "preview": "As I've worked on various healthcare data infrastructure projects, I've found myself pondering the best approach to impl...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

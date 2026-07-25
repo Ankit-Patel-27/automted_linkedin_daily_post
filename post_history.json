@@ -486,5 +486,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "As I've worked on various healthcare data infrastructure projects, I've found myself pondering the best approach to impl..."
+  },
+  {
+    "date": "2026-07-25",
+    "post_id": "urn:li:share:7486633480542662656",
+    "format_type": "achievement",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "I still remember the challenge we faced with our daily ETL workflow processing over 500 million records. The Spark shuff..."
   }
 ]

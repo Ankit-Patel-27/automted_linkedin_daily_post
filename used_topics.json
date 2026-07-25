@@ -1,11 +1,5 @@
 [
   {
-    "type": "insight",
-    "domain": "sql",
-    "topic": "Using dbt macros to build reusable SQL components",
-    "date": "2026-06-14"
-  },
-  {
     "type": "tip",
     "domain": "aws",
     "topic": "CloudFormation vs Terraform for data infrastructure as code",
@@ -238,5 +232,11 @@
     "domain": "sql",
     "topic": "Materialised views in Redshift and Databricks SQL",
     "date": "2026-07-24"
+  },
+  {
+    "type": "achievement",
+    "domain": "pyspark",
+    "topic": "Spark shuffle \u2014 what it is and how to reduce it",
+    "date": "2026-07-25"
   }
 ]

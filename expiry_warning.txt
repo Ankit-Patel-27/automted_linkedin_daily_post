@@ -1,4 +1,5 @@
-⚠️ LINKEDIN TOKEN EXPIRING IN 1 DAYS (on 2026-07-25)
+🚨 LINKEDIN TOKEN EXPIRED on 2026-07-25
+The bot will fail until you renew it.
 
 Renew at: https://www.linkedin.com/developers/tools/oauth/token-generator
 Then update LINKEDIN_ACCESS_TOKEN in GitHub Secrets.

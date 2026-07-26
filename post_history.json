@@ -494,5 +494,13 @@
     "domain": "PySpark",
     "had_image": true,
     "preview": "I still remember the challenge we faced with our daily ETL workflow processing over 500 million records. The Spark shuff..."
+  },
+  {
+    "date": "2026-07-26",
+    "post_id": "urn:li:share:7486999907372036096",
+    "format_type": "tip",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "I've seen data pipelines go from chaotic to streamlined with one powerful tool: AWS Step Functions. \nWhen I led the migr..."
   }
 ]

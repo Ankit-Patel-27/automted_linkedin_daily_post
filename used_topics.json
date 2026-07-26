@@ -1,11 +1,5 @@
 [
   {
-    "type": "tip",
-    "domain": "aws",
-    "topic": "CloudFormation vs Terraform for data infrastructure as code",
-    "date": "2026-06-15"
-  },
-  {
     "type": "open_to_work",
     "domain": "databricks",
     "topic": "Change Data Feed (CDF) in Delta Lake for CDC pipelines",
@@ -238,5 +232,11 @@
     "domain": "pyspark",
     "topic": "Spark shuffle \u2014 what it is and how to reduce it",
     "date": "2026-07-25"
+  },
+  {
+    "type": "tip",
+    "domain": "aws",
+    "topic": "AWS Step Functions for orchestrating multi-step data pipelines",
+    "date": "2026-07-26"
   }
 ]

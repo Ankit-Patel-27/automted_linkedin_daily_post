@@ -1,7 +1,7 @@
 {
-  "text": "I still remember the challenge we faced with our daily ETL workflow processing over 500 million records. The Spark shuffle was killing our performance, adding hours to our runtime. \n \nMy team and I dived into the code, identifying areas where we could optimize the shuffle. We started by repartitioning our data using the `repartition` API in PySpark, reducing the number of partitions and thereby minimizing the shuffle.\n\nWe also made sure to use `broadcast` joins where possible, as well as implementing `sort-merge` joins to reduce the amount of data being shuffled. \nBy making these changes, we were able to reduce our ETL runtime by 40%. \n\nIt was a huge win, not just in terms of performance but also in cost savings. Our AWS bill went down by 20% as a result of the optimization. \nLooking back, it was a great example of how a deep understanding of Spark internals can make a huge difference in the real world. \n\n#DataEngineering #CloudMigration #AWS #CareerGrowth #TechLeadership  #PySpark #ApacheSpark #BigData",
-  "format_type": "achievement",
-  "domain": "PySpark",
-  "topic": "Spark shuffle \u2014 what it is and how to reduce it",
-  "date": "2026-07-25"
+  "text": "I've seen data pipelines go from chaotic to streamlined with one powerful tool: AWS Step Functions. \nWhen I led the migration of a 10TB dataset to the cloud, Step Functions was instrumental in orchestrating our multi-step data pipeline.\n\nHere are my top tips for getting the most out of Step Functions:\nUse the AWS CLI command `aws stepfunctions create-state-machine` to quickly spin up a new state machine.\nLeverage the `Task` state type to integrate with AWS services like Lambda, Glue, and Redshift.\nConfigure retry policies using the `Retry` section in your state machine definition to handle transient failures.\n\nSave this, share it, try it today and take your data pipelines to the next level! #DataEngineering #TechTips #LearnInPublic #DataPlatform #AWS #CloudEngineering #AWSCloud",
+  "format_type": "tip",
+  "domain": "AWS",
+  "topic": "AWS Step Functions for orchestrating multi-step data pipelines",
+  "date": "2026-07-26"
 }

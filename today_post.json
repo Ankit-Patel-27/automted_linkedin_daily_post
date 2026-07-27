@@ -1,7 +1,7 @@
 {
-  "text": "I've seen data pipelines go from chaotic to streamlined with one powerful tool: AWS Step Functions. \nWhen I led the migration of a 10TB dataset to the cloud, Step Functions was instrumental in orchestrating our multi-step data pipeline.\n\nHere are my top tips for getting the most out of Step Functions:\nUse the AWS CLI command `aws stepfunctions create-state-machine` to quickly spin up a new state machine.\nLeverage the `Task` state type to integrate with AWS services like Lambda, Glue, and Redshift.\nConfigure retry policies using the `Retry` section in your state machine definition to handle transient failures.\n\nSave this, share it, try it today and take your data pipelines to the next level! #DataEngineering #TechTips #LearnInPublic #DataPlatform #AWS #CloudEngineering #AWSCloud",
-  "format_type": "tip",
-  "domain": "AWS",
-  "topic": "AWS Step Functions for orchestrating multi-step data pipelines",
-  "date": "2026-07-26"
+  "text": "As a Data Engineer, I've seen many teams struggle with writing efficient and reusable SQL code. One common misconception is that dbt macros are too complex to use for building reusable SQL components.\n\nWhat most people do is write custom SQL scripts for each use case, resulting in duplicated code and maintenance nightmares. They might use `dbt` only for basic templating, neglecting the power of macros.\n\nWhat actually works is leveraging `dbt` macros to create modular, reusable SQL components. For example, you can define a macro `calculate_kpi` that takes parameters like `kpi_name` and `column_name`, and returns a calculated value. This macro can then be used across multiple models, reducing code duplication and making it easier to maintain.\n\nI've used this approach in production, where I defined a `macro` called `aggregate_data` that used `dbt`'s built-in `graph` and `source` functions to aggregate data from multiple sources. This macro was then used in multiple models, reducing our ETL runtime by 40%.\n\nBy using `dbt` macros, you can write more efficient, modular, and scalable SQL code. So, don't be afraid to dive into `dbt` macros and start building reusable SQL components that will take your data engineering to the next level.\n\n#DataEngineering #BestPractices #DataPlatform #TechTips #SQL #dbt #AnalyticsEngineering",
+  "format_type": "myth_vs_reality",
+  "domain": "SQL / Analytics Engineering",
+  "topic": "Using dbt macros to build reusable SQL components",
+  "date": "2026-07-27"
 }

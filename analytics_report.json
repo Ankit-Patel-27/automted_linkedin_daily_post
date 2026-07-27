@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-07-26",
+  "generated_date": "2026-07-27",
   "posts_analysed": 30,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "project_spotlight",
+  "best_format": "open_to_work",
   "format_avg_scores": {
-    "project_spotlight": 0.0,
     "open_to_work": 0.0,
     "insight": 0.0,
     "achievement": 0.0,
     "industry_take": 0.0,
     "tip": 0.0,
     "concept_explainer": 0.0,
-    "myth_vs_reality": 0.0
+    "myth_vs_reality": 0.0,
+    "project_spotlight": 0.0
   },
   "posts": [
-    {
-      "date": "2026-06-26",
-      "post_id": "urn:li:share:7476139078631964673",
-      "format_type": "project_spotlight",
-      "domain": "AWS",
-      "had_image": true,
-      "preview": "## Project Spotlight: Choosing the Right Compute for ETL on AWS\n\nAs a Lead Data Engineer at Tata Consultancy Services, I...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-27",
       "post_id": "urn:li:share:7476497780556099584",
@@ -371,6 +359,18 @@
       "domain": "AWS",
       "had_image": true,
       "preview": "I've seen data pipelines go from chaotic to streamlined with one powerful tool: AWS Step Functions. \nWhen I led the migr...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-27",
+      "post_id": "urn:li:share:7487365028501749760",
+      "format_type": "myth_vs_reality",
+      "domain": "SQL / Analytics Engineering",
+      "had_image": true,
+      "preview": "As a Data Engineer, I've seen many teams struggle with writing efficient and reusable SQL code. One common misconception...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

@@ -502,5 +502,13 @@
     "domain": "AWS",
     "had_image": true,
     "preview": "I've seen data pipelines go from chaotic to streamlined with one powerful tool: AWS Step Functions. \nWhen I led the migr..."
+  },
+  {
+    "date": "2026-07-27",
+    "post_id": "urn:li:share:7487365028501749760",
+    "format_type": "myth_vs_reality",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "As a Data Engineer, I've seen many teams struggle with writing efficient and reusable SQL code. One common misconception..."
   }
 ]

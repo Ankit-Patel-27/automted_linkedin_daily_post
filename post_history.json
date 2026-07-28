@@ -510,5 +510,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "As a Data Engineer, I've seen many teams struggle with writing efficient and reusable SQL code. One common misconception..."
+  },
+  {
+    "date": "2026-07-28",
+    "post_id": "urn:li:share:7487720356737241089",
+    "format_type": "concept_explainer",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "As a Lead Data Engineer, I've worked with large-scale healthcare data, and one of the most powerful tools in my arsenal ..."
   }
 ]

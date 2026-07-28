@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-07-27",
+  "generated_date": "2026-07-28",
   "posts_analysed": 30,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "open_to_work",
+  "best_format": "insight",
   "format_avg_scores": {
-    "open_to_work": 0.0,
     "insight": 0.0,
     "achievement": 0.0,
     "industry_take": 0.0,
     "tip": 0.0,
     "concept_explainer": 0.0,
     "myth_vs_reality": 0.0,
+    "open_to_work": 0.0,
     "project_spotlight": 0.0
   },
   "posts": [
-    {
-      "date": "2026-06-27",
-      "post_id": "urn:li:share:7476497780556099584",
-      "format_type": "open_to_work",
-      "domain": "Databricks",
-      "had_image": true,
-      "preview": "I'm Ankit Patel, a seasoned Lead Data Engineer with 5 years of experience, and I'm excited to explore new opportunities ...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-28",
       "post_id": "urn:li:share:7476866092120870913",
@@ -371,6 +359,18 @@
       "domain": "SQL / Analytics Engineering",
       "had_image": true,
       "preview": "As a Data Engineer, I've seen many teams struggle with writing efficient and reusable SQL code. One common misconception...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-28",
+      "post_id": "urn:li:share:7487720356737241089",
+      "format_type": "concept_explainer",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "As a Lead Data Engineer, I've worked with large-scale healthcare data, and one of the most powerful tools in my arsenal ...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

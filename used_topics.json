@@ -1,11 +1,5 @@
 [
   {
-    "type": "concept_explainer",
-    "domain": "sql",
-    "topic": "CTEs vs subqueries vs temp tables \u2014 performance and readability trade-offs",
-    "date": "2026-06-18"
-  },
-  {
     "type": "project_spotlight",
     "domain": "databricks",
     "topic": "Auto Loader vs COPY INTO for incremental ingestion",
@@ -238,5 +232,11 @@
     "domain": "pyspark",
     "topic": "PySpark window functions for time-series healthcare data",
     "date": "2026-07-28"
+  },
+  {
+    "type": "project_spotlight",
+    "domain": "aws",
+    "topic": "S3 lifecycle policies and Intelligent-Tiering for cost optimisation",
+    "date": "2026-07-29"
   }
 ]

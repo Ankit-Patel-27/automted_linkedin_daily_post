@@ -518,5 +518,13 @@
     "domain": "PySpark",
     "had_image": true,
     "preview": "As a Lead Data Engineer, I've worked with large-scale healthcare data, and one of the most powerful tools in my arsenal ..."
+  },
+  {
+    "date": "2026-07-29",
+    "post_id": "urn:li:share:7488083740800397313",
+    "format_type": "project_spotlight",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "I'd like to spotlight a project I led at Tata Consultancy Services, where we helped a major healthcare client optimize t..."
   }
 ]

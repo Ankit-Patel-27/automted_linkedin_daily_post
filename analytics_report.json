@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-07-28",
+  "generated_date": "2026-07-29",
   "posts_analysed": 30,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "insight",
+  "best_format": "achievement",
   "format_avg_scores": {
-    "insight": 0.0,
     "achievement": 0.0,
     "industry_take": 0.0,
     "tip": 0.0,
     "concept_explainer": 0.0,
     "myth_vs_reality": 0.0,
     "open_to_work": 0.0,
+    "insight": 0.0,
     "project_spotlight": 0.0
   },
   "posts": [
-    {
-      "date": "2026-06-28",
-      "post_id": "urn:li:share:7476866092120870913",
-      "format_type": "insight",
-      "domain": "PySpark",
-      "had_image": true,
-      "preview": "**PySpark window functions are a game-changer for analyzing time-series healthcare data!**\n\nAs a data engineer, I've wor...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-29",
       "post_id": "urn:li:share:7477236570492940288",
@@ -371,6 +359,18 @@
       "domain": "PySpark",
       "had_image": true,
       "preview": "As a Lead Data Engineer, I've worked with large-scale healthcare data, and one of the most powerful tools in my arsenal ...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-29",
+      "post_id": "urn:li:share:7488083740800397313",
+      "format_type": "project_spotlight",
+      "domain": "AWS",
+      "had_image": true,
+      "preview": "I'd like to spotlight a project I led at Tata Consultancy Services, where we helped a major healthcare client optimize t...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

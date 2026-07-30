@@ -1,11 +1,5 @@
 [
   {
-    "type": "project_spotlight",
-    "domain": "databricks",
-    "topic": "Auto Loader vs COPY INTO for incremental ingestion",
-    "date": "2026-06-19"
-  },
-  {
     "type": "achievement",
     "domain": "pyspark",
     "topic": "Caching and persistence in Spark \u2014 .cache() vs .persist()",
@@ -238,5 +232,11 @@
     "domain": "aws",
     "topic": "S3 lifecycle policies and Intelligent-Tiering for cost optimisation",
     "date": "2026-07-29"
+  },
+  {
+    "type": "open_to_work",
+    "domain": "sql",
+    "topic": "Designing star schemas for healthcare analytics warehouses",
+    "date": "2026-07-30"
   }
 ]

@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-07-29",
+  "generated_date": "2026-07-30",
   "posts_analysed": 30,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "achievement",
+  "best_format": "industry_take",
   "format_avg_scores": {
-    "achievement": 0.0,
     "industry_take": 0.0,
     "tip": 0.0,
     "concept_explainer": 0.0,
     "myth_vs_reality": 0.0,
     "open_to_work": 0.0,
     "insight": 0.0,
-    "project_spotlight": 0.0
+    "project_spotlight": 0.0,
+    "achievement": 0.0
   },
   "posts": [
-    {
-      "date": "2026-06-29",
-      "post_id": "urn:li:share:7477236570492940288",
-      "format_type": "achievement",
-      "domain": "SQL / Analytics Engineering",
-      "had_image": true,
-      "preview": "I recall a particularly challenging project where we were migrating a large-scale data warehouse to the cloud. \n\nThe pro...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-06-30",
       "post_id": "urn:li:share:7477587326316146688",
@@ -371,6 +359,18 @@
       "domain": "AWS",
       "had_image": true,
       "preview": "I'd like to spotlight a project I led at Tata Consultancy Services, where we helped a major healthcare client optimize t...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-07-30",
+      "post_id": "urn:li:share:7488441957539721216",
+      "format_type": "open_to_work",
+      "domain": "SQL / Analytics Engineering",
+      "had_image": true,
+      "preview": "I'm excited to share that I'm open to new opportunities as a Senior Data Engineer or Data Platform Lead in the healthcar...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

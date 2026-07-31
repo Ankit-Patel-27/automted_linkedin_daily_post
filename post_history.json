@@ -534,5 +534,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "I'm excited to share that I'm open to new opportunities as a Senior Data Engineer or Data Platform Lead in the healthcar..."
+  },
+  {
+    "date": "2026-07-31",
+    "post_id": "urn:li:share:7488811084284555264",
+    "format_type": "industry_take",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "As someone who's worked with large-scale datasets in healthcare, I've found that writing efficient PySpark transformatio..."
   }
 ]

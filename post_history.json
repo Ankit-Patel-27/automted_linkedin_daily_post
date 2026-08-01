@@ -542,5 +542,13 @@
     "domain": "PySpark",
     "had_image": true,
     "preview": "As someone who's worked with large-scale datasets in healthcare, I've found that writing efficient PySpark transformatio..."
+  },
+  {
+    "date": "2026-08-01",
+    "post_id": "urn:li:share:7489173010025713664",
+    "format_type": "insight",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "**I've spent countless hours debugging CloudFormation templates, only to realize that Terraform was the better choice fo..."
   }
 ]

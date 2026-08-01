@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-07-31",
+  "generated_date": "2026-08-01",
   "posts_analysed": 30,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "tip",
+  "best_format": "concept_explainer",
   "format_avg_scores": {
-    "tip": 0.0,
     "concept_explainer": 0.0,
     "myth_vs_reality": 0.0,
     "open_to_work": 0.0,
     "insight": 0.0,
     "project_spotlight": 0.0,
     "industry_take": 0.0,
-    "achievement": 0.0
+    "achievement": 0.0,
+    "tip": 0.0
   },
   "posts": [
-    {
-      "date": "2026-07-01",
-      "post_id": "urn:li:share:7477954339811155969",
-      "format_type": "tip",
-      "domain": "AWS",
-      "had_image": true,
-      "preview": "When querying S3 data, are you choosing the right AWS service? \nAs a seasoned data engineer, I've seen teams struggle wi...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-07-02",
       "post_id": "urn:li:share:7478310598544408576",
@@ -371,6 +359,18 @@
       "domain": "PySpark",
       "had_image": true,
       "preview": "As someone who's worked with large-scale datasets in healthcare, I've found that writing efficient PySpark transformatio...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-08-01",
+      "post_id": "urn:li:share:7489173010025713664",
+      "format_type": "insight",
+      "domain": "AWS",
+      "had_image": true,
+      "preview": "**I've spent countless hours debugging CloudFormation templates, only to realize that Terraform was the better choice fo...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

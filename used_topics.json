@@ -1,11 +1,5 @@
 [
   {
-    "type": "insight",
-    "domain": "sql",
-    "topic": "Window functions every data engineer should master (RANK, LAG, LEAD)",
-    "date": "2026-06-21"
-  },
-  {
     "type": "industry_take",
     "domain": "aws",
     "topic": "AWS Lake Formation fine-grained access control for PHI data",
@@ -238,5 +232,11 @@
     "domain": "pyspark",
     "topic": "Writing efficient PySpark transformations for 500M+ record datasets",
     "date": "2026-07-31"
+  },
+  {
+    "type": "insight",
+    "domain": "aws",
+    "topic": "CloudFormation vs Terraform for data infrastructure as code",
+    "date": "2026-08-01"
   }
 ]

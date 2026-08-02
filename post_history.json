@@ -550,5 +550,13 @@
     "domain": "AWS",
     "had_image": true,
     "preview": "**I've spent countless hours debugging CloudFormation templates, only to realize that Terraform was the better choice fo..."
+  },
+  {
+    "date": "2026-08-02",
+    "post_id": "urn:li:share:7489536074143293440",
+    "format_type": "achievement",
+    "domain": "Databricks",
+    "had_image": true,
+    "preview": "I still remember the challenge we faced when building ML pipelines for a biotech client - managing features across diffe..."
   }
 ]

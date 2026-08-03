@@ -558,5 +558,13 @@
     "domain": "Databricks",
     "had_image": true,
     "preview": "I still remember the challenge we faced when building ML pipelines for a biotech client - managing features across diffe..."
+  },
+  {
+    "date": "2026-08-03",
+    "post_id": "urn:li:share:7489899910952075264",
+    "format_type": "tip",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "I still remember the day I optimized a slow-performing ETL pipeline by 40% just by replacing self-joins with window func..."
   }
 ]

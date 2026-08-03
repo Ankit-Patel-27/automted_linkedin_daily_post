@@ -1,7 +1,7 @@
 {
-  "text": "I still remember the challenge we faced when building ML pipelines for a biotech client - managing features across different models was a nightmare. \nWe had to ensure that features were consistently defined, computed, and shared across the organization. \nThat's when we decided to leverage Databricks Feature Store to streamline our ML workflows.\n\nBy using the `feature_store` API in PySpark, we were able to create a centralized repository of features, making it easy to manage and share them across different models. \nWe also utilized `Delta Lake` to store features, ensuring data quality and reliability. \nThe approach involved creating a `FeatureStore` client, defining features using `Feature` objects, and then computing and writing features to the store using `compute` and `write` methods.\n\nThe result was astounding - we reduced the ETL runtime by 40% on 500M+ daily records, making our ML pipelines more efficient and scalable. \nThis experience taught me the importance of leveraging the right tools and technologies to solve complex problems in data engineering. \nI'm excited to apply this knowledge in my next role, driving innovation in the healthcare and biotech industries.\n\n#DataEngineering #CloudMigration #AWS #CareerGrowth #TechLeadership #Databricks #DeltaLake #ApacheSpark",
-  "format_type": "achievement",
-  "domain": "Databricks",
-  "topic": "Databricks Feature Store for ML pipelines in biotech",
-  "date": "2026-08-02"
+  "text": "I still remember the day I optimized a slow-performing ETL pipeline by 40% just by replacing self-joins with window functions - it was a game-changer. \nHere are a few window function tips that I wish I knew earlier: \nUse RANK() to assign a unique rank to each row within a result set, partitioned by a specific column.\nLeverage LAG() to access data from a previous row, which is super useful for calculating differences or percentages.\nUtilize LEAD() to peek into the next row, handy for forecasting or identifying trends.\nMastering these window functions can take your SQL skills to the next level, especially when working with large datasets in tools like dbt or Apache Spark.\nSave this, share it, try it today and watch your data engineering skills soar!\n#DataEngineering #TechTips #LearnInPublic #DataPlatform #SQL #dbt #AnalyticsEngineering",
+  "format_type": "tip",
+  "domain": "SQL / Analytics Engineering",
+  "topic": "Window functions every data engineer should master (RANK, LAG, LEAD)",
+  "date": "2026-08-03"
 }

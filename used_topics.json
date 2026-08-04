@@ -1,11 +1,5 @@
 [
   {
-    "type": "myth_vs_reality",
-    "domain": "sql",
-    "topic": "dbt tests and data contracts \u2014 enforcing data quality at the model layer",
-    "date": "2026-06-24"
-  },
-  {
     "type": "concept_explainer",
     "domain": "pyspark",
     "topic": "PySpark UDFs vs Pandas UDFs \u2014 performance difference explained",
@@ -238,5 +232,11 @@
     "domain": "sql",
     "topic": "Window functions every data engineer should master (RANK, LAG, LEAD)",
     "date": "2026-08-03"
+  },
+  {
+    "type": "myth_vs_reality",
+    "domain": "aws",
+    "topic": "AWS Lake Formation fine-grained access control for PHI data",
+    "date": "2026-08-04"
   }
 ]

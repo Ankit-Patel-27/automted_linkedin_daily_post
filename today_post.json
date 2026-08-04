@@ -1,7 +1,7 @@
 {
-  "text": "I still remember the day I optimized a slow-performing ETL pipeline by 40% just by replacing self-joins with window functions - it was a game-changer. \nHere are a few window function tips that I wish I knew earlier: \nUse RANK() to assign a unique rank to each row within a result set, partitioned by a specific column.\nLeverage LAG() to access data from a previous row, which is super useful for calculating differences or percentages.\nUtilize LEAD() to peek into the next row, handy for forecasting or identifying trends.\nMastering these window functions can take your SQL skills to the next level, especially when working with large datasets in tools like dbt or Apache Spark.\nSave this, share it, try it today and watch your data engineering skills soar!\n#DataEngineering #TechTips #LearnInPublic #DataPlatform #SQL #dbt #AnalyticsEngineering",
-  "format_type": "tip",
-  "domain": "SQL / Analytics Engineering",
-  "topic": "Window functions every data engineer should master (RANK, LAG, LEAD)",
-  "date": "2026-08-03"
+  "text": "Myth vs Reality: Fine-grained access control in AWS Lake Formation for PHI data.\n\nWhat most people do: Overly rely on coarse-grained access controls, such as granting broad permissions to entire S3 buckets or Lake Formation databases, and then attempting to restrict access through complex IAM policies.\n\nWhat actually works: Implementing fine-grained access control using Lake Formation's built-in features, such as data location filters, column-level permissions, and row-level access control. For example, using the `GrantPermissions` API to assign specific permissions to users or groups for particular columns or rows within a dataset, while leveraging `LF-tags` to categorize and restrict access to sensitive PHI data.\n\nBy using these features, I've successfully implemented fine-grained access controls in production environments, ensuring that only authorized users can access sensitive data. For instance, I used the `GetResourceLFTags` API to retrieve LF-tags associated with a dataset and then applied column-level permissions using the `GrantPermissions` API to restrict access to specific columns containing PHI data.\n\n#DataEngineering #BestPractices #DataPlatform #TechTips #AWS #CloudEngineering #AWSCloud",
+  "format_type": "myth_vs_reality",
+  "domain": "AWS",
+  "topic": "AWS Lake Formation fine-grained access control for PHI data",
+  "date": "2026-08-04"
 }

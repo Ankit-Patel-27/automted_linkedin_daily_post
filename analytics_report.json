@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-08-05",
+  "generated_date": "2026-08-06",
   "posts_analysed": 30,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "project_spotlight",
+  "best_format": "industry_take",
   "format_avg_scores": {
-    "project_spotlight": 0.0,
     "industry_take": 0.0,
     "achievement": 0.0,
     "concept_explainer": 0.0,
     "myth_vs_reality": 0.0,
     "tip": 0.0,
     "open_to_work": 0.0,
-    "insight": 0.0
+    "insight": 0.0,
+    "project_spotlight": 0.0
   },
   "posts": [
-    {
-      "date": "2026-07-06",
-      "post_id": "urn:li:share:7479763454359425024",
-      "format_type": "project_spotlight",
-      "domain": "PySpark",
-      "had_image": true,
-      "preview": "## Project Spotlight: Taming Data Skew in PySpark with Salting\n\nAs a Lead Data Engineer at Tata Consultancy Services, I ...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-07-07",
       "post_id": "urn:li:share:7480121271465275392",
@@ -371,6 +359,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "As a Lead Data Engineer, I've worked with large-scale datasets in Databricks, and optimizing queries is crucial for perf...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-08-06",
+      "post_id": "urn:li:share:7490982544490876928",
+      "format_type": "project_spotlight",
+      "domain": "SQL / Analytics Engineering",
+      "had_image": true,
+      "preview": "I'd like to spotlight a project I worked on that involved optimizing analytics workflows using materialised views in Red...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

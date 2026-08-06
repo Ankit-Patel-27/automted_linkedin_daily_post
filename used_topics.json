@@ -1,11 +1,5 @@
 [
   {
-    "type": "project_spotlight",
-    "domain": "aws",
-    "topic": "AWS Glue vs EMR vs Lambda \u2014 choosing the right compute for ETL",
-    "date": "2026-06-26"
-  },
-  {
     "type": "open_to_work",
     "domain": "databricks",
     "topic": "Optimising small file problems in Delta Lake",
@@ -238,5 +232,11 @@
     "domain": "databricks",
     "topic": "Z-ordering and liquid clustering for query optimisation",
     "date": "2026-08-05"
+  },
+  {
+    "type": "project_spotlight",
+    "domain": "sql",
+    "topic": "Materialised views in Redshift and Databricks SQL",
+    "date": "2026-08-06"
   }
 ]

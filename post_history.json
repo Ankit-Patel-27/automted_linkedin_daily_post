@@ -582,5 +582,13 @@
     "domain": "Databricks",
     "had_image": true,
     "preview": "As a Lead Data Engineer, I've worked with large-scale datasets in Databricks, and optimizing queries is crucial for perf..."
+  },
+  {
+    "date": "2026-08-06",
+    "post_id": "urn:li:share:7490982544490876928",
+    "format_type": "project_spotlight",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "I'd like to spotlight a project I worked on that involved optimizing analytics workflows using materialised views in Red..."
   }
 ]

@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-08-06",
+  "generated_date": "2026-08-07",
   "posts_analysed": 30,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "industry_take",
+  "best_format": "achievement",
   "format_avg_scores": {
-    "industry_take": 0.0,
     "achievement": 0.0,
     "concept_explainer": 0.0,
     "myth_vs_reality": 0.0,
     "tip": 0.0,
     "open_to_work": 0.0,
     "insight": 0.0,
-    "project_spotlight": 0.0
+    "project_spotlight": 0.0,
+    "industry_take": 0.0
   },
   "posts": [
-    {
-      "date": "2026-07-07",
-      "post_id": "urn:li:share:7480121271465275392",
-      "format_type": "industry_take",
-      "domain": "Databricks",
-      "had_image": true,
-      "preview": "My take on Databricks' Photon engine: a game-changer for healthcare and biotech data infrastructure, but not a silver bu...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-07-08",
       "post_id": "urn:li:share:7480474103154540544",
@@ -371,6 +359,18 @@
       "domain": "SQL / Analytics Engineering",
       "had_image": true,
       "preview": "I'd like to spotlight a project I worked on that involved optimizing analytics workflows using materialised views in Red...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-08-07",
+      "post_id": "urn:li:share:7491339660875558913",
+      "format_type": "industry_take",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "As someone who's worked with large-scale healthcare data infrastructure, I've often found myself debating the trade-offs...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

@@ -590,5 +590,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "I'd like to spotlight a project I worked on that involved optimizing analytics workflows using materialised views in Red..."
+  },
+  {
+    "date": "2026-08-07",
+    "post_id": "urn:li:share:7491339660875558913",
+    "format_type": "industry_take",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "As someone who's worked with large-scale healthcare data infrastructure, I've often found myself debating the trade-offs..."
   }
 ]

@@ -1,11 +1,5 @@
 [
   {
-    "type": "insight",
-    "domain": "pyspark",
-    "topic": "PySpark window functions for time-series healthcare data",
-    "date": "2026-06-28"
-  },
-  {
     "type": "achievement",
     "domain": "sql",
     "topic": "dbt tests and data contracts \u2014 enforcing data quality at the model layer",
@@ -238,5 +232,11 @@
     "domain": "pyspark",
     "topic": "Caching and persistence in Spark \u2014 .cache() vs .persist()",
     "date": "2026-08-07"
+  },
+  {
+    "type": "open_to_work",
+    "domain": "databricks",
+    "topic": "Optimising small file problems in Delta Lake",
+    "date": "2026-08-08"
   }
 ]

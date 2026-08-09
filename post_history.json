@@ -606,5 +606,13 @@
     "domain": "Databricks",
     "had_image": true,
     "preview": "I'm excited to share that I'm open to new opportunities as a Senior Data Engineer or Data Platform Lead in the healthcar..."
+  },
+  {
+    "date": "2026-08-09",
+    "post_id": "urn:li:share:7492052487135338496",
+    "format_type": "insight",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "**I've seen ETL pipelines grind to a halt due to mischosen compute services, costing companies thousands of dollars in u..."
   }
 ]

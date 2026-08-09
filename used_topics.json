@@ -1,11 +1,5 @@
 [
   {
-    "type": "achievement",
-    "domain": "sql",
-    "topic": "dbt tests and data contracts \u2014 enforcing data quality at the model layer",
-    "date": "2026-06-29"
-  },
-  {
     "type": "industry_take",
     "domain": "databricks",
     "topic": "Auto Loader vs COPY INTO for incremental ingestion",
@@ -238,5 +232,11 @@
     "domain": "databricks",
     "topic": "Optimising small file problems in Delta Lake",
     "date": "2026-08-08"
+  },
+  {
+    "type": "insight",
+    "domain": "aws",
+    "topic": "AWS Glue vs EMR vs Lambda \u2014 choosing the right compute for ETL",
+    "date": "2026-08-09"
   }
 ]

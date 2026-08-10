@@ -614,5 +614,13 @@
     "domain": "AWS",
     "had_image": true,
     "preview": "**I've seen ETL pipelines grind to a halt due to mischosen compute services, costing companies thousands of dollars in u..."
+  },
+  {
+    "date": "2026-08-10",
+    "post_id": "urn:li:share:7492417031988744192",
+    "format_type": "achievement",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "I still remember the challenge we faced with data quality in our analytics pipeline. We had a large-scale ETL process ha..."
   }
 ]

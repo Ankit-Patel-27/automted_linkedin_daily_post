@@ -1,11 +1,5 @@
 [
   {
-    "type": "industry_take",
-    "domain": "databricks",
-    "topic": "Auto Loader vs COPY INTO for incremental ingestion",
-    "date": "2026-06-30"
-  },
-  {
     "type": "tip",
     "domain": "aws",
     "topic": "Redshift Spectrum vs Athena \u2014 when to query S3 directly",
@@ -238,5 +232,11 @@
     "domain": "aws",
     "topic": "AWS Glue vs EMR vs Lambda \u2014 choosing the right compute for ETL",
     "date": "2026-08-09"
+  },
+  {
+    "type": "achievement",
+    "domain": "sql",
+    "topic": "dbt tests and data contracts \u2014 enforcing data quality at the model layer",
+    "date": "2026-08-10"
   }
 ]

@@ -1,11 +1,5 @@
 [
   {
-    "type": "tip",
-    "domain": "aws",
-    "topic": "Redshift Spectrum vs Athena \u2014 when to query S3 directly",
-    "date": "2026-07-01"
-  },
-  {
     "type": "concept_explainer",
     "domain": "sql",
     "topic": "CTEs vs subqueries vs temp tables \u2014 performance and readability trade-offs",
@@ -238,5 +232,11 @@
     "domain": "sql",
     "topic": "dbt tests and data contracts \u2014 enforcing data quality at the model layer",
     "date": "2026-08-10"
+  },
+  {
+    "type": "myth_vs_reality",
+    "domain": "pyspark",
+    "topic": "PySpark UDFs vs Pandas UDFs \u2014 performance difference explained",
+    "date": "2026-08-11"
   }
 ]

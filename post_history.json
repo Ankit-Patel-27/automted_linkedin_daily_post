@@ -622,5 +622,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "I still remember the challenge we faced with data quality in our analytics pipeline. We had a large-scale ETL process ha..."
+  },
+  {
+    "date": "2026-08-11",
+    "post_id": "urn:li:share:7492777698734272514",
+    "format_type": "myth_vs_reality",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "I've seen many data engineers assume that PySpark UDFs and Pandas UDFs are interchangeable, with similar performance cha..."
   }
 ]

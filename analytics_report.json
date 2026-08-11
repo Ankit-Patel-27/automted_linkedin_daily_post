@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-08-10",
+  "generated_date": "2026-08-11",
   "posts_analysed": 30,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "tip",
+  "best_format": "open_to_work",
   "format_avg_scores": {
-    "tip": 0.0,
     "open_to_work": 0.0,
     "insight": 0.0,
     "project_spotlight": 0.0,
     "industry_take": 0.0,
     "achievement": 0.0,
     "concept_explainer": 0.0,
+    "tip": 0.0,
     "myth_vs_reality": 0.0
   },
   "posts": [
-    {
-      "date": "2026-07-11",
-      "post_id": "urn:li:share:7481560946734256129",
-      "format_type": "tip",
-      "domain": "Databricks",
-      "had_image": true,
-      "preview": "When building data platforms for healthcare, data integrity and reliability are non-negotiable. That's where Delta Lake'...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-07-12",
       "post_id": "urn:li:share:7481926461642137600",
@@ -371,6 +359,18 @@
       "domain": "SQL / Analytics Engineering",
       "had_image": true,
       "preview": "I still remember the challenge we faced with data quality in our analytics pipeline. We had a large-scale ETL process ha...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-08-11",
+      "post_id": "urn:li:share:7492777698734272514",
+      "format_type": "myth_vs_reality",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "I've seen many data engineers assume that PySpark UDFs and Pandas UDFs are interchangeable, with similar performance cha...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

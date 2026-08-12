@@ -630,5 +630,13 @@
     "domain": "PySpark",
     "had_image": true,
     "preview": "I've seen many data engineers assume that PySpark UDFs and Pandas UDFs are interchangeable, with similar performance cha..."
+  },
+  {
+    "date": "2026-08-12",
+    "post_id": "urn:li:share:7493144832912117761",
+    "format_type": "tip",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "I've seen it time and time again - teams struggling to decide between Redshift Spectrum and Athena for querying S3 data...."
   }
 ]

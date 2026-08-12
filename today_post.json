@@ -1,7 +1,7 @@
 {
-  "text": "I've seen many data engineers assume that PySpark UDFs and Pandas UDFs are interchangeable, with similar performance characteristics. \nHowever, this couldn't be further from the truth. \n\nWhat most people do is use PySpark UDFs as a straightforward replacement for Pandas UDFs, without considering the underlying performance implications. \nThey often use the `udf` function from PySpark SQL functions, like `udf(my_python_function, StringType())`, without realizing the overhead of serializing and deserializing data.\n\nWhat actually works is using Pandas UDFs, which are optimized for performance and can take advantage of vectorized operations. \nBy using `pandas_udf` from PySpark SQL functions, like `pandas_udf(my_python_function, StringType().toInt(), PandasUDFType.SCALAR)`, you can achieve significant performance gains. \nIn my experience, Pandas UDFs can be up to 10x faster than PySpark UDFs for certain workloads.\n\nWhen working with large datasets, every optimization counts, and using Pandas UDFs can be a game-changer. \nSo, the next time you're working with PySpark, remember to use Pandas UDFs for performance-critical code paths.\n\n#DataEngineering #BestPractices #DataPlatform #TechTips #PySpark #ApacheSpark #BigData",
-  "format_type": "myth_vs_reality",
-  "domain": "PySpark",
-  "topic": "PySpark UDFs vs Pandas UDFs \u2014 performance difference explained",
-  "date": "2026-08-11"
+  "text": "I've seen it time and time again - teams struggling to decide between Redshift Spectrum and Athena for querying S3 data. The truth is, choosing the right tool can save you thousands of dollars in query costs.\n\nTo query S3 directly with Redshift Spectrum, use the `CREATE EXTERNAL TABLE` statement to define your schema. \nThis approach is ideal for large-scale data warehousing workloads.\nFor ad-hoc queries, Amazon Athena is a better choice - simply use the `START QUERY EXECUTION` API to run SQL queries on your S3 data.\nWhen dealing with complex queries, consider using Redshift Spectrum with `UNLOAD` command to optimize performance.\n\nSave this, share it, try it today and watch your query costs plummet! #DataEngineering #TechTips #LearnInPublic #DataPlatform #AWS #CloudEngineering #AWSCloud",
+  "format_type": "tip",
+  "domain": "AWS",
+  "topic": "Redshift Spectrum vs Athena \u2014 when to query S3 directly",
+  "date": "2026-08-12"
 }

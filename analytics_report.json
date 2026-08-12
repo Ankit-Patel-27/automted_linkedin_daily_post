@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-08-11",
+  "generated_date": "2026-08-12",
   "posts_analysed": 30,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "open_to_work",
+  "best_format": "insight",
   "format_avg_scores": {
-    "open_to_work": 0.0,
     "insight": 0.0,
     "project_spotlight": 0.0,
     "industry_take": 0.0,
     "achievement": 0.0,
     "concept_explainer": 0.0,
     "tip": 0.0,
-    "myth_vs_reality": 0.0
+    "myth_vs_reality": 0.0,
+    "open_to_work": 0.0
   },
   "posts": [
-    {
-      "date": "2026-07-12",
-      "post_id": "urn:li:share:7481926461642137600",
-      "format_type": "open_to_work",
-      "domain": "PySpark",
-      "had_image": true,
-      "preview": "I'm currently open to new opportunities as a Senior Data Engineer or Data Platform Lead, with a focus on healthcare and ...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-07-13",
       "post_id": "urn:li:share:7482289967268855808",
@@ -371,6 +359,18 @@
       "domain": "PySpark",
       "had_image": true,
       "preview": "I've seen many data engineers assume that PySpark UDFs and Pandas UDFs are interchangeable, with similar performance cha...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-08-12",
+      "post_id": "urn:li:share:7493144832912117761",
+      "format_type": "tip",
+      "domain": "AWS",
+      "had_image": true,
+      "preview": "I've seen it time and time again - teams struggling to decide between Redshift Spectrum and Athena for querying S3 data....",
       "likes": 0,
       "comments": 0,
       "shares": 0,

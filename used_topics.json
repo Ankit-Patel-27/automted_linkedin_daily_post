@@ -1,11 +1,5 @@
 [
   {
-    "type": "myth_vs_reality",
-    "domain": "databricks",
-    "topic": "Change Data Feed (CDF) in Delta Lake for CDC pipelines",
-    "date": "2026-07-03"
-  },
-  {
     "type": "open_to_work",
     "domain": "aws",
     "topic": "AWS Glue Catalog as a central metadata store",
@@ -238,5 +232,11 @@
     "domain": "aws",
     "topic": "Redshift Spectrum vs Athena \u2014 when to query S3 directly",
     "date": "2026-08-12"
+  },
+  {
+    "type": "project_spotlight",
+    "domain": "sql",
+    "topic": "CTEs vs subqueries vs temp tables \u2014 performance and readability trade-offs",
+    "date": "2026-08-13"
   }
 ]

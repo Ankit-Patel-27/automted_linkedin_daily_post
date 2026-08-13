@@ -638,5 +638,13 @@
     "domain": "AWS",
     "had_image": true,
     "preview": "I've seen it time and time again - teams struggling to decide between Redshift Spectrum and Athena for querying S3 data...."
+  },
+  {
+    "date": "2026-08-13",
+    "post_id": "urn:li:share:7493507984887705600",
+    "format_type": "project_spotlight",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "As a Lead Data Engineer, I worked on optimizing a large-scale data warehousing project for a healthcare client, where we..."
   }
 ]

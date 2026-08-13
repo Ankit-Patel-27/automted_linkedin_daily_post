@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-08-12",
+  "generated_date": "2026-08-13",
   "posts_analysed": 30,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "insight",
+  "best_format": "project_spotlight",
   "format_avg_scores": {
-    "insight": 0.0,
     "project_spotlight": 0.0,
     "industry_take": 0.0,
     "achievement": 0.0,
     "concept_explainer": 0.0,
     "tip": 0.0,
     "myth_vs_reality": 0.0,
+    "insight": 0.0,
     "open_to_work": 0.0
   },
   "posts": [
-    {
-      "date": "2026-07-13",
-      "post_id": "urn:li:share:7482289967268855808",
-      "format_type": "insight",
-      "domain": "SQL / Analytics Engineering",
-      "had_image": true,
-      "preview": "**A well-designed star schema can be the difference between a healthcare analytics warehouse that's scalable and one tha...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-07-14",
       "post_id": "urn:li:share:7482643997367263232",
@@ -371,6 +359,18 @@
       "domain": "AWS",
       "had_image": true,
       "preview": "I've seen it time and time again - teams struggling to decide between Redshift Spectrum and Athena for querying S3 data....",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-08-13",
+      "post_id": "urn:li:share:7493507984887705600",
+      "format_type": "project_spotlight",
+      "domain": "SQL / Analytics Engineering",
+      "had_image": true,
+      "preview": "As a Lead Data Engineer, I worked on optimizing a large-scale data warehousing project for a healthcare client, where we...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

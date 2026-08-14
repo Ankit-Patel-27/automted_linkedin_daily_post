@@ -646,5 +646,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "As a Lead Data Engineer, I worked on optimizing a large-scale data warehousing project for a healthcare client, where we..."
+  },
+  {
+    "date": "2026-08-14",
+    "post_id": "urn:li:share:7493870002173902848",
+    "format_type": "industry_take",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "As someone who's worked with large-scale healthcare data, I can attest that PySpark window functions are a game-changer ..."
   }
 ]

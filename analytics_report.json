@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-08-13",
+  "generated_date": "2026-08-14",
   "posts_analysed": 30,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "project_spotlight",
+  "best_format": "industry_take",
   "format_avg_scores": {
-    "project_spotlight": 0.0,
     "industry_take": 0.0,
     "achievement": 0.0,
     "concept_explainer": 0.0,
     "tip": 0.0,
     "myth_vs_reality": 0.0,
     "insight": 0.0,
+    "project_spotlight": 0.0,
     "open_to_work": 0.0
   },
   "posts": [
-    {
-      "date": "2026-07-14",
-      "post_id": "urn:li:share:7482643997367263232",
-      "format_type": "project_spotlight",
-      "domain": "Databricks",
-      "had_image": true,
-      "preview": "## Project Spotlight: Implementing Databricks Unity Catalog for Data Governance\n\nAs a Lead Data Engineer at Tata Consult...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-07-15",
       "post_id": "urn:li:share:7483006743459860481",
@@ -371,6 +359,18 @@
       "domain": "SQL / Analytics Engineering",
       "had_image": true,
       "preview": "As a Lead Data Engineer, I worked on optimizing a large-scale data warehousing project for a healthcare client, where we...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-08-14",
+      "post_id": "urn:li:share:7493870002173902848",
+      "format_type": "industry_take",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "As someone who's worked with large-scale healthcare data, I can attest that PySpark window functions are a game-changer ...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

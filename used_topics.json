@@ -1,11 +1,5 @@
 [
   {
-    "type": "insight",
-    "domain": "sql",
-    "topic": "SQL query optimisation patterns for large analytical workloads",
-    "date": "2026-07-05"
-  },
-  {
     "type": "project_spotlight",
     "domain": "pyspark",
     "topic": "Avoiding data skew in PySpark with salting techniques",
@@ -238,5 +232,11 @@
     "domain": "pyspark",
     "topic": "PySpark window functions for time-series healthcare data",
     "date": "2026-08-14"
+  },
+  {
+    "type": "open_to_work",
+    "domain": "databricks",
+    "topic": "Auto Loader vs COPY INTO for incremental ingestion",
+    "date": "2026-08-15"
   }
 ]

@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-08-14",
+  "generated_date": "2026-08-15",
   "posts_analysed": 30,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "industry_take",
+  "best_format": "achievement",
   "format_avg_scores": {
-    "industry_take": 0.0,
     "achievement": 0.0,
     "concept_explainer": 0.0,
     "tip": 0.0,
     "myth_vs_reality": 0.0,
     "insight": 0.0,
     "project_spotlight": 0.0,
-    "open_to_work": 0.0
+    "open_to_work": 0.0,
+    "industry_take": 0.0
   },
   "posts": [
-    {
-      "date": "2026-07-15",
-      "post_id": "urn:li:share:7483006743459860481",
-      "format_type": "industry_take",
-      "domain": "PySpark",
-      "had_image": true,
-      "preview": "My take on partitioning strategies in PySpark for large-scale ETL\n\nAs a data engineer working on healthcare and biotech ...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-07-16",
       "post_id": "urn:li:share:7483371779550285824",
@@ -371,6 +359,18 @@
       "domain": "PySpark",
       "had_image": true,
       "preview": "As someone who's worked with large-scale healthcare data, I can attest that PySpark window functions are a game-changer ...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-08-15",
+      "post_id": "urn:li:share:7494214555359772672",
+      "format_type": "open_to_work",
+      "domain": "Databricks",
+      "had_image": true,
+      "preview": "I'm excited to share that I'm open to new opportunities as a Senior Data Engineer or Data Platform Lead, specifically in...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

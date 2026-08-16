@@ -662,5 +662,13 @@
     "domain": "Databricks",
     "had_image": true,
     "preview": "I'm excited to share that I'm open to new opportunities as a Senior Data Engineer or Data Platform Lead, specifically in..."
+  },
+  {
+    "date": "2026-08-16",
+    "post_id": "urn:li:share:7494578698860281856",
+    "format_type": "concept_explainer",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "As a data engineer, I've worked with large analytical workloads, and optimizing SQL queries is crucial for performance. ..."
   }
 ]

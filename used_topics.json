@@ -1,11 +1,5 @@
 [
   {
-    "type": "industry_take",
-    "domain": "databricks",
-    "topic": "Databricks Photon engine \u2014 when it helps and when it doesn't",
-    "date": "2026-07-07"
-  },
-  {
     "type": "achievement",
     "domain": "sql",
     "topic": "SQL anti-patterns that kill pipeline performance",
@@ -238,5 +232,11 @@
     "domain": "sql",
     "topic": "SQL query optimisation patterns for large analytical workloads",
     "date": "2026-08-16"
+  },
+  {
+    "type": "achievement",
+    "domain": "pyspark",
+    "topic": "Caching and persistence in Spark \u2014 .cache() vs .persist()",
+    "date": "2026-08-17"
   }
 ]

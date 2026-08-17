@@ -670,5 +670,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "As a data engineer, I've worked with large analytical workloads, and optimizing SQL queries is crucial for performance. ..."
+  },
+  {
+    "date": "2026-08-17",
+    "post_id": "urn:li:share:7494940812900900864",
+    "format_type": "achievement",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "I still remember the challenge we faced with our 500M+ daily records ETL pipeline - it was taking way too long to proces..."
   }
 ]

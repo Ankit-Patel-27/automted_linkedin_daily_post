@@ -1,6 +1,6 @@
 """
 LinkedIn Post Generator — Ankit Patel
-Uses Groq (Llama 3.3) to generate daily job-hunting posts for a
+Uses Groq (Mixtral 8x7B) to generate daily job-hunting posts for a
 Senior Data Engineer / Data Platform Lead in Healthcare/Biotech.
 """
 
@@ -282,7 +282,7 @@ Write the full LinkedIn post now. Output only the post text, nothing else.
 """
 
     response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model="mixtral-8x7b-32768",
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},

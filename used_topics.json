@@ -1,11 +1,5 @@
 [
   {
-    "type": "achievement",
-    "domain": "sql",
-    "topic": "SQL anti-patterns that kill pipeline performance",
-    "date": "2026-07-08"
-  },
-  {
     "type": "concept_explainer",
     "domain": "pyspark",
     "topic": "PySpark structured streaming for near-real-time pipelines",
@@ -238,5 +232,11 @@
     "domain": "pyspark",
     "topic": "Caching and persistence in Spark \u2014 .cache() vs .persist()",
     "date": "2026-08-17"
+  },
+  {
+    "type": "myth_vs_reality",
+    "domain": "databricks",
+    "topic": "Databricks Workflows vs Apache Airflow \u2014 when to use which",
+    "date": "2026-08-23"
   }
 ]

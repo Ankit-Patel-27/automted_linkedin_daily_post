@@ -678,5 +678,13 @@
     "domain": "PySpark",
     "had_image": true,
     "preview": "I still remember the challenge we faced with our 500M+ daily records ETL pipeline - it was taking way too long to proces..."
+  },
+  {
+    "date": "2026-08-23",
+    "post_id": "urn:li:share:7497175848849125376",
+    "format_type": "myth_vs_reality",
+    "domain": "Databricks",
+    "had_image": true,
+    "preview": "**Myth:** \u201cDatabricks Workflows can replace Airflow for every pipeline.\u201d  \n\n**Reality:** They solve different problems. ..."
   }
 ]

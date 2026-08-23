@@ -7,10 +7,11 @@ Senior Data Engineer / Data Platform Lead in Healthcare/Biotech.
 import os
 import json
 import random
+import requests
 from datetime import date
 from groq import Groq
 
-# ── Profile context ─────────────────────────────────────────────────────────[...]
+# ── Profile context ─────────────────────────────────────────────────────────
 PROFILE = """
 Name: Ankit Patel
 Current role: Lead Data Engineer at Tata Consultancy Services (5 years exp)
@@ -190,6 +191,69 @@ DOMAIN_HASHTAGS = {
 }
 
 
+def get_available_models(api_key: str) -> list:
+    """
+    Fetch available models from Groq API.
+    Returns a list of model objects.
+    """
+    url = "https://api.groq.com/openai/v1/models"
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
+    
+    try:
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()
+        data = response.json()
+        return data.get("data", [])
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching models from Groq API: {e}")
+        return []
+
+
+def select_best_model(api_key: str) -> str:
+    """
+    Dynamically select the best available model from Groq.
+    Prioritizes models that support vision/image capabilities.
+    Falls back to the most capable text model if no vision model is available.
+    """
+    models = get_available_models(api_key)
+    
+    if not models:
+        print("⚠️  No models found from Groq API. Using fallback model.")
+        return "llama-3.3-70b-versatile"
+    
+    # Models with vision/image capabilities (prioritized)
+    vision_models = []
+    # Models without vision but still capable
+    text_models = []
+    
+    for model in models:
+        model_id = model.get("id", "")
+        # Check if model supports vision (common patterns in model names)
+        if any(keyword in model_id.lower() for keyword in ["vision", "image", "multimodal"]):
+            vision_models.append(model_id)
+        else:
+            text_models.append(model_id)
+    
+    # Prefer vision-capable models
+    if vision_models:
+        selected = vision_models[0]
+        print(f"✓ Selected vision-capable model: {selected}")
+        return selected
+    
+    # Fall back to best text model (usually the most recent or capable)
+    if text_models:
+        selected = text_models[0]
+        print(f"✓ Selected text model: {selected}")
+        return selected
+    
+    # Last resort fallback
+    print("⚠️  Falling back to hardcoded model: llama-3.3-70b-versatile")
+    return "llama-3.3-70b-versatile"
+
+
 def load_used_topics(path="used_topics.json"):
     if os.path.exists(path):
         with open(path) as f:
@@ -246,6 +310,9 @@ def pick_domain_and_topic(used_topics):
 
 
 def generate_post(api_key: str) -> dict:
+    # Dynamically select the best available model
+    model = select_best_model(api_key)
+    
     client = Groq(api_key=api_key)
 
     used   = load_used_topics()
@@ -282,7 +349,7 @@ Write the full LinkedIn post now. Output only the post text, nothing else.
 """
 
     response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model=model,
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
@@ -300,6 +367,7 @@ Write the full LinkedIn post now. Output only the post text, nothing else.
         "domain": domain["label"],
         "topic": topic,
         "date": str(date.today()),
+        "model_used": model,
     }
 
 
@@ -314,6 +382,7 @@ if __name__ == "__main__":
     print(f"Domain : {result['domain']}")
     print(f"Topic  : {result['topic']}")
     print(f"Date   : {result['date']}")
+    print(f"Model  : {result['model_used']}")
     print(f"{'='*60}\n")
     print(result["text"])
 

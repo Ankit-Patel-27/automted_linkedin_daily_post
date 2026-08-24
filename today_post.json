@@ -1,8 +1,8 @@
 {
-  "text": "**Myth:** \u201cDatabricks Workflows can replace Airflow for every pipeline.\u201d  \n\n**Reality:** They solve different problems. I\u2019ve run a 10\u202fTB migration on AWS where the orchestration layer needed tight coupling with external services (S3 inventory, IAM role rotation, Snowflake loads). In that case I built an Airflow DAG using the `DatabricksSubmitRunOperator`. The operator lets me pass a full JSON payload:\n\n```python\nrun_conf = {\n  \"new_cluster\": {\"spark_version\": \"13.2.x-scala2.12\", \"node_type_id\": \"i3.xlarge\"},\n  \"notebook_task\": {\"notebook_path\": \"/Shared/ingest\"},\n  \"libraries\": [{\"pypi\": {\"package\": \"dbt\"}}]\n}\ntask = DatabricksSubmitRunOperator(task_id=\"run_ingest\", json=run_conf)\n```\n\nAirflow\u2019s sensor framework (`ExternalTaskSensor`, `S3KeySensor`) handles cross\u2011system dependencies and retries that Databricks Workflows can\u2019t express natively.\n\n**When to use Databricks Workflows:**  \n- Purely Databricks\u2011native jobs (notebook, JAR, Python) that run sequentially or in a simple fan\u2011out.  \n- Need built\u2011in job\u2011level retries, alerting, and UI\u2011driven monitoring.  \n- Want to keep everything inside the workspace for quick iteration.\n\n**When to stick with Airflow:**  \n- Pipelines that span multiple clouds, services, or need complex branching (`BranchPythonOperator`).  \n- You already have a centralised DAG repository with CI/CD (`GitHub Actions` \u2192 `airflow dags trigger`).  \n- Governance requires explicit data contracts or external SLA checks.\n\nChoosing the right tool saves you from brittle hacks and keeps runtime predictable.  \n\n#DataEngineering #BestPractices #DataPlatform #TechTips #Databricks #DeltaLake #ApacheSpark",
-  "format_type": "myth_vs_reality",
-  "domain": "Databricks",
-  "topic": "Databricks Workflows vs Apache Airflow \u2014 when to use which",
-  "date": "2026-08-23",
-  "model_used": "groq/compound-mini"
+  "text": "",
+  "format_type": "insight",
+  "domain": "AWS",
+  "topic": "AWS Glue Catalog as a central metadata store",
+  "date": "2026-08-24",
+  "model_used": "openai/gpt-oss-20b"
 }

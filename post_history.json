@@ -686,5 +686,13 @@
     "domain": "Databricks",
     "had_image": true,
     "preview": "**Myth:** \u201cDatabricks Workflows can replace Airflow for every pipeline.\u201d  \n\n**Reality:** They solve different problems. ..."
+  },
+  {
+    "date": "2026-08-24",
+    "post_id": "urn:li:share:7497478313045655552",
+    "format_type": "insight",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "..."
   }
 ]

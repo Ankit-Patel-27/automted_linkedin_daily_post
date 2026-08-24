@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-08-23",
+  "generated_date": "2026-08-24",
   "posts_analysed": 26,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "industry_take",
+  "best_format": "achievement",
   "format_avg_scores": {
-    "industry_take": 0.0,
     "achievement": 0.0,
     "tip": 0.0,
     "myth_vs_reality": 0.0,
     "concept_explainer": 0.0,
     "project_spotlight": 0.0,
     "open_to_work": 0.0,
+    "industry_take": 0.0,
     "insight": 0.0
   },
   "posts": [
-    {
-      "date": "2026-07-24",
-      "post_id": "urn:li:share:7486272090812178433",
-      "format_type": "industry_take",
-      "domain": "SQL / Analytics Engineering",
-      "had_image": true,
-      "preview": "As I've worked on various healthcare data infrastructure projects, I've found myself pondering the best approach to impl...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-07-25",
       "post_id": "urn:li:share:7486633480542662656",
@@ -323,6 +311,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "**Myth:** \u201cDatabricks Workflows can replace Airflow for every pipeline.\u201d  \n\n**Reality:** They solve different problems. ...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-08-24",
+      "post_id": "urn:li:share:7497478313045655552",
+      "format_type": "insight",
+      "domain": "AWS",
+      "had_image": true,
+      "preview": "...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

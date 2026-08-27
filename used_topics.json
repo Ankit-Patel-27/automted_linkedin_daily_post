@@ -1,11 +1,5 @@
 [
   {
-    "type": "myth_vs_reality",
-    "domain": "aws",
-    "topic": "Kinesis Data Streams vs Kafka \u2014 real-time ingestion trade-offs",
-    "date": "2026-07-10"
-  },
-  {
     "type": "tip",
     "domain": "databricks",
     "topic": "Delta Lake ACID transactions and why they matter for healthcare data",
@@ -238,5 +232,11 @@
     "domain": "aws",
     "topic": "AWS Glue Catalog as a central metadata store",
     "date": "2026-08-24"
+  },
+  {
+    "type": "tip",
+    "domain": "pyspark",
+    "topic": "PySpark structured streaming for near-real-time pipelines",
+    "date": "2026-08-27"
   }
 ]

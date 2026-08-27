@@ -694,5 +694,13 @@
     "domain": "AWS",
     "had_image": true,
     "preview": "..."
+  },
+  {
+    "date": "2026-08-27",
+    "post_id": "urn:li:share:7498694431936733184",
+    "format_type": "tip",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "Attention data engineering enthusiasts! Are you building near-real-time pipelines for healthcare or biotech companies? P..."
   }
 ]

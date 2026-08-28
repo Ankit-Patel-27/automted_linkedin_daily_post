@@ -702,5 +702,13 @@
     "domain": "PySpark",
     "had_image": true,
     "preview": "Attention data engineering enthusiasts! Are you building near-real-time pipelines for healthcare or biotech companies? P..."
+  },
+  {
+    "date": "2026-08-28",
+    "post_id": "urn:li:share:7499080754833002497",
+    "format_type": "project_spotlight",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "**Project Spotlight \u2013 Cutting Pipeline Lag with SQL Anti\u2011Patterns**\n\nWhen we rolled out a real\u2011time analytics layer for ..."
   }
 ]

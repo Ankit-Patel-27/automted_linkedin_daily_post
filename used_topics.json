@@ -1,11 +1,5 @@
 [
   {
-    "type": "tip",
-    "domain": "databricks",
-    "topic": "Delta Lake ACID transactions and why they matter for healthcare data",
-    "date": "2026-07-11"
-  },
-  {
     "type": "open_to_work",
     "domain": "pyspark",
     "topic": "Spark execution plan \u2014 how to read and optimise it",
@@ -238,5 +232,11 @@
     "domain": "pyspark",
     "topic": "PySpark structured streaming for near-real-time pipelines",
     "date": "2026-08-27"
+  },
+  {
+    "type": "project_spotlight",
+    "domain": "sql",
+    "topic": "SQL anti-patterns that kill pipeline performance",
+    "date": "2026-08-28"
   }
 ]

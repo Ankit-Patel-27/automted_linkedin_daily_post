@@ -1,11 +1,5 @@
 [
   {
-    "type": "open_to_work",
-    "domain": "pyspark",
-    "topic": "Spark execution plan \u2014 how to read and optimise it",
-    "date": "2026-07-12"
-  },
-  {
     "type": "insight",
     "domain": "sql",
     "topic": "Designing star schemas for healthcare analytics warehouses",
@@ -238,5 +232,11 @@
     "domain": "sql",
     "topic": "SQL anti-patterns that kill pipeline performance",
     "date": "2026-08-28"
+  },
+  {
+    "type": "industry_take",
+    "domain": "databricks",
+    "topic": "Databricks Photon engine \u2014 when it helps and when it doesn't",
+    "date": "2026-08-29"
   }
 ]

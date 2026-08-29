@@ -710,5 +710,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "**Project Spotlight \u2013 Cutting Pipeline Lag with SQL Anti\u2011Patterns**\n\nWhen we rolled out a real\u2011time analytics layer for ..."
+  },
+  {
+    "date": "2026-08-29",
+    "post_id": "urn:li:share:7499370191089192960",
+    "format_type": "industry_take",
+    "domain": "Databricks",
+    "had_image": true,
+    "preview": "<think>\nThinking process:\n\n1.  **Deconstruct the Request:**\n    *   **Persona:** Ankit Patel, Lead Data Engineer at TCS,..."
   }
 ]

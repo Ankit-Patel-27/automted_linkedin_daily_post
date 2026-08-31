@@ -1,45 +1,21 @@
 {
-  "generated_date": "2026-08-29",
-  "posts_analysed": 24,
+  "generated_date": "2026-08-31",
+  "posts_analysed": 23,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "open_to_work",
+  "best_format": "insight",
   "format_avg_scores": {
-    "open_to_work": 0.0,
-    "industry_take": 0.0,
     "insight": 0.0,
     "achievement": 0.0,
     "tip": 0.0,
     "myth_vs_reality": 0.0,
     "concept_explainer": 0.0,
-    "project_spotlight": 0.0
+    "project_spotlight": 0.0,
+    "industry_take": 0.0,
+    "open_to_work": 0.0
   },
   "posts": [
-    {
-      "date": "2026-07-30",
-      "post_id": "urn:li:share:7488441957539721216",
-      "format_type": "open_to_work",
-      "domain": "SQL / Analytics Engineering",
-      "had_image": true,
-      "preview": "I'm excited to share that I'm open to new opportunities as a Senior Data Engineer or Data Platform Lead in the healthcar...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
-    {
-      "date": "2026-07-31",
-      "post_id": "urn:li:share:7488811084284555264",
-      "format_type": "industry_take",
-      "domain": "PySpark",
-      "had_image": true,
-      "preview": "As someone who's worked with large-scale datasets in healthcare, I've found that writing efficient PySpark transformatio...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-08-01",
       "post_id": "urn:li:share:7489173010025713664",
@@ -299,6 +275,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "<think>\nThinking process:\n\n1.  **Deconstruct the Request:**\n    *   **Persona:** Ankit Patel, Lead Data Engineer at TCS,...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-08-31",
+      "post_id": "urn:li:share:7500079901568466944",
+      "format_type": "open_to_work",
+      "domain": "AWS",
+      "had_image": true,
+      "preview": "I\u2019m actively looking for a Senior Data Engineer or Data Platform Lead role in the healthcare/biotech space.  \n\nOver the ...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

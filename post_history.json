@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-05-25",
-    "post_id": "urn:li:share:7464587236722769920",
-    "format_type": "industry_take",
-    "domain": "AWS",
-    "had_image": true,
-    "preview": "As a data engineer in the healthcare space, I've had to make the call on whether to use Kinesis Data Streams or Kafka fo..."
-  },
-  {
     "date": "2026-05-26",
     "post_id": "urn:li:share:7464933337086930944",
     "format_type": "insight",
@@ -718,5 +710,13 @@
     "domain": "AWS",
     "had_image": true,
     "preview": "I\u2019m actively looking for a Senior Data Engineer or Data Platform Lead role in the healthcare/biotech space.  \n\nOver the ..."
+  },
+  {
+    "date": "2026-09-01",
+    "post_id": "urn:li:share:7500618478035390465",
+    "format_type": "achievement",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "Title: Optimizing Apache Spark Execution Plans: Closing the Gap Between Performance and Efficiency\n\n---\n\nAs a Senior Dat..."
   }
 ]

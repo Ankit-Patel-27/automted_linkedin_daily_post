@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-08-31",
+  "generated_date": "2026-09-01",
   "posts_analysed": 23,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "insight",
+  "best_format": "achievement",
   "format_avg_scores": {
-    "insight": 0.0,
     "achievement": 0.0,
     "tip": 0.0,
     "myth_vs_reality": 0.0,
     "concept_explainer": 0.0,
     "project_spotlight": 0.0,
     "industry_take": 0.0,
-    "open_to_work": 0.0
+    "open_to_work": 0.0,
+    "insight": 0.0
   },
   "posts": [
-    {
-      "date": "2026-08-01",
-      "post_id": "urn:li:share:7489173010025713664",
-      "format_type": "insight",
-      "domain": "AWS",
-      "had_image": true,
-      "preview": "**I've spent countless hours debugging CloudFormation templates, only to realize that Terraform was the better choice fo...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-08-02",
       "post_id": "urn:li:share:7489536074143293440",
@@ -287,6 +275,18 @@
       "domain": "AWS",
       "had_image": true,
       "preview": "I\u2019m actively looking for a Senior Data Engineer or Data Platform Lead role in the healthcare/biotech space.  \n\nOver the ...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-09-01",
+      "post_id": "urn:li:share:7500618478035390465",
+      "format_type": "achievement",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "Title: Optimizing Apache Spark Execution Plans: Closing the Gap Between Performance and Efficiency\n\n---\n\nAs a Senior Dat...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

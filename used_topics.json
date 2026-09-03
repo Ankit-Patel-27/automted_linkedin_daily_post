@@ -1,11 +1,5 @@
 [
   {
-    "type": "industry_take",
-    "domain": "pyspark",
-    "topic": "Partitioning strategies in PySpark for large-scale ETL",
-    "date": "2026-07-15"
-  },
-  {
     "type": "achievement",
     "domain": "aws",
     "topic": "AWS ECS vs EKS for containerised data workloads",
@@ -238,5 +232,11 @@
     "domain": "pyspark",
     "topic": "Spark execution plan \u2014 how to read and optimise it",
     "date": "2026-09-01"
+  },
+  {
+    "type": "myth_vs_reality",
+    "domain": "databricks",
+    "topic": "Databricks Unity Catalog for data governance in regulated industries",
+    "date": "2026-09-03"
   }
 ]

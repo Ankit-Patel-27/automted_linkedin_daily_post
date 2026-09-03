@@ -1,45 +1,21 @@
 {
-  "generated_date": "2026-09-01",
-  "posts_analysed": 23,
+  "generated_date": "2026-09-03",
+  "posts_analysed": 22,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "achievement",
+  "best_format": "myth_vs_reality",
   "format_avg_scores": {
-    "achievement": 0.0,
-    "tip": 0.0,
     "myth_vs_reality": 0.0,
     "concept_explainer": 0.0,
     "project_spotlight": 0.0,
     "industry_take": 0.0,
     "open_to_work": 0.0,
-    "insight": 0.0
+    "insight": 0.0,
+    "achievement": 0.0,
+    "tip": 0.0
   },
   "posts": [
-    {
-      "date": "2026-08-02",
-      "post_id": "urn:li:share:7489536074143293440",
-      "format_type": "achievement",
-      "domain": "Databricks",
-      "had_image": true,
-      "preview": "I still remember the challenge we faced when building ML pipelines for a biotech client - managing features across diffe...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
-    {
-      "date": "2026-08-03",
-      "post_id": "urn:li:share:7489899910952075264",
-      "format_type": "tip",
-      "domain": "SQL / Analytics Engineering",
-      "had_image": true,
-      "preview": "I still remember the day I optimized a slow-performing ETL pipeline by 40% just by replacing self-joins with window func...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-08-04",
       "post_id": "urn:li:share:7490258242845958144",
@@ -287,6 +263,18 @@
       "domain": "PySpark",
       "had_image": true,
       "preview": "Title: Optimizing Apache Spark Execution Plans: Closing the Gap Between Performance and Efficiency\n\n---\n\nAs a Senior Dat...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-09-03",
+      "post_id": "urn:li:share:7501149198533263360",
+      "format_type": "myth_vs_reality",
+      "domain": "Databricks",
+      "had_image": true,
+      "preview": "**Myth:**  \nYou can skip Unity Catalog in a regulated environment and just keep using the legacy Hive metastore and ACLs...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

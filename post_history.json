@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-05-26",
-    "post_id": "urn:li:share:7464933337086930944",
-    "format_type": "insight",
-    "domain": "Databricks",
-    "had_image": true,
-    "preview": "I've seen firsthand how Databricks' Photon engine can supercharge Spark workloads - but it's not a silver bullet.\n\nWhen ..."
-  },
-  {
     "date": "2026-05-27",
     "post_id": "urn:li:share:7465307836286279680",
     "format_type": "project_spotlight",
@@ -718,5 +710,13 @@
     "domain": "PySpark",
     "had_image": true,
     "preview": "Title: Optimizing Apache Spark Execution Plans: Closing the Gap Between Performance and Efficiency\n\n---\n\nAs a Senior Dat..."
+  },
+  {
+    "date": "2026-09-03",
+    "post_id": "urn:li:share:7501149198533263360",
+    "format_type": "myth_vs_reality",
+    "domain": "Databricks",
+    "had_image": true,
+    "preview": "**Myth:**  \nYou can skip Unity Catalog in a regulated environment and just keep using the legacy Hive metastore and ACLs..."
   }
 ]

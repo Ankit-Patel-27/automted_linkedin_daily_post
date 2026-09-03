@@ -1,5 +1,5 @@
 """
-LinkedIn Post Generator - Ankit Patel
+LinkedIn Post Generator — Ankit Patel
 Uses Groq (Llama 3.1 70B) to generate daily job-hunting posts for a
 Senior Data Engineer / Data Platform Lead in Healthcare/Biotech.
 """
@@ -7,12 +7,11 @@ Senior Data Engineer / Data Platform Lead in Healthcare/Biotech.
 import os
 import json
 import random
-import re
 import requests
 from datetime import date
 from groq import Groq
 
-# ── Profile context ─────────────────────────────────────────────────────────
+# -- Profile context -------------------------------------------------------
 PROFILE = """
 Name: Ankit Patel
 Current role: Lead Data Engineer at Tata Consultancy Services (5 years exp)
@@ -35,7 +34,7 @@ Open to: Senior Data Engineer, Data Platform Lead, or Cloud Data roles
          in Healthcare / Biotech (open to remote/hybrid)
 """
 
-# ── Topic domains - one is picked randomly to focus each post 
+# -- Topic domains - one is picked randomly to focus each post -----------
 TOPIC_DOMAINS = [
     {
         "domain": "databricks",
@@ -103,7 +102,7 @@ TOPIC_DOMAINS = [
     },
 ]
 
-# ── Post format rotation 
+# -- Post format rotation -------------------------------------------------
 POST_FORMATS = [
     {
         "type": "insight",
@@ -158,7 +157,7 @@ POST_FORMATS = [
         "type": "project_spotlight",
         "instruction": (
             "Spotlight a specific project or initiative Ankit worked on that relates to "
-            "the given topic. Tell the story: context - problem - solution - impact. "
+            "the given topic. Tell the story: context -> problem -> solution -> impact. "
             "Include real numbers where possible. Keep it authentic."
         ),
     },
@@ -310,81 +309,26 @@ def pick_domain_and_topic(used_topics):
     return domain, topic
 
 
-# --- New helpers: sanitize, hashtags, image prompt builder ---
-
-def sanitize_text(text: str) -> str:
-    """
-    Remove markdown/code fences and backticks but keep the inner content.
-    Collapse excessive blank lines and remove bold/italic markers.
-    """
-    # Remove code fences ```...```
-    text = re.sub(r'```(?:\w+\n)?([\s\S]*?)```', r'\1', text)
-    # Remove inline backticks `code`
-    text = re.sub(r'`([^`]+)`', r'\1', text)
-    # Remove markdown bold/italic markers
-    text = text.replace("**", "").replace("__", "").replace("*", "")
-    # Remove markdown headings like ###
-    text = re.sub(r'^\s{0,3}#{1,6}\s*', '', text, flags=re.MULTILINE)
-    # Collapse 3+ newlines to two
-    text = re.sub(r'\n{3,}', '\n\n', text)
-    return text.strip()
-
-
-def pick_hashtags(fmt_type: str, domain_key: str, min_tags=4, max_tags=6) -> str:
-    """
-    Build a 4-6 hashtag line from the existing sets. Prefer format-specific first,
-    then add domain tags, then trim or expand to meet count.
-    """
-    base = HASHTAG_SETS.get(fmt_type, "").split()
-    domain = DOMAIN_HASHTAGS.get(domain_key, "").split()
-    # Remove duplicates
-    combined = []
-    for h in base + domain:
-        if h and h not in combined:
-            combined.append(h)
-    # Trim or pad (if too few tags, keep what we have)
-    target = max(min_tags, min(max_tags, len(combined)))
-    return " ".join(combined[:target])
-
-
-def build_image_prompt(domain_key: str, topic: str, fmt_type: str) -> str:
-    """
-    Build a focused image prompt the image generator can use.
-    Keep it short (1-2 sentences) and domain-aware.
-    """
-    style = ("clean professional infographic suitable for LinkedIn feed; "
-             "muted blue/teal palette; high contrast labels; no people; no logos; "
-             "minimal text on image; clear icons for data, locks (security), and cloud.")
-    if domain_key == "databricks":
-        visual = (f"Diagram comparing Unity Catalog vs Hive metastore: "
-                  "data lineage arrows, padlock icons for fine-grained access, "
-                  "S3 bucket and Delta Lake icons for storage.")
-    elif domain_key == "aws":
-        visual = (f"Architecture diagram showing S3, Lake Formation, Glue catalog, "
-                  "access-control overlays and audit/log icons.")
-    elif domain_key == "pyspark":
-        visual = (f"Illustration of a Spark execution graph, partitioned data blocks, "
-                  "and shuffle arrows with a performance/speed icon.")
-    else:
-        visual = f"Abstract data platform graphic related to {topic}."
-    return f"{visual} {style} Topic: {topic}."
-
-
 def generate_post(api_key: str) -> dict:
     # Dynamically select the best available model
     model = select_best_model(api_key)
+    
     client = Groq(api_key=api_key)
 
     used   = load_used_topics()
     fmt    = pick_format(used)
     domain, topic = pick_domain_and_topic(used)
 
-    # enforce 4-6 hashtags
-    hashtags_line = pick_hashtags(fmt["type"], domain["domain"])
+    hashtags = (
+        HASHTAG_SETS[fmt["type"]] + "  " + DOMAIN_HASHTAGS[domain["domain"]]
+    )
 
     system_prompt = f"""You are a LinkedIn ghostwriter specialising in data engineering and cloud careers.
-Write in first person as Ankit Patel. Keep posts between 150-250 words. No fluff, no corporate buzzwords.
-Write with line breaks for readability (short paragraphs). Include concrete commands or config names when relevant.
+You write authentic, engaging posts for job seekers targeting senior technical roles.
+Write in first person as Ankit Patel.
+Keep posts between 150-250 words. No fluff, no corporate buzzwords.
+Use line breaks for readability. End with 4-6 relevant hashtags on the last line.
+
 Candidate profile:
 {PROFILE}
 """
@@ -395,86 +339,36 @@ Topic domain: {domain['label']}
 
 Instructions: {fmt['instruction']}
 
-Important formatting rules:
-- DO NOT use Markdown formatting (no ```, no **bold**, no *italics*, no markdown headings).
-- DO NOT output code fences. If you include code examples, output them as plain, unquoted lines (e.g. CREATE DATABASE mydb USING DELTA LOCATION /mnt/secure/data).
-- Keep the post plain text, LinkedIn-ready. Use short paragraphs and a final single line with 4-6 hashtags.
-- Create a concise, focused image prompt (1-2 sentences) appropriate for a professional LinkedIn infographic illustrating the technical idea.
+Tie the post to the specific topic above. Be concrete — use real command names,
+API names, or config patterns where relevant. Write as someone who has used this
+in production at scale.
 
-Output requirement (MANDATORY):
-Return ONLY valid JSON, with these exact keys:
-{
-  "post_text": "<The LinkedIn post plain text, 150-250 words, no markdown>",
-  "hashtags": "<single-line of 4-6 hashtags, space-separated>",
-  "image_prompt": "<short image prompt for an AI image generator>"
-}
+Use these hashtags at the end (all on one line): {hashtags}
 
-Do not include any extra commentary or surrounding text. JSON must be parseable.
+Write the full LinkedIn post now. Output only the post text, nothing else.
 """
 
-    # Lower temperature for more deterministic outputs
     response = client.chat.completions.create(
         model=model,
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
         ],
-        temperature=0.3,
+        temperature=0.85,
         max_tokens=600,
     )
 
-    raw = response.choices[0].message.content.strip()
-
-    # Robust JSON extraction/parsing fallback
-    parsed = None
-    try:
-        parsed = json.loads(raw)
-    except Exception:
-        # try to extract the first JSON-looking block
-        m = re.search(r'(\{[\s\S]*\})', raw)
-        if m:
-            try:
-                parsed = json.loads(m.group(1))
-            except Exception:
-                parsed = None
-
-    result_obj = {}
-    if parsed and isinstance(parsed, dict):
-        # ensure required keys exist, otherwise fallback to sanitized raw
-        post_text = parsed.get("post_text", "").strip()
-        hashtags = parsed.get("hashtags", "").strip() or hashtags_line
-        image_prompt = parsed.get("image_prompt", "").strip() or build_image_prompt(domain["domain"], topic, fmt["type"])
-        # sanitize again in case model included stray backticks
-        post_text = sanitize_text(post_text)
-        result_obj = {
-            "text": post_text,
-            "format_type": fmt["type"],
-            "domain": domain["label"],
-            "topic": topic,
-            "date": str(date.today()),
-            "model_used": model,
-            "hashtags": hashtags,
-            "image_prompt": image_prompt,
-        }
-    else:
-        # Fallback: sanitize the full raw response and construct hashtags and image prompt
-        post_text = sanitize_text(raw)
-        image_prompt = build_image_prompt(domain["domain"], topic, fmt["type"])
-        result_obj = {
-            "text": post_text,
-            "format_type": fmt["type"],
-            "domain": domain["label"],
-            "topic": topic,
-            "date": str(date.today()),
-            "model_used": model,
-            "hashtags": hashtags_line,
-            "image_prompt": image_prompt,
-        }
-
-    # Save used topic as before
+    post_text = response.choices[0].message.content.strip()
     save_used_topic(fmt["type"], domain["domain"], topic)
 
-    return result_obj
+    return {
+        "text": post_text,
+        "format_type": fmt["type"],
+        "domain": domain["label"],
+        "topic": topic,
+        "date": str(date.today()),
+        "model_used": model,
+    }
 
 
 if __name__ == "__main__":

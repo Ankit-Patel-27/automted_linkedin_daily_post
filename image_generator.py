@@ -300,5 +300,290 @@ def _get_diagram_config(domain: str, topic: str) -> dict:
             return _diagram_dbt_incremental()
 
 
+# -- Main image orchestration function -----------------------------------------
+
+def get_image_for_post(post_data: dict, output_path: str = "post_image.png") -> bool:
+    """
+    Main orchestration function for image generation.
+    
+    - For technical domains (Databricks, AWS, PySpark, SQL): generate a diagram and enhance it
+    - For non-technical posts: use text-to-image generation
+    
+    Returns True if image generation succeeded, False otherwise.
+    """
+    domain = post_data.get("domain", "")
+    topic = post_data.get("topic", "")
+    
+    # Check if this is a technical domain (case-insensitive)
+    is_technical = domain.lower() in TECHNICAL_DOMAINS
+    
+    if is_technical:
+        # Technical domain: generate diagram and enhance
+        print(f"\n📐 Technical domain detected: {domain}")
+        
+        # Step 1: Generate raw diagram
+        diagram_path = "diagram_raw.png"
+        if not generate_technical_diagram(post_data, output_path=diagram_path):
+            print(f"⚠ Failed to generate diagram, falling back to text-to-image")
+            # Fallback to non-technical image
+            prompt = build_nontechnical_prompt(post_data)
+            return pollinations_text_to_image(prompt, output_path=output_path)
+        
+        # Step 2: Enhance the diagram
+        if not pollinations_enhance_diagram(diagram_path, topic, domain, output_path=output_path):
+            print(f"⚠ Failed to enhance diagram, using raw diagram")
+            # Copy raw diagram as fallback
+            import shutil
+            shutil.copy(diagram_path, output_path)
+            return True
+        
+        return True
+    else:
+        # Non-technical domain: use text-to-image
+        print(f"\n🎨 Non-technical domain: {domain}")
+        prompt = build_nontechnical_prompt(post_data)
+        return pollinations_text_to_image(prompt, output_path=output_path)
+
+
 # -- Diagram configs ------------------------------------------------------ [...]
 
+def _diagram_databricks_medallion() -> dict:
+    """Databricks medallion architecture (Bronze/Silver/Gold)."""
+    return {
+        "title": "Databricks Medallion Architecture",
+        "subtitle": "Delta Lake Layered Data Pipeline",
+        "accent": "#4a90e2",
+        "nodes": [
+            {"x": 1.5, "y": 3.5, "label": "Raw Data", "sublabel": "(Sources)", "color": "#e24a4a"},
+            {"x": 5, "y": 3.5, "label": "Bronze Layer", "sublabel": "(Auto Loader)", "color": "#4a90e2"},
+            {"x": 8.5, "y": 3.5, "label": "Silver Layer", "sublabel": "(Transformations)", "color": "#50c878"},
+            {"x": 12, "y": 3.5, "label": "Gold Layer", "sublabel": "(Analytics)", "color": "#f4a460"},
+        ],
+        "arrows": [
+            {"x1": 2.3, "y1": 3.5, "x2": 3.8, "y2": 3.5, "color": "#4a90e2"},
+            {"x1": 5.8, "y1": 3.5, "x2": 7.7, "y2": 3.5, "color": "#4a90e2"},
+            {"x1": 9.3, "y1": 3.5, "x2": 11.2, "y2": 3.5, "color": "#4a90e2"},
+        ],
+        "section_labels": [],
+    }
+
+
+def _diagram_databricks_dlt() -> dict:
+    """Databricks Delta Live Tables (DLT) pipeline."""
+    return {
+        "title": "Delta Live Tables Pipeline",
+        "subtitle": "Declarative ETL with DLT",
+        "accent": "#50c878",
+        "nodes": [
+            {"x": 2, "y": 5, "label": "Source", "color": "#e24a4a"},
+            {"x": 2, "y": 3, "label": "Bronze", "sublabel": "(Ingestion)", "color": "#4a90e2"},
+            {"x": 5, "y": 4, "label": "Silver", "sublabel": "(Transformation)", "color": "#50c878"},
+            {"x": 8, "y": 4, "label": "Gold", "sublabel": "(Aggregation)", "color": "#f4a460"},
+            {"x": 8, "y": 2, "label": "BI/Analytics", "color": "#9467bd"},
+        ],
+        "arrows": [
+            {"x1": 2, "y1": 4.3, "x2": 2, "y2": 3.7, "color": "#4a90e2"},
+            {"x1": 2.8, "y1": 3, "x2": 4.2, "y2": 3.7, "color": "#4a90e2"},
+            {"x1": 5.8, "y1": 4, "x2": 7.2, "y2": 4, "color": "#4a90e2"},
+            {"x1": 8, "y1": 3.6, "x2": 8, "y2": 2.6, "color": "#4a90e2"},
+        ],
+        "section_labels": [],
+    }
+
+
+def _diagram_databricks_unity() -> dict:
+    """Databricks Unity Catalog."""
+    return {
+        "title": "Unity Catalog Governance",
+        "subtitle": "Centralized Metadata & Access Control",
+        "accent": "#9467bd",
+        "nodes": [
+            {"x": 3, "y": 5, "label": "Unity Catalog", "sublabel": "(Central Registry)", "color": "#9467bd"},
+            {"x": 1, "y": 3.5, "label": "Catalog", "color": "#4a90e2"},
+            {"x": 3, "y": 3.5, "label": "Schema", "color": "#4a90e2"},
+            {"x": 5, "y": 3.5, "label": "Table", "color": "#4a90e2"},
+            {"x": 7, "y": 3.5, "label": "Column Tags", "color": "#e24a4a"},
+        ],
+        "arrows": [
+            {"x1": 3, "y1": 4.6, "x2": 1.5, "y2": 3.8, "color": "#4a90e2"},
+            {"x1": 3, "y1": 4.6, "x2": 3, "y2": 3.8, "color": "#4a90e2"},
+            {"x1": 3, "y1": 4.6, "x2": 4.5, "y2": 3.8, "color": "#4a90e2"},
+            {"x1": 5.8, "y1": 3.5, "x2": 6.2, "y2": 3.5, "color": "#e24a4a"},
+        ],
+        "section_labels": [],
+    }
+
+
+def _diagram_aws_glue() -> dict:
+    """AWS Glue ETL."""
+    return {
+        "title": "AWS Glue ETL Pipeline",
+        "subtitle": "Serverless Data Integration",
+        "accent": "#ff9900",
+        "nodes": [
+            {"x": 1.5, "y": 4, "label": "Data Sources", "color": "#ff9900"},
+            {"x": 4, "y": 4, "label": "Glue Crawler", "color": "#ff9900"},
+            {"x": 6.5, "y": 4, "label": "Glue Catalog", "color": "#e24a4a"},
+            {"x": 9, "y": 4, "label": "Glue Jobs", "color": "#ff9900"},
+            {"x": 11.5, "y": 4, "label": "S3 / Redshift", "color": "#4a90e2"},
+        ],
+        "arrows": [
+            {"x1": 2.3, "y1": 4, "x2": 3.2, "y2": 4, "color": "#ff9900"},
+            {"x1": 4.8, "y1": 4, "x2": 5.7, "y2": 4, "color": "#ff9900"},
+            {"x1": 7.3, "y1": 4, "x2": 8.2, "y2": 4, "color": "#ff9900"},
+            {"x1": 9.8, "y1": 4, "x2": 10.7, "y2": 4, "color": "#ff9900"},
+        ],
+        "section_labels": [],
+    }
+
+
+def _diagram_aws_streaming() -> dict:
+    """AWS Kinesis streaming."""
+    return {
+        "title": "AWS Kinesis Streaming",
+        "subtitle": "Real-time Data Ingestion",
+        "accent": "#ff9900",
+        "nodes": [
+            {"x": 2, "y": 4, "label": "Producers", "color": "#e24a4a"},
+            {"x": 5, "y": 4, "label": "Kinesis Stream", "color": "#ff9900"},
+            {"x": 8, "y": 5, "label": "Lambda", "color": "#ff9900"},
+            {"x": 8, "y": 3, "label": "Firehose", "color": "#ff9900"},
+            {"x": 11, "y": 4, "label": "S3", "color": "#4a90e2"},
+        ],
+        "arrows": [
+            {"x1": 2.8, "y1": 4, "x2": 4, "y2": 4, "color": "#ff9900"},
+            {"x1": 6, "y1": 4.3, "x2": 7.2, "y2": 4.7, "color": "#ff9900"},
+            {"x1": 6, "y1": 3.7, "x2": 7.2, "y2": 3.3, "color": "#ff9900"},
+            {"x1": 8.8, "y1": 4, "x2": 10.2, "y2": 4, "color": "#ff9900"},
+        ],
+        "section_labels": [],
+    }
+
+
+def _diagram_aws_lakeformation() -> dict:
+    """AWS Lake Formation governance."""
+    return {
+        "title": "AWS Lake Formation",
+        "subtitle": "Secure Data Lake Governance",
+        "accent": "#ff9900",
+        "nodes": [
+            {"x": 3, "y": 5, "label": "Lake Formation", "sublabel": "(Central Hub)", "color": "#ff9900"},
+            {"x": 1, "y": 3.5, "label": "Data Catalog", "color": "#4a90e2"},
+            {"x": 3, "y": 3.5, "label": "Permissions", "color": "#e24a4a"},
+            {"x": 5, "y": 3.5, "label": "Encryption", "color": "#50c878"},
+            {"x": 7, "y": 3.5, "label": "Audit Logs", "color": "#9467bd"},
+        ],
+        "arrows": [
+            {"x1": 3, "y1": 4.5, "x2": 1.5, "y2": 3.9, "color": "#ff9900"},
+            {"x1": 3, "y1": 4.5, "x2": 3, "y2": 3.9, "color": "#ff9900"},
+            {"x1": 3, "y1": 4.5, "x2": 4.5, "y2": 3.9, "color": "#ff9900"},
+            {"x1": 5.8, "y1": 3.5, "x2": 6.2, "y2": 3.5, "color": "#ff9900"},
+        ],
+        "section_labels": [],
+    }
+
+
+def _diagram_spark_joins() -> dict:
+    """PySpark join strategies."""
+    return {
+        "title": "PySpark Join Strategies",
+        "subtitle": "Performance Optimization Techniques",
+        "accent": "#e24a4a",
+        "nodes": [
+            {"x": 2, "y": 5, "label": "Broadcast Join", "sublabel": "(Small table)", "color": "#e24a4a"},
+            {"x": 5, "y": 5, "label": "Sort-Merge Join", "sublabel": "(Default)", "color": "#4a90e2"},
+            {"x": 8, "y": 5, "label": "Shuffle Join", "sublabel": "(Large tables)", "color": "#50c878"},
+            {"x": 3.5, "y": 3, "label": "When: <2GB", "color": "#e24a4a"},
+            {"x": 5, "y": 3, "label": "When: Medium", "color": "#4a90e2"},
+            {"x": 6.5, "y": 3, "label": "When: >10GB", "color": "#50c878"},
+        ],
+        "arrows": [
+            {"x1": 2, "y1": 4.6, "x2": 2.5, "y2": 3.4, "color": "#aaa"},
+            {"x1": 5, "y1": 4.6, "x2": 5, "y2": 3.4, "color": "#aaa"},
+            {"x1": 8, "y1": 4.6, "x2": 7.5, "y2": 3.4, "color": "#aaa"},
+        ],
+        "section_labels": [],
+    }
+
+
+def _diagram_spark_partitions() -> dict:
+    """PySpark partitioning strategies."""
+    return {
+        "title": "PySpark Partitioning",
+        "subtitle": "Reducing Skew & Improving Performance",
+        "accent": "#4a90e2",
+        "nodes": [
+            {"x": 2, "y": 5, "label": "Data Skew", "sublabel": "(Problem)", "color": "#e24a4a"},
+            {"x": 5, "y": 5, "label": "Repartition", "color": "#4a90e2"},
+            {"x": 8, "y": 5, "label": "Salting", "sublabel": "(Add randomness)", "color": "#50c878"},
+            {"x": 11, "y": 5, "label": "Balanced Data", "sublabel": "(Solution)", "color": "#50c878"},
+        ],
+        "arrows": [
+            {"x1": 2.8, "y1": 5, "x2": 4.2, "y2": 5, "color": "#4a90e2"},
+            {"x1": 5.8, "y1": 5, "x2": 7.2, "y2": 5, "color": "#4a90e2"},
+            {"x1": 8.8, "y1": 5, "x2": 10.2, "y2": 5, "color": "#4a90e2"},
+        ],
+        "section_labels": [],
+    }
+
+
+def _diagram_spark_pipeline() -> dict:
+    """Generic PySpark pipeline."""
+    return {
+        "title": "PySpark Data Pipeline",
+        "subtitle": "Extract → Transform → Load",
+        "accent": "#e24a4a",
+        "nodes": [
+            {"x": 2, "y": 4, "label": "Extract", "color": "#e24a4a"},
+            {"x": 5, "y": 4, "label": "Transform", "color": "#4a90e2"},
+            {"x": 8, "y": 4, "label": "Load", "color": "#50c878"},
+        ],
+        "arrows": [
+            {"x1": 2.8, "y1": 4, "x2": 4.2, "y2": 4, "color": "#e24a4a"},
+            {"x1": 5.8, "y1": 4, "x2": 7.2, "y2": 4, "color": "#e24a4a"},
+        ],
+        "section_labels": [],
+    }
+
+
+def _diagram_dbt_incremental() -> dict:
+    """dbt incremental models."""
+    return {
+        "title": "dbt Incremental Models",
+        "subtitle": "Full Refresh vs Incremental Strategy",
+        "accent": "#50c878",
+        "nodes": [
+            {"x": 2, "y": 5, "label": "Source Data", "color": "#e24a4a"},
+            {"x": 5, "y": 5.5, "label": "Full Refresh", "sublabel": "(Rebuild all)", "color": "#4a90e2"},
+            {"x": 5, "y": 4.5, "label": "Incremental", "sublabel": "(New rows only)", "color": "#50c878"},
+            {"x": 8, "y": 5, "label": "dbt Model", "color": "#9467bd"},
+        ],
+        "arrows": [
+            {"x1": 2.8, "y1": 5.3, "x2": 4.2, "y2": 5.5, "color": "#4a90e2"},
+            {"x1": 2.8, "y1": 4.7, "x2": 4.2, "y2": 4.5, "color": "#4a90e2"},
+            {"x1": 5.8, "y1": 5, "x2": 7.2, "y2": 5, "color": "#9467bd"},
+        ],
+        "section_labels": [],
+    }
+
+
+def _diagram_scd2() -> dict:
+    """Slowly Changing Dimensions Type 2."""
+    return {
+        "title": "SCD Type 2 Implementation",
+        "subtitle": "Track Historical Changes with dbt",
+        "accent": "#9467bd",
+        "nodes": [
+            {"x": 2, "y": 4, "label": "Source", "color": "#e24a4a"},
+            {"x": 4.5, "y": 5, "label": "Current", "color": "#4a90e2"},
+            {"x": 4.5, "y": 3, "label": "Historical", "color": "#9467bd"},
+            {"x": 7, "y": 4, "label": "SCD Type 2", "sublabel": "(Merged)", "color": "#50c878"},
+        ],
+        "arrows": [
+            {"x1": 2.8, "y1": 4.3, "x2": 4, "y2": 4.7, "color": "#4a90e2"},
+            {"x1": 2.8, "y1": 3.7, "x2": 4, "y2": 3.3, "color": "#9467bd"},
+            {"x1": 5.3, "y1": 4.5, "x2": 6.2, "y2": 4.2, "color": "#4a90e2"},
+            {"x1": 5.3, "y1": 3.5, "x2": 6.2, "y2": 3.8, "color": "#9467bd"},
+        ],
+        "section_labels": [],
+    }

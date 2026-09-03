@@ -191,6 +191,13 @@ DOMAIN_HASHTAGS = {
     "sql":        "#SQL #dbt #AnalyticsEngineering",
 }
 
+# JSON schema for LLM output (defined once to avoid format string issues)
+JSON_SCHEMA = """{
+  "post_text": string,         // final LinkedIn post text (150-250 words, may include line breaks)
+  "image_prompt": string|null, // short focused prompt for the image generator (2-12 words + style), or null
+  "hashtags": string           // 4-6 hashtags separated by spaces (will be placed on the last line)
+}"""
+
 
 def get_available_models(api_key: str) -> list:
     """
@@ -420,7 +427,7 @@ Candidate profile:
 {PROFILE}
 """
 
-    # Strong instruction: ask for structured JSON output to avoid raw markdown/code
+    # Build user prompt with proper handling of the JSON schema
     user_prompt = f"""Today's post format: {fmt['type']}
 Today's technical topic: {topic}
 Topic domain: {domain['label']}
@@ -430,11 +437,7 @@ Instructions: {fmt['instruction']}
 Tie the post to the specific topic above. Be concrete — use real command names, API names, or config patterns where relevant. Write as someone who has used this in production at scale.
 
 IMPORTANT: Output JSON only (no surrounding text). The JSON schema must be:
-{{
-  "post_text": string,         // final LinkedIn post text (150-250 words, may include line breaks)
-  "image_prompt": string|null, // short focused prompt for the image generator (2-12 words + style), or null
-  "hashtags": string           // 4-6 hashtags separated by spaces (will be placed on the last line)
-}}
+{JSON_SCHEMA}
 
 If you cannot comply, still output the full post text but it will be sanitised by the poster. Use the hashtags provided earlier if helpful: {default_hashtags}
 """

@@ -430,11 +430,11 @@ Instructions: {fmt['instruction']}
 Tie the post to the specific topic above. Be concrete — use real command names, API names, or config patterns where relevant. Write as someone who has used this in production at scale.
 
 IMPORTANT: Output JSON only (no surrounding text). The JSON schema must be:
-{
+{{
   "post_text": string,         // final LinkedIn post text (150-250 words, may include line breaks)
   "image_prompt": string|null, // short focused prompt for the image generator (2-12 words + style), or null
   "hashtags": string           // 4-6 hashtags separated by spaces (will be placed on the last line)
-}
+}}
 
 If you cannot comply, still output the full post text but it will be sanitised by the poster. Use the hashtags provided earlier if helpful: {default_hashtags}
 """

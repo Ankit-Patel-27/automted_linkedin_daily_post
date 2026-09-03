@@ -7,6 +7,7 @@ Senior Data Engineer / Data Platform Lead in Healthcare/Biotech.
 import os
 import json
 import random
+import re
 import requests
 from datetime import date
 from groq import Groq
@@ -309,6 +310,94 @@ def pick_domain_and_topic(used_topics):
     return domain, topic
 
 
+def sanitize_post_text(s: str, default_hashtags: str) -> str:
+    """Sanitize raw model output into a LinkedIn-ready post text.
+
+    - Remove fenced code blocks
+    - Collapse extra blank lines
+    - Ensure hashtags are on the last line
+    - Enforce approximate 150-250 word length (truncate if necessary)
+    """
+    if not s:
+        return ""
+
+    # Remove fenced code blocks ``` ``` and ```lang
+    s = re.sub(r"```[\s\S]*?```", "", s)
+    # Replace long inline code fences with single backticks
+    s = s.replace("```,", "`")
+
+    # Collapse excessive blank lines
+    s = re.sub(r"\n\s*\n+", "\n\n", s).strip()
+
+    # Extract hashtags and remove them from body
+    tags = re.findall(r"(?:#\w[\w-]*)", s)
+    body = re.sub(r"(?:#\w[\w-]*)", "", s).strip()
+
+    # Prefer default hashtags if none found or too many/too few
+    if 4 <= len(tags) <= 6:
+        hashtags_line = " ".join(tags[:6])
+    else:
+        hashtags_line = default_hashtags
+
+    # Enforce word count (approx)
+    words = body.split()
+    if len(words) < 140:
+        # If too short, keep as-is (LLM might have produced a concise post)
+        final_body = body
+    else:
+        # Truncate to 250 words if needed, trying to keep sentences whole
+        if len(words) > 250:
+            truncated = " ".join(words[:250])
+            # Try to cut at last sentence end
+            m = re.search(r"(.+[\.\!\?])\s+[^\.\!\?]*$", truncated)
+            if m:
+                final_body = m.group(1)
+            else:
+                final_body = truncated
+        else:
+            final_body = body
+
+    final = final_body.rstrip() + "\n\n" + hashtags_line
+    return final
+
+
+def auto_generate_image_prompt(topic: str, domain_label: str, fmt_type: str) -> str:
+    """Create a focused image prompt when the model doesn't provide one.
+
+    Keeps prompts short and deterministic to reduce randomness from image APIs.
+    """
+    # Use first 6-8 meaningful words from the topic
+    words = re.findall(r"\w+", topic)
+    keywords = " ".join(words[:8])
+    style = "dark professional schematic, minimal text, high contrast, no faces, no logos"
+    prompt = f"{domain_label} {keywords} — {fmt_type} visual, {style}"
+    return prompt
+
+
+def extract_json_from_text(s: str) -> str | None:
+    """Try to extract a JSON object substring from a model response.
+
+    Returns the JSON string if found, else None.
+    """
+    # First try direct parse
+    try:
+        json.loads(s)
+        return s
+    except Exception:
+        pass
+
+    # Find the first {...} block
+    m = re.search(r"\{[\s\S]*\}", s)
+    if m:
+        candidate = m.group(0)
+        try:
+            json.loads(candidate)
+            return candidate
+        except Exception:
+            return None
+    return None
+
+
 def generate_post(api_key: str) -> dict:
     # Dynamically select the best available model
     model = select_best_model(api_key)
@@ -319,33 +408,35 @@ def generate_post(api_key: str) -> dict:
     fmt    = pick_format(used)
     domain, topic = pick_domain_and_topic(used)
 
-    hashtags = (
-        HASHTAG_SETS[fmt["type"]] + "  " + DOMAIN_HASHTAGS[domain["domain"]]
-    )
+    default_hashtags = HASHTAG_SETS[fmt["type"]] + "  " + DOMAIN_HASHTAGS[domain["domain"]]
 
     system_prompt = f"""You are a LinkedIn ghostwriter specialising in data engineering and cloud careers.
 You write authentic, engaging posts for job seekers targeting senior technical roles.
 Write in first person as Ankit Patel.
 Keep posts between 150-250 words. No fluff, no corporate buzzwords.
-Use line breaks for readability. End with 4-6 relevant hashtags on the last line.
+Use line breaks for readability.
 
 Candidate profile:
 {PROFILE}
 """
 
+    # Strong instruction: ask for structured JSON output to avoid raw markdown/code
     user_prompt = f"""Today's post format: {fmt['type']}
 Today's technical topic: {topic}
 Topic domain: {domain['label']}
 
 Instructions: {fmt['instruction']}
 
-Tie the post to the specific topic above. Be concrete — use real command names,
-API names, or config patterns where relevant. Write as someone who has used this
-in production at scale.
+Tie the post to the specific topic above. Be concrete — use real command names, API names, or config patterns where relevant. Write as someone who has used this in production at scale.
 
-Use these hashtags at the end (all on one line): {hashtags}
+IMPORTANT: Output JSON only (no surrounding text). The JSON schema must be:
+{
+  "post_text": string,         // final LinkedIn post text (150-250 words, may include line breaks)
+  "image_prompt": string|null, // short focused prompt for the image generator (2-12 words + style), or null
+  "hashtags": string           // 4-6 hashtags separated by spaces (will be placed on the last line)
+}
 
-Write the full LinkedIn post now. Output only the post text, nothing else.
+If you cannot comply, still output the full post text but it will be sanitised by the poster. Use the hashtags provided earlier if helpful: {default_hashtags}
 """
 
     response = client.chat.completions.create(
@@ -355,20 +446,55 @@ Write the full LinkedIn post now. Output only the post text, nothing else.
             {"role": "user", "content": user_prompt},
         ],
         temperature=0.85,
-        max_tokens=600,
+        max_tokens=700,
     )
 
-    post_text = response.choices[0].message.content.strip()
+    raw = response.choices[0].message.content.strip()
+
+    # Try to parse structured JSON from the model
+    parsed = None
+    image_prompt = None
+    post_text = None
+    hashtags = None
+
+    json_str = extract_json_from_text(raw)
+    if json_str:
+        try:
+            parsed = json.loads(json_str)
+            post_text = parsed.get("post_text")
+            image_prompt = parsed.get("image_prompt")
+            hashtags = parsed.get("hashtags")
+        except Exception:
+            parsed = None
+
+    if not parsed:
+        # Fallback: treat entire response as post_text
+        post_text = raw
+        image_prompt = None
+        hashtags = None
+
+    # Sanitize post_text and ensure hashtags line
+    final_hashtags = hashtags if isinstance(hashtags, str) and hashtags.strip() else default_hashtags
+    post_text_sanitized = sanitize_post_text(post_text, final_hashtags)
+
+    # Ensure image_prompt exists (auto-generate if missing)
+    if not image_prompt:
+        image_prompt = auto_generate_image_prompt(topic, domain["label"], fmt["type"])
+
     save_used_topic(fmt["type"], domain["domain"], topic)
 
-    return {
-        "text": post_text,
+    result = {
+        "text": post_text_sanitized,
         "format_type": fmt["type"],
         "domain": domain["label"],
         "topic": topic,
         "date": str(date.today()),
         "model_used": model,
+        "image_prompt": image_prompt,
+        "raw_llm": raw,
     }
+
+    return result
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 {
   "generated_date": "2026-09-03",
-  "posts_analysed": 22,
+  "posts_analysed": 23,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -275,6 +275,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "**Myth:**  \nYou can skip Unity Catalog in a regulated environment and just keep using the legacy Hive metastore and ACLs...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-09-03",
+      "post_id": "urn:li:share:7501332256863625216",
+      "format_type": "concept_explainer",
+      "domain": "AWS",
+      "had_image": true,
+      "preview": "As a Lead Data Engineer at TCS, I\u2019ve run 10TB migrations on AWS and decided between Glue, EMR, and Lambda for ETL.\n\n1\ufe0f\u20e3 ...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

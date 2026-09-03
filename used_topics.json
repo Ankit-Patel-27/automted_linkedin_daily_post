@@ -1,11 +1,5 @@
 [
   {
-    "type": "achievement",
-    "domain": "aws",
-    "topic": "AWS ECS vs EKS for containerised data workloads",
-    "date": "2026-07-16"
-  },
-  {
     "type": "concept_explainer",
     "domain": "sql",
     "topic": "dbt incremental models \u2014 full refresh vs append vs merge strategies",
@@ -237,6 +231,12 @@
     "type": "myth_vs_reality",
     "domain": "databricks",
     "topic": "Databricks Unity Catalog for data governance in regulated industries",
+    "date": "2026-09-03"
+  },
+  {
+    "type": "concept_explainer",
+    "domain": "aws",
+    "topic": "AWS Glue vs EMR vs Lambda - choosing the right compute for ETL",
     "date": "2026-09-03"
   }
 ]

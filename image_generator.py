@@ -1,10 +1,3 @@
-"""
-Dynamic Image Generator
-- Non-technical posts  -> Pollinations AI generates topic-relevant image
-- Technical posts      -> Python generates a diagram PNG -> Pollinations AI
-                         enhances it visually while preserving all content exactly
-"""
-
 import os
 import io
 import json
@@ -15,7 +8,8 @@ from datetime import date
 from urllib.parse import quote
 
 
-TECHNICAL_DOMAINS = {"Databricks", "AWS", "PySpark", "SQL / dbt"}
+# NOTE: use canonical lowercase keywords for domain detection and do substring match
+TECHNICAL_DOMAINS = {"databricks", "aws", "pyspark", "sql"}
 
 # -- Pollinations AI ------------------------------------------------------- [...]
 
@@ -153,9 +147,13 @@ FORMAT_PROMPTS = {
 
 def build_nontechnical_prompt(post_data: dict) -> str:
     """Build a rich, topic-aware prompt for non-technical posts."""
+    # If the post generator already returned a focused image prompt, use it verbatim
+    explicit = post_data.get("image_prompt")
+    if explicit:
+        return explicit
+
     fmt    = post_data.get("format_type", "insight")
     topic  = post_data.get("topic", "")
-    domain = post_data.get("domain", "")
 
     base_prompt = FORMAT_PROMPTS.get(fmt, FORMAT_PROMPTS["insight"])
 
@@ -163,11 +161,6 @@ def build_nontechnical_prompt(post_data: dict) -> str:
     topic_keywords = " ".join(topic.split()[:6]) if topic else ""
     if topic_keywords:
         base_prompt = f"{topic_keywords} concept, {base_prompt}"
-
-    # If post_data contains an explicit image_prompt (from post_generator), prefer it
-    explicit = post_data.get("image_prompt")
-    if explicit:
-        return explicit
 
     return base_prompt
 
@@ -309,72 +302,3 @@ def _get_diagram_config(domain: str, topic: str) -> dict:
 
 # -- Diagram configs ------------------------------------------------------ [...]
 
-def _diagram_databricks_medallion():
-    return {
-        "title":    "Delta Lake - Medallion Architecture",
-        "subtitle": "Bronze - Silver - Gold - ACID Transactions - Schema Evolution",
-        "accent":   "#FF6B35",
-        "nodes": [
-            {"x":1.2, "y":5.5, "label":"Kafka / Kinesis",  "sublabel":"Streaming source",  "color":"#FF6B35", "bg":"#1a1500"},
-            {"x":1.2, "y":4.2, "label":"S3 / ADLS",        "sublabel":"Batch files",        "color":"#FF6B35", "bg":"#1a1500"},
-            {"x":1.2, "y":2.9, "label":"JDBC / APIs",       "sublabel":"Databases",          "color":"#FF6B35", "bg":"#1a1500"},
-            {"x":3.8, "y":4.2, "label":"Auto Loader",       "sublabel":"cloudFiles",         "color":"#1E88E5", "bg":"#0a1520"},
-            {"x":6.2, "y":5.2, "label":"🥉 Bronze",         "sublabel":"Raw - Append-only",  "color":"#CD7F32", "bg":"#2a1800"},
-            {"x":6.2, "y":4.2, "label":"🥈 Silver",         "sublabel":"Cleaned - Z-order",  "color":"#C0C0C0", "bg":"#1a1f2e"},
-            {"x":6.2, "y":3.2, "label":"🥇 Gold",           "sublabel":"Business-ready",     "color":"#FFD700", "bg":"#1f1a00"},
-            {"x":9.0, "y":5.2, "label":"Spark / PySpark",   "sublabel":"Compute",            "color":"#00C853", "bg":"#0a1a0a"},
-            {"x":9.0, "y":4.2, "label":"MLflow",            "sublabel":"Experiment tracking","color":"#00C853", "bg":"#0a1a0a"},
-            {"x":9.0, "y":3.2, "label":"Feature Store",     "sublabel":"ML features",        "color":"#00C853", "bg":"#0a1a0a"},
-            {"x":11.8,"y":4.2, "label":"SQL Warehouse",     "sublabel":"BI / Tableau",       "color":"#FF6B35", "bg":"#1a0a00"},
-            {"x":11.8,"y":3.2, "label":"Unity Catalog",     "sublabel":"Governance",         "color":"#CE93D8", "bg":"#150a20"},
-        ],
-        "arrows": [
-            {"x1":1.9,"y1":5.5,"x2":3.0,"y2":4.6,"color":"#FF6B35"},
-            {"x1":1.9,"y1":4.2,"x2":3.0,"y2":4.2,"color":"#FF6B35"},
-            {"x1":1.9,"y1":2.9,"x2":3.0,"y2":3.8,"color":"#FF6B35"},
-            {"x1":4.9,"y1":4.2,"x2":5.0,"y2":4.8,"color":"#1E88E5","label":"ingest"},
-            {"x1":7.3,"y1":5.2,"x2":7.8,"y2":5.2,"color":"#C0C0C0"},
-            {"x1":6.2,"y1":4.8,"x2":6.2,"y2":4.5,"color":"#C0C0C0"},
-            {"x1":6.2,"y1":3.9,"x2":6.2,"y2":3.5,"color":"#FFD700"},
-            {"x1":7.3,"y1":3.2,"x2":7.8,"y2":3.8,"color":"#00C853","label":"compute"},
-            {"x1":10.1,"y1":4.2,"x2":10.7,"y2":4.2,"color":"#FF6B35","label":"serve"},
-        ],
-        "section_labels": [
-            {"x":1.2,"y":1.9,"text":"SOURCES"},
-            {"x":3.8,"y":1.9,"text":"INGEST"},
-            {"x":6.2,"y":1.9,"text":"DELTA LAKE"},
-            {"x":9.0,"y":1.9,"text":"COMPUTE"},
-            {"x":11.8,"y":1.9,"text":"SERVE"},
-        ],
-    }
-
-
-def _diagram_databricks_dlt():
-    return {
-        "title":    "Delta Live Tables (DLT) Pipeline",
-        "subtitle": "Declarative ETL - Auto-scaling - Built-in Quality Checks",
-        "accent":   "#FF6B35",
-        "nodes": [
-            {"x":1.5, "y":5.0, "label":"Raw Sources",     "sublabel":"S3 / Kafka",         "color":"#FF6B35","bg":"#1a1500"},
-            {"x":4.0, "y":5.8, "label":"@dlt.table",      "sublabel":"Bronze layer",        "color":"#CD7F32","bg":"#2a1800"},
-            {"x":4.0, "y":4.2, "label":"@dlt.view",       "sublabel":"Streaming ingestion", "color":"#1E88E5","bg":"#0a1520"},
-            {"x":7.0, "y":5.8, "label":"Expectations",    "sublabel":"Quality checks",      "color":"#F44336","bg":"#1a0a0a"},
-            {"x":7.0, "y":4.2, "label":"Silver Table",    "sublabel":"Cleaned - validated", "color":"#C0C0C0","bg":"#1a1f2e"},
-            {"x":10.0,"y":5.0, "label":"Gold Table",      "sublabel":"Aggregated metrics",  "color":"#FFD700","bg":"#1f1a00"},
-            {"x":12.5,"y":5.0, "label":"SQL Warehouse",   "sublabel":"BI / Dashboards",     "color":"#00C853","bg":"#0a1a0a"},
-            {"x":7.0, "y":2.5, "label":"DLT Pipeline UI", "sublabel":"Lineage + monitoring","color":"#CE93D8","bg":"#150a20"},
-        ],
-        "arrows": [
-            {"x1":2.6,"y1":5.0,"x2":3.0,"y2":5.5,"color":"#FF6B35"},
-            {"x1":2.6,"y1":5.0,"x2":3.0,"y2":4.5,"color":"#FF6B35"},
-            {"x1":5.1,"y1":5.8,"x2":6.0,"y2":5.8,"color":"#CD7F32","label":"validate"},
-            {"x1":5.1,"y1":4.2,"x2":6.0,"y2":4.2,"color":"#1E88E5"},
-            {"x1":8.1,"y1":5.0,"x2":8.9,"y2":5.0,"color":"#FFD700","label":"aggregate"},
-            {"x1":11.1,"y1":5.0,"x2":11.5,"y2":5.0,"color":"#00C853","label":"serve"},
-            {"x1":7.0,"y1":3.9,"x2":7.0,"y2":3.0,"color":"#CE93D8","style":"arc3,rad=0.0"},
-        ],
-        "section_labels": [],
-    }
-
-
-# (the rest of diagram functions remain functionally unchanged but with ASCII-normalised strings)

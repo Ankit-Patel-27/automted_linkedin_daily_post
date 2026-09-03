@@ -1,5 +1,5 @@
 """
-LinkedIn Post Generator — Ankit Patel
+LinkedIn Post Generator - Ankit Patel
 Uses Groq (Llama 3.1 70B) to generate daily job-hunting posts for a
 Senior Data Engineer / Data Platform Lead in Healthcare/Biotech.
 """
@@ -7,6 +7,7 @@ Senior Data Engineer / Data Platform Lead in Healthcare/Biotech.
 import os
 import json
 import random
+import re
 import requests
 from datetime import date
 from groq import Groq
@@ -22,7 +23,7 @@ Key skills: AWS (Glue, Lambda, S3, Redshift, Lake Formation, ECS/EKS),
             Terraform, CloudFormation, Docker, GitHub Actions CI/CD,
             LangChain, LLM API integration (Anthropic, OpenAI),
             Kafka, Kinesis, Data Mesh, Data Contracts
-Certifications: AWS Certified AI Practitioner, AWS Solutions Architect – Associate,
+Certifications: AWS Certified AI Practitioner, AWS Solutions Architect - Associate,
                 AWS Cloud Practitioner
 Achievements:
   - 10TB zero-downtime cloud migration, 20% cost reduction
@@ -34,7 +35,7 @@ Open to: Senior Data Engineer, Data Platform Lead, or Cloud Data roles
          in Healthcare / Biotech (open to remote/hybrid)
 """
 
-# ── Topic domains — one is picked randomly to focus each post ─────────────────
+# ── Topic domains - one is picked randomly to focus each post 
 TOPIC_DOMAINS = [
     {
         "domain": "databricks",
@@ -43,10 +44,10 @@ TOPIC_DOMAINS = [
             "Delta Lake ACID transactions and why they matter for healthcare data",
             "Databricks Unity Catalog for data governance in regulated industries",
             "Auto Loader vs COPY INTO for incremental ingestion",
-            "Delta Live Tables (DLT) pipelines — declarative ETL in practice",
-            "Databricks Photon engine — when it helps and when it doesn't",
+            "Delta Live Tables (DLT) pipelines - declarative ETL in practice",
+            "Databricks Photon engine - when it helps and when it doesn't",
             "Z-ordering and liquid clustering for query optimisation",
-            "Databricks Workflows vs Apache Airflow — when to use which",
+            "Databricks Workflows vs Apache Airflow - when to use which",
             "Databricks Feature Store for ML pipelines in biotech",
             "Optimising small file problems in Delta Lake",
             "Change Data Feed (CDF) in Delta Lake for CDC pipelines",
@@ -56,13 +57,13 @@ TOPIC_DOMAINS = [
         "domain": "aws",
         "label": "AWS",
         "topics": [
-            "AWS Glue vs EMR vs Lambda — choosing the right compute for ETL",
+            "AWS Glue vs EMR vs Lambda - choosing the right compute for ETL",
             "AWS Lake Formation fine-grained access control for PHI data",
             "S3 lifecycle policies and Intelligent-Tiering for cost optimisation",
-            "AWS Glue Data Quality — catching bad data before it hits production",
-            "Redshift Spectrum vs Athena — when to query S3 directly",
+            "AWS Glue Data Quality - catching bad data before it hits production",
+            "Redshift Spectrum vs Athena - when to query S3 directly",
             "AWS Step Functions for orchestrating multi-step data pipelines",
-            "Kinesis Data Streams vs Kafka — real-time ingestion trade-offs",
+            "Kinesis Data Streams vs Kafka - real-time ingestion trade-offs",
             "AWS ECS vs EKS for containerised data workloads",
             "CloudFormation vs Terraform for data infrastructure as code",
             "AWS Glue Catalog as a central metadata store",
@@ -72,14 +73,14 @@ TOPIC_DOMAINS = [
         "domain": "pyspark",
         "label": "PySpark",
         "topics": [
-            "PySpark broadcast joins — when and how to use them",
+            "PySpark broadcast joins - when and how to use them",
             "Avoiding data skew in PySpark with salting techniques",
-            "PySpark UDFs vs Pandas UDFs — performance difference explained",
-            "Spark execution plan — how to read and optimise it",
+            "PySpark UDFs vs Pandas UDFs - performance difference explained",
+            "Spark execution plan - how to read and optimise it",
             "Partitioning strategies in PySpark for large-scale ETL",
             "PySpark window functions for time-series healthcare data",
-            "Caching and persistence in Spark — .cache() vs .persist()",
-            "Spark shuffle — what it is and how to reduce it",
+            "Caching and persistence in Spark - .cache() vs .persist()",
+            "Spark shuffle - what it is and how to reduce it",
             "Writing efficient PySpark transformations for 500M+ record datasets",
             "PySpark structured streaming for near-real-time pipelines",
         ],
@@ -89,11 +90,11 @@ TOPIC_DOMAINS = [
         "label": "SQL / Analytics Engineering",
         "topics": [
             "Window functions every data engineer should master (RANK, LAG, LEAD)",
-            "dbt incremental models — full refresh vs append vs merge strategies",
+            "dbt incremental models - full refresh vs append vs merge strategies",
             "SQL query optimisation patterns for large analytical workloads",
-            "CTEs vs subqueries vs temp tables — performance and readability trade-offs",
+            "CTEs vs subqueries vs temp tables - performance and readability trade-offs",
             "Slowly Changing Dimensions (SCD Type 2) with dbt and Delta Lake",
-            "dbt tests and data contracts — enforcing data quality at the model layer",
+            "dbt tests and data contracts - enforcing data quality at the model layer",
             "Materialised views in Redshift and Databricks SQL",
             "SQL anti-patterns that kill pipeline performance",
             "Using dbt macros to build reusable SQL components",
@@ -102,21 +103,21 @@ TOPIC_DOMAINS = [
     },
 ]
 
-# ── Post format rotation ───────────────────────────────────────────────────────
+# ── Post format rotation 
 POST_FORMATS = [
     {
         "type": "insight",
         "instruction": (
             "Share a practical technical insight or lesson learned about the given topic. "
             "Write from personal experience. Start with a punchy hook (one bold sentence). "
-            "Use short paragraphs (2–3 lines max). End with a question to spark comments."
+            "Use short paragraphs (2-3 lines max). End with a question to spark comments."
         ),
     },
     {
         "type": "achievement",
         "instruction": (
             "Highlight one of Ankit's real achievements, tying it to the given topic. "
-            "Frame it as 'here's a problem I solved' — the challenge, the approach, "
+            "Frame it as 'here's a problem I solved' - the challenge, the approach, "
             "the result. Make it feel human, not like a resume bullet."
         ),
     },
@@ -142,13 +143,13 @@ POST_FORMATS = [
         "instruction": (
             "Explain the given technical concept clearly for a data engineering audience. "
             "Use an analogy or real-world example. Format as a short explainer with "
-            "3–5 key points or steps. Write as someone who has used this in production."
+            "3-5 key points or steps. Write as someone who has used this in production."
         ),
     },
     {
         "type": "tip",
         "instruction": (
-            "Share 3–5 concise, actionable tips about the given topic. "
+            "Share 3-5 concise, actionable tips about the given topic. "
             "Each tip should be one or two lines. Lead with a strong hook. "
             "End with a CTA (save this, share it, try it today)."
         ),
@@ -157,7 +158,7 @@ POST_FORMATS = [
         "type": "project_spotlight",
         "instruction": (
             "Spotlight a specific project or initiative Ankit worked on that relates to "
-            "the given topic. Tell the story: context → problem → solution → impact. "
+            "the given topic. Tell the story: context - problem - solution - impact. "
             "Include real numbers where possible. Keep it authentic."
         ),
     },
@@ -309,26 +310,81 @@ def pick_domain_and_topic(used_topics):
     return domain, topic
 
 
+# --- New helpers: sanitize, hashtags, image prompt builder ---
+
+def sanitize_text(text: str) -> str:
+    """
+    Remove markdown/code fences and backticks but keep the inner content.
+    Collapse excessive blank lines and remove bold/italic markers.
+    """
+    # Remove code fences ```...```
+    text = re.sub(r'```(?:\w+\n)?([\s\S]*?)```', r'\1', text)
+    # Remove inline backticks `code`
+    text = re.sub(r'`([^`]+)`', r'\1', text)
+    # Remove markdown bold/italic markers
+    text = text.replace("**", "").replace("__", "").replace("*", "")
+    # Remove markdown headings like ###
+    text = re.sub(r'^\s{0,3}#{1,6}\s*', '', text, flags=re.MULTILINE)
+    # Collapse 3+ newlines to two
+    text = re.sub(r'\n{3,}', '\n\n', text)
+    return text.strip()
+
+
+def pick_hashtags(fmt_type: str, domain_key: str, min_tags=4, max_tags=6) -> str:
+    """
+    Build a 4-6 hashtag line from the existing sets. Prefer format-specific first,
+    then add domain tags, then trim or expand to meet count.
+    """
+    base = HASHTAG_SETS.get(fmt_type, "").split()
+    domain = DOMAIN_HASHTAGS.get(domain_key, "").split()
+    # Remove duplicates
+    combined = []
+    for h in base + domain:
+        if h and h not in combined:
+            combined.append(h)
+    # Trim or pad (if too few tags, keep what we have)
+    target = max(min_tags, min(max_tags, len(combined)))
+    return " ".join(combined[:target])
+
+
+def build_image_prompt(domain_key: str, topic: str, fmt_type: str) -> str:
+    """
+    Build a focused image prompt the image generator can use.
+    Keep it short (1-2 sentences) and domain-aware.
+    """
+    style = ("clean professional infographic suitable for LinkedIn feed; "
+             "muted blue/teal palette; high contrast labels; no people; no logos; "
+             "minimal text on image; clear icons for data, locks (security), and cloud.")
+    if domain_key == "databricks":
+        visual = (f"Diagram comparing Unity Catalog vs Hive metastore: "
+                  "data lineage arrows, padlock icons for fine-grained access, "
+                  "S3 bucket and Delta Lake icons for storage.")
+    elif domain_key == "aws":
+        visual = (f"Architecture diagram showing S3, Lake Formation, Glue catalog, "
+                  "access-control overlays and audit/log icons.")
+    elif domain_key == "pyspark":
+        visual = (f"Illustration of a Spark execution graph, partitioned data blocks, "
+                  "and shuffle arrows with a performance/speed icon.")
+    else:
+        visual = f"Abstract data platform graphic related to {topic}."
+    return f"{visual} {style} Topic: {topic}."
+
+
 def generate_post(api_key: str) -> dict:
     # Dynamically select the best available model
     model = select_best_model(api_key)
-    
     client = Groq(api_key=api_key)
 
     used   = load_used_topics()
     fmt    = pick_format(used)
     domain, topic = pick_domain_and_topic(used)
 
-    hashtags = (
-        HASHTAG_SETS[fmt["type"]] + "  " + DOMAIN_HASHTAGS[domain["domain"]]
-    )
+    # enforce 4-6 hashtags
+    hashtags_line = pick_hashtags(fmt["type"], domain["domain"])
 
     system_prompt = f"""You are a LinkedIn ghostwriter specialising in data engineering and cloud careers.
-You write authentic, engaging posts for job seekers targeting senior technical roles.
-Write in first person as Ankit Patel.
-Keep posts between 150–250 words. No fluff, no corporate buzzwords.
-Use line breaks for readability. End with 4–6 relevant hashtags on the last line.
-
+Write in first person as Ankit Patel. Keep posts between 150-250 words. No fluff, no corporate buzzwords.
+Write with line breaks for readability (short paragraphs). Include concrete commands or config names when relevant.
 Candidate profile:
 {PROFILE}
 """
@@ -339,36 +395,86 @@ Topic domain: {domain['label']}
 
 Instructions: {fmt['instruction']}
 
-Tie the post to the specific topic above. Be concrete — use real command names,
-API names, or config patterns where relevant. Write as someone who has used this
-in production at scale.
+Important formatting rules:
+- DO NOT use Markdown formatting (no ```, no **bold**, no *italics*, no markdown headings).
+- DO NOT output code fences. If you include code examples, output them as plain, unquoted lines (e.g. CREATE DATABASE mydb USING DELTA LOCATION /mnt/secure/data).
+- Keep the post plain text, LinkedIn-ready. Use short paragraphs and a final single line with 4-6 hashtags.
+- Create a concise, focused image prompt (1-2 sentences) appropriate for a professional LinkedIn infographic illustrating the technical idea.
 
-Use these hashtags at the end (all on one line): {hashtags}
+Output requirement (MANDATORY):
+Return ONLY valid JSON, with these exact keys:
+{
+  "post_text": "<The LinkedIn post plain text, 150-250 words, no markdown>",
+  "hashtags": "<single-line of 4-6 hashtags, space-separated>",
+  "image_prompt": "<short image prompt for an AI image generator>"
+}
 
-Write the full LinkedIn post now. Output only the post text, nothing else.
+Do not include any extra commentary or surrounding text. JSON must be parseable.
 """
 
+    # Lower temperature for more deterministic outputs
     response = client.chat.completions.create(
         model=model,
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
         ],
-        temperature=0.85,
+        temperature=0.3,
         max_tokens=600,
     )
 
-    post_text = response.choices[0].message.content.strip()
+    raw = response.choices[0].message.content.strip()
+
+    # Robust JSON extraction/parsing fallback
+    parsed = None
+    try:
+        parsed = json.loads(raw)
+    except Exception:
+        # try to extract the first JSON-looking block
+        m = re.search(r'(\{[\s\S]*\})', raw)
+        if m:
+            try:
+                parsed = json.loads(m.group(1))
+            except Exception:
+                parsed = None
+
+    result_obj = {}
+    if parsed and isinstance(parsed, dict):
+        # ensure required keys exist, otherwise fallback to sanitized raw
+        post_text = parsed.get("post_text", "").strip()
+        hashtags = parsed.get("hashtags", "").strip() or hashtags_line
+        image_prompt = parsed.get("image_prompt", "").strip() or build_image_prompt(domain["domain"], topic, fmt["type"])
+        # sanitize again in case model included stray backticks
+        post_text = sanitize_text(post_text)
+        result_obj = {
+            "text": post_text,
+            "format_type": fmt["type"],
+            "domain": domain["label"],
+            "topic": topic,
+            "date": str(date.today()),
+            "model_used": model,
+            "hashtags": hashtags,
+            "image_prompt": image_prompt,
+        }
+    else:
+        # Fallback: sanitize the full raw response and construct hashtags and image prompt
+        post_text = sanitize_text(raw)
+        image_prompt = build_image_prompt(domain["domain"], topic, fmt["type"])
+        result_obj = {
+            "text": post_text,
+            "format_type": fmt["type"],
+            "domain": domain["label"],
+            "topic": topic,
+            "date": str(date.today()),
+            "model_used": model,
+            "hashtags": hashtags_line,
+            "image_prompt": image_prompt,
+        }
+
+    # Save used topic as before
     save_used_topic(fmt["type"], domain["domain"], topic)
 
-    return {
-        "text": post_text,
-        "format_type": fmt["type"],
-        "domain": domain["label"],
-        "topic": topic,
-        "date": str(date.today()),
-        "model_used": model,
-    }
+    return result_obj
 
 
 if __name__ == "__main__":

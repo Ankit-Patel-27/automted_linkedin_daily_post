@@ -1,45 +1,21 @@
 {
-  "generated_date": "2026-09-03",
-  "posts_analysed": 23,
+  "generated_date": "2026-09-05",
+  "posts_analysed": 22,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "myth_vs_reality",
+  "best_format": "project_spotlight",
   "format_avg_scores": {
-    "myth_vs_reality": 0.0,
-    "concept_explainer": 0.0,
     "project_spotlight": 0.0,
     "industry_take": 0.0,
     "open_to_work": 0.0,
     "insight": 0.0,
     "achievement": 0.0,
-    "tip": 0.0
+    "myth_vs_reality": 0.0,
+    "tip": 0.0,
+    "concept_explainer": 0.0
   },
   "posts": [
-    {
-      "date": "2026-08-04",
-      "post_id": "urn:li:share:7490258242845958144",
-      "format_type": "myth_vs_reality",
-      "domain": "AWS",
-      "had_image": true,
-      "preview": "Myth vs Reality: Fine-grained access control in AWS Lake Formation for PHI data.\n\nWhat most people do: Overly rely on co...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
-    {
-      "date": "2026-08-05",
-      "post_id": "urn:li:share:7490617409611988992",
-      "format_type": "concept_explainer",
-      "domain": "Databricks",
-      "had_image": true,
-      "preview": "As a Lead Data Engineer, I've worked with large-scale datasets in Databricks, and optimizing queries is crucial for perf...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-08-06",
       "post_id": "urn:li:share:7490982544490876928",
@@ -287,6 +263,18 @@
       "domain": "AWS",
       "had_image": true,
       "preview": "As a Lead Data Engineer at TCS, I\u2019ve run 10TB migrations on AWS and decided between Glue, EMR, and Lambda for ETL.\n\n1\ufe0f\u20e3 ...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-09-05",
+      "post_id": "urn:li:share:7501870545253244928",
+      "format_type": "tip",
+      "domain": "SQL / Analytics Engineering",
+      "had_image": true,
+      "preview": "{\n  \"post_text\": \"\ud83d\udd0d When your queries start choking, the choice between CTEs, subqueries, and temp tables can be the dif...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

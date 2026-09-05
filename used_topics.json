@@ -1,11 +1,5 @@
 [
   {
-    "type": "concept_explainer",
-    "domain": "sql",
-    "topic": "dbt incremental models \u2014 full refresh vs append vs merge strategies",
-    "date": "2026-07-17"
-  },
-  {
     "type": "tip",
     "domain": "pyspark",
     "topic": "Avoiding data skew in PySpark with salting techniques",
@@ -238,5 +232,11 @@
     "domain": "aws",
     "topic": "AWS Glue vs EMR vs Lambda - choosing the right compute for ETL",
     "date": "2026-09-03"
+  },
+  {
+    "type": "tip",
+    "domain": "sql",
+    "topic": "CTEs vs subqueries vs temp tables - performance and readability trade-offs",
+    "date": "2026-09-05"
   }
 ]

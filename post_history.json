@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-05-28",
-    "post_id": "urn:li:share:7465630113200648192",
-    "format_type": "concept_explainer",
-    "domain": "AWS",
-    "had_image": true,
-    "preview": "As a data engineer, I've seen my fair share of bad data causing issues downstream. That's where AWS Glue Data Quality co..."
-  },
-  {
     "date": "2026-05-29",
     "post_id": "urn:li:share:7465993588049465344",
     "format_type": "open_to_work",
@@ -718,5 +710,13 @@
     "domain": "AWS",
     "had_image": true,
     "preview": "As a Lead Data Engineer at TCS, I\u2019ve run 10TB migrations on AWS and decided between Glue, EMR, and Lambda for ETL.\n\n1\ufe0f\u20e3 ..."
+  },
+  {
+    "date": "2026-09-05",
+    "post_id": "urn:li:share:7501870545253244928",
+    "format_type": "tip",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "{\n  \"post_text\": \"\ud83d\udd0d When your queries start choking, the choice between CTEs, subqueries, and temp tables can be the dif..."
   }
 ]

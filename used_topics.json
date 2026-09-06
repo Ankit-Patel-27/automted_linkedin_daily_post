@@ -1,11 +1,5 @@
 [
   {
-    "type": "tip",
-    "domain": "pyspark",
-    "topic": "Avoiding data skew in PySpark with salting techniques",
-    "date": "2026-07-18"
-  },
-  {
     "type": "myth_vs_reality",
     "domain": "aws",
     "topic": "AWS Glue Data Quality \u2014 catching bad data before it hits production",
@@ -238,5 +232,11 @@
     "domain": "sql",
     "topic": "CTEs vs subqueries vs temp tables - performance and readability trade-offs",
     "date": "2026-09-05"
+  },
+  {
+    "type": "insight",
+    "domain": "databricks",
+    "topic": "Databricks Photon engine - when it helps and when it doesn't",
+    "date": "2026-09-06"
   }
 ]

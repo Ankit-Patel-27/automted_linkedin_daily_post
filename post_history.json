@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-05-30",
-    "post_id": "urn:li:share:7466350832922333184",
-    "format_type": "achievement",
-    "domain": "SQL / Analytics Engineering",
-    "had_image": true,
-    "preview": "I recall a particularly challenging project where I had to optimize our ETL pipeline for a large-scale data warehouse. W..."
-  },
-  {
     "date": "2026-05-31",
     "post_id": "urn:li:share:7466719546117234691",
     "format_type": "tip",
@@ -718,5 +710,13 @@
     "domain": "Databricks",
     "had_image": true,
     "preview": "{\"post_text\":\"**Photon is like a turbocharger for Spark, but only when you\u2019re already in the right gear.**\\n\\nWhen I mig..."
+  },
+  {
+    "date": "2026-09-07",
+    "post_id": "urn:li:share:7502601969635807232",
+    "format_type": "industry_take",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "When I built a 10\u202fTB genomic\u2011variant pipeline on Databricks, the choice between `df.cache()` and `df.persist(StorageLeve..."
   }
 ]

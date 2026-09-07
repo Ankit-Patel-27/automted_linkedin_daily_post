@@ -1,11 +1,5 @@
 [
   {
-    "type": "myth_vs_reality",
-    "domain": "aws",
-    "topic": "AWS Glue Data Quality \u2014 catching bad data before it hits production",
-    "date": "2026-07-19"
-  },
-  {
     "type": "insight",
     "domain": "sql",
     "topic": "Slowly Changing Dimensions (SCD Type 2) with dbt and Delta Lake",
@@ -238,5 +232,11 @@
     "domain": "databricks",
     "topic": "Databricks Photon engine - when it helps and when it doesn't",
     "date": "2026-09-06"
+  },
+  {
+    "type": "industry_take",
+    "domain": "pyspark",
+    "topic": "Caching and persistence in Spark - .cache() vs .persist()",
+    "date": "2026-09-07"
   }
 ]

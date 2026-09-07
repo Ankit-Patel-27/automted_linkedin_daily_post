@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-09-06",
+  "generated_date": "2026-09-07",
   "posts_analysed": 22,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "industry_take",
+  "best_format": "open_to_work",
   "format_avg_scores": {
-    "industry_take": 0.0,
     "open_to_work": 0.0,
     "insight": 0.0,
     "achievement": 0.0,
     "myth_vs_reality": 0.0,
     "tip": 0.0,
     "project_spotlight": 0.0,
+    "industry_take": 0.0,
     "concept_explainer": 0.0
   },
   "posts": [
-    {
-      "date": "2026-08-07",
-      "post_id": "urn:li:share:7491339660875558913",
-      "format_type": "industry_take",
-      "domain": "PySpark",
-      "had_image": true,
-      "preview": "As someone who's worked with large-scale healthcare data infrastructure, I've often found myself debating the trade-offs...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-08-08",
       "post_id": "urn:li:share:7491688089124532224",
@@ -275,6 +263,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "{\"post_text\":\"**Photon is like a turbocharger for Spark, but only when you\u2019re already in the right gear.**\\n\\nWhen I mig...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-09-07",
+      "post_id": "urn:li:share:7502601969635807232",
+      "format_type": "industry_take",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "When I built a 10\u202fTB genomic\u2011variant pipeline on Databricks, the choice between `df.cache()` and `df.persist(StorageLeve...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

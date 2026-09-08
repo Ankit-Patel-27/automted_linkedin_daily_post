@@ -1,11 +1,5 @@
 [
   {
-    "type": "insight",
-    "domain": "sql",
-    "topic": "Slowly Changing Dimensions (SCD Type 2) with dbt and Delta Lake",
-    "date": "2026-07-20"
-  },
-  {
     "type": "project_spotlight",
     "domain": "pyspark",
     "topic": "PySpark broadcast joins \u2014 when and how to use them",
@@ -238,5 +232,11 @@
     "domain": "pyspark",
     "topic": "Caching and persistence in Spark - .cache() vs .persist()",
     "date": "2026-09-07"
+  },
+  {
+    "type": "project_spotlight",
+    "domain": "sql",
+    "topic": "dbt tests and data contracts - enforcing data quality at the model layer",
+    "date": "2026-09-08"
   }
 ]

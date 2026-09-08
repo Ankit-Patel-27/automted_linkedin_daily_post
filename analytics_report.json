@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-09-07",
+  "generated_date": "2026-09-08",
   "posts_analysed": 22,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "open_to_work",
+  "best_format": "insight",
   "format_avg_scores": {
-    "open_to_work": 0.0,
     "insight": 0.0,
     "achievement": 0.0,
     "myth_vs_reality": 0.0,
     "tip": 0.0,
     "project_spotlight": 0.0,
     "industry_take": 0.0,
+    "open_to_work": 0.0,
     "concept_explainer": 0.0
   },
   "posts": [
-    {
-      "date": "2026-08-08",
-      "post_id": "urn:li:share:7491688089124532224",
-      "format_type": "open_to_work",
-      "domain": "Databricks",
-      "had_image": true,
-      "preview": "I'm excited to share that I'm open to new opportunities as a Senior Data Engineer or Data Platform Lead in the healthcar...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-08-09",
       "post_id": "urn:li:share:7492052487135338496",
@@ -275,6 +263,18 @@
       "domain": "PySpark",
       "had_image": true,
       "preview": "When I built a 10\u202fTB genomic\u2011variant pipeline on Databricks, the choice between `df.cache()` and `df.persist(StorageLeve...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-09-08",
+      "post_id": "urn:li:share:7502962818770661376",
+      "format_type": "project_spotlight",
+      "domain": "SQL / Analytics Engineering",
+      "had_image": true,
+      "preview": "{ \"post_text\": \"In my role as a Lead Data Engineer at TCS, I led a successful project focused on improving data quality ...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

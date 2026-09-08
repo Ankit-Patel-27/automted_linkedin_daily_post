@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-05-31",
-    "post_id": "urn:li:share:7466719546117234691",
-    "format_type": "tip",
-    "domain": "PySpark",
-    "had_image": true,
-    "preview": "Cracking the Spark execution plan - a game-changer for PySpark performance!\n\nAs a seasoned data engineer, I've spent cou..."
-  },
-  {
     "date": "2026-06-01",
     "post_id": "urn:li:share:7467092977954525184",
     "format_type": "myth_vs_reality",
@@ -718,5 +710,13 @@
     "domain": "PySpark",
     "had_image": true,
     "preview": "When I built a 10\u202fTB genomic\u2011variant pipeline on Databricks, the choice between `df.cache()` and `df.persist(StorageLeve..."
+  },
+  {
+    "date": "2026-09-08",
+    "post_id": "urn:li:share:7502962818770661376",
+    "format_type": "project_spotlight",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "{ \"post_text\": \"In my role as a Lead Data Engineer at TCS, I led a successful project focused on improving data quality ..."
   }
 ]

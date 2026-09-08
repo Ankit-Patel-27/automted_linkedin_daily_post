@@ -1,6 +1,6 @@
 {
   "generated_date": "2026-09-08",
-  "posts_analysed": 22,
+  "posts_analysed": 23,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -275,6 +275,18 @@
       "domain": "SQL / Analytics Engineering",
       "had_image": true,
       "preview": "{ \"post_text\": \"In my role as a Lead Data Engineer at TCS, I led a successful project focused on improving data quality ...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-09-08",
+      "post_id": "urn:li:share:7503133748352237568",
+      "format_type": "open_to_work",
+      "domain": "Databricks",
+      "had_image": true,
+      "preview": "Databricks SQL Dashboards: Real\u2011time operational analytics at scale. In production I built a multi\u2011tenant dashboard laye...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

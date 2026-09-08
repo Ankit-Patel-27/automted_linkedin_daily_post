@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-06-02",
-    "post_id": "urn:li:share:7467447204098748416",
-    "format_type": "insight",
-    "domain": "SQL / Analytics Engineering",
-    "had_image": true,
-    "preview": "**A well-designed star schema can be the difference between a healthcare analytics warehouse that's slow and cumbersome ..."
-  },
-  {
     "date": "2026-06-03",
     "post_id": "urn:li:share:7467818173053071360",
     "format_type": "project_spotlight",
@@ -718,5 +710,13 @@
     "domain": "Databricks",
     "had_image": true,
     "preview": "Databricks SQL Dashboards: Real\u2011time operational analytics at scale. In production I built a multi\u2011tenant dashboard laye..."
+  },
+  {
+    "date": "2026-09-08",
+    "post_id": "urn:li:share:7503137780181676033",
+    "format_type": "myth_vs_reality",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "Myth vs Reality: EventBridge + Lambda Ingestion Resilience Myth: Rely on EventBridge's default retry (max 3 attempts, 5\u2011..."
   }
 ]

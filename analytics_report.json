@@ -1,6 +1,6 @@
 {
   "generated_date": "2026-09-08",
-  "posts_analysed": 23,
+  "posts_analysed": 24,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -287,6 +287,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "Databricks SQL Dashboards: Real\u2011time operational analytics at scale. In production I built a multi\u2011tenant dashboard laye...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-09-08",
+      "post_id": "urn:li:share:7503137780181676033",
+      "format_type": "myth_vs_reality",
+      "domain": "AWS",
+      "had_image": true,
+      "preview": "Myth vs Reality: EventBridge + Lambda Ingestion Resilience Myth: Rely on EventBridge's default retry (max 3 attempts, 5\u2011...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

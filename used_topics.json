@@ -1,11 +1,5 @@
 [
   {
-    "type": "open_to_work",
-    "domain": "databricks",
-    "topic": "Delta Live Tables (DLT) pipelines \u2014 declarative ETL in practice",
-    "date": "2026-07-23"
-  },
-  {
     "type": "industry_take",
     "domain": "sql",
     "topic": "Materialised views in Redshift and Databricks SQL",
@@ -237,6 +231,12 @@
     "type": "open_to_work",
     "domain": "databricks",
     "topic": "Databricks SQL dashboards for operational analytics",
+    "date": "2026-09-08"
+  },
+  {
+    "type": "myth_vs_reality",
+    "domain": "aws",
+    "topic": "Designing resilient ingestion with EventBridge and Lambda",
     "date": "2026-09-08"
   }
 ]

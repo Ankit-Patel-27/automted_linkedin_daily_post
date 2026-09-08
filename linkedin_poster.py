@@ -7,6 +7,8 @@ LinkedIn Publisher
 - Auto-adds first comment with resource link for technical posts
 """
 
+from __future__ import annotations
+
 import os
 import json
 import time

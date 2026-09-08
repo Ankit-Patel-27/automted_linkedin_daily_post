@@ -66,14 +66,14 @@ def pollinations_enhance_diagram(diagram_path: str, topic: str,
 
     # Strict enhancement prompt - preserves content, only improves visuals
     enhance_prompt = (
-        f"Enhance this data engineering architecture diagram for {domain} showing {topic}. "
-        f"STRICT RULES: Do NOT change, move, remove, or alter any text labels, boxes, arrows, "
-        f"node names, or diagram structure. Keep ALL technical content exactly as-is. "
-        f"Only improve: background depth, color contrast, glow effects on arrows, "
-        f"box shadows, gradient fills on nodes, overall visual polish. "
-        f"Dark professional theme. The diagram must remain fully readable and technically accurate. "
-        f"Style: dark background #0a0e1a, glowing connectors, crisp white text, "
-        f"technology company presentation quality."
+        f"Enhance this data engineering architecture diagram for {domain} showing {topic} as a "
+        f"clean infographic-style visual. STRICT RULES: Do NOT change, move, remove, or alter "
+        f"any text labels, boxes, arrows, node names, or diagram structure. Keep ALL technical "
+        f"content exactly as-is. Only improve: background clarity, contrast, edge polish, "
+        f"subtle shadows, clean card-like boxes, and overall infographic presentation. "
+        f"Use a light, presentation-ready background with clear labels and polished arrows. "
+        f"The diagram must remain fully readable and technically accurate. Style: clean modern "
+        f"diagram infographic, bright workspace palette, crisp readable text, professional tech brand aesthetic."
     )
 
     encoded_prompt = quote(enhance_prompt)
@@ -115,32 +115,32 @@ def pollinations_enhance_diagram(diagram_path: str, topic: str,
 
 FORMAT_PROMPTS = {
     "insight": (
-        "Professional dark tech workspace, glowing data streams, neural network visualization, "
-        "blue and purple light, cinematic depth of field, 4K, no text"
+        "Infographic-style data engineering diagram, labeled boxes, arrows, clean layout, "
+        "icons, minimal text, blue and purple accents, professional presentation, high contrast"
     ),
     "achievement": (
-        "Abstract golden trophy made of data nodes and connections, dark background, "
-        "particle effects, professional tech aesthetic, 4K, no text"
+        "Diagram-style achievement infographic, before vs after flow, labeled steps, "
+        "highlighted result badge, clean modern layout, colorful icons, professional design"
     ),
     "open_to_work": (
-        "Professional data engineer at modern workstation, city skyline background, "
-        "blue ambient lighting, career growth concept, cinematic, 4K, no text"
+        "Career infographic diagram, profile summary with skills icons, arrows, strong headings, "
+        "clean modern layout, blue and orange accents, professional presentation"
     ),
     "tip": (
-        "Glowing code terminal with data pipeline visualization, dark background, "
-        "teal and white colors, professional tech aesthetic, 4K, no text"
+        "Step-by-step technical infographic, numbered boxes, arrows, icons, simple layout, "
+        "teal and blue palette, crisp labels, clean diagram style"
     ),
     "myth_vs_reality": (
-        "Two contrasting paths of light in dark space, one dim and one bright, "
-        "abstract data visualization, professional, 4K, no text"
+        "Side-by-side infographic comparing myth and reality, labeled columns, arrows, "
+        "red and green highlights, clean business-style diagram, minimal clutter"
     ),
     "project_spotlight": (
-        "Futuristic data platform architecture visualization, glowing nodes connected "
-        "by light streams, dark space background, cinematic, 4K, no text"
+        "Project spotlight diagram, architecture flow, labeled stages, icons, arrows, "
+        "dark background, blue and green highlights, polished presentation"
     ),
     "industry_take": (
-        "Abstract healthcare data visualization, DNA helix merged with cloud infrastructure, "
-        "blue and green colors, dark background, 4K, no text"
+        "Healthcare data infographic, process flow diagram, key takeaways boxes, "
+        "clean editorial layout, blue green purple palette, professional visuals"
     ),
 }
 
@@ -160,7 +160,7 @@ def build_nontechnical_prompt(post_data: dict) -> str:
     # Enrich with topic keywords
     topic_keywords = " ".join(topic.split()[:6]) if topic else ""
     if topic_keywords:
-        base_prompt = f"{topic_keywords} concept, {base_prompt}"
+        base_prompt = f"{topic_keywords} diagram-first infographic, {base_prompt}"
 
     return base_prompt
 
@@ -170,7 +170,7 @@ def build_nontechnical_prompt(post_data: dict) -> str:
 def generate_technical_diagram(post_data: dict, output_path: str = "diagram_raw.png") -> bool:
     """
     Generates a clean, readable architecture/flow diagram using matplotlib
-    based on the specific topic and domain.
+    based on the specific topic, domain, and desired visual format.
     """
     try:
         import matplotlib
@@ -184,22 +184,23 @@ def generate_technical_diagram(post_data: dict, output_path: str = "diagram_raw.
 
     domain = post_data.get("domain", "")
     topic  = post_data.get("topic", "")
+    fmt_type = post_data.get("format_type", "insight")
 
-    DIAGRAMS = _get_diagram_config(domain, topic)
+    DIAGRAMS = _get_diagram_config(domain, topic, fmt_type)
 
     fig, ax = plt.subplots(figsize=(14, 7.35))
-    fig.patch.set_facecolor("#0a0e1a")
-    ax.set_facecolor("#0a0e1a")
+    fig.patch.set_facecolor("#edf2f7")
+    ax.set_facecolor("#edf2f7")
     ax.set_xlim(0, 14)
     ax.set_ylim(0, 7.35)
     ax.axis("off")
 
     # Title
     ax.text(7, 6.9, DIAGRAMS["title"], ha="center", va="top",
-            fontsize=16, fontweight="bold", color=DIAGRAMS["accent"],
+            fontsize=16, fontweight="bold", color="#1d3557",
             fontfamily="monospace")
     ax.text(7, 6.55, DIAGRAMS["subtitle"], ha="center", va="top",
-            fontsize=9, color="#8892a4", fontfamily="monospace")
+            fontsize=9, color="#4b6584", fontfamily="monospace")
 
     # Draw nodes
     for node in DIAGRAMS["nodes"]:
@@ -248,14 +249,24 @@ def generate_technical_diagram(post_data: dict, output_path: str = "diagram_raw.
 
     plt.tight_layout(pad=0.2)
     plt.savefig(output_path, dpi=150, bbox_inches="tight",
-                facecolor="#0a0e1a", edgecolor="none")
+                facecolor="#edf2f7", edgecolor="none")
     plt.close()
     print(f"✓ Diagram generated: {output_path}")
     return True
 
 
-def _get_diagram_config(domain: str, topic: str) -> dict:
-    """Returns diagram node/arrow config based on domain and topic keywords."""
+def _get_diagram_config(domain: str, topic: str, format_type: str = "insight") -> dict:
+    """Returns diagram node/arrow config based on topic, domain and chosen infographic style."""
+
+    # Style-first layouts requested by the user
+    if format_type == "myth_vs_reality":
+        return _diagram_myth_reality(domain, topic)
+    elif format_type in {"tip", "concept_explainer"}:
+        return _diagram_numbered_steps(domain, topic)
+    elif format_type in {"achievement", "project_spotlight"}:
+        return _diagram_before_after(domain, topic)
+    elif format_type in {"insight", "industry_take", "open_to_work"}:
+        return _diagram_flowchart(domain, topic)
 
     topic_lower = topic.lower()
 
@@ -346,6 +357,82 @@ def get_image_for_post(post_data: dict, output_path: str = "post_image.png") -> 
 
 
 # -- Diagram configs ------------------------------------------------------ [...]
+
+def _diagram_numbered_steps(domain: str, topic: str) -> dict:
+    """Diagram-style numbered progression with labeled boxes and arrows."""
+    return {
+        "title": f"{domain} Step-by-Step",
+        "subtitle": topic,
+        "accent": "#2563eb",
+        "nodes": [
+            {"x": 2, "y": 4, "label": "1", "sublabel": "Capture", "color": "#2563eb"},
+            {"x": 5, "y": 4, "label": "2", "sublabel": "Process", "color": "#4a90e2"},
+            {"x": 8, "y": 4, "label": "3", "sublabel": "Validate", "color": "#50c878"},
+            {"x": 11, "y": 4, "label": "4", "sublabel": "Deliver", "color": "#f4a460"},
+        ],
+        "arrows": [
+            {"x1": 2.8, "y1": 4, "x2": 4.2, "y2": 4, "color": "#2563eb"},
+            {"x1": 5.8, "y1": 4, "x2": 7.2, "y2": 4, "color": "#2563eb"},
+            {"x1": 8.8, "y1": 4, "x2": 10.2, "y2": 4, "color": "#2563eb"},
+        ],
+        "section_labels": [],
+    }
+
+
+def _diagram_before_after(domain: str, topic: str) -> dict:
+    """Before vs after comparison diagram."""
+    return {
+        "title": f"{domain} Before vs After",
+        "subtitle": topic,
+        "accent": "#7c3aed",
+        "nodes": [
+            {"x": 4, "y": 4, "label": "Before", "sublabel": "Manual / fragile", "color": "#ef4444"},
+            {"x": 10, "y": 4, "label": "After", "sublabel": "Automated / reliable", "color": "#22c55e"},
+        ],
+        "arrows": [
+            {"x1": 5.2, "y1": 4, "x2": 8.8, "y2": 4, "color": "#7c3aed", "label": "Improvement"},
+        ],
+        "section_labels": [],
+    }
+
+
+def _diagram_flowchart(domain: str, topic: str) -> dict:
+    """Generic flowchart with labeled boxes and arrows."""
+    return {
+        "title": f"{domain} Flowchart",
+        "subtitle": topic,
+        "accent": "#0ea5e9",
+        "nodes": [
+            {"x": 2, "y": 4, "label": "Input", "sublabel": "Source", "color": "#0ea5e9"},
+            {"x": 5, "y": 4, "label": "Process", "sublabel": "Transform", "color": "#38bdf8"},
+            {"x": 8, "y": 4, "label": "Validate", "sublabel": "Quality", "color": "#34d399"},
+            {"x": 11, "y": 4, "label": "Output", "sublabel": "Result", "color": "#a78bfa"},
+        ],
+        "arrows": [
+            {"x1": 2.8, "y1": 4, "x2": 4.2, "y2": 4, "color": "#0ea5e9"},
+            {"x1": 5.8, "y1": 4, "x2": 7.2, "y2": 4, "color": "#0ea5e9"},
+            {"x1": 8.8, "y1": 4, "x2": 10.2, "y2": 4, "color": "#0ea5e9"},
+        ],
+        "section_labels": [],
+    }
+
+
+def _diagram_myth_reality(domain: str, topic: str) -> dict:
+    """Myth vs reality split infographic."""
+    return {
+        "title": f"{domain} Myth vs Reality",
+        "subtitle": topic,
+        "accent": "#f59e0b",
+        "nodes": [
+            {"x": 4, "y": 4, "label": "Myth", "sublabel": "Common belief", "color": "#ef4444"},
+            {"x": 10, "y": 4, "label": "Reality", "sublabel": "What actually works", "color": "#22c55e"},
+        ],
+        "arrows": [
+            {"x1": 5.2, "y1": 4, "x2": 8.8, "y2": 4, "color": "#f59e0b", "label": "Insight"},
+        ],
+        "section_labels": [],
+    }
+
 
 def _diagram_databricks_medallion() -> dict:
     """Databricks medallion architecture (Bronze/Silver/Gold)."""

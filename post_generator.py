@@ -4,6 +4,8 @@ Uses Groq (Llama 3.1 70B) to generate daily job-hunting posts for a
 Senior Data Engineer / Data Platform Lead in Healthcare/Biotech.
 """
 
+from __future__ import annotations
+
 import os
 import json
 import random
@@ -51,6 +53,11 @@ TOPIC_DOMAINS = [
             "Databricks Feature Store for ML pipelines in biotech",
             "Optimising small file problems in Delta Lake",
             "Change Data Feed (CDF) in Delta Lake for CDC pipelines",
+            "Delta Sharing for secure cross-team data access",
+            "Databricks SQL dashboards for operational analytics",
+            "Managing Lakehouse data quality with expectations and alerts",
+            "Databricks Repos and CI/CD for governed data projects",
+            "Streaming ETL patterns with Auto Loader and Kafka",
         ],
     },
     {
@@ -67,6 +74,11 @@ TOPIC_DOMAINS = [
             "AWS ECS vs EKS for containerised data workloads",
             "CloudFormation vs Terraform for data infrastructure as code",
             "AWS Glue Catalog as a central metadata store",
+            "Designing resilient ingestion with EventBridge and Lambda",
+            "Amazon Redshift performance tuning for healthcare analytics",
+            "AWS Backup and disaster recovery patterns for data platforms",
+            "S3 object tagging and lineage for governance at scale",
+            "Choosing the right AWS storage layer for analytics workloads",
         ],
     },
     {
@@ -83,6 +95,11 @@ TOPIC_DOMAINS = [
             "Spark shuffle - what it is and how to reduce it",
             "Writing efficient PySpark transformations for 500M+ record datasets",
             "PySpark structured streaming for near-real-time pipelines",
+            "Optimising joins for large healthcare fact tables",
+            "Using dynamic partitions in PySpark for scalable ETL",
+            "How to debug slow Spark jobs with UI and plans",
+            "Managing stateful streaming jobs in PySpark",
+            "Schema evolution strategies in large PySpark pipelines",
         ],
     },
     {
@@ -99,6 +116,11 @@ TOPIC_DOMAINS = [
             "SQL anti-patterns that kill pipeline performance",
             "Using dbt macros to build reusable SQL components",
             "Designing star schemas for healthcare analytics warehouses",
+            "Building reusable semantic layer metrics with dbt",
+            "Optimising fact and dimension modelling for BI queries",
+            "Data contracts for cross-team analytics handoffs",
+            "How to choose between views, materialized views, and tables",
+            "Writing readable SQL for high-stakes healthcare reporting",
         ],
     },
 ]
@@ -292,6 +314,14 @@ def pick_format(used_topics):
     return random.choice(available)
 
 
+def pick_hashtags(format_type: str, domain: str) -> str:
+    """Return a compact hashtag set suitable for the post."""
+    base_tags = HASHTAG_SETS.get(format_type, HASHTAG_SETS["insight"]).split()
+    domain_tags = DOMAIN_HASHTAGS.get(domain.lower(), "").split()
+    tags = (base_tags + domain_tags)[:6]
+    return " ".join(tags)
+
+
 def pick_domain_and_topic(used_topics):
     """
     Pick a domain, then a topic within it.
@@ -317,21 +347,46 @@ def pick_domain_and_topic(used_topics):
     return domain, topic
 
 
+def sanitize_text(s: str, default_hashtags: str = "") -> str:
+    """Compatibility wrapper used by the existing tests."""
+    if not s:
+        return ""
+    return sanitize_post_text(s, default_hashtags or "#DataEngineering #DataPlatform")
+
+
 def sanitize_post_text(s: str, default_hashtags: str) -> str:
     """Sanitize raw model output into a LinkedIn-ready post text.
 
     - Remove fenced code blocks
+    - Strip malformed JSON wrappers, duplicate post_text chunks, and stray braces/quotes
     - Collapse extra blank lines
     - Ensure hashtags are on the last line
-    - Enforce approximate 150-250 word length (truncate if necessary)
+    - Keep the final caption concise and image-friendly
     """
     if not s:
         return ""
 
+    s = s.strip()
+    s = s.replace("\\n", "\n").replace('\\"', '"').replace("\\'", "'")
+
     # Remove fenced code blocks ``` ``` and ```lang
     s = re.sub(r"```[\s\S]*?```", "", s)
-    # Replace long inline code fences with single backticks
-    s = s.replace("```,", "`")
+    s = re.sub(r"`", "", s)
+    s = s.replace("**", "")
+
+    # Drop common malformed JSON wrappers repeatedly produced by the model.
+    s = re.sub(r'(?s)^\s*\{\s*"?post_text"?\s*:\s*', '', s, count=1)
+    s = re.sub(r'(?s)\{\s*"?post_text"?\s*:\s*', '', s)
+    s = re.sub(r'(?s)\{\s*"?image_prompt"?\s*:\s*', '', s)
+    s = re.sub(r'(?s)\{\s*"?hashtags"?\s*:\s*', '', s)
+    s = re.sub(r'(?s)\s*\}\s*$', '', s)
+    s = re.sub(r'(?s)\s*"\s*\}\s*', '', s)
+
+    # Trim stray leading/trailing quotes/braces caused by mixed JSON and text output.
+    s = re.sub(r'(?s)^\s*[{\[]+', '', s)
+    s = re.sub(r'(?s)[}\]]+\s*$', '', s)
+    s = re.sub(r'(?s)^\s*[\"\']+', '', s)
+    s = re.sub(r'(?s)[\"\']+\s*$', '', s)
 
     # Collapse excessive blank lines
     s = re.sub(r"\n\s*\n+", "\n\n", s).strip()
@@ -346,39 +401,52 @@ def sanitize_post_text(s: str, default_hashtags: str) -> str:
     else:
         hashtags_line = default_hashtags
 
-    # Enforce word count (approx)
+    # Keep posts concise and visually oriented.
     words = body.split()
-    if len(words) < 140:
-        # If too short, keep as-is (LLM might have produced a concise post)
-        final_body = body
-    else:
-        # Truncate to 250 words if needed, trying to keep sentences whole
-        if len(words) > 250:
-            truncated = " ".join(words[:250])
-            # Try to cut at last sentence end
-            m = re.search(r"(.+[\.\!\?])\s+[^\.\!\?]*$", truncated)
-            if m:
-                final_body = m.group(1)
-            else:
-                final_body = truncated
+    if len(words) > 80:
+        truncated = " ".join(words[:80])
+        m = re.search(r"(.+[\.\!\?])\s+[^\.\!\?]*$", truncated)
+        if m:
+            body = m.group(1)
         else:
-            final_body = body
+            body = truncated
 
-    final = final_body.rstrip() + "\n\n" + hashtags_line
+    body = re.sub(r'\s+', ' ', body).strip()
+    final = body.rstrip() + "\n\n" + hashtags_line
     return final
 
 
 def auto_generate_image_prompt(topic: str, domain_label: str, fmt_type: str) -> str:
-    """Create a focused image prompt when the model doesn't provide one.
-
-    Keeps prompts short and deterministic to reduce randomness from image APIs.
-    """
-    # Use first 6-8 meaningful words from the topic
+    """Create a visual-first prompt when the model doesn't provide one."""
     words = re.findall(r"\w+", topic)
     keywords = " ".join(words[:8])
-    style = "dark professional schematic, minimal text, high contrast, no faces, no logos"
+
+    style_map = {
+        "tip": "numbered step diagram with labeled boxes and arrows, clean infographic layout, blue and teal accents, minimal text",
+        "concept_explainer": "numbered step diagram with labeled boxes and arrows, clean infographic layout, blue and teal accents, minimal text",
+        "achievement": "before vs after infographic, left and right comparison, clear labels, polished layout, no text overlay",
+        "project_spotlight": "before vs after infographic, left and right comparison, clear labels, polished layout, no text overlay",
+        "myth_vs_reality": "myth vs reality infographic, split comparison layout, bold labeled columns, clean modern design, no text overlay",
+        "insight": "flowchart with labeled boxes and arrows, clean infographic layout, modern presentation, no text overlay",
+        "industry_take": "flowchart with labeled boxes and arrows, clean infographic layout, modern presentation, no text overlay",
+        "open_to_work": "flowchart with labeled boxes and arrows, clean infographic layout, modern presentation, no text overlay",
+    }
+
+    style = style_map.get(fmt_type, style_map["insight"])
     prompt = f"{domain_label} {keywords} — {fmt_type} visual, {style}"
     return prompt
+
+
+def extract_json_string_value(s: str, field: str) -> str | None:
+    """Extract a JSON string field value from malformed model output."""
+    pattern = rf'"{field}"\s*:\s*"((?:\\.|[^"\\])*)"'
+    match = re.search(pattern, s)
+    if not match:
+        return None
+    try:
+        return json.loads(f'"{match.group(1)}"')
+    except Exception:
+        return None
 
 
 def extract_json_from_text(s: str) -> str | None:
@@ -393,15 +461,17 @@ def extract_json_from_text(s: str) -> str | None:
     except Exception:
         pass
 
-    # Find the first {...} block
-    m = re.search(r"\{[\s\S]*\}", s)
-    if m:
-        candidate = m.group(0)
-        try:
-            json.loads(candidate)
-            return candidate
-        except Exception:
-            return None
+    # Try to recover a structured payload even when the model returns
+    # malformed nested JSON or duplicated post_text fragments.
+    recovered = {}
+    for field in ("post_text", "image_prompt", "hashtags"):
+        value = extract_json_string_value(s, field)
+        if value is not None:
+            recovered[field] = value
+
+    if recovered:
+        return json.dumps(recovered)
+
     return None
 
 
@@ -418,10 +488,13 @@ def generate_post(api_key: str) -> dict:
     default_hashtags = HASHTAG_SETS[fmt["type"]] + "  " + DOMAIN_HASHTAGS[domain["domain"]]
 
     system_prompt = f"""You are a LinkedIn ghostwriter specialising in data engineering and cloud careers.
-You write authentic, engaging posts for job seekers targeting senior technical roles.
+You write authentic, visual-first posts for job seekers targeting senior technical roles.
 Write in first person as Ankit Patel.
-Keep posts between 150-250 words. No fluff, no corporate buzzwords.
-Use line breaks for readability.
+Treat the image as the primary content. The post must read like a short title and takeaway for a diagram-style infographic.
+Keep the post extremely short: 20-50 words total, 2-3 short lines max.
+Do not write long explanations, stories, or paragraphs. The image should explain the topic almost entirely.
+Do not ask the audience to comment, like, share, or follow. Keep it professional and self-contained.
+Use line breaks for readability and make the post feel like a polished infographic caption.
 
 Candidate profile:
 {PROFILE}
@@ -435,6 +508,9 @@ Topic domain: {domain['label']}
 Instructions: {fmt['instruction']}
 
 Tie the post to the specific topic above. Be concrete — use real command names, API names, or config patterns where relevant. Write as someone who has used this in production at scale.
+This is a diagram-first post. The visual should carry the learning. The text should be a short headline + one takeaway only.
+Do not write a long paragraph, checklist, or article. Keep it extremely concise and ready to sit under a diagram-style infographic.
+Do not include audience engagement prompts such as comments, follows, shares, DM me, or 'let me know'.
 
 IMPORTANT: Output JSON only (no surrounding text). The JSON schema must be:
 {JSON_SCHEMA}

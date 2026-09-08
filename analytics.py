@@ -35,6 +35,9 @@ def get_member_urn(access_token: str) -> str:
 
 def fetch_post_stats(access_token: str, post_id: str) -> dict:
     """Fetch social actions (likes, comments, shares) for a post."""
+    if not post_id or post_id == "unknown":
+        return {"likes": 0, "comments": 0, "shares": 0, "impressions": 0}
+
     headers = {
         "Authorization": f"Bearer {access_token}",
         "X-Restli-Protocol-Version": "2.0.0",
@@ -42,17 +45,35 @@ def fetch_post_stats(access_token: str, post_id: str) -> dict:
 
     stats = {"likes": 0, "comments": 0, "shares": 0, "impressions": 0}
 
-    # Social counts
-    encoded_id = requests.utils.quote(f"urn:li:ugcPost:{post_id}", safe="")
+    # post_history stores the LinkedIn share URN directly, so use that exact value.
+    encoded_id = requests.utils.quote(post_id, safe="")
     r = requests.get(
         f"https://api.linkedin.com/v2/socialActions/{encoded_id}",
         headers=headers
     )
     if r.status_code == 200:
         data = r.json()
-        stats["likes"]    = data.get("likesSummary", {}).get("totalLikes", 0)
-        stats["comments"] = data.get("commentsSummary", {}).get("totalFirstLevelComments", 0)
-        stats["shares"]   = data.get("sharesSummary", {}).get("totalShares", 0)
+        stats["likes"] = (
+            data.get("likesSummary", {}).get("totalLikes")
+            or data.get("likesSummary", {}).get("total", 0)
+            or 0
+        )
+        stats["comments"] = (
+            data.get("commentsSummary", {}).get("totalFirstLevelComments")
+            or data.get("commentsSummary", {}).get("total", 0)
+            or 0
+        )
+        stats["shares"] = (
+            data.get("sharesSummary", {}).get("totalShares")
+            or data.get("sharesSummary", {}).get("total", 0)
+            or 0
+        )
+        stats["impressions"] = (
+            data.get("impressionsSummary", {}).get("totalImpressions")
+            or data.get("impressionsSummary", {}).get("total", 0)
+            or data.get("impressions", 0)
+            or 0
+        )
 
     return stats
 

@@ -63,3 +63,12 @@ def test_generate_post_parses_json_and_sanitizes(monkeypatch, tmp_path):
     assert "text" in result and "hashtags" in result and "image_prompt" in result
     assert "```" not in result["text"] and "`" not in result["text"]
     assert 150 <= len(result["text"].split()) <= 250
+
+
+def test_sanitize_post_text_removes_nested_json_fragments_and_stray_braces():
+    raw = '{"post_text": "This is a clean caption with braces {and quotes}. { \\"post_text\\": \\"duplicate\\" }"}'
+    out = post_generator.sanitize_post_text(raw, "#DataEngineering #DataPlatform")
+    assert "post_text" not in out
+    assert "{" not in out
+    assert "}" not in out
+    assert "This is a clean caption" in out

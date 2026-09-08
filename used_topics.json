@@ -1,11 +1,5 @@
 [
   {
-    "type": "project_spotlight",
-    "domain": "pyspark",
-    "topic": "PySpark broadcast joins \u2014 when and how to use them",
-    "date": "2026-07-21"
-  },
-  {
     "type": "open_to_work",
     "domain": "databricks",
     "topic": "Delta Live Tables (DLT) pipelines \u2014 declarative ETL in practice",
@@ -237,6 +231,12 @@
     "type": "project_spotlight",
     "domain": "sql",
     "topic": "dbt tests and data contracts - enforcing data quality at the model layer",
+    "date": "2026-09-08"
+  },
+  {
+    "type": "open_to_work",
+    "domain": "databricks",
+    "topic": "Databricks SQL dashboards for operational analytics",
     "date": "2026-09-08"
   }
 ]

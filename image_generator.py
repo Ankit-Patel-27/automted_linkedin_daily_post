@@ -51,7 +51,8 @@ def pollinations_text_to_image(prompt: str, width: int = 1200, height: int = 630
 
 
 def pollinations_enhance_diagram(diagram_path: str, topic: str,
-                                  domain: str, output_path: str = "post_image.png") -> bool:
+                                  domain: str, output_path: str = "post_image.png",
+                                  format_type: str = "insight") -> bool:
     """
     Pass a locally generated diagram to Pollinations AI for visual enhancement.
     The prompt strictly instructs it to preserve all diagram content/text/structure.
@@ -65,15 +66,26 @@ def pollinations_enhance_diagram(diagram_path: str, topic: str,
         img_b64 = base64.b64encode(f.read()).decode()
 
     # Strict enhancement prompt - preserves content, only improves visuals
+    style_map = {
+        "tip": "numbered step diagram with labeled boxes and arrows, step-by-step flow, light background, teal/blue accents",
+        "concept_explainer": "numbered step diagram with labeled boxes and arrows, step-by-step flow, light background, teal/blue accents",
+        "achievement": "before vs after infographic with clear left-right comparison, result highlight, polished light background, green/red accents",
+        "project_spotlight": "before vs after infographic with clear left-right comparison, result highlight, polished light background, green/red accents",
+        "myth_vs_reality": "myth vs reality infographic with split columns, bold headings, clean comparison layout, red/green highlights",
+        "insight": "flowchart with labeled boxes and arrows, clean infographic layout, modern presentation, blue/purple accents",
+        "industry_take": "flowchart with labeled boxes and arrows, clean infographic layout, modern presentation, blue/purple accents",
+        "open_to_work": "flowchart with labeled boxes and arrows, clean infographic layout, modern presentation, blue/purple accents",
+    }
+
+    visual_style = style_map.get(format_type, style_map["insight"])
+
     enhance_prompt = (
-        f"Enhance this data engineering architecture diagram for {domain} showing {topic} as a "
-        f"clean infographic-style visual. STRICT RULES: Do NOT change, move, remove, or alter "
-        f"any text labels, boxes, arrows, node names, or diagram structure. Keep ALL technical "
-        f"content exactly as-is. Only improve: background clarity, contrast, edge polish, "
-        f"subtle shadows, clean card-like boxes, and overall infographic presentation. "
-        f"Use a light, presentation-ready background with clear labels and polished arrows. "
-        f"The diagram must remain fully readable and technically accurate. Style: clean modern "
-        f"diagram infographic, bright workspace palette, crisp readable text, professional tech brand aesthetic."
+        f"Enhance this {visual_style} for {domain} showing {topic}. "
+        f"STRICT RULES: Do NOT change, move, remove, or alter any text labels, boxes, arrows, "
+        f"node names, or diagram structure. Keep ALL technical content exactly as-is. "
+        f"Only improve background clarity, contrast, spacing, shadowing, polished card edges, and overall infographic presentation. "
+        f"Use a clean, light presentation-ready background, crisp readable text, and a professional modern tech brand aesthetic. "
+        f"The final result should look like a premium infographic diagram used for LinkedIn, not a generic schematic."
     )
 
     encoded_prompt = quote(enhance_prompt)
@@ -115,31 +127,31 @@ def pollinations_enhance_diagram(diagram_path: str, topic: str,
 
 FORMAT_PROMPTS = {
     "insight": (
-        "Infographic-style data engineering diagram, labeled boxes, arrows, clean layout, "
-        "icons, minimal text, blue and purple accents, professional presentation, high contrast"
+        "diagram-first infographic with labeled flowchart boxes and arrows, clean technical layout, "
+        "minimal text, blue and purple accents, polished presentation, high readability"
     ),
     "achievement": (
-        "Diagram-style achievement infographic, before vs after flow, labeled steps, "
-        "highlighted result badge, clean modern layout, colorful icons, professional design"
+        "diagram-first before vs after infographic, clear left-right comparison, labeled transformation stages, "
+        "result highlight badge, clean modern layout, green and red accents"
     ),
     "open_to_work": (
-        "Career infographic diagram, profile summary with skills icons, arrows, strong headings, "
+        "diagram-first career infographic with labeled skill boxes and arrows, strong headings, "
         "clean modern layout, blue and orange accents, professional presentation"
     ),
     "tip": (
-        "Step-by-step technical infographic, numbered boxes, arrows, icons, simple layout, "
-        "teal and blue palette, crisp labels, clean diagram style"
+        "diagram-first numbered step infographic, labeled boxes, arrows, icons, simple layout, "
+        "teal and blue palette, crisp labels, clean technical style"
     ),
     "myth_vs_reality": (
-        "Side-by-side infographic comparing myth and reality, labeled columns, arrows, "
+        "diagram-first myth vs reality infographic, split comparison columns, labeled boxes, arrows, "
         "red and green highlights, clean business-style diagram, minimal clutter"
     ),
     "project_spotlight": (
-        "Project spotlight diagram, architecture flow, labeled stages, icons, arrows, "
-        "dark background, blue and green highlights, polished presentation"
+        "diagram-first before vs after infographic, project spotlight layout, labeled stages, gain markers, "
+        "light background, blue and green highlights, polished presentation"
     ),
     "industry_take": (
-        "Healthcare data infographic, process flow diagram, key takeaways boxes, "
+        "diagram-first process flow infographic, key takeaways boxes, labeled stages, "
         "clean editorial layout, blue green purple palette, professional visuals"
     ),
 }
@@ -147,22 +159,20 @@ FORMAT_PROMPTS = {
 
 def build_nontechnical_prompt(post_data: dict) -> str:
     """Build a rich, topic-aware prompt for non-technical posts."""
-    # If the post generator already returned a focused image prompt, use it verbatim
-    explicit = post_data.get("image_prompt")
-    if explicit:
-        return explicit
-
-    fmt    = post_data.get("format_type", "insight")
-    topic  = post_data.get("topic", "")
+    fmt   = post_data.get("format_type", "insight")
+    topic = post_data.get("topic", "")
+    domain = post_data.get("domain", "")
 
     base_prompt = FORMAT_PROMPTS.get(fmt, FORMAT_PROMPTS["insight"])
 
-    # Enrich with topic keywords
+    # Enrich with topic keywords so the visual is specific and example-like
     topic_keywords = " ".join(topic.split()[:6]) if topic else ""
-    if topic_keywords:
-        base_prompt = f"{topic_keywords} diagram-first infographic, {base_prompt}"
+    prefix = f"{domain} " if domain else ""
 
-    return base_prompt
+    if topic_keywords:
+        return f"{prefix}{topic_keywords} diagram-first infographic, {base_prompt}"
+
+    return f"{prefix}diagram-first infographic, {base_prompt}"
 
 
 # -- Dynamic technical diagram generator -------------------------------------
@@ -341,7 +351,13 @@ def get_image_for_post(post_data: dict, output_path: str = "post_image.png") -> 
             return pollinations_text_to_image(prompt, output_path=output_path)
         
         # Step 2: Enhance the diagram
-        if not pollinations_enhance_diagram(diagram_path, topic, domain, output_path=output_path):
+        if not pollinations_enhance_diagram(
+            diagram_path,
+            topic,
+            domain,
+            output_path=output_path,
+            format_type=post_data.get("format_type", "insight"),
+        ):
             print(f"⚠ Failed to enhance diagram, using raw diagram")
             # Copy raw diagram as fallback
             import shutil

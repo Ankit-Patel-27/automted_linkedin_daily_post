@@ -2,10 +2,12 @@ import os
 import image_generator
 
 
-def test_build_nontechnical_prefers_explicit_image_prompt():
+def test_build_nontechnical_builds_stronger_diagram_prompt():
     post = {"format_type": "insight", "topic": "Unity Catalog", "image_prompt": "explicit prompt"}
     out = image_generator.build_nontechnical_prompt(post)
-    assert out == "explicit prompt"
+    assert "diagram-first infographic" in out
+    assert "Unity Catalog" in out
+    assert out != "explicit prompt"
 
 
 def test_get_image_for_post_technical_calls_enhance(monkeypatch, tmp_path):
@@ -21,8 +23,8 @@ def test_get_image_for_post_technical_calls_enhance(monkeypatch, tmp_path):
         called["generated"] = True
         return True
 
-    def fake_pollinations_enhance_diagram(diagram_path_arg, topic_arg, domain_arg, output_path="post_image.png"):
-        called["enhanced"] = (diagram_path_arg, topic_arg, domain_arg)
+    def fake_pollinations_enhance_diagram(diagram_path_arg, topic_arg, domain_arg, output_path="post_image.png", format_type="insight"):
+        called["enhanced"] = (diagram_path_arg, topic_arg, domain_arg, format_type)
         # create output file
         with open(output_path, "wb") as f:
             f.write(b"ENHANCED")

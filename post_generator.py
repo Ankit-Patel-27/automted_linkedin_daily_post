@@ -417,19 +417,19 @@ def sanitize_post_text(s: str, default_hashtags: str) -> str:
 
 
 def auto_generate_image_prompt(topic: str, domain_label: str, fmt_type: str) -> str:
-    """Create a visual-first prompt when the model doesn't provide one."""
+    """Create a visual-first prompt that is stronger than the raw model output."""
     words = re.findall(r"\w+", topic)
     keywords = " ".join(words[:8])
 
     style_map = {
-        "tip": "numbered step diagram with labeled boxes and arrows, clean infographic layout, blue and teal accents, minimal text",
-        "concept_explainer": "numbered step diagram with labeled boxes and arrows, clean infographic layout, blue and teal accents, minimal text",
-        "achievement": "before vs after infographic, left and right comparison, clear labels, polished layout, no text overlay",
-        "project_spotlight": "before vs after infographic, left and right comparison, clear labels, polished layout, no text overlay",
-        "myth_vs_reality": "myth vs reality infographic, split comparison layout, bold labeled columns, clean modern design, no text overlay",
-        "insight": "flowchart with labeled boxes and arrows, clean infographic layout, modern presentation, no text overlay",
-        "industry_take": "flowchart with labeled boxes and arrows, clean infographic layout, modern presentation, no text overlay",
-        "open_to_work": "flowchart with labeled boxes and arrows, clean infographic layout, modern presentation, no text overlay",
+        "tip": "premium diagram-first numbered step infographic, labeled boxes and arrows, clean white background, blue and teal accents, crisp text, no clutter",
+        "concept_explainer": "premium diagram-first numbered step infographic, labeled boxes and arrows, clean white background, blue and teal accents, crisp text, no clutter",
+        "achievement": "premium diagram-first before vs after infographic, clear left-right comparison, bold result highlight, polished layout, green and red accents, crisp labels",
+        "project_spotlight": "premium diagram-first before vs after infographic, clear left-right comparison, bold result highlight, polished layout, green and red accents, crisp labels",
+        "myth_vs_reality": "premium diagram-first myth vs reality infographic, split comparison columns, bold headings, clean modern design, red and green highlights, no clutter",
+        "insight": "premium diagram-first flowchart infographic, labeled boxes and arrows, clean technical layout, blue and purple accents, crisp readable text",
+        "industry_take": "premium diagram-first flowchart infographic, labeled boxes and arrows, clean technical layout, blue and purple accents, crisp readable text",
+        "open_to_work": "premium diagram-first flowchart infographic, labeled boxes and arrows, clean technical layout, blue and purple accents, crisp readable text",
     }
 
     style = style_map.get(fmt_type, style_map["insight"])
@@ -556,9 +556,9 @@ If you cannot comply, still output the full post text but it will be sanitised b
     final_hashtags = hashtags if isinstance(hashtags, str) and hashtags.strip() else default_hashtags
     post_text_sanitized = sanitize_post_text(post_text, final_hashtags)
 
-    # Ensure image_prompt exists (auto-generate if missing)
-    if not image_prompt:
-        image_prompt = auto_generate_image_prompt(topic, domain["label"], fmt["type"])
+    # Always use the stronger, format-aware prompt so the generated image matches the
+    # requested infographic archetype and avoids weak model output.
+    image_prompt = auto_generate_image_prompt(topic, domain["label"], fmt["type"])
 
     save_used_topic(fmt["type"], domain["domain"], topic)
 

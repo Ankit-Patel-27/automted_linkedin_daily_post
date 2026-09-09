@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-09-08",
+  "generated_date": "2026-09-09",
   "posts_analysed": 24,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "insight",
+  "best_format": "achievement",
   "format_avg_scores": {
-    "insight": 0.0,
     "achievement": 0.0,
     "myth_vs_reality": 0.0,
     "tip": 0.0,
     "project_spotlight": 0.0,
     "industry_take": 0.0,
     "open_to_work": 0.0,
-    "concept_explainer": 0.0
+    "concept_explainer": 0.0,
+    "insight": 0.0
   },
   "posts": [
-    {
-      "date": "2026-08-09",
-      "post_id": "urn:li:share:7492052487135338496",
-      "format_type": "insight",
-      "domain": "AWS",
-      "had_image": true,
-      "preview": "**I've seen ETL pipelines grind to a halt due to mischosen compute services, costing companies thousands of dollars in u...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-08-10",
       "post_id": "urn:li:share:7492417031988744192",
@@ -299,6 +287,18 @@
       "domain": "AWS",
       "had_image": true,
       "preview": "Myth vs Reality: EventBridge + Lambda Ingestion Resilience Myth: Rely on EventBridge's default retry (max 3 attempts, 5\u2011...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-09-09",
+      "post_id": "urn:li:share:7503486023645958146",
+      "format_type": "concept_explainer",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "Streaming job state management in PySpark: why, how, and best practices GraphQL & SparkSQL with Structured State DB, sav...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

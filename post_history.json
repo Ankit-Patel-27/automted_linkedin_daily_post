@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-06-03",
-    "post_id": "urn:li:share:7467818173053071360",
-    "format_type": "project_spotlight",
-    "domain": "AWS",
-    "had_image": true,
-    "preview": "## Project Spotlight: Containerized Data Workloads on AWS - ECS vs EKS\n\nAs a Lead Data Engineer at Tata Consultancy Serv..."
-  },
-  {
     "date": "2026-06-04",
     "post_id": "urn:li:share:7468178782173167617",
     "format_type": "concept_explainer",
@@ -718,5 +710,13 @@
     "domain": "AWS",
     "had_image": true,
     "preview": "Myth vs Reality: EventBridge + Lambda Ingestion Resilience Myth: Rely on EventBridge's default retry (max 3 attempts, 5\u2011..."
+  },
+  {
+    "date": "2026-09-09",
+    "post_id": "urn:li:share:7503486023645958146",
+    "format_type": "concept_explainer",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "Streaming job state management in PySpark: why, how, and best practices GraphQL & SparkSQL with Structured State DB, sav..."
   }
 ]

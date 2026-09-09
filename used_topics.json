@@ -1,11 +1,5 @@
 [
   {
-    "type": "industry_take",
-    "domain": "sql",
-    "topic": "Materialised views in Redshift and Databricks SQL",
-    "date": "2026-07-24"
-  },
-  {
     "type": "achievement",
     "domain": "pyspark",
     "topic": "Spark shuffle \u2014 what it is and how to reduce it",
@@ -238,5 +232,11 @@
     "domain": "aws",
     "topic": "Designing resilient ingestion with EventBridge and Lambda",
     "date": "2026-09-08"
+  },
+  {
+    "type": "concept_explainer",
+    "domain": "pyspark",
+    "topic": "Managing stateful streaming jobs in PySpark",
+    "date": "2026-09-09"
   }
 ]

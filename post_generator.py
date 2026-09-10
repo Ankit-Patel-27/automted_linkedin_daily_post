@@ -505,6 +505,7 @@ def sanitize_post_text(s: str, default_hashtags: str) -> str:
         return ""
 
     s = s.strip()
+    s = strip_reasoning_blocks(s)
     s = s.replace("\\n", "\n").replace('\\"', '"').replace("\\'", "'")
 
     # Remove fenced code blocks ``` ``` and ```lang
@@ -553,6 +554,37 @@ def sanitize_post_text(s: str, default_hashtags: str) -> str:
     final = body.rstrip() + "\n\n" + hashtags_line
     return final
 
+
+
+def strip_reasoning_blocks(s: str) -> str:
+    """Remove <think>...</think> / <reasoning>...</reasoning> style blocks that
+    some Groq reasoning models (e.g. deepseek-r1-distill, qwen) prepend to
+    their answer. Handles the normal closed-tag case and also the case where
+    the tag is left unclosed (model streamed reasoning but never emitted the
+    closing tag) - in that case we cut everything up to the last such
+    opening tag, since real content never follows it.
+    """
+    if not s:
+        return s
+
+    # Closed blocks: <think>...</think>, <thinking>...</thinking>, <reasoning>...</reasoning>
+    s = re.sub(r"(?is)<\s*(think|thinking|reasoning)\s*>.*?<\s*/\s*\1\s*>", "", s)
+
+    # Unclosed opening tag with no matching close - drop everything from the
+    # last occurrence of the tag onward is wrong (content may follow); instead
+    # drop from the tag to the next blank-line-separated block, or if none,
+    # drop the tag itself and everything before the first '{' that follows it
+    # (since our expected output is always JSON).
+    def _drop_unclosed(match):
+        tail = s[match.end():]
+        brace = tail.find("{")
+        return tail[brace:] if brace != -1 else ""
+
+    m = re.search(r"(?is)<\s*(think|thinking|reasoning)\s*>", s)
+    if m:
+        s = s[:m.start()] + _drop_unclosed(m)
+
+    return s.strip()
 
 
 def extract_json_string_value(s: str, field: str) -> str | None:
@@ -778,6 +810,7 @@ Use the hashtags provided earlier if helpful: {default_hashtags}
     )
 
     raw = response.choices[0].message.content.strip()
+    raw = strip_reasoning_blocks(raw)
 
     # Try to parse structured JSON from the model
     parsed = None

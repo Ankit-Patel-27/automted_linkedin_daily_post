@@ -268,6 +268,16 @@ JSON_SCHEMA = """{
 
 ICON_HINT = ", ".join(ALLOWED_ICONS)
 
+# Hardcoded list of models known to support chat completions
+KNOWN_CHAT_MODELS = [
+    "mixtral-8x7b-32768",
+    "llama-3.3-70b-versatile",
+    "llama-3.1-70b-versatile",
+    "llama-3-70b-8192",
+    "gemma-7b-it",
+    "gemma2-9b-it",
+]
+
 
 def get_available_models(api_key: str) -> list:
     """
@@ -281,55 +291,51 @@ def get_available_models(api_key: str) -> list:
     }
     
     try:
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, timeout=10)
         response.raise_for_status()
         data = response.json()
         return data.get("data", [])
     except requests.exceptions.RequestException as e:
-        print(f"Error fetching models from Groq API: {e}")
+        print(f"⚠️ Error fetching models from Groq API: {e}")
         return []
 
 
 def select_best_model(api_key: str) -> str:
     """
     Dynamically select the best available model from Groq.
-    Prioritizes models that support vision/image capabilities.
-    Falls back to the most capable text model if no vision model is available.
+    Prioritizes models that support chat completions.
+    Falls back to known working models if API fetch fails.
     """
     models = get_available_models(api_key)
     
     if not models:
-        print("⚠️  No models found from Groq API. Using fallback model.")
-        return "llama-3.3-70b-versatile"
+        print("⚠️ Could not fetch models from Groq API. Using hardcoded fallback.")
+        return KNOWN_CHAT_MODELS[0]
     
-    # Models with vision/image capabilities (prioritized)
-    vision_models = []
-    # Models without vision but still capable
-    text_models = []
+    # Filter models that are known to support chat
+    available_chat_models = []
     
     for model in models:
         model_id = model.get("id", "")
-        # Check if model supports vision (common patterns in model names)
-        if any(keyword in model_id.lower() for keyword in ["vision", "image", "multimodal"]):
-            vision_models.append(model_id)
-        else:
-            text_models.append(model_id)
+        # Only select models from the known working list
+        if any(known in model_id for known in KNOWN_CHAT_MODELS):
+            available_chat_models.append(model_id)
     
-    # Prefer vision-capable models
-    if vision_models:
-        selected = vision_models[0]
-        print(f"✓ Selected vision-capable model: {selected}")
+    if available_chat_models:
+        # Prefer llama-3.3-70b-versatile or llama-3.1-70b-versatile if available
+        for preferred in ["llama-3.3-70b-versatile", "llama-3.1-70b-versatile"]:
+            if preferred in available_chat_models:
+                print(f"✓ Selected model: {preferred}")
+                return preferred
+        
+        # Otherwise take the first available chat model
+        selected = available_chat_models[0]
+        print(f"✓ Selected model: {selected}")
         return selected
     
-    # Fall back to best text model (usually the most recent or capable)
-    if text_models:
-        selected = text_models[0]
-        print(f"✓ Selected text model: {selected}")
-        return selected
-    
-    # Last resort fallback
-    print("⚠️  Falling back to hardcoded model: llama-3.3-70b-versatile")
-    return "llama-3.3-70b-versatile"
+    # Last resort fallback to the most reliable model
+    print(f"⚠️ No familiar chat models found. Falling back to: {KNOWN_CHAT_MODELS[0]}")
+    return KNOWN_CHAT_MODELS[0]
 
 
 def load_used_topics(path="used_topics.json"):
@@ -629,7 +635,7 @@ def merge_infographic(parsed_info, topic: str, domain_key: str, domain_label: st
 
 
 def generate_post(api_key: str) -> dict:
-    # Dynamically select the best available model
+    # Dynamically select the best available model with fallback
     model = select_best_model(api_key)
     
     client = Groq(api_key=api_key)

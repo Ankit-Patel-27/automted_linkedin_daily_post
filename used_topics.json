@@ -1,11 +1,5 @@
 [
   {
-    "type": "achievement",
-    "domain": "pyspark",
-    "topic": "Spark shuffle \u2014 what it is and how to reduce it",
-    "date": "2026-07-25"
-  },
-  {
     "type": "tip",
     "domain": "aws",
     "topic": "AWS Step Functions for orchestrating multi-step data pipelines",
@@ -238,5 +232,11 @@
     "domain": "pyspark",
     "topic": "Managing stateful streaming jobs in PySpark",
     "date": "2026-09-09"
+  },
+  {
+    "type": "achievement",
+    "domain": "sql",
+    "topic": "End-to-end analytics engineering pipeline, from raw tables to a trusted metric",
+    "date": "2026-09-10"
   }
 ]

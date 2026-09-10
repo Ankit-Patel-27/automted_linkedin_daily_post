@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-06-04",
-    "post_id": "urn:li:share:7468178782173167617",
-    "format_type": "concept_explainer",
-    "domain": "PySpark",
-    "had_image": true,
-    "preview": "As a seasoned data engineer, I've worked with massive datasets in PySpark, and one crucial optimization technique that h..."
-  },
-  {
     "date": "2026-06-05",
     "post_id": "urn:li:share:7468531023731970048",
     "format_type": "industry_take",
@@ -718,5 +710,13 @@
     "domain": "PySpark",
     "had_image": true,
     "preview": "Streaming job state management in PySpark: why, how, and best practices GraphQL & SparkSQL with Structured State DB, sav..."
+  },
+  {
+    "date": "2026-09-10",
+    "post_id": "urn:li:share:7503723824203415552",
+    "format_type": "achievement",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "<think> Thinking Process: 1. Deconstruct the Request: * Role: LinkedIn ghostwriter/infographic designer for Ankit Patel...."
   }
 ]

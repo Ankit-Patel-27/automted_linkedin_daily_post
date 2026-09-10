@@ -268,16 +268,6 @@ JSON_SCHEMA = """{
 
 ICON_HINT = ", ".join(ALLOWED_ICONS)
 
-# Hardcoded list of models known to support chat completions
-KNOWN_CHAT_MODELS = [
-    "mixtral-8x7b-32768",
-    "llama-3.3-70b-versatile",
-    "llama-3.1-70b-versatile",
-    "llama-3-70b-8192",
-    "gemma-7b-it",
-    "gemma2-9b-it",
-]
-
 
 def get_available_models(api_key: str) -> list:
     """
@@ -291,51 +281,145 @@ def get_available_models(api_key: str) -> list:
     }
     
     try:
-        response = requests.get(url, headers=headers, timeout=10)
+        response = requests.get(url, headers=headers)
         response.raise_for_status()
         data = response.json()
         return data.get("data", [])
     except requests.exceptions.RequestException as e:
-        print(f"⚠️ Error fetching models from Groq API: {e}")
+        print(f"Error fetching models from Groq API: {e}")
         return []
 
 
+def get_available_models(api_key: str) -> list:
+    """
+    Fetch available models from Groq API.
+    Returns a list of model objects.
+    """
+    url = "https://api.groq.com/openai/v1/models"
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
+
+    try:
+        response = requests.get(url, headers=headers, timeout=20)
+        response.raise_for_status()
+        data = response.json()
+        return data.get("data", [])
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching models from Groq API: {e}")
+        return []
+
+
+# Known-good Groq chat/text models, in priority order. This list is the
+# primary source of truth - we no longer trust "first model returned by
+# /models" because that list also contains whisper/tts/guard/vision-preview
+# models that either can't do plain chat JSON output or are gated behind a
+# separate terms-acceptance step on Groq's console, which caused silent
+# failures. Kept in priority order: prefer the strongest currently-supported
+# models first, then fall back down the list.
+PREFERRED_MODELS = [
+    "llama-3.3-70b-versatile",
+    "llama-3.1-70b-versatile",
+    "llama3-70b-8192",
+    "mixtral-8x7b-32768",
+    "llama-3.1-8b-instant",
+    "llama3-8b-8192",
+    "gemma2-9b-it",
+]
+
+# Substrings that mark a model as unsuitable for this plain-text/JSON task
+# (audio, moderation/guard, vision-only, embeddings, TTS, or explicitly
+# marked preview/gated) - these are excluded even if returned by /models.
+_EXCLUDE_SUBSTRINGS = [
+    "whisper", "tts", "guard", "vision", "image", "multimodal",
+    "embed", "moderation", "prompt-guard",
+]
+
+
+def _usable_model_ids(models: list) -> list:
+    """Filter the raw /models response down to plain chat/text models,
+    dropping audio/vision/guard/embedding models that aren't relevant here
+    and often need separate terms acceptance on Groq's console."""
+    ids = []
+    for m in models:
+        mid = m.get("id", "")
+        if not mid:
+            continue
+        if any(bad in mid.lower() for bad in _EXCLUDE_SUBSTRINGS):
+            continue
+        ids.append(mid)
+    return ids
+
+
+def select_model_candidates(api_key: str) -> list:
+    """
+    Build an ordered list of model IDs to try, most-preferred first.
+    Never returns an empty list - always ends with the PREFERRED_MODELS
+    list as a hardcoded safety net, in case the /models call itself fails.
+    """
+    available = set(_usable_model_ids(get_available_models(api_key)))
+
+    candidates = []
+    # 1. Preferred models that Groq confirms are currently available.
+    for m in PREFERRED_MODELS:
+        if m in available and m not in candidates:
+            candidates.append(m)
+    # 2. Any other usable (non-audio/vision/guard) model Groq lists, in case
+    #    all of our hardcoded preferences have since been deprecated.
+    for m in available:
+        if m not in candidates:
+            candidates.append(m)
+    # 3. Hardcoded safety net, even if the /models call failed entirely or
+    #    returned nothing usable - chat.completions.create will simply 404
+    #    on a truly-gone model and we move to the next candidate.
+    for m in PREFERRED_MODELS:
+        if m not in candidates:
+            candidates.append(m)
+
+    return candidates
+
+
 def select_best_model(api_key: str) -> str:
+    """Back-compat single-model getter (kept for any external callers) -
+    returns the top candidate. generate_post() itself now tries the full
+    candidate list with retries rather than trusting a single model."""
+    return select_model_candidates(api_key)[0]
+
+
+def call_groq_with_fallback(client, model_candidates: list, **create_kwargs):
     """
-    Dynamically select the best available model from Groq.
-    Prioritizes models that support chat completions.
-    Falls back to known working models if API fetch fails.
+    Try each candidate model in order until one succeeds. Handles the
+    real-world Groq failure modes we've hit: a model being decommissioned,
+    a model requiring separate terms acceptance on the console, or a model
+    being temporarily unavailable. Raises the last error if every
+    candidate fails.
     """
-    models = get_available_models(api_key)
-    
-    if not models:
-        print("⚠️ Could not fetch models from Groq API. Using hardcoded fallback.")
-        return KNOWN_CHAT_MODELS[0]
-    
-    # Filter models that are known to support chat
-    available_chat_models = []
-    
-    for model in models:
-        model_id = model.get("id", "")
-        # Only select models from the known working list
-        if any(known in model_id for known in KNOWN_CHAT_MODELS):
-            available_chat_models.append(model_id)
-    
-    if available_chat_models:
-        # Prefer llama-3.3-70b-versatile or llama-3.1-70b-versatile if available
-        for preferred in ["llama-3.3-70b-versatile", "llama-3.1-70b-versatile"]:
-            if preferred in available_chat_models:
-                print(f"✓ Selected model: {preferred}")
-                return preferred
-        
-        # Otherwise take the first available chat model
-        selected = available_chat_models[0]
-        print(f"✓ Selected model: {selected}")
-        return selected
-    
-    # Last resort fallback to the most reliable model
-    print(f"⚠️ No familiar chat models found. Falling back to: {KNOWN_CHAT_MODELS[0]}")
-    return KNOWN_CHAT_MODELS[0]
+    last_error = None
+    for i, model in enumerate(model_candidates):
+        try:
+            response = client.chat.completions.create(model=model, **create_kwargs)
+            if i > 0:
+                print(f"✓ Used fallback model: {model}")
+            return response, model
+        except Exception as e:
+            msg = str(e).lower()
+            reason = "error"
+            if "decommission" in msg or "deprecat" in msg:
+                reason = "decommissioned"
+            elif "terms" in msg or "accept" in msg or "consent" in msg:
+                reason = "needs terms acceptance"
+            elif "not found" in msg or "does not exist" in msg or "404" in msg:
+                reason = "not available"
+            elif "rate limit" in msg or "429" in msg:
+                reason = "rate limited"
+            print(f"⚠ Model '{model}' failed ({reason}): {e}")
+            last_error = e
+            continue
+
+    raise RuntimeError(
+        f"All {len(model_candidates)} candidate models failed. Last error: {last_error}"
+    )
 
 
 def load_used_topics(path="used_topics.json"):
@@ -635,9 +719,9 @@ def merge_infographic(parsed_info, topic: str, domain_key: str, domain_label: st
 
 
 def generate_post(api_key: str) -> dict:
-    # Dynamically select the best available model with fallback
-    model = select_best_model(api_key)
-    
+    # Build an ordered list of models to try (see call_groq_with_fallback below)
+    model_candidates = select_model_candidates(api_key)
+
     client = Groq(api_key=api_key)
 
     used   = load_used_topics()
@@ -682,8 +766,9 @@ IMPORTANT: Output JSON only (no surrounding text, no markdown fences). The JSON 
 Use the hashtags provided earlier if helpful: {default_hashtags}
 """
 
-    response = client.chat.completions.create(
-        model=model,
+    response, model = call_groq_with_fallback(
+        client,
+        model_candidates,
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},

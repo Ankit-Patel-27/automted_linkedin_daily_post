@@ -1,692 +1,273 @@
-import os
-import io
-import json
-import time
-import hashlib
-import requests
-from datetime import date
-from urllib.parse import quote
+"""
+Image generator for the LinkedIn post pipeline.
+
+Renders a polished, multi-section infographic (bold headline, "the real
+problem", a labeled pipeline/flow, a "why this matters" card grid, a "key
+mindset" before/after, and an "in simple words" closing banner) directly
+with matplotlib - the same visual family as the reference AWS/Databricks
+explainer graphics. No external image-generation API calls, so there's
+nothing to fail, rate-limit, or mangle diagram text.
+
+Public entry point (unchanged signature so the poster script doesn't need
+to change): get_image_for_post(post_data, output_path) -> bool
+"""
+from __future__ import annotations
+import textwrap
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+
+from image_icons import draw_icon
+
+# -- Palette -----------------------------------------------------------
+DOMAIN_ACCENTS = {
+    "databricks": {"primary": "#FF3621", "secondary": "#1B3139"},
+    "aws":        {"primary": "#FF9900", "secondary": "#232F3E"},
+    "pyspark":    {"primary": "#E25A1C", "secondary": "#1B3139"},
+    "sql":        {"primary": "#336791", "secondary": "#1B3139"},
+}
+DEFAULT_ACCENT = {"primary": "#4a90e2", "secondary": "#0f2540"}
+
+INK = "#1d3557"
+SUBINK = "#4b6584"
+BG = "#ffffff"
+CARD_BG = "#f7f9fc"
+RED, RED_BG = "#e24a4a", "#fdeeee"
+GREEN, GREEN_BG = "#1a8f4c", "#e9f9ef"
+BLUE, BLUE_BG = "#1d4ed8", "#eef3ff"
+PURPLE, PURPLE_BG = "#6d28d9", "#f2ecfd"
+NAVY = "#0f2540"
 
 
-# NOTE: use canonical lowercase keywords for domain detection and do substring match
-TECHNICAL_DOMAINS = {"databricks", "aws", "pyspark", "sql"}
-
-# -- Pollinations AI ------------------------------------------------------- [...]
-
-def pollinations_text_to_image(prompt: str, width: int = 1200, height: int = 630,
-                                seed: int = None, output_path: str = "post_image.png") -> bool:
-    """
-    Generate image via Pollinations AI (free, no API key).
-    Uses the /prompt/ endpoint with GET request.
-    """
-    if seed is None:
-        seed = int(hashlib.md5(prompt.encode()).hexdigest()[:8], 16) % 99999
-
-    encoded_prompt = quote(prompt)
-    url = (
-        f"https://image.pollinations.ai/prompt/{encoded_prompt}"
-        f"?width={width}&height={height}&seed={seed}&nologo=true&enhance=true"
-    )
-
-    print(f"🎨 Generating image via Pollinations AI...")
-    print(f"   Prompt: {prompt[:100]}...")
-
-    for attempt in range(1, 4):
-        try:
-            resp = requests.get(url, timeout=60)
-            if resp.status_code == 200 and len(resp.content) > 5000:
-                with open(output_path, "wb") as f:
-                    f.write(resp.content)
-                print(f"✓ Image saved: {output_path} ({len(resp.content)//1024}KB)")
-                return True
-            else:
-                print(f"  Attempt {attempt} failed: {resp.status_code}, size={len(resp.content)}")
-        except Exception as e:
-            print(f"  Attempt {attempt} error: {e}")
-
-        if attempt < 3:
-            time.sleep(10)
-
-    return False
+def _wrap(s: str, width: int) -> str:
+    return "\n".join(textwrap.wrap(s or "", width=width)) if s else ""
 
 
-def pollinations_enhance_diagram(diagram_path: str, topic: str,
-                                  domain: str, output_path: str = "post_image.png",
-                                  format_type: str = "insight") -> bool:
-    """
-    Pass a locally generated diagram to Pollinations AI for visual enhancement.
-    The prompt strictly instructs it to preserve all diagram content/text/structure.
+def _section_banner(ax, x, y, w, h, text, bg, fg, icon=None, fontsize=11.5):
+    ax.add_patch(mpatches.FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.015,rounding_size=0.08",
+                                          facecolor=bg, edgecolor="none", zorder=3))
+    if icon:
+        draw_icon(ax, x + h * 0.5, y + h / 2, icon, color=fg, r=h * 0.34)
+        ax.text(x + h * 0.9, y + h / 2, text, ha="left", va="center", fontsize=fontsize,
+                 fontweight="bold", color=fg, zorder=4)
+    else:
+        ax.text(x + w / 2, y + h / 2, text, ha="center", va="center", fontsize=fontsize,
+                 fontweight="bold", color=fg, zorder=4)
 
-    Uses img2img-style URL approach: encode diagram as base64 and send as
-    an image prompt with strict enhancement-only instructions.
-    """
-    import base64
 
-    with open(diagram_path, "rb") as f:
-        img_b64 = base64.b64encode(f.read()).decode()
-
-    # Strict enhancement prompt - preserves content, only improves visuals
-    style_map = {
-        "tip": "numbered step diagram with labeled boxes and arrows, step-by-step flow, light background, teal/blue accents",
-        "concept_explainer": "numbered step diagram with labeled boxes and arrows, step-by-step flow, light background, teal/blue accents",
-        "achievement": "before vs after infographic with clear left-right comparison, result highlight, polished light background, green/red accents",
-        "project_spotlight": "before vs after infographic with clear left-right comparison, result highlight, polished light background, green/red accents",
-        "myth_vs_reality": "myth vs reality infographic with split columns, bold headings, clean comparison layout, red/green highlights",
-        "insight": "flowchart with labeled boxes and arrows, clean infographic layout, modern presentation, blue/purple accents",
-        "industry_take": "flowchart with labeled boxes and arrows, clean infographic layout, modern presentation, blue/purple accents",
-        "open_to_work": "flowchart with labeled boxes and arrows, clean infographic layout, modern presentation, blue/purple accents",
+def _default_infographic(post_data: dict) -> dict:
+    """Safety net if post_data has no (or a broken) infographic payload."""
+    domain = post_data.get("domain", "")
+    topic = post_data.get("topic", "Data Engineering")
+    return {
+        "title": topic.upper()[:70],
+        "subtitle": f"A practical look for data engineers working with {domain}",
+        "badge": (domain[:4] or "DE").upper(),
+        "problem_heading": "THE REAL PROBLEM",
+        "problem_points": [
+            "Inconsistent or messy inputs", "Manual, error-prone steps",
+            "Hard to scale reliably", "Costly to fix downstream",
+        ],
+        "solution_heading": "HOW DATA ENGINEERS HANDLE THIS",
+        "pipeline_heading": f"A REAL {domain.upper()} WORKFLOW" if domain else "A REAL WORKFLOW",
+        "pipeline_steps": [
+            {"label": "Ingest", "icon": "database"}, {"label": "Process", "icon": "gear"},
+            {"label": "Validate", "icon": "check"}, {"label": "Serve", "icon": "chart"},
+        ],
+        "why_heading": "WHY THIS MATTERS",
+        "why_matters": [
+            {"title": "Builds Trust", "desc": "Stakeholders trust the data", "icon": "shield"},
+            {"title": "Saves Time", "desc": "Less rework, fewer re-runs", "icon": "clock"},
+            {"title": "Cost Efficient", "desc": "Less wasted compute & storage", "icon": "coin"},
+            {"title": "Scales Well", "desc": "Holds up as data grows", "icon": "chart"},
+        ],
+        "mindset_heading": "KEY MINDSET OF A DATA ENGINEER",
+        "mindset_before": "Anyone can move data around.",
+        "mindset_after": "Great engineers build systems that hold up.",
+        "simple_words_heading": "IN SIMPLE WORDS",
+        "simple_words_chain": [domain or "Raw Data", "Reliable Data"],
+        "tagline": "Better data. Better insights. Better impact.",
     }
 
-    visual_style = style_map.get(format_type, style_map["insight"])
 
-    enhance_prompt = (
-        f"Enhance this {visual_style} for {domain} showing {topic}. "
-        f"STRICT RULES: Do NOT change, move, remove, or alter any text labels, boxes, arrows, "
-        f"node names, or diagram structure. Keep ALL technical content exactly as-is. "
-        f"Only improve background clarity, contrast, spacing, shadowing, polished card edges, and overall infographic presentation. "
-        f"Use a clean, light presentation-ready background, crisp readable text, and a professional modern tech brand aesthetic. "
-        f"The final result should look like a premium infographic diagram used for LinkedIn, not a generic schematic."
-    )
-
-    encoded_prompt = quote(enhance_prompt)
-    seed = int(hashlib.md5(topic.encode()).hexdigest()[:8], 16) % 99999
-
-    # Pollinations img2img endpoint
-    url = (
-        f"https://image.pollinations.ai/prompt/{encoded_prompt}"
-        f"?width=1200&height=630&seed={seed}&nologo=true"
-        f"&image=data:image/png;base64,{img_b64}"
-    )
-
-    print(f"✨ Enhancing diagram via Pollinations AI (content-preserving)...")
-
-    for attempt in range(1, 4):
-        try:
-            resp = requests.get(url, timeout=90)
-            if resp.status_code == 200 and len(resp.content) > 5000:
-                with open(output_path, "wb") as f:
-                    f.write(resp.content)
-                print(f"✓ Enhanced diagram saved: {output_path}")
-                return True
-            else:
-                print(f"  Attempt {attempt} - status {resp.status_code}, size {len(resp.content)}")
-        except Exception as e:
-            print(f"  Attempt {attempt} error: {e}")
-
-        if attempt < 3:
-            time.sleep(15)
-
-    # Fallback: use original diagram if enhancement fails
-    print("⚠ Enhancement failed - using original diagram")
-    import shutil
-    shutil.copy(diagram_path, output_path)
-    return True   # Still return True - original diagram is fine
-
-
-# -- Non-technical post image prompts ---------------------------------------
-
-FORMAT_PROMPTS = {
-    "insight": (
-        "diagram-first infographic with labeled flowchart boxes and arrows, clean technical layout, "
-        "minimal text, blue and purple accents, polished presentation, high readability"
-    ),
-    "achievement": (
-        "diagram-first before vs after infographic, clear left-right comparison, labeled transformation stages, "
-        "result highlight badge, clean modern layout, green and red accents"
-    ),
-    "open_to_work": (
-        "diagram-first career infographic with labeled skill boxes and arrows, strong headings, "
-        "clean modern layout, blue and orange accents, professional presentation"
-    ),
-    "tip": (
-        "diagram-first numbered step infographic, labeled boxes, arrows, icons, simple layout, "
-        "teal and blue palette, crisp labels, clean technical style"
-    ),
-    "myth_vs_reality": (
-        "diagram-first myth vs reality infographic, split comparison columns, labeled boxes, arrows, "
-        "red and green highlights, clean business-style diagram, minimal clutter"
-    ),
-    "project_spotlight": (
-        "diagram-first before vs after infographic, project spotlight layout, labeled stages, gain markers, "
-        "light background, blue and green highlights, polished presentation"
-    ),
-    "industry_take": (
-        "diagram-first process flow infographic, key takeaways boxes, labeled stages, "
-        "clean editorial layout, blue green purple palette, professional visuals"
-    ),
-}
-
-
-def build_nontechnical_prompt(post_data: dict) -> str:
-    """Build a rich, topic-aware prompt for non-technical posts."""
-    fmt   = post_data.get("format_type", "insight")
-    topic = post_data.get("topic", "")
-    domain = post_data.get("domain", "")
-
-    base_prompt = FORMAT_PROMPTS.get(fmt, FORMAT_PROMPTS["insight"])
-
-    # Enrich with topic keywords so the visual is specific and example-like
-    topic_keywords = " ".join(topic.split()[:6]) if topic else ""
-    prefix = f"{domain} " if domain else ""
-
-    if topic_keywords:
-        return f"{prefix}{topic_keywords} diagram-first infographic, {base_prompt}"
-
-    return f"{prefix}diagram-first infographic, {base_prompt}"
-
-
-# -- Dynamic technical diagram generator -------------------------------------
-
-def generate_technical_diagram(post_data: dict, output_path: str = "diagram_raw.png") -> bool:
-    """
-    Generates a clean, readable architecture/flow diagram using matplotlib
-    based on the specific topic, domain, and desired visual format.
-    """
+def render_infographic(post_data: dict, output_path: str = "post_image.png") -> bool:
     try:
-        import matplotlib
-        matplotlib.use("Agg")
-        import matplotlib.pyplot as plt
-        import matplotlib.patches as mpatches
-        from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
-    except ImportError:
-        print("⚠ matplotlib not available")
+        info = dict(post_data.get("infographic") or {})
+        defaults = _default_infographic(post_data)
+        for k, v in defaults.items():
+            info.setdefault(k, v)
+
+        domain_key = (post_data.get("domain") or "").lower()
+        accent = DOMAIN_ACCENTS.get(domain_key, DEFAULT_ACCENT)
+        primary = accent["primary"]
+
+        W, H = 10.0, 16.3
+        fig, ax = plt.subplots(figsize=(W, H))
+        ax.set_xlim(0, W)
+        ax.set_ylim(0, H)
+        ax.axis("off")
+        fig.patch.set_facecolor(BG)
+        ax.set_facecolor(BG)
+
+        y = H - 0.55
+
+        # ---- Header --------------------------------------------------
+        title = info["title"]
+        subtitle = info["subtitle"]
+        badge = str(info["badge"]).upper()[:4]
+
+        ax.text(0.55, y, _wrap(title, 24), ha="left", va="top", fontsize=23,
+                 fontweight="bold", color=INK, linespacing=1.15, zorder=4)
+        ax.add_patch(mpatches.FancyBboxPatch((W - 1.85, H - 0.85), 1.3, 0.55,
+                                              boxstyle="round,pad=0.02,rounding_size=0.08",
+                                              facecolor=accent["secondary"], edgecolor="none", zorder=4))
+        ax.text(W - 1.2, H - 0.575, badge, ha="center", va="center", fontsize=11,
+                 fontweight="bold", color="#ffffff", zorder=5)
+
+        title_lines = len(_wrap(title, 24).split("\n"))
+        y -= 0.5 * title_lines + 0.35
+        if subtitle:
+            ax.text(0.55, y, _wrap(subtitle, 60), ha="left", va="top", fontsize=11.5,
+                     color=SUBINK, style="italic", zorder=4)
+            y -= 0.55
+        y -= 0.15
+        ax.plot([0.55, W - 0.55], [y, y], color="#e2e8f0", lw=1.4, zorder=2)
+        y -= 0.35
+
+        # ---- Problem section -------------------------------------------
+        _section_banner(ax, 0.55, y - 0.42, W - 1.1, 0.42, info["problem_heading"],
+                         RED_BG, RED, icon="warning")
+        y -= 0.68
+        for pt in (info["problem_points"] or [])[:4]:
+            draw_icon(ax, 0.85, y, "cross", color=RED, r=0.11)
+            ax.text(1.15, y, _wrap(str(pt), 44).split("\n")[0], ha="left", va="center",
+                     fontsize=10, color=INK, zorder=4)
+            y -= 0.33
+        y -= 0.12
+
+        # ---- Solution banner ---------------------------------------------
+        _section_banner(ax, 0.55, y - 0.42, W - 1.1, 0.42, info["solution_heading"],
+                         GREEN_BG, GREEN, icon="check")
+        y -= 0.78
+
+        # ---- Pipeline flow --------------------------------------------------
+        ax.text(W / 2, y, info["pipeline_heading"], ha="center", va="center", fontsize=11,
+                 fontweight="bold", color=accent["secondary"], zorder=4)
+        y -= 0.55
+
+        steps = (info["pipeline_steps"] or [])[:5] or defaults["pipeline_steps"]
+        n = len(steps)
+        margin = 1.0
+        span = W - 2 * margin
+        step_x = [margin + span * (i / max(n - 1, 1)) for i in range(n)]
+        node_r = 0.5
+        for i, step in enumerate(steps):
+            cx = step_x[i]
+            ax.add_patch(mpatches.Circle((cx, y), node_r, facecolor=primary,
+                                          edgecolor="none", zorder=4, alpha=0.14))
+            ax.add_patch(mpatches.Circle((cx, y), node_r * 0.78, facecolor="#ffffff",
+                                          edgecolor=primary, linewidth=2, zorder=5))
+            draw_icon(ax, cx, y, step.get("icon", "gear"), color=primary, r=node_r * 0.42, zorder=6)
+            ax.text(cx, y - node_r - 0.28, _wrap(str(step.get("label", "")), 12),
+                     ha="center", va="top", fontsize=9.3, fontweight="bold", color=INK, zorder=6)
+            if i < n - 1:
+                ax.annotate("", xy=(step_x[i + 1] - node_r - 0.05, y), xytext=(cx + node_r + 0.05, y),
+                             arrowprops=dict(arrowstyle="-|>", color="#c7d2e0", lw=1.8), zorder=3)
+        y -= node_r + 0.68
+
+        # ---- Why this matters ----------------------------------------------
+        _section_banner(ax, 0.55, y - 0.42, W - 1.1, 0.42, info["why_heading"], BLUE_BG, BLUE)
+        y -= 0.75
+
+        why = (info["why_matters"] or [])[:4] or defaults["why_matters"]
+        cols = 2
+        card_w = (W - 1.1 - 0.3) / cols
+        card_h = 1.22
+        for i, item in enumerate(why):
+            col, row = i % cols, i // cols
+            cx0 = 0.55 + col * (card_w + 0.3)
+            cy0 = y - row * (card_h + 0.16) - card_h
+            ax.add_patch(mpatches.FancyBboxPatch((cx0, cy0), card_w, card_h,
+                                                  boxstyle="round,pad=0.02,rounding_size=0.09",
+                                                  facecolor=CARD_BG, edgecolor="#e6ebf2", linewidth=1, zorder=3))
+            draw_icon(ax, cx0 + 0.42, cy0 + card_h - 0.42, item.get("icon", "star"), color=primary, r=0.24)
+            ax.text(cx0 + 0.42, cy0 + card_h - 0.85, _wrap(str(item.get("title", "")), 16),
+                     ha="left", va="top", fontsize=9.8, fontweight="bold", color=INK, zorder=4)
+            ax.text(cx0 + 0.42, cy0 + card_h - 1.12, _wrap(str(item.get("desc", "")), 20),
+                     ha="left", va="top", fontsize=8.3, color=SUBINK, zorder=4)
+        rows_used = (len(why) + cols - 1) // cols
+        y -= rows_used * (card_h + 0.16) + 0.16
+
+        # ---- Key mindset -----------------------------------------------
+        _section_banner(ax, 0.55, y - 0.42, W - 1.1, 0.42, info["mindset_heading"], PURPLE_BG, PURPLE)
+        y -= 0.65
+        before, after = info["mindset_before"], info["mindset_after"]
+        half_w = (W - 1.1 - 0.6) / 2
+        ax.add_patch(mpatches.FancyBboxPatch((0.55, y - 0.62), half_w, 0.62,
+                                              boxstyle="round,pad=0.02,rounding_size=0.1",
+                                              facecolor=RED_BG, edgecolor="none", zorder=3))
+        ax.text(0.55 + half_w / 2, y - 0.31, _wrap(str(before), 26), ha="center", va="center",
+                 fontsize=8.8, color=RED, fontweight="bold", zorder=4)
+        ax.annotate("", xy=(0.55 + half_w + 0.5, y - 0.31), xytext=(0.55 + half_w + 0.1, y - 0.31),
+                     arrowprops=dict(arrowstyle="-|>", color=PURPLE, lw=2), zorder=4)
+        ax.add_patch(mpatches.FancyBboxPatch((0.55 + half_w + 0.6, y - 0.62), half_w, 0.62,
+                                              boxstyle="round,pad=0.02,rounding_size=0.1",
+                                              facecolor=GREEN_BG, edgecolor="none", zorder=3))
+        ax.text(0.55 + half_w + 0.6 + half_w / 2, y - 0.31, _wrap(str(after), 26), ha="center", va="center",
+                 fontsize=8.8, color=GREEN, fontweight="bold", zorder=4)
+        y -= 0.85
+
+        # ---- In simple words / footer --------------------------------------
+        chain = (info["simple_words_chain"] or [])[:3] or defaults["simple_words_chain"]
+        tagline = info["tagline"]
+
+        footer_h = 1.55
+        box_top = y
+        ax.add_patch(mpatches.FancyBboxPatch((0.55, box_top - footer_h), W - 1.1, footer_h,
+                                              boxstyle="round,pad=0.02,rounding_size=0.1",
+                                              facecolor=NAVY, edgecolor="none", zorder=3))
+        ax.add_patch(mpatches.FancyBboxPatch((0.75, box_top - 0.46), 2.3, 0.34,
+                                              boxstyle="round,pad=0.02,rounding_size=0.07",
+                                              facecolor=primary, edgecolor="none", zorder=4))
+        ax.text(0.75 + 1.15, box_top - 0.29, info["simple_words_heading"], ha="center", va="center",
+                 fontsize=8.5, fontweight="bold", color="#ffffff", zorder=5)
+
+        cx = 0.9
+        cy_chain = box_top - 0.92
+        for i, word in enumerate(chain):
+            word = str(word)
+            ax.text(cx, cy_chain, word, ha="left", va="center", fontsize=12.5,
+                     fontweight="bold", color="#ffffff", zorder=5)
+            adv = 0.155 * len(word) + 0.35
+            if i < len(chain) - 1:
+                ax.annotate("", xy=(cx + adv + 0.3, cy_chain), xytext=(cx + adv, cy_chain),
+                             arrowprops=dict(arrowstyle="-|>", color=primary, lw=2), zorder=5)
+            cx += adv + 0.5
+        ax.text(0.9, box_top - footer_h + 0.3, _wrap(str(tagline), 55), ha="left", va="bottom",
+                 fontsize=8.7, color="#c9d6e8", zorder=5)
+        y = box_top - footer_h - 0.3
+
+        # ---- Hashtags ----------------------------------------------------
+        hashtags = post_data.get("hashtags") or ""
+        if hashtags:
+            ax.text(W / 2, max(y, 0.35), _wrap(hashtags, 70), ha="center", va="top",
+                     fontsize=8, color="#94a3b8", zorder=4)
+
+        plt.subplots_adjust(left=0, right=1, top=1, bottom=0)
+        plt.savefig(output_path, dpi=160, facecolor=BG, edgecolor="none")
+        plt.close(fig)
+        print(f"✓ Infographic generated: {output_path}")
+        return True
+    except Exception as e:
+        print(f"⚠ Infographic render failed: {e}")
+        try:
+            plt.close("all")
+        except Exception:
+            pass
         return False
 
-    domain = post_data.get("domain", "")
-    topic  = post_data.get("topic", "")
-    fmt_type = post_data.get("format_type", "insight")
-
-    DIAGRAMS = _get_diagram_config(domain, topic, fmt_type)
-
-    fig, ax = plt.subplots(figsize=(14, 7.35))
-    fig.patch.set_facecolor("#edf2f7")
-    ax.set_facecolor("#edf2f7")
-    ax.set_xlim(0, 14)
-    ax.set_ylim(0, 7.35)
-    ax.axis("off")
-
-    # Title
-    ax.text(7, 6.9, DIAGRAMS["title"], ha="center", va="top",
-            fontsize=16, fontweight="bold", color="#1d3557",
-            fontfamily="monospace")
-    ax.text(7, 6.55, DIAGRAMS["subtitle"], ha="center", va="top",
-            fontsize=9, color="#4b6584", fontfamily="monospace")
-
-    # Draw nodes
-    for node in DIAGRAMS["nodes"]:
-        x, y, w, h = node["x"], node["y"], node.get("w", 2.2), node.get("h", 0.7)
-        box = FancyBboxPatch(
-            (x - w/2, y - h/2), w, h,
-            boxstyle="round,pad=0.05",
-            facecolor=node.get("bg", "#1a2030"),
-            edgecolor=node.get("color", DIAGRAMS["accent"]),
-            linewidth=1.5
-        )
-        ax.add_patch(box)
-        ax.text(x, y + 0.08, node["label"],
-                ha="center", va="center", fontsize=9, fontweight="bold",
-                color=node.get("color", DIAGRAMS["accent"]), fontfamily="monospace")
-        if node.get("sublabel"):
-            ax.text(x, y - 0.18, node["sublabel"],
-                    ha="center", va="center", fontsize=7,
-                    color="#6a7a94", fontfamily="monospace")
-
-    # Draw arrows
-    for arrow in DIAGRAMS["arrows"]:
-        ax.annotate("",
-            xy=(arrow["x2"], arrow["y2"]),
-            xytext=(arrow["x1"], arrow["y1"]),
-            arrowprops=dict(
-                arrowstyle="->",
-                color=arrow.get("color", DIAGRAMS["accent"]),
-                lw=1.5,
-                connectionstyle=arrow.get("style", "arc3,rad=0.0")
-            )
-        )
-        if arrow.get("label"):
-            mx = (arrow["x1"] + arrow["x2"]) / 2
-            my = (arrow["y1"] + arrow["y2"]) / 2
-            ax.text(mx + 0.1, my + 0.1, arrow["label"],
-                    fontsize=7, color="#8892a4", fontfamily="monospace")
-
-    # Section labels
-    for label in DIAGRAMS.get("section_labels", []):
-        ax.text(label["x"], label["y"], label["text"],
-                ha="center", va="center", fontsize=8,
-                color="#4a5568", fontfamily="monospace",
-                bbox=dict(boxstyle="round,pad=0.2", facecolor="#0a0e1a",
-                          edgecolor="#1e2538", linewidth=0.5))
-
-    plt.tight_layout(pad=0.2)
-    plt.savefig(output_path, dpi=150, bbox_inches="tight",
-                facecolor="#edf2f7", edgecolor="none")
-    plt.close()
-    print(f"✓ Diagram generated: {output_path}")
-    return True
-
-
-def _get_diagram_config(domain: str, topic: str, format_type: str = "insight") -> dict:
-    """Returns diagram node/arrow config based on topic, domain and chosen infographic style."""
-
-    # Style-first layouts requested by the user
-    if format_type == "myth_vs_reality":
-        return _diagram_myth_reality(domain, topic)
-    elif format_type in {"tip", "concept_explainer"}:
-        return _diagram_numbered_steps(domain, topic)
-    elif format_type in {"achievement", "project_spotlight"}:
-        return _diagram_before_after(domain, topic)
-    elif format_type in {"insight", "industry_take", "open_to_work"}:
-        return _diagram_flowchart(domain, topic)
-
-    topic_lower = topic.lower()
-
-    # -- Databricks configs -------------------------------------------------
-    if domain == "Databricks":
-        if "medallion" in topic_lower or "bronze" in topic_lower or "delta" in topic_lower:
-            return _diagram_databricks_medallion()
-        elif "dlt" in topic_lower or "live table" in topic_lower:
-            return _diagram_databricks_dlt()
-        elif "unity" in topic_lower:
-            return _diagram_databricks_unity()
-        else:
-            return _diagram_databricks_medallion()
-
-    # -- AWS configs -------------------------------------------------------
-    elif domain == "AWS":
-        if "glue" in topic_lower or "etl" in topic_lower:
-            return _diagram_aws_glue()
-        elif "kinesis" in topic_lower or "streaming" in topic_lower:
-            return _diagram_aws_streaming()
-        elif "lake formation" in topic_lower or "phi" in topic_lower:
-            return _diagram_aws_lakeformation()
-        else:
-            return _diagram_aws_glue()
-
-    # -- PySpark configs ---------------------------------------------------
-    elif domain == "PySpark":
-        if "join" in topic_lower or "broadcast" in topic_lower:
-            return _diagram_spark_joins()
-        elif "partition" in topic_lower or "skew" in topic_lower:
-            return _diagram_spark_partitions()
-        else:
-            return _diagram_spark_pipeline()
-
-    # -- SQL / dbt configs -------------------------------------------------
-    else:
-        if "incremental" in topic_lower or "dbt" in topic_lower:
-            return _diagram_dbt_incremental()
-        elif "scd" in topic_lower or "slowly changing" in topic_lower:
-            return _diagram_scd2()
-        else:
-            return _diagram_dbt_incremental()
-
-
-# -- Main image orchestration function -----------------------------------------
 
 def get_image_for_post(post_data: dict, output_path: str = "post_image.png") -> bool:
-    """
-    Main orchestration function for image generation.
-    
-    - For technical domains (Databricks, AWS, PySpark, SQL): generate a diagram and enhance it
-    - For non-technical posts: use text-to-image generation
-    
-    Returns True if image generation succeeded, False otherwise.
-    """
-    domain = post_data.get("domain", "")
-    topic = post_data.get("topic", "")
-    
-    # Check if this is a technical domain (case-insensitive)
-    is_technical = domain.lower() in TECHNICAL_DOMAINS
-    
-    if is_technical:
-        # Technical domain: generate diagram and enhance
-        print(f"\n📐 Technical domain detected: {domain}")
-        
-        # Step 1: Generate raw diagram
-        diagram_path = "diagram_raw.png"
-        if not generate_technical_diagram(post_data, output_path=diagram_path):
-            print(f"⚠ Failed to generate diagram, falling back to text-to-image")
-            # Fallback to non-technical image
-            prompt = build_nontechnical_prompt(post_data)
-            return pollinations_text_to_image(prompt, output_path=output_path)
-        
-        # Step 2: Enhance the diagram
-        if not pollinations_enhance_diagram(
-            diagram_path,
-            topic,
-            domain,
-            output_path=output_path,
-            format_type=post_data.get("format_type", "insight"),
-        ):
-            print(f"⚠ Failed to enhance diagram, using raw diagram")
-            # Copy raw diagram as fallback
-            import shutil
-            shutil.copy(diagram_path, output_path)
-            return True
-        
-        return True
-    else:
-        # Non-technical domain: use text-to-image
-        print(f"\n🎨 Non-technical domain: {domain}")
-        prompt = build_nontechnical_prompt(post_data)
-        return pollinations_text_to_image(prompt, output_path=output_path)
-
-
-# -- Diagram configs ------------------------------------------------------ [...]
-
-def _diagram_numbered_steps(domain: str, topic: str) -> dict:
-    """Diagram-style numbered progression with labeled boxes and arrows."""
-    return {
-        "title": f"{domain} Step-by-Step",
-        "subtitle": topic,
-        "accent": "#2563eb",
-        "nodes": [
-            {"x": 2, "y": 4, "label": "1", "sublabel": "Capture", "color": "#2563eb"},
-            {"x": 5, "y": 4, "label": "2", "sublabel": "Process", "color": "#4a90e2"},
-            {"x": 8, "y": 4, "label": "3", "sublabel": "Validate", "color": "#50c878"},
-            {"x": 11, "y": 4, "label": "4", "sublabel": "Deliver", "color": "#f4a460"},
-        ],
-        "arrows": [
-            {"x1": 2.8, "y1": 4, "x2": 4.2, "y2": 4, "color": "#2563eb"},
-            {"x1": 5.8, "y1": 4, "x2": 7.2, "y2": 4, "color": "#2563eb"},
-            {"x1": 8.8, "y1": 4, "x2": 10.2, "y2": 4, "color": "#2563eb"},
-        ],
-        "section_labels": [],
-    }
-
-
-def _diagram_before_after(domain: str, topic: str) -> dict:
-    """Before vs after comparison diagram."""
-    return {
-        "title": f"{domain} Before vs After",
-        "subtitle": topic,
-        "accent": "#7c3aed",
-        "nodes": [
-            {"x": 4, "y": 4, "label": "Before", "sublabel": "Manual / fragile", "color": "#ef4444"},
-            {"x": 10, "y": 4, "label": "After", "sublabel": "Automated / reliable", "color": "#22c55e"},
-        ],
-        "arrows": [
-            {"x1": 5.2, "y1": 4, "x2": 8.8, "y2": 4, "color": "#7c3aed", "label": "Improvement"},
-        ],
-        "section_labels": [],
-    }
-
-
-def _diagram_flowchart(domain: str, topic: str) -> dict:
-    """Generic flowchart with labeled boxes and arrows."""
-    return {
-        "title": f"{domain} Flowchart",
-        "subtitle": topic,
-        "accent": "#0ea5e9",
-        "nodes": [
-            {"x": 2, "y": 4, "label": "Input", "sublabel": "Source", "color": "#0ea5e9"},
-            {"x": 5, "y": 4, "label": "Process", "sublabel": "Transform", "color": "#38bdf8"},
-            {"x": 8, "y": 4, "label": "Validate", "sublabel": "Quality", "color": "#34d399"},
-            {"x": 11, "y": 4, "label": "Output", "sublabel": "Result", "color": "#a78bfa"},
-        ],
-        "arrows": [
-            {"x1": 2.8, "y1": 4, "x2": 4.2, "y2": 4, "color": "#0ea5e9"},
-            {"x1": 5.8, "y1": 4, "x2": 7.2, "y2": 4, "color": "#0ea5e9"},
-            {"x1": 8.8, "y1": 4, "x2": 10.2, "y2": 4, "color": "#0ea5e9"},
-        ],
-        "section_labels": [],
-    }
-
-
-def _diagram_myth_reality(domain: str, topic: str) -> dict:
-    """Myth vs reality split infographic."""
-    return {
-        "title": f"{domain} Myth vs Reality",
-        "subtitle": topic,
-        "accent": "#f59e0b",
-        "nodes": [
-            {"x": 4, "y": 4, "label": "Myth", "sublabel": "Common belief", "color": "#ef4444"},
-            {"x": 10, "y": 4, "label": "Reality", "sublabel": "What actually works", "color": "#22c55e"},
-        ],
-        "arrows": [
-            {"x1": 5.2, "y1": 4, "x2": 8.8, "y2": 4, "color": "#f59e0b", "label": "Insight"},
-        ],
-        "section_labels": [],
-    }
-
-
-def _diagram_databricks_medallion() -> dict:
-    """Databricks medallion architecture (Bronze/Silver/Gold)."""
-    return {
-        "title": "Databricks Medallion Architecture",
-        "subtitle": "Delta Lake Layered Data Pipeline",
-        "accent": "#4a90e2",
-        "nodes": [
-            {"x": 1.5, "y": 3.5, "label": "Raw Data", "sublabel": "(Sources)", "color": "#e24a4a"},
-            {"x": 5, "y": 3.5, "label": "Bronze Layer", "sublabel": "(Auto Loader)", "color": "#4a90e2"},
-            {"x": 8.5, "y": 3.5, "label": "Silver Layer", "sublabel": "(Transformations)", "color": "#50c878"},
-            {"x": 12, "y": 3.5, "label": "Gold Layer", "sublabel": "(Analytics)", "color": "#f4a460"},
-        ],
-        "arrows": [
-            {"x1": 2.3, "y1": 3.5, "x2": 3.8, "y2": 3.5, "color": "#4a90e2"},
-            {"x1": 5.8, "y1": 3.5, "x2": 7.7, "y2": 3.5, "color": "#4a90e2"},
-            {"x1": 9.3, "y1": 3.5, "x2": 11.2, "y2": 3.5, "color": "#4a90e2"},
-        ],
-        "section_labels": [],
-    }
-
-
-def _diagram_databricks_dlt() -> dict:
-    """Databricks Delta Live Tables (DLT) pipeline."""
-    return {
-        "title": "Delta Live Tables Pipeline",
-        "subtitle": "Declarative ETL with DLT",
-        "accent": "#50c878",
-        "nodes": [
-            {"x": 2, "y": 5, "label": "Source", "color": "#e24a4a"},
-            {"x": 2, "y": 3, "label": "Bronze", "sublabel": "(Ingestion)", "color": "#4a90e2"},
-            {"x": 5, "y": 4, "label": "Silver", "sublabel": "(Transformation)", "color": "#50c878"},
-            {"x": 8, "y": 4, "label": "Gold", "sublabel": "(Aggregation)", "color": "#f4a460"},
-            {"x": 8, "y": 2, "label": "BI/Analytics", "color": "#9467bd"},
-        ],
-        "arrows": [
-            {"x1": 2, "y1": 4.3, "x2": 2, "y2": 3.7, "color": "#4a90e2"},
-            {"x1": 2.8, "y1": 3, "x2": 4.2, "y2": 3.7, "color": "#4a90e2"},
-            {"x1": 5.8, "y1": 4, "x2": 7.2, "y2": 4, "color": "#4a90e2"},
-            {"x1": 8, "y1": 3.6, "x2": 8, "y2": 2.6, "color": "#4a90e2"},
-        ],
-        "section_labels": [],
-    }
-
-
-def _diagram_databricks_unity() -> dict:
-    """Databricks Unity Catalog."""
-    return {
-        "title": "Unity Catalog Governance",
-        "subtitle": "Centralized Metadata & Access Control",
-        "accent": "#9467bd",
-        "nodes": [
-            {"x": 3, "y": 5, "label": "Unity Catalog", "sublabel": "(Central Registry)", "color": "#9467bd"},
-            {"x": 1, "y": 3.5, "label": "Catalog", "color": "#4a90e2"},
-            {"x": 3, "y": 3.5, "label": "Schema", "color": "#4a90e2"},
-            {"x": 5, "y": 3.5, "label": "Table", "color": "#4a90e2"},
-            {"x": 7, "y": 3.5, "label": "Column Tags", "color": "#e24a4a"},
-        ],
-        "arrows": [
-            {"x1": 3, "y1": 4.6, "x2": 1.5, "y2": 3.8, "color": "#4a90e2"},
-            {"x1": 3, "y1": 4.6, "x2": 3, "y2": 3.8, "color": "#4a90e2"},
-            {"x1": 3, "y1": 4.6, "x2": 4.5, "y2": 3.8, "color": "#4a90e2"},
-            {"x1": 5.8, "y1": 3.5, "x2": 6.2, "y2": 3.5, "color": "#e24a4a"},
-        ],
-        "section_labels": [],
-    }
-
-
-def _diagram_aws_glue() -> dict:
-    """AWS Glue ETL."""
-    return {
-        "title": "AWS Glue ETL Pipeline",
-        "subtitle": "Serverless Data Integration",
-        "accent": "#ff9900",
-        "nodes": [
-            {"x": 1.5, "y": 4, "label": "Data Sources", "color": "#ff9900"},
-            {"x": 4, "y": 4, "label": "Glue Crawler", "color": "#ff9900"},
-            {"x": 6.5, "y": 4, "label": "Glue Catalog", "color": "#e24a4a"},
-            {"x": 9, "y": 4, "label": "Glue Jobs", "color": "#ff9900"},
-            {"x": 11.5, "y": 4, "label": "S3 / Redshift", "color": "#4a90e2"},
-        ],
-        "arrows": [
-            {"x1": 2.3, "y1": 4, "x2": 3.2, "y2": 4, "color": "#ff9900"},
-            {"x1": 4.8, "y1": 4, "x2": 5.7, "y2": 4, "color": "#ff9900"},
-            {"x1": 7.3, "y1": 4, "x2": 8.2, "y2": 4, "color": "#ff9900"},
-            {"x1": 9.8, "y1": 4, "x2": 10.7, "y2": 4, "color": "#ff9900"},
-        ],
-        "section_labels": [],
-    }
-
-
-def _diagram_aws_streaming() -> dict:
-    """AWS Kinesis streaming."""
-    return {
-        "title": "AWS Kinesis Streaming",
-        "subtitle": "Real-time Data Ingestion",
-        "accent": "#ff9900",
-        "nodes": [
-            {"x": 2, "y": 4, "label": "Producers", "color": "#e24a4a"},
-            {"x": 5, "y": 4, "label": "Kinesis Stream", "color": "#ff9900"},
-            {"x": 8, "y": 5, "label": "Lambda", "color": "#ff9900"},
-            {"x": 8, "y": 3, "label": "Firehose", "color": "#ff9900"},
-            {"x": 11, "y": 4, "label": "S3", "color": "#4a90e2"},
-        ],
-        "arrows": [
-            {"x1": 2.8, "y1": 4, "x2": 4, "y2": 4, "color": "#ff9900"},
-            {"x1": 6, "y1": 4.3, "x2": 7.2, "y2": 4.7, "color": "#ff9900"},
-            {"x1": 6, "y1": 3.7, "x2": 7.2, "y2": 3.3, "color": "#ff9900"},
-            {"x1": 8.8, "y1": 4, "x2": 10.2, "y2": 4, "color": "#ff9900"},
-        ],
-        "section_labels": [],
-    }
-
-
-def _diagram_aws_lakeformation() -> dict:
-    """AWS Lake Formation governance."""
-    return {
-        "title": "AWS Lake Formation",
-        "subtitle": "Secure Data Lake Governance",
-        "accent": "#ff9900",
-        "nodes": [
-            {"x": 3, "y": 5, "label": "Lake Formation", "sublabel": "(Central Hub)", "color": "#ff9900"},
-            {"x": 1, "y": 3.5, "label": "Data Catalog", "color": "#4a90e2"},
-            {"x": 3, "y": 3.5, "label": "Permissions", "color": "#e24a4a"},
-            {"x": 5, "y": 3.5, "label": "Encryption", "color": "#50c878"},
-            {"x": 7, "y": 3.5, "label": "Audit Logs", "color": "#9467bd"},
-        ],
-        "arrows": [
-            {"x1": 3, "y1": 4.5, "x2": 1.5, "y2": 3.9, "color": "#ff9900"},
-            {"x1": 3, "y1": 4.5, "x2": 3, "y2": 3.9, "color": "#ff9900"},
-            {"x1": 3, "y1": 4.5, "x2": 4.5, "y2": 3.9, "color": "#ff9900"},
-            {"x1": 5.8, "y1": 3.5, "x2": 6.2, "y2": 3.5, "color": "#ff9900"},
-        ],
-        "section_labels": [],
-    }
-
-
-def _diagram_spark_joins() -> dict:
-    """PySpark join strategies."""
-    return {
-        "title": "PySpark Join Strategies",
-        "subtitle": "Performance Optimization Techniques",
-        "accent": "#e24a4a",
-        "nodes": [
-            {"x": 2, "y": 5, "label": "Broadcast Join", "sublabel": "(Small table)", "color": "#e24a4a"},
-            {"x": 5, "y": 5, "label": "Sort-Merge Join", "sublabel": "(Default)", "color": "#4a90e2"},
-            {"x": 8, "y": 5, "label": "Shuffle Join", "sublabel": "(Large tables)", "color": "#50c878"},
-            {"x": 3.5, "y": 3, "label": "When: <2GB", "color": "#e24a4a"},
-            {"x": 5, "y": 3, "label": "When: Medium", "color": "#4a90e2"},
-            {"x": 6.5, "y": 3, "label": "When: >10GB", "color": "#50c878"},
-        ],
-        "arrows": [
-            {"x1": 2, "y1": 4.6, "x2": 2.5, "y2": 3.4, "color": "#aaa"},
-            {"x1": 5, "y1": 4.6, "x2": 5, "y2": 3.4, "color": "#aaa"},
-            {"x1": 8, "y1": 4.6, "x2": 7.5, "y2": 3.4, "color": "#aaa"},
-        ],
-        "section_labels": [],
-    }
-
-
-def _diagram_spark_partitions() -> dict:
-    """PySpark partitioning strategies."""
-    return {
-        "title": "PySpark Partitioning",
-        "subtitle": "Reducing Skew & Improving Performance",
-        "accent": "#4a90e2",
-        "nodes": [
-            {"x": 2, "y": 5, "label": "Data Skew", "sublabel": "(Problem)", "color": "#e24a4a"},
-            {"x": 5, "y": 5, "label": "Repartition", "color": "#4a90e2"},
-            {"x": 8, "y": 5, "label": "Salting", "sublabel": "(Add randomness)", "color": "#50c878"},
-            {"x": 11, "y": 5, "label": "Balanced Data", "sublabel": "(Solution)", "color": "#50c878"},
-        ],
-        "arrows": [
-            {"x1": 2.8, "y1": 5, "x2": 4.2, "y2": 5, "color": "#4a90e2"},
-            {"x1": 5.8, "y1": 5, "x2": 7.2, "y2": 5, "color": "#4a90e2"},
-            {"x1": 8.8, "y1": 5, "x2": 10.2, "y2": 5, "color": "#4a90e2"},
-        ],
-        "section_labels": [],
-    }
-
-
-def _diagram_spark_pipeline() -> dict:
-    """Generic PySpark pipeline."""
-    return {
-        "title": "PySpark Data Pipeline",
-        "subtitle": "Extract → Transform → Load",
-        "accent": "#e24a4a",
-        "nodes": [
-            {"x": 2, "y": 4, "label": "Extract", "color": "#e24a4a"},
-            {"x": 5, "y": 4, "label": "Transform", "color": "#4a90e2"},
-            {"x": 8, "y": 4, "label": "Load", "color": "#50c878"},
-        ],
-        "arrows": [
-            {"x1": 2.8, "y1": 4, "x2": 4.2, "y2": 4, "color": "#e24a4a"},
-            {"x1": 5.8, "y1": 4, "x2": 7.2, "y2": 4, "color": "#e24a4a"},
-        ],
-        "section_labels": [],
-    }
-
-
-def _diagram_dbt_incremental() -> dict:
-    """dbt incremental models."""
-    return {
-        "title": "dbt Incremental Models",
-        "subtitle": "Full Refresh vs Incremental Strategy",
-        "accent": "#50c878",
-        "nodes": [
-            {"x": 2, "y": 5, "label": "Source Data", "color": "#e24a4a"},
-            {"x": 5, "y": 5.5, "label": "Full Refresh", "sublabel": "(Rebuild all)", "color": "#4a90e2"},
-            {"x": 5, "y": 4.5, "label": "Incremental", "sublabel": "(New rows only)", "color": "#50c878"},
-            {"x": 8, "y": 5, "label": "dbt Model", "color": "#9467bd"},
-        ],
-        "arrows": [
-            {"x1": 2.8, "y1": 5.3, "x2": 4.2, "y2": 5.5, "color": "#4a90e2"},
-            {"x1": 2.8, "y1": 4.7, "x2": 4.2, "y2": 4.5, "color": "#4a90e2"},
-            {"x1": 5.8, "y1": 5, "x2": 7.2, "y2": 5, "color": "#9467bd"},
-        ],
-        "section_labels": [],
-    }
-
-
-def _diagram_scd2() -> dict:
-    """Slowly Changing Dimensions Type 2."""
-    return {
-        "title": "SCD Type 2 Implementation",
-        "subtitle": "Track Historical Changes with dbt",
-        "accent": "#9467bd",
-        "nodes": [
-            {"x": 2, "y": 4, "label": "Source", "color": "#e24a4a"},
-            {"x": 4.5, "y": 5, "label": "Current", "color": "#4a90e2"},
-            {"x": 4.5, "y": 3, "label": "Historical", "color": "#9467bd"},
-            {"x": 7, "y": 4, "label": "SCD Type 2", "sublabel": "(Merged)", "color": "#50c878"},
-        ],
-        "arrows": [
-            {"x1": 2.8, "y1": 4.3, "x2": 4, "y2": 4.7, "color": "#4a90e2"},
-            {"x1": 2.8, "y1": 3.7, "x2": 4, "y2": 3.3, "color": "#9467bd"},
-            {"x1": 5.3, "y1": 4.5, "x2": 6.2, "y2": 4.2, "color": "#4a90e2"},
-            {"x1": 5.3, "y1": 3.5, "x2": 6.2, "y2": 3.8, "color": "#9467bd"},
-        ],
-        "section_labels": [],
-    }
+    """Main orchestration entry point used by the poster script."""
+    return render_infographic(post_data, output_path=output_path)

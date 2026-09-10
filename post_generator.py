@@ -58,6 +58,12 @@ TOPIC_DOMAINS = [
             "Managing Lakehouse data quality with expectations and alerts",
             "Databricks Repos and CI/CD for governed data projects",
             "Streaming ETL patterns with Auto Loader and Kafka",
+            # -- explainer-style topics: map cleanly onto the infographic template --
+            "Delta Lake explained simply - what it is and why it exists",
+            "Reliable Databricks pipelines - data quality checks that actually catch bad data",
+            "End-to-end Databricks Lakehouse architecture, from raw files to dashboards",
+            "Medallion architecture explained simply for a non-technical stakeholder",
+            "Why Unity Catalog matters - governance for regulated healthcare data",
         ],
     },
     {
@@ -79,6 +85,12 @@ TOPIC_DOMAINS = [
             "AWS Backup and disaster recovery patterns for data platforms",
             "S3 object tagging and lineage for governance at scale",
             "Choosing the right AWS storage layer for analytics workloads",
+            # -- explainer-style topics: map cleanly onto the infographic template --
+            "Amazon Redshift explained simply - where your data lives for analytics",
+            "Reliable AWS data pipelines start with data quality",
+            "End-to-end data pipeline on AWS, simple and fully automated",
+            "AWS Glue explained simply for a non-technical stakeholder",
+            "Why Lake Formation matters for PHI data governance",
         ],
     },
     {
@@ -100,6 +112,11 @@ TOPIC_DOMAINS = [
             "How to debug slow Spark jobs with UI and plans",
             "Managing stateful streaming jobs in PySpark",
             "Schema evolution strategies in large PySpark pipelines",
+            # -- explainer-style topics: map cleanly onto the infographic template --
+            "PySpark explained simply - how distributed processing actually works",
+            "Reliable PySpark pipelines - catching data quality issues before they scale",
+            "End-to-end PySpark ETL pipeline, from raw files to a clean table",
+            "Why partitioning strategy matters as your data grows",
         ],
     },
     {
@@ -121,6 +138,11 @@ TOPIC_DOMAINS = [
             "Data contracts for cross-team analytics handoffs",
             "How to choose between views, materialized views, and tables",
             "Writing readable SQL for high-stakes healthcare reporting",
+            # -- explainer-style topics: map cleanly onto the infographic template --
+            "dbt explained simply - how a modern analytics engineering workflow works",
+            "Reliable analytics starts with data contracts and dbt tests",
+            "End-to-end analytics engineering pipeline, from raw tables to a trusted metric",
+            "Why a semantic layer matters for cross-team reporting",
         ],
     },
 ]
@@ -213,12 +235,38 @@ DOMAIN_HASHTAGS = {
     "sql":        "#SQL #dbt #AnalyticsEngineering",
 }
 
+# Allowed icon names for infographic content - keep in sync with image_icons.py's ICON_KINDS
+ALLOWED_ICONS = [
+    "check", "cross", "warning", "gear", "shield", "rocket", "bulb",
+    "chart", "lock", "target", "database", "star", "magnify", "coin",
+    "clock", "refresh", "cloud", "scale", "puzzle", "arrow_up",
+]
+
 # JSON schema for LLM output (defined once to avoid format string issues)
 JSON_SCHEMA = """{
-  "post_text": string,         // final LinkedIn post text (150-250 words, may include line breaks)
-  "image_prompt": string|null, // short focused prompt for the image generator (2-12 words + style), or null
-  "hashtags": string           // 4-6 hashtags separated by spaces (will be placed on the last line)
+  "post_text": string,         // short LinkedIn caption (20-50 words, 2-3 lines) - the image carries the content
+  "hashtags": string,          // 4-6 hashtags separated by spaces (will be placed on the last line)
+  "infographic": {
+    "title": string,                 // bold headline, 4-8 words, ALL CAPS, e.g. "RELIABLE PIPELINES START WITH DATA QUALITY"
+    "subtitle": string,               // one short supporting line, <=12 words
+    "badge": string,                  // 2-4 char label for the corner badge, e.g. "AWS", "PY", "SQL", "DBX"
+    "problem_heading": string,        // e.g. "THE REAL PROBLEM"
+    "problem_points": [string, string, string, string],  // 4 short pain points, <=6 words each
+    "solution_heading": string,       // e.g. "HOW DATA ENGINEERS HANDLE THIS"
+    "pipeline_heading": string,       // e.g. "REAL PIPELINE WITH QUALITY CHECKS"
+    "pipeline_steps": [{"label": string, "icon": string}, ...],  // 4-5 steps, label <=2 words, icon from the allowed list below
+    "why_heading": string,            // e.g. "WHY THIS MATTERS"
+    "why_matters": [{"title": string, "desc": string, "icon": string}, ...],  // exactly 4 items, title <=3 words, desc <=6 words
+    "mindset_heading": string,        // e.g. "KEY MINDSET OF A DATA ENGINEER"
+    "mindset_before": string,         // <=8 words, the naive/common approach
+    "mindset_after": string,          // <=8 words, what strong engineers actually do
+    "simple_words_heading": string,   // usually "IN SIMPLE WORDS"
+    "simple_words_chain": [string, string],  // 2 short phrases, <=2 words each, forming a "X -> Y" takeaway
+    "tagline": string                 // short closing line, <=8 words, e.g. "Better data. Better insights. Better impact."
+  }
 }"""
+
+ICON_HINT = ", ".join(ALLOWED_ICONS)
 
 
 def get_available_models(api_key: str) -> list:
@@ -416,26 +464,6 @@ def sanitize_post_text(s: str, default_hashtags: str) -> str:
     return final
 
 
-def auto_generate_image_prompt(topic: str, domain_label: str, fmt_type: str) -> str:
-    """Create a visual-first prompt that is stronger than the raw model output."""
-    words = re.findall(r"\w+", topic)
-    keywords = " ".join(words[:8])
-
-    style_map = {
-        "tip": "premium diagram-first numbered step infographic, labeled boxes and arrows, clean white background, blue and teal accents, crisp text, no clutter",
-        "concept_explainer": "premium diagram-first numbered step infographic, labeled boxes and arrows, clean white background, blue and teal accents, crisp text, no clutter",
-        "achievement": "premium diagram-first before vs after infographic, clear left-right comparison, bold result highlight, polished layout, green and red accents, crisp labels",
-        "project_spotlight": "premium diagram-first before vs after infographic, clear left-right comparison, bold result highlight, polished layout, green and red accents, crisp labels",
-        "myth_vs_reality": "premium diagram-first myth vs reality infographic, split comparison columns, bold headings, clean modern design, red and green highlights, no clutter",
-        "insight": "premium diagram-first flowchart infographic, labeled boxes and arrows, clean technical layout, blue and purple accents, crisp readable text",
-        "industry_take": "premium diagram-first flowchart infographic, labeled boxes and arrows, clean technical layout, blue and purple accents, crisp readable text",
-        "open_to_work": "premium diagram-first flowchart infographic, labeled boxes and arrows, clean technical layout, blue and purple accents, crisp readable text",
-    }
-
-    style = style_map.get(fmt_type, style_map["insight"])
-    prompt = f"{domain_label} {keywords} — {fmt_type} visual, {style}"
-    return prompt
-
 
 def extract_json_string_value(s: str, field: str) -> str | None:
     """Extract a JSON string field value from malformed model output."""
@@ -464,7 +492,7 @@ def extract_json_from_text(s: str) -> str | None:
     # Try to recover a structured payload even when the model returns
     # malformed nested JSON or duplicated post_text fragments.
     recovered = {}
-    for field in ("post_text", "image_prompt", "hashtags"):
+    for field in ("post_text", "hashtags"):
         value = extract_json_string_value(s, field)
         if value is not None:
             recovered[field] = value
@@ -473,6 +501,131 @@ def extract_json_from_text(s: str) -> str | None:
         return json.dumps(recovered)
 
     return None
+
+
+# -- Infographic fallback content ------------------------------------------
+# Used to fill in any field the model leaves out or gets wrong, so the
+# renderer never receives a broken/incomplete infographic payload.
+
+DOMAIN_PIPELINE_DEFAULTS = {
+    "databricks": [
+        {"label": "Raw Data", "icon": "database"}, {"label": "Bronze", "icon": "gear"},
+        {"label": "Silver", "icon": "refresh"}, {"label": "Gold", "icon": "chart"},
+    ],
+    "aws": [
+        {"label": "Amazon S3", "icon": "database"}, {"label": "Lambda", "icon": "gear"},
+        {"label": "Glue", "icon": "refresh"}, {"label": "Redshift", "icon": "database"},
+        {"label": "Analytics", "icon": "chart"},
+    ],
+    "pyspark": [
+        {"label": "Extract", "icon": "database"}, {"label": "Transform", "icon": "gear"},
+        {"label": "Optimize", "icon": "refresh"}, {"label": "Load", "icon": "chart"},
+    ],
+    "sql": [
+        {"label": "Source", "icon": "database"}, {"label": "Model", "icon": "gear"},
+        {"label": "Test", "icon": "check"}, {"label": "Serve", "icon": "chart"},
+    ],
+}
+
+DOMAIN_BADGE = {"databricks": "DBX", "aws": "AWS", "pyspark": "PY", "sql": "SQL"}
+
+
+def build_fallback_infographic(topic: str, domain_key: str, domain_label: str, fmt_type: str) -> dict:
+    """A complete, safe-to-render infographic payload built from the topic alone.
+    Used to fill any gaps left by the model's JSON output."""
+    short_topic = topic.split(" - ")[0].split(" – ")[0]
+    return {
+        "title": short_topic.upper(),
+        "subtitle": f"A practical look for data engineers working with {domain_label}",
+        "badge": DOMAIN_BADGE.get(domain_key, domain_label[:4].upper()),
+        "problem_heading": "THE REAL PROBLEM",
+        "problem_points": [
+            "Inconsistent or messy inputs", "Manual, error-prone steps",
+            "Hard to scale reliably", "Costly to fix downstream",
+        ],
+        "solution_heading": "HOW DATA ENGINEERS HANDLE THIS",
+        "pipeline_heading": f"A REAL {domain_label.upper()} WORKFLOW",
+        "pipeline_steps": DOMAIN_PIPELINE_DEFAULTS.get(domain_key, DOMAIN_PIPELINE_DEFAULTS["sql"]),
+        "why_heading": "WHY THIS MATTERS",
+        "why_matters": [
+            {"title": "Builds Trust", "desc": "Stakeholders trust the data", "icon": "shield"},
+            {"title": "Saves Time", "desc": "Less rework, fewer re-runs", "icon": "clock"},
+            {"title": "Cost Efficient", "desc": "Less wasted compute & storage", "icon": "coin"},
+            {"title": "Scales Well", "desc": "Holds up as data grows", "icon": "chart"},
+        ],
+        "mindset_heading": "KEY MINDSET OF A DATA ENGINEER",
+        "mindset_before": "Anyone can move data around.",
+        "mindset_after": "Great engineers build systems that hold up.",
+        "simple_words_heading": "IN SIMPLE WORDS",
+        "simple_words_chain": [domain_label, "Reliable Data"],
+        "tagline": "Better data. Better insights. Better impact.",
+    }
+
+
+def _sanitize_icon(icon) -> str:
+    if isinstance(icon, str) and icon.lower() in ALLOWED_ICONS:
+        return icon.lower()
+    return "check"
+
+
+def merge_infographic(parsed_info, topic: str, domain_key: str, domain_label: str, fmt_type: str) -> dict:
+    """Merge the model's infographic JSON over a safe fallback, field by field."""
+    fallback = build_fallback_infographic(topic, domain_key, domain_label, fmt_type)
+    info = parsed_info if isinstance(parsed_info, dict) else {}
+
+    def s(key, maxlen=None):
+        v = info.get(key)
+        if isinstance(v, str) and v.strip():
+            return v.strip()[:maxlen] if maxlen else v.strip()
+        return fallback[key]
+
+    out = {
+        "title": s("title", 70),
+        "subtitle": s("subtitle", 90),
+        "badge": s("badge", 4).upper(),
+        "problem_heading": s("problem_heading", 40),
+        "solution_heading": s("solution_heading", 50),
+        "pipeline_heading": s("pipeline_heading", 60),
+        "why_heading": s("why_heading", 30),
+        "mindset_heading": s("mindset_heading", 50),
+        "mindset_before": s("mindset_before", 60),
+        "mindset_after": s("mindset_after", 70),
+        "simple_words_heading": s("simple_words_heading", 30),
+        "tagline": s("tagline", 70),
+    }
+
+    pts = info.get("problem_points")
+    if isinstance(pts, list) and len(pts) >= 3:
+        out["problem_points"] = [str(p)[:60] for p in pts[:4]]
+    else:
+        out["problem_points"] = fallback["problem_points"]
+
+    steps = info.get("pipeline_steps")
+    if isinstance(steps, list) and len(steps) >= 3:
+        out["pipeline_steps"] = [
+            {"label": str(st.get("label", "Step"))[:16], "icon": _sanitize_icon(st.get("icon"))}
+            for st in steps[:5] if isinstance(st, dict)
+        ] or fallback["pipeline_steps"]
+    else:
+        out["pipeline_steps"] = fallback["pipeline_steps"]
+
+    why = info.get("why_matters")
+    if isinstance(why, list) and len(why) >= 3:
+        out["why_matters"] = [
+            {"title": str(w.get("title", ""))[:24], "desc": str(w.get("desc", ""))[:40],
+             "icon": _sanitize_icon(w.get("icon"))}
+            for w in why[:4] if isinstance(w, dict)
+        ] or fallback["why_matters"]
+    else:
+        out["why_matters"] = fallback["why_matters"]
+
+    chain = info.get("simple_words_chain")
+    if isinstance(chain, list) and len(chain) >= 2:
+        out["simple_words_chain"] = [str(c)[:16] for c in chain[:2]]
+    else:
+        out["simple_words_chain"] = fallback["simple_words_chain"]
+
+    return out
 
 
 def generate_post(api_key: str) -> dict:
@@ -487,14 +640,18 @@ def generate_post(api_key: str) -> dict:
 
     default_hashtags = HASHTAG_SETS[fmt["type"]] + "  " + DOMAIN_HASHTAGS[domain["domain"]]
 
-    system_prompt = f"""You are a LinkedIn ghostwriter specialising in data engineering and cloud careers.
-You write authentic, visual-first posts for job seekers targeting senior technical roles.
-Write in first person as Ankit Patel.
-Treat the image as the primary content. The post must read like a short title and takeaway for a diagram-style infographic.
-Keep the post extremely short: 20-50 words total, 2-3 short lines max.
-Do not write long explanations, stories, or paragraphs. The image should explain the topic almost entirely.
+    system_prompt = f"""You are a LinkedIn ghostwriter and infographic content designer specialising in data engineering and cloud careers.
+You produce two things for each post: (1) a short LinkedIn caption, and (2) the structured content for a premium, multi-section
+LinkedIn infographic image (think: bold headline banner, "the real problem" section with pain points, a pipeline/flow diagram
+with 4-5 labeled steps, a "why this matters" card grid, a "key mindset" before/after comparison, and an "in simple words" closing
+banner — the exact style of a polished AWS/Databricks explainer carousel graphic).
+Write in first person as Ankit Patel where the caption calls for it.
+The image is the primary content — keep the caption extremely short: 20-50 words, 2-3 short lines max, no long explanations.
 Do not ask the audience to comment, like, share, or follow. Keep it professional and self-contained.
-Use line breaks for readability and make the post feel like a polished infographic caption.
+
+Every field in the "infographic" object must be filled in and specific to today's topic — write like an engineer who has actually
+used this in production, with concrete tool/API/config names where relevant. Keep every field within its stated word limit so it
+fits its box in the layout. For every "icon" field, choose ONLY from this exact list: {ICON_HINT}.
 
 Candidate profile:
 {PROFILE}
@@ -505,17 +662,18 @@ Candidate profile:
 Today's technical topic: {topic}
 Topic domain: {domain['label']}
 
-Instructions: {fmt['instruction']}
-
-Tie the post to the specific topic above. Be concrete — use real command names, API names, or config patterns where relevant. Write as someone who has used this in production at scale.
-This is a diagram-first post. The visual should carry the learning. The text should be a short headline + one takeaway only.
-Do not write a long paragraph, checklist, or article. Keep it extremely concise and ready to sit under a diagram-style infographic.
+Caption instructions: {fmt['instruction']}
+Keep the caption to a short headline + one takeaway — the infographic image carries the actual explanation, not the caption.
 Do not include audience engagement prompts such as comments, follows, shares, DM me, or 'let me know'.
 
-IMPORTANT: Output JSON only (no surrounding text). The JSON schema must be:
+Tie every infographic field to the specific topic above — no generic filler. Follow the word/item-count limits in the schema exactly
+so the layout doesn't overflow. pipeline_steps should reflect a real, ordered technical flow for this topic (e.g. real AWS/Databricks/
+Spark/SQL service or step names). why_matters must have exactly 4 items.
+
+IMPORTANT: Output JSON only (no surrounding text, no markdown fences). The JSON schema must be:
 {JSON_SCHEMA}
 
-If you cannot comply, still output the full post text but it will be sanitised by the poster. Use the hashtags provided earlier if helpful: {default_hashtags}
+Use the hashtags provided earlier if helpful: {default_hashtags}
 """
 
     response = client.chat.completions.create(
@@ -525,40 +683,40 @@ If you cannot comply, still output the full post text but it will be sanitised b
             {"role": "user", "content": user_prompt},
         ],
         temperature=0.85,
-        max_tokens=700,
+        max_tokens=1500,
     )
 
     raw = response.choices[0].message.content.strip()
 
     # Try to parse structured JSON from the model
     parsed = None
-    image_prompt = None
     post_text = None
     hashtags = None
+    infographic_raw = None
 
     json_str = extract_json_from_text(raw)
     if json_str:
         try:
             parsed = json.loads(json_str)
             post_text = parsed.get("post_text")
-            image_prompt = parsed.get("image_prompt")
             hashtags = parsed.get("hashtags")
+            infographic_raw = parsed.get("infographic")
         except Exception:
             parsed = None
 
     if not parsed:
         # Fallback: treat entire response as post_text
         post_text = raw
-        image_prompt = None
         hashtags = None
+        infographic_raw = None
 
     # Sanitize post_text and ensure hashtags line
     final_hashtags = hashtags if isinstance(hashtags, str) and hashtags.strip() else default_hashtags
     post_text_sanitized = sanitize_post_text(post_text, final_hashtags)
 
-    # Always use the stronger, format-aware prompt so the generated image matches the
-    # requested infographic archetype and avoids weak model output.
-    image_prompt = auto_generate_image_prompt(topic, domain["label"], fmt["type"])
+    # Merge model infographic content over a safe fallback so the renderer
+    # always gets a complete, on-topic payload even on partial LLM output.
+    infographic = merge_infographic(infographic_raw, topic, domain["domain"], domain["label"], fmt["type"])
 
     save_used_topic(fmt["type"], domain["domain"], topic)
 
@@ -569,7 +727,8 @@ If you cannot comply, still output the full post text but it will be sanitised b
         "topic": topic,
         "date": str(date.today()),
         "model_used": model,
-        "image_prompt": image_prompt,
+        "hashtags": final_hashtags,
+        "infographic": infographic,
         "raw_llm": raw,
     }
 

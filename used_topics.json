@@ -1,11 +1,5 @@
 [
   {
-    "type": "tip",
-    "domain": "aws",
-    "topic": "AWS Step Functions for orchestrating multi-step data pipelines",
-    "date": "2026-07-26"
-  },
-  {
     "type": "myth_vs_reality",
     "domain": "sql",
     "topic": "Using dbt macros to build reusable SQL components",
@@ -238,5 +232,11 @@
     "domain": "sql",
     "topic": "End-to-end analytics engineering pipeline, from raw tables to a trusted metric",
     "date": "2026-09-10"
+  },
+  {
+    "type": "tip",
+    "domain": "databricks",
+    "topic": "Medallion architecture explained simply for a non-technical stakeholder",
+    "date": "2026-09-11"
   }
 ]

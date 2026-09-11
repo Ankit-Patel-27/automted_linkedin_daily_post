@@ -1,18 +1,18 @@
 {
-  "text": "<think> Thinking Process: 1. Deconstruct the Request: * Role: LinkedIn ghostwriter/infographic designer for Ankit Patel. * Profile: Lead Data Engineer @ TCS, 5 years exp. Target: Senior Data Engineer/Data Platform Lead in Healthcare/Biotech. Skills: AWS, Databricks, Spark, dbt, Airflow, Terraform, etc. Achievements: 10TB migration, 40% ETL reduction, GenAI hackathon, reusable ETL framework, CI/CD. * Post Format: Achievement. * Topic: End-to-end analytics engineering pipeline, from raw tables to a trusted metric. Domain: SQL / Analytics Engineering.\n\n#DataEngineering #CloudMigration #AWS #CareerGrowth #TechLeadership  #SQL #dbt #AnalyticsEngineering",
-  "format_type": "achievement",
-  "domain": "SQL / Analytics Engineering",
-  "topic": "End-to-end analytics engineering pipeline, from raw tables to a trusted metric",
-  "date": "2026-09-10",
-  "model_used": "qwen/qwen3.6-27b",
-  "hashtags": "#DataEngineering #CloudMigration #AWS #CareerGrowth #TechLeadership  #SQL #dbt #AnalyticsEngineering",
+  "text": "Title: 3 Simple Steps to Implement a Data Pipeline for Data Engineering Success 1. Post_text: \"Medallion architecture makes data pipelines more reliable & efficient.\" 2. Hashtags: 3. Infographic: { \"title\": \"Simplifying Data Engineering with Medallion Architecture\", \"infographic_image\": \"data_pipeline\", \"hashtags\": [\"DataEngineering\", \"TechTips\", \"LearnInPublic\", \"DataPlatform\", \"Databricks\", \"DeltaLake\", \"ApacheSpark\"], \"key_takeaway\": \"Unlock reliability, efficiency, and scalability with Medallion architecture.\", \"data_pipeline\": [ { \"label\": \"Validate data quality\", \"desc\": \"Test data for accuracy before processing\", \"icon\": \"database, { \"label\": \"Automate tasks\", \"desc\": \"Efficiently execute data processing\",\n\n#DataEngineering #TechTips #LearnInPublic #DataPlatform  #Databricks #DeltaLake #ApacheSpark",
+  "format_type": "tip",
+  "domain": "Databricks",
+  "topic": "Medallion architecture explained simply for a non-technical stakeholder",
+  "date": "2026-09-11",
+  "model_used": "allam-2-7b",
+  "hashtags": "#DataEngineering #TechTips #LearnInPublic #DataPlatform  #Databricks #DeltaLake #ApacheSpark",
   "infographic": {
-    "title": "END-TO-END ANALYTICS ENGINEERING PIPELINE, FROM RAW TABLES TO A TRUSTED METRIC",
-    "subtitle": "A practical look for data engineers working with SQL / Analytics Engineering",
-    "badge": "SQL",
+    "title": "MEDALLION ARCHITECTURE EXPLAINED SIMPLY FOR A NON-TECHNICAL STAKEHOLDER",
+    "subtitle": "A practical look for data engineers working with Databricks",
+    "badge": "DBX",
     "problem_heading": "THE REAL PROBLEM",
     "solution_heading": "HOW DATA ENGINEERS HANDLE THIS",
-    "pipeline_heading": "A REAL SQL / ANALYTICS ENGINEERING WORKFLOW",
+    "pipeline_heading": "A REAL DATABRICKS WORKFLOW",
     "why_heading": "WHY THIS MATTERS",
     "mindset_heading": "KEY MINDSET OF A DATA ENGINEER",
     "mindset_before": "Anyone can move data around.",
@@ -27,19 +27,19 @@
     ],
     "pipeline_steps": [
       {
-        "label": "Source",
+        "label": "Raw Data",
         "icon": "database"
       },
       {
-        "label": "Model",
+        "label": "Bronze",
         "icon": "gear"
       },
       {
-        "label": "Test",
-        "icon": "check"
+        "label": "Silver",
+        "icon": "refresh"
       },
       {
-        "label": "Serve",
+        "label": "Gold",
         "icon": "chart"
       }
     ],
@@ -66,9 +66,9 @@
       }
     ],
     "simple_words_chain": [
-      "SQL / Analytics Engineering",
+      "Databricks",
       "Reliable Data"
     ]
   },
-  "raw_llm": "<think>\nThinking Process:\n\n1.  **Deconstruct the Request:**\n    *   **Role:** LinkedIn ghostwriter/infographic designer for Ankit Patel.\n    *   **Profile:** Lead Data Engineer @ TCS, 5 years exp. Target: Senior Data Engineer/Data Platform Lead in Healthcare/Biotech. Skills: AWS, Databricks, Spark, dbt, Airflow, Terraform, etc. Achievements: 10TB migration, 40% ETL reduction, GenAI hackathon, reusable ETL framework, CI/CD.\n    *   **Post Format:** Achievement.\n    *   **Topic:** End-to-end analytics engineering pipeline, from raw tables to a trusted metric. Domain: SQL / Analytics Engineering.\n    *   **Caption Instructions:** Highlight an achievement, frame as 'problem solved', human tone, short headline + takeaway, 20-50 words, no engagement prompts.\n    *   **Infographic Schema:** Specific fields, word limits, icon constraints.\n        *   `title`: 4-8 words, ALL CAPS.\n        *   `subtitle`: <=12 words.\n        *   `badge`: 2-4 chars.\n        *   `problem_heading`: e.g., \"THE REAL PROBLEM\".\n        *   `problem_points`: 4 items, <=6 words each.\n        *   `solution_heading`: e.g., \"HOW DATA ENGINEERS HANDLE THIS\".\n        *   `pipeline_heading`: e.g., \"REAL PIPELINE WITH QUALITY CHECKS\".\n        *   `pipeline_steps`: 4-5 steps, label <=2 words, icon from list.\n        *   `why_heading`: e.g., \"WHY THIS MATTERS\".\n        *   `why_matters`: 4 items, title <=3 words, desc <=6 words, icon.\n        *   `mindset_heading`: e.g., \"KEY MINDSET...\".\n        *   `mindset_before`: <=8 words.\n        *   `mindset_after`: <=8 words.\n        *   `simple_words_heading`: \"IN SIMPLE WORDS\".\n        *   `simple_words_chain`: 2 items, <=2 words each.\n        *   `tagline`: <=8 words.\n    *   **Hashtags:** 4-6 from provided list or relevant ones.\n    *   **Output:** JSON only.\n\n2.  **Drafting Content - Caption:**\n    *   *Goal:* Highlight achievement tied to pipeline/raw-to-trusted metric.\n    *   *Relevant Achievement:* \"40% ETL runtime reduction on 500M+ daily records\" or \"Reusable ETL framework cutting onboarding time by 50%\". The \"Reusable ETL framework\" fits \"End-to-end analytics engineering pipeline\" well, or the runtime reduction fits \"trusted metric\" via efficiency/reliability.\n    *   *Drafting:* Raw data was messy, metrics were stale. I built a dbt-on-redshift pipeline that automated transformations and validation. Result: 40% faster ETL runtime and trustworthy metrics for stakeholders.\n    *   *Word Count Check:* \"Raw data was messy, metrics were stale. I built a dbt-on-redshift pipeline that automated transformations and validation. Result: 40% faster ETL runtime and trustworthy metrics for stakeholders.\" -> 28 words. Good.\n    *   *Refinement:* \"Metrics were lagging and unreliable. I engineered a dbt-driven pipeline on S3/Redshift with automated tests. Cutover to trusted metrics in hours, slashing ETL runtime by 40% on 500M+ daily records.\" -> 28 words. Stronger ties to achievement.\n    *   *Final Caption:* Metrics were lagging and unreliable. I engineered a dbt-driven pipeline on S3/Redshift with automated tests. Cutover to trusted metrics in hours, slashing ETL runtime by 40% on 500M+ daily records.\n\n3.  **Drafting Content - Infographic Fields:**\n    *   *Topic:* End-to-end analytics engineering pipeline, raw to trusted metric.\n    *   *Title:* Needs to be bold, 4-8 words, ALL CAPS.\n        *   *Ideas:* RAW TO TRUSTED METRICS IN HOURS, BUILDING RELIABLE ANALYTICS PIPELINES FROM SCRATCH, TRUSTED METRICS FROM RAW DATA, FROM RAW TABLES TO TRUSTED METRICS.\n        *   *Selection:* FROM RAW TABLES TO TRUSTED METRICS (6 words). Good.\n    *   *Subtitle:* <=12 words.\n        *   *Ideas:* How I automated data quality and reduced ETL runtime by 40%.\n        *   *Selection:* Automating quality checks to deliver accurate insights faster. (8 words). Or: A repeatable framework for reliable, high-performance analytics. (7 words).\n        *   *Selection:* A repeatable framework for reliable, high-performance analytics.\n    *   *Badge:* 2-4 chars.\n        *   *Ideas:* SQL, DBT, AWS.\n        *   *Selection:* SQL. (Topic domain is SQL/Analytics Eng). Or DBT. Let's use SQL to match domain, or DBT to match tool. \"DBT\" is 3 chars. \"SQL\" is 3 chars. \"SQL\" feels more domain-centric. Let's go with \"SQL\".\n    *   *Problem Heading:* \"THE REAL PROBLEM\".\n    *   *Problem Points:* 4 items, <=6 words each.\n        *   *Pain points for raw-to-metric:* Stale data, manual checks, broken joins, inconsistent definitions.\n        *   *Drafts:*\n        *   \"Metrics calculated manually, error-prone and slow.\" -> \"Manual calculations slow down reporting cycles.\" (6 words).\n        *   \"Raw data breaks downstream dashboards silently.\" -> \"Raw data breaks downstream dashboards silently.\" (6 words).\n        *   \"No automated validation, trust is low.\" -> \"No validation erodes stakeholder trust fast.\" (6 words).\n        *   \"ETL jobs hang on bad records.\" -> \"ETL jobs hang on bad records.\" (6 words).\n        *   *Review:*\n        *   1. Manual calculations slow reporting cycles. (6 words). OK.\n        *   2. Raw data breaks dashboards silently. (5 words). OK.\n        *   3. No validation erodes trust fast. (6 words). OK.\n        *   4. ETL jobs hang on bad records. (6 words). OK.\n    *   *Solution Heading:* \"HOW DATA ENGINEERS HANDLE THIS\".\n    *   *Pipeline Heading:* \"REAL PIPELINE WITH QUALITY CHECKS\".\n    *   *Pipeline Steps:* 4-5 steps, label <=2 words, icon from list.\n        *"
+  "raw_llm": "Title: 3 Simple Steps to Implement a Data Pipeline for Data Engineering Success\n\n1. Post_text: \"Medallion architecture makes data pipelines more reliable & efficient.\"\n\n2. Hashtags: #DataEngineering #TechTips #LearnInPublic #DataPlatform #Databricks #DeltaLake #ApacheSpark\n3. Infographic:\n\n{\n  \"title\": \"Simplifying Data Engineering with Medallion Architecture\",\n  \"infographic_image\": \"data_pipeline\",\n  \"hashtags\": [\"DataEngineering\", \"TechTips\", \"LearnInPublic\", \"DataPlatform\", \"Databricks\", \"DeltaLake\", \"ApacheSpark\"],\n  \"key_takeaway\": \"Unlock reliability, efficiency, and scalability with Medallion architecture.\",\n  \"data_pipeline\": [\n    {\n      \"label\": \"Validate data quality\",\n      \"desc\": \"Test data for accuracy before processing\",\n      \"icon\": \"database\"\n    },\n    {\n      \"label\": \"Automate tasks\",\n      \"desc\": \"Efficiently execute data processing\",\n      \"icon\": \"gear\"\n    },\n    {\n      \"label\": \"Integration for better impact\",\n      \"desc\": \"Connect disparate systems seamlessly\",\n      \"icon\": \"lock\"\n    }\n  ],\n  \"tagline\": \"The simpler Medallion pipeline for Healthcare/Biotech data engineering success\",\n  \"CTA\": \"Apply Medallion to your pipeline\",\n  \"progress_before\": \"Data pipeline: Pain\",\n  \"progress_after\": \"Data pipeline: Power\",\n  \"resources\": [\n    {\n      \"text\": \"5 Medallion Architecture Principles\",\n      \"url\": \"https://www.example.com/resources/medallion-principles.html\"\n    }\n}"
 }

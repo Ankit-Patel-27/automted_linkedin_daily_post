@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-06-05",
-    "post_id": "urn:li:share:7468531023731970048",
-    "format_type": "industry_take",
-    "domain": "Databricks",
-    "had_image": true,
-    "preview": "As a data engineer in the healthcare space, I've had to make tough choices between Databricks Workflows and Apache Airfl..."
-  },
-  {
     "date": "2026-06-06",
     "post_id": "urn:li:share:7468887700268417024",
     "format_type": "achievement",
@@ -718,5 +710,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "<think> Thinking Process: 1. Deconstruct the Request: * Role: LinkedIn ghostwriter/infographic designer for Ankit Patel...."
+  },
+  {
+    "date": "2026-09-11",
+    "post_id": "urn:li:share:7504051617470779392",
+    "format_type": "tip",
+    "domain": "Databricks",
+    "had_image": true,
+    "preview": "Title: 3 Simple Steps to Implement a Data Pipeline for Data Engineering Success 1. Post_text: \"Medallion architecture ma..."
   }
 ]

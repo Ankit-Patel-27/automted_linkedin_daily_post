@@ -1,11 +1,5 @@
 [
   {
-    "type": "myth_vs_reality",
-    "domain": "sql",
-    "topic": "Using dbt macros to build reusable SQL components",
-    "date": "2026-07-27"
-  },
-  {
     "type": "concept_explainer",
     "domain": "pyspark",
     "topic": "PySpark window functions for time-series healthcare data",
@@ -238,5 +232,11 @@
     "domain": "databricks",
     "topic": "Medallion architecture explained simply for a non-technical stakeholder",
     "date": "2026-09-11"
+  },
+  {
+    "type": "industry_take",
+    "domain": "aws",
+    "topic": "AWS ECS vs EKS for containerised data workloads",
+    "date": "2026-09-13"
   }
 ]

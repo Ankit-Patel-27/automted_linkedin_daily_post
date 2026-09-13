@@ -1,45 +1,21 @@
 {
-  "generated_date": "2026-09-11",
-  "posts_analysed": 24,
+  "generated_date": "2026-09-13",
+  "posts_analysed": 23,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "tip",
+  "best_format": "industry_take",
   "format_avg_scores": {
-    "tip": 0.0,
-    "project_spotlight": 0.0,
     "industry_take": 0.0,
     "open_to_work": 0.0,
     "concept_explainer": 0.0,
     "achievement": 0.0,
     "myth_vs_reality": 0.0,
-    "insight": 0.0
+    "insight": 0.0,
+    "tip": 0.0,
+    "project_spotlight": 0.0
   },
   "posts": [
-    {
-      "date": "2026-08-12",
-      "post_id": "urn:li:share:7493144832912117761",
-      "format_type": "tip",
-      "domain": "AWS",
-      "had_image": true,
-      "preview": "I've seen it time and time again - teams struggling to decide between Redshift Spectrum and Athena for querying S3 data....",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
-    {
-      "date": "2026-08-13",
-      "post_id": "urn:li:share:7493507984887705600",
-      "format_type": "project_spotlight",
-      "domain": "SQL / Analytics Engineering",
-      "had_image": true,
-      "preview": "As a Lead Data Engineer, I worked on optimizing a large-scale data warehousing project for a healthcare client, where we...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-08-14",
       "post_id": "urn:li:share:7493870002173902848",
@@ -299,6 +275,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "Title: 3 Simple Steps to Implement a Data Pipeline for Data Engineering Success 1. Post_text: \"Medallion architecture ma...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-09-13",
+      "post_id": "urn:li:share:7504776992924409856",
+      "format_type": "industry_take",
+      "domain": "AWS",
+      "had_image": true,
+      "preview": "...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

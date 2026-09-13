@@ -1,18 +1,18 @@
 {
-  "text": "Title: 3 Simple Steps to Implement a Data Pipeline for Data Engineering Success 1. Post_text: \"Medallion architecture makes data pipelines more reliable & efficient.\" 2. Hashtags: 3. Infographic: { \"title\": \"Simplifying Data Engineering with Medallion Architecture\", \"infographic_image\": \"data_pipeline\", \"hashtags\": [\"DataEngineering\", \"TechTips\", \"LearnInPublic\", \"DataPlatform\", \"Databricks\", \"DeltaLake\", \"ApacheSpark\"], \"key_takeaway\": \"Unlock reliability, efficiency, and scalability with Medallion architecture.\", \"data_pipeline\": [ { \"label\": \"Validate data quality\", \"desc\": \"Test data for accuracy before processing\", \"icon\": \"database, { \"label\": \"Automate tasks\", \"desc\": \"Efficiently execute data processing\",\n\n#DataEngineering #TechTips #LearnInPublic #DataPlatform  #Databricks #DeltaLake #ApacheSpark",
-  "format_type": "tip",
-  "domain": "Databricks",
-  "topic": "Medallion architecture explained simply for a non-technical stakeholder",
-  "date": "2026-09-11",
-  "model_used": "allam-2-7b",
-  "hashtags": "#DataEngineering #TechTips #LearnInPublic #DataPlatform  #Databricks #DeltaLake #ApacheSpark",
+  "text": "",
+  "format_type": "industry_take",
+  "domain": "AWS",
+  "topic": "AWS ECS vs EKS for containerised data workloads",
+  "date": "2026-09-13",
+  "model_used": "qwen/qwen3.6-27b",
+  "hashtags": "#DataEngineering #HealthTech #DataMesh #GenAI #CloudArchitecture  #AWS #CloudEngineering #AWSCloud",
   "infographic": {
-    "title": "MEDALLION ARCHITECTURE EXPLAINED SIMPLY FOR A NON-TECHNICAL STAKEHOLDER",
-    "subtitle": "A practical look for data engineers working with Databricks",
-    "badge": "DBX",
+    "title": "AWS ECS VS EKS FOR CONTAINERISED DATA WORKLOADS",
+    "subtitle": "A practical look for data engineers working with AWS",
+    "badge": "AWS",
     "problem_heading": "THE REAL PROBLEM",
     "solution_heading": "HOW DATA ENGINEERS HANDLE THIS",
-    "pipeline_heading": "A REAL DATABRICKS WORKFLOW",
+    "pipeline_heading": "A REAL AWS WORKFLOW",
     "why_heading": "WHY THIS MATTERS",
     "mindset_heading": "KEY MINDSET OF A DATA ENGINEER",
     "mindset_before": "Anyone can move data around.",
@@ -27,19 +27,23 @@
     ],
     "pipeline_steps": [
       {
-        "label": "Raw Data",
+        "label": "Amazon S3",
         "icon": "database"
       },
       {
-        "label": "Bronze",
+        "label": "Lambda",
         "icon": "gear"
       },
       {
-        "label": "Silver",
+        "label": "Glue",
         "icon": "refresh"
       },
       {
-        "label": "Gold",
+        "label": "Redshift",
+        "icon": "database"
+      },
+      {
+        "label": "Analytics",
         "icon": "chart"
       }
     ],
@@ -66,9 +70,9 @@
       }
     ],
     "simple_words_chain": [
-      "Databricks",
+      "AWS",
       "Reliable Data"
     ]
   },
-  "raw_llm": "Title: 3 Simple Steps to Implement a Data Pipeline for Data Engineering Success\n\n1. Post_text: \"Medallion architecture makes data pipelines more reliable & efficient.\"\n\n2. Hashtags: #DataEngineering #TechTips #LearnInPublic #DataPlatform #Databricks #DeltaLake #ApacheSpark\n3. Infographic:\n\n{\n  \"title\": \"Simplifying Data Engineering with Medallion Architecture\",\n  \"infographic_image\": \"data_pipeline\",\n  \"hashtags\": [\"DataEngineering\", \"TechTips\", \"LearnInPublic\", \"DataPlatform\", \"Databricks\", \"DeltaLake\", \"ApacheSpark\"],\n  \"key_takeaway\": \"Unlock reliability, efficiency, and scalability with Medallion architecture.\",\n  \"data_pipeline\": [\n    {\n      \"label\": \"Validate data quality\",\n      \"desc\": \"Test data for accuracy before processing\",\n      \"icon\": \"database\"\n    },\n    {\n      \"label\": \"Automate tasks\",\n      \"desc\": \"Efficiently execute data processing\",\n      \"icon\": \"gear\"\n    },\n    {\n      \"label\": \"Integration for better impact\",\n      \"desc\": \"Connect disparate systems seamlessly\",\n      \"icon\": \"lock\"\n    }\n  ],\n  \"tagline\": \"The simpler Medallion pipeline for Healthcare/Biotech data engineering success\",\n  \"CTA\": \"Apply Medallion to your pipeline\",\n  \"progress_before\": \"Data pipeline: Pain\",\n  \"progress_after\": \"Data pipeline: Power\",\n  \"resources\": [\n    {\n      \"text\": \"5 Medallion Architecture Principles\",\n      \"url\": \"https://www.example.com/resources/medallion-principles.html\"\n    }\n}"
+  "raw_llm": ""
 }

@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-06-06",
-    "post_id": "urn:li:share:7468887700268417024",
-    "format_type": "achievement",
-    "domain": "SQL / Analytics Engineering",
-    "had_image": false,
-    "preview": "I recall a project where I had to implement Slowly Changing Dimensions (SCD Type 2) for a large-scale analytics pipeline..."
-  },
-  {
     "date": "2026-06-07",
     "post_id": "urn:li:share:7469257287178706945",
     "format_type": "tip",
@@ -718,5 +710,13 @@
     "domain": "Databricks",
     "had_image": true,
     "preview": "Title: 3 Simple Steps to Implement a Data Pipeline for Data Engineering Success 1. Post_text: \"Medallion architecture ma..."
+  },
+  {
+    "date": "2026-09-13",
+    "post_id": "urn:li:share:7504776992924409856",
+    "format_type": "industry_take",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "..."
   }
 ]

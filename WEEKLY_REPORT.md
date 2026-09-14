@@ -1,6 +1,6 @@
 # 📊 Weekly LinkedIn Analytics Report
 
-**Generated:** 2026-09-07
+**Generated:** 2026-09-14
 **Period:** Last 30 days
 
 ---
@@ -22,13 +22,13 @@
 | Format | Avg Score |
 |---|---|
 | open_to_work | 0.0 |
-| insight | 0.0 |
+| concept_explainer | 0.0 |
 | achievement | 0.0 |
 | myth_vs_reality | 0.0 |
+| insight | 0.0 |
 | tip | 0.0 |
 | project_spotlight | 0.0 |
 | industry_take | 0.0 |
-| concept_explainer | 0.0 |
 
 > Score = (likes × 3) + (comments × 5) + (shares × 4)
 
@@ -38,16 +38,16 @@
 
 | Date | Format | Domain | ❤️ | 💬 | 🔁 |
 |---|---|---|---|---|---|
+| 2026-09-13 | industry_take | AWS | 0 | 0 | 0 |
+| 2026-09-11 | tip | Databricks | 0 | 0 | 0 |
+| 2026-09-10 | achievement | SQL / Analytics Engineering | 0 | 0 | 0 |
+| 2026-09-09 | concept_explainer | PySpark | 0 | 0 | 0 |
+| 2026-09-08 | myth_vs_reality | AWS | 0 | 0 | 0 |
+| 2026-09-08 | open_to_work | Databricks | 0 | 0 | 0 |
+| 2026-09-08 | project_spotlight | SQL / Analytics Engineering | 0 | 0 | 0 |
 | 2026-09-07 | industry_take | PySpark | 0 | 0 | 0 |
 | 2026-09-06 | insight | Databricks | 0 | 0 | 0 |
 | 2026-09-05 | tip | SQL / Analytics Engineering | 0 | 0 | 0 |
-| 2026-09-03 | concept_explainer | AWS | 0 | 0 | 0 |
-| 2026-09-03 | myth_vs_reality | Databricks | 0 | 0 | 0 |
-| 2026-09-01 | achievement | PySpark | 0 | 0 | 0 |
-| 2026-08-31 | open_to_work | AWS | 0 | 0 | 0 |
-| 2026-08-29 | industry_take | Databricks | 0 | 0 | 0 |
-| 2026-08-28 | project_spotlight | SQL / Analytics Engineering | 0 | 0 | 0 |
-| 2026-08-27 | tip | PySpark | 0 | 0 | 0 |
 
 ---
 

@@ -1,11 +1,5 @@
 [
   {
-    "type": "concept_explainer",
-    "domain": "pyspark",
-    "topic": "PySpark window functions for time-series healthcare data",
-    "date": "2026-07-28"
-  },
-  {
     "type": "project_spotlight",
     "domain": "aws",
     "topic": "S3 lifecycle policies and Intelligent-Tiering for cost optimisation",
@@ -238,5 +232,11 @@
     "domain": "aws",
     "topic": "AWS ECS vs EKS for containerised data workloads",
     "date": "2026-09-13"
+  },
+  {
+    "type": "project_spotlight",
+    "domain": "sql",
+    "topic": "Reliable analytics starts with data contracts and dbt tests",
+    "date": "2026-09-15"
   }
 ]

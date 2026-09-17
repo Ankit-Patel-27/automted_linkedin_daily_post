@@ -1,74 +1,74 @@
 {
-  "text": "Built a data contract framework with dbt tests for our 10TB healthcare analytics lake, cutting data anomalies by 85% and slashing ETL rework time from 8 to 2 hours per release.\n\n#DataEngineering #SQL #dbt #AnalyticsEngineering #HealthTech",
-  "format_type": "project_spotlight",
-  "domain": "SQL / Analytics Engineering",
-  "topic": "Reliable analytics starts with data contracts and dbt tests",
-  "date": "2026-09-15",
-  "model_used": "openai/gpt-oss-120b",
-  "hashtags": "#DataEngineering #SQL #dbt #AnalyticsEngineering #HealthTech",
+  "text": "Seasoned data engineer specializing in Databricks Delta Lake ACID transactions, seeking Senior Data Engineer or Data Platform Lead roles in healthcare/biotech. Proven ability to deliver reliable, compliant data pipelines.\n\n#OpenToWork #DataEngineering #Databricks #DeltaLake #HealthcareIT",
+  "format_type": "open_to_work",
+  "domain": "Databricks",
+  "topic": "Delta Lake ACID transactions and why they matter for healthcare data",
+  "date": "2026-09-17",
+  "model_used": "groq/compound",
+  "hashtags": "#OpenToWork #DataEngineering #Databricks #DeltaLake #HealthcareIT",
   "infographic": {
-    "title": "RELIABLE ANALYTICS STARTS WITH DATA CONTRACTS AND DBT TESTS",
-    "subtitle": "A practical look for data engineers working with SQL / Analytics Engineering",
-    "badge": "SQL",
+    "title": "ACID TRANSACTIONS FOR HEALTHCARE DATA",
+    "subtitle": "Ensuring consistency, compliance, and trust in patient records",
+    "badge": "DBX",
     "problem_heading": "THE REAL PROBLEM",
-    "solution_heading": "HOW DATA ENGINEERS HANDLE THIS",
-    "pipeline_heading": "A REAL SQL / ANALYTICS ENGINEERING WORKFLOW",
+    "solution_heading": "HOW WE SOLVE IT",
+    "pipeline_heading": "ACID PIPELINE ON DELTA LAKE",
     "why_heading": "WHY THIS MATTERS",
-    "mindset_heading": "KEY MINDSET OF A DATA ENGINEER",
-    "mindset_before": "Anyone can move data around.",
-    "mindset_after": "Great engineers build systems that hold up.",
+    "mindset_heading": "KEY MINDSET",
+    "mindset_before": "Assume eventual consistency is enough",
+    "mindset_after": "Design for strict ACID guarantees",
     "simple_words_heading": "IN SIMPLE WORDS",
-    "tagline": "Better data. Better insights. Better impact.",
+    "tagline": "Reliable data, better patient outcomes.",
     "problem_points": [
-      "Inconsistent or messy inputs",
-      "Manual, error-prone steps",
-      "Hard to scale reliably",
-      "Costly to fix downstream"
+      "Stale patient records",
+      "Partial updates cause errors",
+      "Concurrent writes corrupt data",
+      "Regulatory audit failures"
     ],
     "pipeline_steps": [
       {
-        "label": "Source",
-        "icon": "database"
+        "label": "Ingest",
+        "icon": "cloud"
       },
       {
-        "label": "Model",
-        "icon": "gear"
-      },
-      {
-        "label": "Test",
+        "label": "Validate",
         "icon": "check"
       },
       {
-        "label": "Serve",
-        "icon": "chart"
+        "label": "Commit",
+        "icon": "lock"
+      },
+      {
+        "label": "Query",
+        "icon": "magnify"
       }
     ],
     "why_matters": [
       {
-        "title": "Builds Trust",
-        "desc": "Stakeholders trust the data",
+        "title": "Data Consistency",
+        "desc": "Same view across systems",
+        "icon": "check"
+      },
+      {
+        "title": "Atomic Writes",
+        "desc": "All-or-nothing updates",
         "icon": "shield"
       },
       {
-        "title": "Saves Time",
-        "desc": "Less rework, fewer re-runs",
-        "icon": "clock"
+        "title": "Isolation",
+        "desc": "No dirty reads",
+        "icon": "lock"
       },
       {
-        "title": "Cost Efficient",
-        "desc": "Less wasted compute & storage",
-        "icon": "coin"
-      },
-      {
-        "title": "Scales Well",
-        "desc": "Holds up as data grows",
-        "icon": "chart"
+        "title": "Durability",
+        "desc": "Data survives failures",
+        "icon": "database"
       }
     ],
     "simple_words_chain": [
-      "SQL / Analytics Engineering",
-      "Reliable Data"
+      "Raw",
+      "Trusted"
     ]
   },
-  "raw_llm": "{\n  \"post_text\": \"Built a data contract framework with dbt tests for our 10TB healthcare analytics lake, cutting data anomalies by 85% and slashing ETL rework time from 8 to 2 hours per release.\",\n  \"hashtags\": \"#DataEngineering #SQL #dbt #AnalyticsEngineering #HealthTech\",\n  \"infographic\": {\n    \"title\": \"RELIABLE ANALYTICS WITH DATA CONTRACTS\",\n    \"subtitle\": \"Enforce schema contracts and automated tests across the pipeline.\",\n    \"badge\": \"SQL\",\n    \"problem_heading\": \"THE REAL PROBLEM\",\n    \"problem_points\": [\n      \"Missing columns break downstream models\",\n      \"Silent data drift goes unnoticed\",\n      \"Manual validation consumes weeks\",\n      \"Production bugs increase cost\"\n    ],\n    \"solution_heading"
+  "raw_llm": "{\n  \"post_text\": \"Seasoned data engineer specializing in Databricks Delta Lake ACID transactions, seeking Senior Data Engineer or Data Platform Lead roles in healthcare/biotech.\\nProven ability to deliver reliable, compliant data pipelines.\",\n  \"hashtags\": \"#OpenToWork #DataEngineering #Databricks #DeltaLake #HealthcareIT\",\n  \"infographic\": {\n    \"title\": \"ACID TRANSACTIONS FOR HEALTHCARE DATA\",\n    \"subtitle\": \"Ensuring consistency, compliance, and trust in patient records\",\n    \"badge\": \"DBX\",\n    \"problem_heading\": \"THE REAL PROBLEM\",\n    \"problem_points\": [\n      \"Stale patient records\",\n      \"Partial updates cause errors\",\n      \"Concurrent writes corrupt data\",\n      \"Regulatory audit failures\"\n    ],\n    \"solution_heading\": \"HOW WE SOLVE IT\",\n    \"pipeline_heading\": \"ACID PIPELINE ON DELTA LAKE\",\n    \"pipeline_steps\": [\n      { \"label\": \"Ingest\", \"icon\": \"cloud\" },\n      { \"label\": \"Validate\", \"icon\": \"check\" },\n      { \"label\": \"Commit\", \"icon\": \"lock\" },\n      { \"label\": \"Query\", \"icon\": \"magnify\" }\n    ],\n    \"why_heading\": \"WHY THIS MATTERS\",\n    \"why_matters\": [\n      { \"title\": \"Data Consistency\", \"desc\": \"Same view across systems\", \"icon\": \"check\" },\n      { \"title\": \"Atomic Writes\", \"desc\": \"All-or-nothing updates\", \"icon\": \"shield\" },\n      { \"title\": \"Isolation\", \"desc\": \"No dirty reads\", \"icon\": \"lock\" },\n      { \"title\": \"Durability\", \"desc\": \"Data survives failures\", \"icon\": \"database\" }\n    ],\n    \"mindset_heading\": \"KEY MINDSET\",\n    \"mindset_before\": \"Assume eventual consistency is enough\",\n    \"mindset_after\": \"Design for strict ACID guarantees\",\n    \"simple_words_heading\": \"IN SIMPLE WORDS\",\n    \"simple_words_chain\": [\"Raw\", \"Trusted\"],\n    \"tagline\": \"Reliable data, better patient outcomes.\"\n  }\n}"
 }

@@ -1,45 +1,21 @@
 {
-  "generated_date": "2026-09-15",
-  "posts_analysed": 22,
+  "generated_date": "2026-09-17",
+  "posts_analysed": 21,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "concept_explainer",
+  "best_format": "myth_vs_reality",
   "format_avg_scores": {
-    "concept_explainer": 0.0,
-    "achievement": 0.0,
     "myth_vs_reality": 0.0,
     "insight": 0.0,
     "tip": 0.0,
     "project_spotlight": 0.0,
     "industry_take": 0.0,
-    "open_to_work": 0.0
+    "open_to_work": 0.0,
+    "achievement": 0.0,
+    "concept_explainer": 0.0
   },
   "posts": [
-    {
-      "date": "2026-08-16",
-      "post_id": "urn:li:share:7494578698860281856",
-      "format_type": "concept_explainer",
-      "domain": "SQL / Analytics Engineering",
-      "had_image": true,
-      "preview": "As a data engineer, I've worked with large analytical workloads, and optimizing SQL queries is crucial for performance. ...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
-    {
-      "date": "2026-08-17",
-      "post_id": "urn:li:share:7494940812900900864",
-      "format_type": "achievement",
-      "domain": "PySpark",
-      "had_image": true,
-      "preview": "I still remember the challenge we faced with our 500M+ daily records ETL pipeline - it was taking way too long to proces...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-08-23",
       "post_id": "urn:li:share:7497175848849125376",
@@ -275,6 +251,18 @@
       "domain": "SQL / Analytics Engineering",
       "had_image": true,
       "preview": "Built a data contract framework with dbt tests for our 10TB healthcare analytics lake, cutting data anomalies by 85% and...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-09-17",
+      "post_id": "urn:li:share:7506228643161915394",
+      "format_type": "open_to_work",
+      "domain": "Databricks",
+      "had_image": true,
+      "preview": "Seasoned data engineer specializing in Databricks Delta Lake ACID transactions, seeking Senior Data Engineer or Data Pla...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

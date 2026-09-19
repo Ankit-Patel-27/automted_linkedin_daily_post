@@ -1,11 +1,5 @@
 [
   {
-    "type": "open_to_work",
-    "domain": "sql",
-    "topic": "Designing star schemas for healthcare analytics warehouses",
-    "date": "2026-07-30"
-  },
-  {
     "type": "industry_take",
     "domain": "pyspark",
     "topic": "Writing efficient PySpark transformations for 500M+ record datasets",
@@ -238,5 +232,11 @@
     "domain": "databricks",
     "topic": "Delta Lake ACID transactions and why they matter for healthcare data",
     "date": "2026-09-17"
+  },
+  {
+    "type": "myth_vs_reality",
+    "domain": "aws",
+    "topic": "Amazon Redshift explained simply - where your data lives for analytics",
+    "date": "2026-09-19"
   }
 ]

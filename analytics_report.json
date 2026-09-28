@@ -1,69 +1,21 @@
 {
-  "generated_date": "2026-09-21",
-  "posts_analysed": 22,
+  "generated_date": "2026-09-28",
+  "posts_analysed": 18,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "myth_vs_reality",
+  "best_format": "industry_take",
   "format_avg_scores": {
-    "myth_vs_reality": 0.0,
-    "insight": 0.0,
-    "tip": 0.0,
-    "project_spotlight": 0.0,
     "industry_take": 0.0,
     "open_to_work": 0.0,
     "achievement": 0.0,
-    "concept_explainer": 0.0
+    "myth_vs_reality": 0.0,
+    "concept_explainer": 0.0,
+    "tip": 0.0,
+    "insight": 0.0,
+    "project_spotlight": 0.0
   },
   "posts": [
-    {
-      "date": "2026-08-23",
-      "post_id": "urn:li:share:7497175848849125376",
-      "format_type": "myth_vs_reality",
-      "domain": "Databricks",
-      "had_image": true,
-      "preview": "**Myth:** \u201cDatabricks Workflows can replace Airflow for every pipeline.\u201d  \n\n**Reality:** They solve different problems. ...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
-    {
-      "date": "2026-08-24",
-      "post_id": "urn:li:share:7497478313045655552",
-      "format_type": "insight",
-      "domain": "AWS",
-      "had_image": true,
-      "preview": "...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
-    {
-      "date": "2026-08-27",
-      "post_id": "urn:li:share:7498694431936733184",
-      "format_type": "tip",
-      "domain": "PySpark",
-      "had_image": true,
-      "preview": "Attention data engineering enthusiasts! Are you building near-real-time pipelines for healthcare or biotech companies? P...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
-    {
-      "date": "2026-08-28",
-      "post_id": "urn:li:share:7499080754833002497",
-      "format_type": "project_spotlight",
-      "domain": "SQL / Analytics Engineering",
-      "had_image": true,
-      "preview": "**Project Spotlight \u2013 Cutting Pipeline Lag with SQL Anti\u2011Patterns**\n\nWhen we rolled out a real\u2011time analytics layer for ...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-08-29",
       "post_id": "urn:li:share:7499370191089192960",

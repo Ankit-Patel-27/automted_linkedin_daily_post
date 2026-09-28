@@ -1,6 +1,6 @@
 # 📊 Weekly LinkedIn Analytics Report
 
-**Generated:** 2026-09-21
+**Generated:** 2026-09-28
 **Period:** Last 30 days
 
 ---
@@ -9,11 +9,11 @@
 
 | Metric | Value |
 |---|---|
-| Posts analysed | 22 |
+| Posts analysed | 18 |
 | Total likes | 0 |
 | Total comments | 0 |
 | Total shares | 0 |
-| 🏆 Best format | **myth_vs_reality** |
+| 🏆 Best format | **industry_take** |
 
 ---
 
@@ -21,14 +21,14 @@
 
 | Format | Avg Score |
 |---|---|
-| myth_vs_reality | 0.0 |
-| insight | 0.0 |
-| tip | 0.0 |
-| project_spotlight | 0.0 |
 | industry_take | 0.0 |
 | open_to_work | 0.0 |
 | achievement | 0.0 |
+| myth_vs_reality | 0.0 |
 | concept_explainer | 0.0 |
+| tip | 0.0 |
+| insight | 0.0 |
+| project_spotlight | 0.0 |
 
 > Score = (likes × 3) + (comments × 5) + (shares × 4)
 

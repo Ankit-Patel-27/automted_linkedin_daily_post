@@ -1,53 +1,14 @@
 {
-  "generated_date": "2026-10-12",
-  "posts_analysed": 4,
+  "generated_date": "2026-10-19",
+  "posts_analysed": 1,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "industry_take",
+  "best_format": "myth_vs_reality",
   "format_avg_scores": {
-    "industry_take": 0.0,
-    "project_spotlight": 0.0,
-    "open_to_work": 0.0,
     "myth_vs_reality": 0.0
   },
   "posts": [
-    {
-      "date": "2026-09-13",
-      "post_id": "urn:li:share:7504776992924409856",
-      "format_type": "industry_take",
-      "domain": "AWS",
-      "had_image": true,
-      "preview": "...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
-    {
-      "date": "2026-09-15",
-      "post_id": "urn:li:share:7505504797060497409",
-      "format_type": "project_spotlight",
-      "domain": "SQL / Analytics Engineering",
-      "had_image": true,
-      "preview": "Built a data contract framework with dbt tests for our 10TB healthcare analytics lake, cutting data anomalies by 85% and...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
-    {
-      "date": "2026-09-17",
-      "post_id": "urn:li:share:7506228643161915394",
-      "format_type": "open_to_work",
-      "domain": "Databricks",
-      "had_image": true,
-      "preview": "Seasoned data engineer specializing in Databricks Delta Lake ACID transactions, seeking Senior Data Engineer or Data Pla...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-09-19",
       "post_id": "urn:li:share:7506948557078425600",

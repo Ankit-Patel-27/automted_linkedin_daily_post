@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-06-10",
-    "post_id": "urn:li:share:7470343240722972672",
-    "format_type": "project_spotlight",
-    "domain": "SQL / Analytics Engineering",
-    "had_image": false,
-    "preview": "Project Spotlight: Scaling Analytics with Materialized Views\n\nAs a Lead Data Engineer at Tata Consultancy Services, I wo..."
-  },
-  {
     "date": "2026-06-11",
     "post_id": "urn:li:share:7470708302000058369",
     "format_type": "concept_explainer",
@@ -718,5 +710,13 @@
     "domain": "AWS",
     "had_image": true,
     "preview": "Myth: Redshift is just a static data warehouse. Reality: It\u2019s a dynamic analytics hub with external tables, concurrency ..."
+  },
+  {
+    "date": "2026-10-21",
+    "post_id": "urn:li:share:7518621400715268096",
+    "format_type": "concept_explainer",
+    "domain": "PySpark",
+    "had_image": true,
+    "preview": "Spark shuffle is the hidden cost in production. It moves data between nodes, killing performance. By tuning partitioning..."
   }
 ]

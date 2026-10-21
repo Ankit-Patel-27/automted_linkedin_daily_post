@@ -1,21 +1,21 @@
 {
-  "generated_date": "2026-10-19",
+  "generated_date": "2026-10-21",
   "posts_analysed": 1,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "myth_vs_reality",
+  "best_format": "concept_explainer",
   "format_avg_scores": {
-    "myth_vs_reality": 0.0
+    "concept_explainer": 0.0
   },
   "posts": [
     {
-      "date": "2026-09-19",
-      "post_id": "urn:li:share:7506948557078425600",
-      "format_type": "myth_vs_reality",
-      "domain": "AWS",
+      "date": "2026-10-21",
+      "post_id": "urn:li:share:7518621400715268096",
+      "format_type": "concept_explainer",
+      "domain": "PySpark",
       "had_image": true,
-      "preview": "Myth: Redshift is just a static data warehouse. Reality: It\u2019s a dynamic analytics hub with external tables, concurrency ...",
+      "preview": "Spark shuffle is the hidden cost in production. It moves data between nodes, killing performance. By tuning partitioning...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

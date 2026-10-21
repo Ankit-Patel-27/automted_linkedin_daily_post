@@ -1,11 +1,5 @@
 [
   {
-    "type": "industry_take",
-    "domain": "pyspark",
-    "topic": "Writing efficient PySpark transformations for 500M+ record datasets",
-    "date": "2026-07-31"
-  },
-  {
     "type": "insight",
     "domain": "aws",
     "topic": "CloudFormation vs Terraform for data infrastructure as code",
@@ -238,5 +232,11 @@
     "domain": "aws",
     "topic": "Amazon Redshift explained simply - where your data lives for analytics",
     "date": "2026-09-19"
+  },
+  {
+    "type": "concept_explainer",
+    "domain": "pyspark",
+    "topic": "Spark shuffle - what it is and how to reduce it",
+    "date": "2026-10-21"
   }
 ]

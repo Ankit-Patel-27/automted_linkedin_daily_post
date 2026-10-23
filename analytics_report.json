@@ -1,12 +1,13 @@
 {
-  "generated_date": "2026-10-21",
-  "posts_analysed": 1,
+  "generated_date": "2026-10-23",
+  "posts_analysed": 2,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
   "best_format": "concept_explainer",
   "format_avg_scores": {
-    "concept_explainer": 0.0
+    "concept_explainer": 0.0,
+    "achievement": 0.0
   },
   "posts": [
     {
@@ -16,6 +17,18 @@
       "domain": "PySpark",
       "had_image": true,
       "preview": "Spark shuffle is the hidden cost in production. It moves data between nodes, killing performance. By tuning partitioning...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-10-23",
+      "post_id": "urn:li:share:7519274414937468928",
+      "format_type": "achievement",
+      "domain": "Databricks",
+      "had_image": true,
+      "preview": "Batch syncing 500M rows daily was killing our SLAs. I switched to Delta Lake CDF to process only changes. ETL runtime dr...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

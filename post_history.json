@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-06-11",
-    "post_id": "urn:li:share:7470708302000058369",
-    "format_type": "concept_explainer",
-    "domain": "AWS",
-    "had_image": true,
-    "preview": "As a data engineer, I've worked with massive datasets on AWS, and one thing that's crucial for cost optimisation is mana..."
-  },
-  {
     "date": "2026-06-12",
     "post_id": "urn:li:share:7471075997833027585",
     "format_type": "industry_take",
@@ -718,5 +710,13 @@
     "domain": "PySpark",
     "had_image": true,
     "preview": "Spark shuffle is the hidden cost in production. It moves data between nodes, killing performance. By tuning partitioning..."
+  },
+  {
+    "date": "2026-10-23",
+    "post_id": "urn:li:share:7519274414937468928",
+    "format_type": "achievement",
+    "domain": "Databricks",
+    "had_image": true,
+    "preview": "Batch syncing 500M rows daily was killing our SLAs. I switched to Delta Lake CDF to process only changes. ETL runtime dr..."
   }
 ]

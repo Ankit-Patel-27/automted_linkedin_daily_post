@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-06-12",
-    "post_id": "urn:li:share:7471075997833027585",
-    "format_type": "industry_take",
-    "domain": "PySpark",
-    "had_image": true,
-    "preview": "As a data engineer in the healthcare space, I've seen firsthand the challenges of working with large datasets. One issue..."
-  },
-  {
     "date": "2026-06-13",
     "post_id": "urn:li:share:7471431374743228416",
     "format_type": "achievement",
@@ -718,5 +710,13 @@
     "domain": "Databricks",
     "had_image": true,
     "preview": "Batch syncing 500M rows daily was killing our SLAs. I switched to Delta Lake CDF to process only changes. ETL runtime dr..."
+  },
+  {
+    "date": "2026-10-25",
+    "post_id": "urn:li:share:7519998231901130753",
+    "format_type": "insight",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "..."
   }
 ]

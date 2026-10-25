@@ -1,78 +1,74 @@
 {
-  "text": "Batch syncing 500M rows daily was killing our SLAs. I switched to Delta Lake CDF to process only changes. ETL runtime dropped 40%. Precision beats volume.\n\n#DataEngineering #Databricks #DeltaLake #ApacheSpark #CloudData",
-  "format_type": "achievement",
-  "domain": "Databricks",
-  "topic": "Change Data Feed (CDF) in Delta Lake for CDC pipelines",
-  "date": "2026-10-23",
-  "model_used": "qwen/qwen3.8-27b",
-  "hashtags": "#DataEngineering #Databricks #DeltaLake #ApacheSpark #CloudData",
+  "text": "",
+  "format_type": "insight",
+  "domain": "SQL / Analytics Engineering",
+  "topic": "Why a semantic layer matters for cross-team reporting",
+  "date": "2026-10-25",
+  "model_used": "openai/gpt-oss-120b",
+  "hashtags": "#DataEngineering #DataPlatform #HealthcareData #TechLeadership  #SQL #dbt #AnalyticsEngineering",
   "infographic": {
-    "title": "STOP BATCHING EVERYTHING START CDC",
-    "subtitle": "Leveraging Delta Lake Change Data Feeds for efficiency",
-    "badge": "DBX",
+    "title": "WHY A SEMANTIC LAYER MATTERS FOR CROSS-TEAM REPORTING",
+    "subtitle": "A practical look for data engineers working with SQL / Analytics Engineering",
+    "badge": "SQL",
     "problem_heading": "THE REAL PROBLEM",
     "solution_heading": "HOW DATA ENGINEERS HANDLE THIS",
-    "pipeline_heading": "CDF-POWERED INCREMENTAL PIPELINE",
+    "pipeline_heading": "A REAL SQL / ANALYTICS ENGINEERING WORKFLOW",
     "why_heading": "WHY THIS MATTERS",
     "mindset_heading": "KEY MINDSET OF A DATA ENGINEER",
-    "mindset_before": "Sync full tables every hour",
-    "mindset_after": "Ingest only the delta changes",
+    "mindset_before": "Anyone can move data around.",
+    "mindset_after": "Great engineers build systems that hold up.",
     "simple_words_heading": "IN SIMPLE WORDS",
-    "tagline": "Efficient pipelines. Faster insights. Lower costs.",
+    "tagline": "Better data. Better insights. Better impact.",
     "problem_points": [
-      "Full table scans waste compute",
-      "Batch latency misses real-time needs",
-      "ETL jobs fail under load",
-      "No granular change auditing"
+      "Inconsistent or messy inputs",
+      "Manual, error-prone steps",
+      "Hard to scale reliably",
+      "Costly to fix downstream"
     ],
     "pipeline_steps": [
       {
-        "label": "Streaming Ingest",
-        "icon": "check"
-      },
-      {
-        "label": "Delta Commit",
+        "label": "Source",
         "icon": "database"
       },
       {
-        "label": "Extract CDF",
-        "icon": "arrow_up"
-      },
-      {
-        "label": "Process Deltas",
+        "label": "Model",
         "icon": "gear"
       },
       {
-        "label": "Downstream Sync",
-        "icon": "arrow_up"
+        "label": "Test",
+        "icon": "check"
+      },
+      {
+        "label": "Serve",
+        "icon": "chart"
       }
     ],
     "why_matters": [
       {
-        "title": "Lower Latency",
-        "desc": "Process changes in near real-time",
-        "icon": "clock"
-      },
-      {
-        "title": "Cost Control",
-        "desc": "Reduce compute by 40 percent",
-        "icon": "coin"
-      },
-      {
-        "title": "Audit Trail",
-        "desc": "Track every row modification precisely",
+        "title": "Builds Trust",
+        "desc": "Stakeholders trust the data",
         "icon": "shield"
       },
       {
-        "title": "Scalability",
-        "desc": "Handle 500M+ records smoothly",
-        "icon": "scale"
+        "title": "Saves Time",
+        "desc": "Less rework, fewer re-runs",
+        "icon": "clock"
+      },
+      {
+        "title": "Cost Efficient",
+        "desc": "Less wasted compute & storage",
+        "icon": "coin"
+      },
+      {
+        "title": "Scales Well",
+        "desc": "Holds up as data grows",
+        "icon": "chart"
       }
     ],
     "simple_words_chain": [
-      "All Rows",
-      "Only Changes"
+      "SQL / Analytics Engineering",
+      "Reliable Data"
     ]
   },
-  "raw_llm": "{\n  \"post_text\": \"Batch syncing 500M rows daily was killing our SLAs. I switched to Delta Lake CDF to process only changes. ETL runtime dropped 40%. Precision beats volume.\",\n  \"hashtags\": \"#DataEngineering #Databricks #DeltaLake #ApacheSpark #CloudData\",\n  \"infographic\":\n    {\n      \"title\": \"STOP BATCHING EVERYTHING START CDC\",\n      \"subtitle\": \"Leveraging Delta Lake Change Data Feeds for efficiency\",\n      \"badge\": \"DBX\",\n      \"problem_heading\": \"THE REAL PROBLEM\",\n      \"problem_points\": [\n        \"Full table scans waste compute\",\n        \"Batch latency misses real-time needs\",\n        \"ETL jobs fail under load\",\n        \"No granular change auditing\"\n      ],\n      \"solution_heading\": \"HOW DATA ENGINEERS HANDLE THIS\",\n      \"pipeline_heading\": \"CDF-POWERED INCREMENTAL PIPELINE\",\n      \"pipeline_steps\": [\n        {\"label\": \"Streaming Ingest\", \"icon\": \"stream\"},\n        {\"label\": \"Delta Commit\", \"icon\": \"database\"},\n        {\"label\": \"Extract CDF\", \"icon\": \"arrow_up\"},\n        {\"label\": \"Process Deltas\", \"icon\": \"gear\"},\n        {\"label\": \"Downstream Sync\", \"icon\": \"arrow_up\"}\n      ],\n      \"why_heading\": \"WHY THIS MATTERS\",\n      \"why_matters\": [\n        {\"title\": \"Lower Latency\", \"desc\": \"Process changes in near real-time\", \"icon\": \"clock\"},\n        {\"title\": \"Cost Control\", \"desc\": \"Reduce compute by 40 percent\", \"icon\": \"coin\"},\n        {\"title\": \"Audit Trail\", \"desc\": \"Track every row modification precisely\", \"icon\": \"shield\"},\n        {\"title\": \"Scalability\", \"desc\": \"Handle 500M+ records smoothly\", \"icon\": \"scale\"}\n      ],\n      \"mindset_heading\": \"KEY MINDSET OF A DATA ENGINEER\",\n      \"mindset_before\": \"Sync full tables every hour\",\n      \"mindset_after\": \"Ingest only the delta changes\",\n      \"simple_words_heading\": \"IN SIMPLE WORDS\",\n      \"simple_words_chain\": [\n        \"All Rows\",\n        \"Only Changes\"\n      ],\n      \"tagline\": \"Efficient pipelines. Faster insights. Lower costs.\"\n    }\n}"
+  "raw_llm": ""
 }

@@ -1,11 +1,5 @@
 [
   {
-    "type": "achievement",
-    "domain": "databricks",
-    "topic": "Databricks Feature Store for ML pipelines in biotech",
-    "date": "2026-08-02"
-  },
-  {
     "type": "tip",
     "domain": "sql",
     "topic": "Window functions every data engineer should master (RANK, LAG, LEAD)",
@@ -238,5 +232,11 @@
     "domain": "databricks",
     "topic": "Change Data Feed (CDF) in Delta Lake for CDC pipelines",
     "date": "2026-10-23"
+  },
+  {
+    "type": "insight",
+    "domain": "sql",
+    "topic": "Why a semantic layer matters for cross-team reporting",
+    "date": "2026-10-25"
   }
 ]

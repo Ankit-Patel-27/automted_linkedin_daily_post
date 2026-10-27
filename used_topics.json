@@ -1,11 +1,5 @@
 [
   {
-    "type": "tip",
-    "domain": "sql",
-    "topic": "Window functions every data engineer should master (RANK, LAG, LEAD)",
-    "date": "2026-08-03"
-  },
-  {
     "type": "myth_vs_reality",
     "domain": "aws",
     "topic": "AWS Lake Formation fine-grained access control for PHI data",
@@ -238,5 +232,11 @@
     "domain": "sql",
     "topic": "Why a semantic layer matters for cross-team reporting",
     "date": "2026-10-25"
+  },
+  {
+    "type": "tip",
+    "domain": "aws",
+    "topic": "S3 lifecycle policies and Intelligent-Tiering for cost optimisation",
+    "date": "2026-10-27"
   }
 ]

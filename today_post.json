@@ -1,18 +1,18 @@
 {
-  "text": "",
-  "format_type": "insight",
-  "domain": "SQL / Analytics Engineering",
-  "topic": "Why a semantic layer matters for cross-team reporting",
-  "date": "2026-10-25",
-  "model_used": "openai/gpt-oss-120b",
-  "hashtags": "#DataEngineering #DataPlatform #HealthcareData #TechLeadership  #SQL #dbt #AnalyticsEngineering",
+  "text": "Four Tips to Master Data Engineering in AWS Cloud DATA ENGINEERS WATCH OUT! In this LinkedIn post, I'll share 4 actionable tips to optimize your data engineering workflow in the AWS cloud. Master data quality, automate tasks, prioritize cost efficiency, and adopt a data-centric mindset. Follow this advice and witness your data insights and impact improving!\n\n#DataEngineering #TechTips #AWS #CloudEngineering #DataPlatform #AWSCloud",
+  "format_type": "tip",
+  "domain": "AWS",
+  "topic": "S3 lifecycle policies and Intelligent-Tiering for cost optimisation",
+  "date": "2026-10-27",
+  "model_used": "allam-2-7b",
+  "hashtags": "#DataEngineering #TechTips #LearnInPublic #DataPlatform  #AWS #CloudEngineering #AWSCloud",
   "infographic": {
-    "title": "WHY A SEMANTIC LAYER MATTERS FOR CROSS-TEAM REPORTING",
-    "subtitle": "A practical look for data engineers working with SQL / Analytics Engineering",
-    "badge": "SQL",
+    "title": "S3 LIFECYCLE POLICIES AND INTELLIGENT-TIERING FOR COST OPTIMISATION",
+    "subtitle": "A practical look for data engineers working with AWS",
+    "badge": "AWS",
     "problem_heading": "THE REAL PROBLEM",
     "solution_heading": "HOW DATA ENGINEERS HANDLE THIS",
-    "pipeline_heading": "A REAL SQL / ANALYTICS ENGINEERING WORKFLOW",
+    "pipeline_heading": "A REAL AWS WORKFLOW",
     "why_heading": "WHY THIS MATTERS",
     "mindset_heading": "KEY MINDSET OF A DATA ENGINEER",
     "mindset_before": "Anyone can move data around.",
@@ -27,19 +27,23 @@
     ],
     "pipeline_steps": [
       {
-        "label": "Source",
+        "label": "Amazon S3",
         "icon": "database"
       },
       {
-        "label": "Model",
+        "label": "Lambda",
         "icon": "gear"
       },
       {
-        "label": "Test",
-        "icon": "check"
+        "label": "Glue",
+        "icon": "refresh"
       },
       {
-        "label": "Serve",
+        "label": "Redshift",
+        "icon": "database"
+      },
+      {
+        "label": "Analytics",
         "icon": "chart"
       }
     ],
@@ -66,9 +70,9 @@
       }
     ],
     "simple_words_chain": [
-      "SQL / Analytics Engineering",
+      "AWS",
       "Reliable Data"
     ]
   },
-  "raw_llm": ""
+  "raw_llm": "{\n\"post_text\": \"Four Tips to Master Data Engineering in AWS Cloud\\n\\nDATA ENGINEERS WATCH OUT! In this LinkedIn post, I'll share 4 actionable tips to optimize your data engineering workflow in the AWS cloud. Master data quality, automate tasks, prioritize cost efficiency, and adopt a data-centric mindset. Follow this advice and witness your data insights and impact improving! #DataEngineering #TechTips #AWS #CloudEngineering #DataPlatform #AWSCloud\",\n\n\"caption\": \"Optimize your AWS data engineering workflow with these actionable tips: prioritize quality, automation, cost, and mindset for better insights & impact. Follow #DataEngineering #TechTips #AWS #CloudEngineering #DataPlatform #AWSCloud\",\n\"tags\": [\"#DataEngineering\", \"#TechTips\", \"#AWS\", \"#CloudEngineering\", \"#DataPlatform\", \"#AWSCloud\"],\n\"hashtags\": [\"DataEngineering\", \"#TechTips\", \"#AWS\", \"#CloudEngineering\", \"#DataPlatform\", \"#AWSCloud\"],\n\"images\": [\n  {\n    \"title\": \"Data Engineering in AWS Cloud - Expert Advice\",\n    \"alt_text\": \"4 Tips for better data engineering in AWS cloud: optimize quality, automation, cost, and mindset\",\n    \"description\": \"According to LinkedIn profile Ankit Patel, \"DATA ENGINEERING IN AWS CLOUD: 4 ACTIONABLE TIPS FOR BETTER DATA ENGINEERING WORKFLOW\",\n    \"source\": \"LinkedIn profile by data engineer Ankit Patel\",\n    \"image\": \"Optimize your AWS data engineering workflow with these actionable tips: prioritize quality, automation, cost, and mindset for better insights & impact.\",\n    \"alt_text\": \"Data Engineering in AWS Cloud: Prioritize quality and automation to reduce costs in data engineering\",\n    \"infographic\": {\n      \"title\": \"4 Tips for Optimizing Data Engineering in AWS Cloud\",\n      \"alt_text\": \"Tips for better AWS cloud data engineering: Improving cost, quality, automation, mindset\",\n      \"description\": \"LinkedIn profile by Ankit Patel, 'DATA ENGINEERING IN AWS CLOUD: 4 ACTIONABLE TIPS FOR BETTER DATA ENGINEERING WORKFLOW\",\n      \"source\": \"LinkedIn profile by data engineer Ankit Patel\",\n      \"pipeline_steps\": [\n        {\n          \"color\": \"blue\",\n          \"label\": \"Prioritize quality\",\n          \"content\": \"Prioritize quality: use S3 lifecycle policies to automate expiration of data, keeping a clean data lake\",\n          \"image\": \"s3_lifecycle\",\n          \"description\": \"Data Engineering in AWS Cloud: Improve workflow with S3 Lifecycle Policies\"\n        },\n      {\n           \"color\": \"Green\",\n          \"label\": \"Save costs with AI\",\n          \"content\": \"Save costs: Lambda functions for AI-powered cost optimization\",\n          \"image\": \"lambda_cost\",\n          \"description\": \"Data Engineering in AWS Cloud: AWS AI for better cost control\",\n         \"source\": \"LinkedIn profile by Ankit Patel\"\n          \"pipeline_steps\": [\n              \"image\": \"cost_optimization\","
 }

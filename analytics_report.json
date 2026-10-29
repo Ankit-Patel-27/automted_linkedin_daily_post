@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-10-27",
-  "posts_analysed": 4,
+  "generated_date": "2026-10-29",
+  "posts_analysed": 5,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -9,7 +9,8 @@
     "concept_explainer": 0.0,
     "achievement": 0.0,
     "insight": 0.0,
-    "tip": 0.0
+    "tip": 0.0,
+    "project_spotlight": 0.0
   },
   "posts": [
     {
@@ -55,6 +56,18 @@
       "domain": "AWS",
       "had_image": true,
       "preview": "Four Tips to Master Data Engineering in AWS Cloud DATA ENGINEERS WATCH OUT! In this LinkedIn post, I'll share 4 actionab...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-10-29",
+      "post_id": "urn:li:share:7521463164794957824",
+      "format_type": "project_spotlight",
+      "domain": "Databricks",
+      "had_image": true,
+      "preview": "MIGRATED 10TB DATA TO DELTA LIVE TABLES, SLASHING ETL RUNS BY 40% Declarative pipelines cut manual code and speed insigh...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

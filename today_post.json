@@ -1,18 +1,18 @@
 {
-  "text": "Four Tips to Master Data Engineering in AWS Cloud DATA ENGINEERS WATCH OUT! In this LinkedIn post, I'll share 4 actionable tips to optimize your data engineering workflow in the AWS cloud. Master data quality, automate tasks, prioritize cost efficiency, and adopt a data-centric mindset. Follow this advice and witness your data insights and impact improving!\n\n#DataEngineering #TechTips #AWS #CloudEngineering #DataPlatform #AWSCloud",
-  "format_type": "tip",
-  "domain": "AWS",
-  "topic": "S3 lifecycle policies and Intelligent-Tiering for cost optimisation",
-  "date": "2026-10-27",
-  "model_used": "allam-2-7b",
-  "hashtags": "#DataEngineering #TechTips #LearnInPublic #DataPlatform  #AWS #CloudEngineering #AWSCloud",
+  "text": "MIGRATED 10TB DATA TO DELTA LIVE TABLES, SLASHING ETL RUNS BY 40% Declarative pipelines cut manual code and speed insights.\n\n#DataEngineering #DeltaLake #Databricks #ProjectShowcase #HealthTech",
+  "format_type": "project_spotlight",
+  "domain": "Databricks",
+  "topic": "Delta Live Tables (DLT) pipelines - declarative ETL in practice",
+  "date": "2026-10-29",
+  "model_used": "openai/gpt-oss-20b",
+  "hashtags": "#DataEngineering #DeltaLake #Databricks #ProjectShowcase #HealthTech",
   "infographic": {
-    "title": "S3 LIFECYCLE POLICIES AND INTELLIGENT-TIERING FOR COST OPTIMISATION",
-    "subtitle": "A practical look for data engineers working with AWS",
-    "badge": "AWS",
+    "title": "DELTA LIVE TABLES (DLT) PIPELINES",
+    "subtitle": "A practical look for data engineers working with Databricks",
+    "badge": "DBX",
     "problem_heading": "THE REAL PROBLEM",
     "solution_heading": "HOW DATA ENGINEERS HANDLE THIS",
-    "pipeline_heading": "A REAL AWS WORKFLOW",
+    "pipeline_heading": "A REAL DATABRICKS WORKFLOW",
     "why_heading": "WHY THIS MATTERS",
     "mindset_heading": "KEY MINDSET OF A DATA ENGINEER",
     "mindset_before": "Anyone can move data around.",
@@ -27,23 +27,19 @@
     ],
     "pipeline_steps": [
       {
-        "label": "Amazon S3",
+        "label": "Raw Data",
         "icon": "database"
       },
       {
-        "label": "Lambda",
+        "label": "Bronze",
         "icon": "gear"
       },
       {
-        "label": "Glue",
+        "label": "Silver",
         "icon": "refresh"
       },
       {
-        "label": "Redshift",
-        "icon": "database"
-      },
-      {
-        "label": "Analytics",
+        "label": "Gold",
         "icon": "chart"
       }
     ],
@@ -70,9 +66,9 @@
       }
     ],
     "simple_words_chain": [
-      "AWS",
+      "Databricks",
       "Reliable Data"
     ]
   },
-  "raw_llm": "{\n\"post_text\": \"Four Tips to Master Data Engineering in AWS Cloud\\n\\nDATA ENGINEERS WATCH OUT! In this LinkedIn post, I'll share 4 actionable tips to optimize your data engineering workflow in the AWS cloud. Master data quality, automate tasks, prioritize cost efficiency, and adopt a data-centric mindset. Follow this advice and witness your data insights and impact improving! #DataEngineering #TechTips #AWS #CloudEngineering #DataPlatform #AWSCloud\",\n\n\"caption\": \"Optimize your AWS data engineering workflow with these actionable tips: prioritize quality, automation, cost, and mindset for better insights & impact. Follow #DataEngineering #TechTips #AWS #CloudEngineering #DataPlatform #AWSCloud\",\n\"tags\": [\"#DataEngineering\", \"#TechTips\", \"#AWS\", \"#CloudEngineering\", \"#DataPlatform\", \"#AWSCloud\"],\n\"hashtags\": [\"DataEngineering\", \"#TechTips\", \"#AWS\", \"#CloudEngineering\", \"#DataPlatform\", \"#AWSCloud\"],\n\"images\": [\n  {\n    \"title\": \"Data Engineering in AWS Cloud - Expert Advice\",\n    \"alt_text\": \"4 Tips for better data engineering in AWS cloud: optimize quality, automation, cost, and mindset\",\n    \"description\": \"According to LinkedIn profile Ankit Patel, \"DATA ENGINEERING IN AWS CLOUD: 4 ACTIONABLE TIPS FOR BETTER DATA ENGINEERING WORKFLOW\",\n    \"source\": \"LinkedIn profile by data engineer Ankit Patel\",\n    \"image\": \"Optimize your AWS data engineering workflow with these actionable tips: prioritize quality, automation, cost, and mindset for better insights & impact.\",\n    \"alt_text\": \"Data Engineering in AWS Cloud: Prioritize quality and automation to reduce costs in data engineering\",\n    \"infographic\": {\n      \"title\": \"4 Tips for Optimizing Data Engineering in AWS Cloud\",\n      \"alt_text\": \"Tips for better AWS cloud data engineering: Improving cost, quality, automation, mindset\",\n      \"description\": \"LinkedIn profile by Ankit Patel, 'DATA ENGINEERING IN AWS CLOUD: 4 ACTIONABLE TIPS FOR BETTER DATA ENGINEERING WORKFLOW\",\n      \"source\": \"LinkedIn profile by data engineer Ankit Patel\",\n      \"pipeline_steps\": [\n        {\n          \"color\": \"blue\",\n          \"label\": \"Prioritize quality\",\n          \"content\": \"Prioritize quality: use S3 lifecycle policies to automate expiration of data, keeping a clean data lake\",\n          \"image\": \"s3_lifecycle\",\n          \"description\": \"Data Engineering in AWS Cloud: Improve workflow with S3 Lifecycle Policies\"\n        },\n      {\n           \"color\": \"Green\",\n          \"label\": \"Save costs with AI\",\n          \"content\": \"Save costs: Lambda functions for AI-powered cost optimization\",\n          \"image\": \"lambda_cost\",\n          \"description\": \"Data Engineering in AWS Cloud: AWS AI for better cost control\",\n         \"source\": \"LinkedIn profile by Ankit Patel\"\n          \"pipeline_steps\": [\n              \"image\": \"cost_optimization\","
+  "raw_llm": "{\n  \"post_text\": \"MIGRATED 10TB DATA TO DELTA LIVE TABLES, SLASHING ETL RUNS BY 40%\\nDeclarative pipelines cut manual code and speed insights.\",\n  \"hashtags\": \"#DataEngineering #DeltaLake #Databricks #ProjectShowcase #HealthTech\",\n  \"infographic\": {\n    \"title\": \"DECLARATIVE ETL TRANSFORMS DATA DELIVERS\",\n    \"subtitle\": \"Real world Delta Live Tables in our oncology data platform\",\n    \"badge\": \"DBX\",\n    \"problem_heading\": \"THE REAL PROBLEM\",\n    \"problem_points\": [\n      \"Unreliable batch jobs\",\n      \"Manual schema drift\",\n      \"Long debugging cycles\",\n      \"High cost of retries\"\n    ],\n    \"solution_heading\": \"HOW DATA ENGINEERS HANDLE THIS\",\n    \"pipeline_heading\": \"REAL PIPELINE WITH QUALITY CHECKS\",\n    \"pipeline_steps\": [\n      { \"label\": \"Ingest\", \"icon\": \"cloud\" },\n      { \"label\": \"Validate\","
 }

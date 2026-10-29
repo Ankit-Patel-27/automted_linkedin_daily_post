@@ -1,11 +1,5 @@
 [
   {
-    "type": "myth_vs_reality",
-    "domain": "aws",
-    "topic": "AWS Lake Formation fine-grained access control for PHI data",
-    "date": "2026-08-04"
-  },
-  {
     "type": "concept_explainer",
     "domain": "databricks",
     "topic": "Z-ordering and liquid clustering for query optimisation",
@@ -238,5 +232,11 @@
     "domain": "aws",
     "topic": "S3 lifecycle policies and Intelligent-Tiering for cost optimisation",
     "date": "2026-10-27"
+  },
+  {
+    "type": "project_spotlight",
+    "domain": "databricks",
+    "topic": "Delta Live Tables (DLT) pipelines - declarative ETL in practice",
+    "date": "2026-10-29"
   }
 ]

@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-06-14",
-    "post_id": "urn:li:share:7471800618685358080",
-    "format_type": "insight",
-    "domain": "SQL / Analytics Engineering",
-    "had_image": false,
-    "preview": "I've saved countless hours of repetitive SQL coding by mastering dbt macros - and I'm excited to share my top learnings ..."
-  },
-  {
     "date": "2026-06-15",
     "post_id": "urn:li:share:7472171632099254274",
     "format_type": "tip",
@@ -718,5 +710,13 @@
     "domain": "AWS",
     "had_image": true,
     "preview": "Four Tips to Master Data Engineering in AWS Cloud DATA ENGINEERS WATCH OUT! In this LinkedIn post, I'll share 4 actionab..."
+  },
+  {
+    "date": "2026-10-29",
+    "post_id": "urn:li:share:7521463164794957824",
+    "format_type": "project_spotlight",
+    "domain": "Databricks",
+    "had_image": true,
+    "preview": "MIGRATED 10TB DATA TO DELTA LIVE TABLES, SLASHING ETL RUNS BY 40% Declarative pipelines cut manual code and speed insigh..."
   }
 ]

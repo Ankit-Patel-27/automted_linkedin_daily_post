@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-10-29",
-  "posts_analysed": 5,
+  "generated_date": "2026-10-31",
+  "posts_analysed": 6,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -10,7 +10,8 @@
     "achievement": 0.0,
     "insight": 0.0,
     "tip": 0.0,
-    "project_spotlight": 0.0
+    "project_spotlight": 0.0,
+    "industry_take": 0.0
   },
   "posts": [
     {
@@ -68,6 +69,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "MIGRATED 10TB DATA TO DELTA LIVE TABLES, SLASHING ETL RUNS BY 40% Declarative pipelines cut manual code and speed insigh...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-10-31",
+      "post_id": "urn:li:share:7522186835914227712",
+      "format_type": "industry_take",
+      "domain": "SQL / Analytics Engineering",
+      "had_image": true,
+      "preview": "dbt isn't a load tool. It's where your SQL logic lives. In healthcare, separating transformation from ingestion means cl...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

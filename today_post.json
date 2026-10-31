@@ -1,74 +1,78 @@
 {
-  "text": "MIGRATED 10TB DATA TO DELTA LIVE TABLES, SLASHING ETL RUNS BY 40% Declarative pipelines cut manual code and speed insights.\n\n#DataEngineering #DeltaLake #Databricks #ProjectShowcase #HealthTech",
-  "format_type": "project_spotlight",
-  "domain": "Databricks",
-  "topic": "Delta Live Tables (DLT) pipelines - declarative ETL in practice",
-  "date": "2026-10-29",
-  "model_used": "openai/gpt-oss-20b",
-  "hashtags": "#DataEngineering #DeltaLake #Databricks #ProjectShowcase #HealthTech",
+  "text": "dbt isn't a load tool. It's where your SQL logic lives. In healthcare, separating transformation from ingestion means clinicians get trustworthy metrics, not just raw tables. Stop treating ETL as a black box.\n\n#DBT #AnalyticsEngineering #HealthTech #DataEngineering #SQL",
+  "format_type": "industry_take",
+  "domain": "SQL / Analytics Engineering",
+  "topic": "dbt explained simply - how a modern analytics engineering workflow works",
+  "date": "2026-10-31",
+  "model_used": "qwen/qwen3.8-27b",
+  "hashtags": "#DBT #AnalyticsEngineering #HealthTech #DataEngineering #SQL",
   "infographic": {
-    "title": "DELTA LIVE TABLES (DLT) PIPELINES",
-    "subtitle": "A practical look for data engineers working with Databricks",
-    "badge": "DBX",
+    "title": "STOP TREATING ETLS AS BLACK BOXES",
+    "subtitle": "How dbt forces clarity in complex healthcare data models.",
+    "badge": "DBT",
     "problem_heading": "THE REAL PROBLEM",
-    "solution_heading": "HOW DATA ENGINEERS HANDLE THIS",
-    "pipeline_heading": "A REAL DATABRICKS WORKFLOW",
+    "solution_heading": "HOW MODERN PLATFORMS HANDLE THIS",
+    "pipeline_heading": "REAL DBT WORKFLOW",
     "why_heading": "WHY THIS MATTERS",
     "mindset_heading": "KEY MINDSET OF A DATA ENGINEER",
-    "mindset_before": "Anyone can move data around.",
-    "mindset_after": "Great engineers build systems that hold up.",
+    "mindset_before": "Write SQL to move data silently.",
+    "mindset_after": "Model data as versioned, testable code.",
     "simple_words_heading": "IN SIMPLE WORDS",
-    "tagline": "Better data. Better insights. Better impact.",
+    "tagline": "Transparent logic builds clinical trust.",
     "problem_points": [
-      "Inconsistent or messy inputs",
-      "Manual, error-prone steps",
-      "Hard to scale reliably",
-      "Costly to fix downstream"
+      "Logic trapped in opaque scripts",
+      "Version control nightmare",
+      "No easy unit testing",
+      "Business teams trust nobody"
     ],
     "pipeline_steps": [
       {
-        "label": "Raw Data",
+        "label": "Stage Sources",
         "icon": "database"
       },
       {
-        "label": "Bronze",
+        "label": "Transform Logic",
         "icon": "gear"
       },
       {
-        "label": "Silver",
-        "icon": "refresh"
+        "label": "Run Tests",
+        "icon": "shield"
       },
       {
-        "label": "Gold",
-        "icon": "chart"
+        "label": "Document Models",
+        "icon": "magnify"
+      },
+      {
+        "label": "Deploy Marts",
+        "icon": "rocket"
       }
     ],
     "why_matters": [
       {
-        "title": "Builds Trust",
-        "desc": "Stakeholders trust the data",
-        "icon": "shield"
+        "title": "Audit-Ready Data",
+        "desc": "Full lineage for regulatory compliance.",
+        "icon": "check"
       },
       {
-        "title": "Saves Time",
-        "desc": "Less rework, fewer re-runs",
+        "title": "Faster Iteration",
+        "desc": "Git-based logic changes instantly.",
         "icon": "clock"
       },
       {
-        "title": "Cost Efficient",
-        "desc": "Less wasted compute & storage",
-        "icon": "coin"
+        "title": "Self-Healing Docs",
+        "desc": "Auto-generated, always current docs.",
+        "icon": "check"
       },
       {
-        "title": "Scales Well",
-        "desc": "Holds up as data grows",
-        "icon": "chart"
+        "title": "Shared Ownership",
+        "desc": "Analysts can query trusted marts.",
+        "icon": "scale"
       }
     ],
     "simple_words_chain": [
-      "Databricks",
-      "Reliable Data"
+      "Raw Data",
+      "Trusted Metrics"
     ]
   },
-  "raw_llm": "{\n  \"post_text\": \"MIGRATED 10TB DATA TO DELTA LIVE TABLES, SLASHING ETL RUNS BY 40%\\nDeclarative pipelines cut manual code and speed insights.\",\n  \"hashtags\": \"#DataEngineering #DeltaLake #Databricks #ProjectShowcase #HealthTech\",\n  \"infographic\": {\n    \"title\": \"DECLARATIVE ETL TRANSFORMS DATA DELIVERS\",\n    \"subtitle\": \"Real world Delta Live Tables in our oncology data platform\",\n    \"badge\": \"DBX\",\n    \"problem_heading\": \"THE REAL PROBLEM\",\n    \"problem_points\": [\n      \"Unreliable batch jobs\",\n      \"Manual schema drift\",\n      \"Long debugging cycles\",\n      \"High cost of retries\"\n    ],\n    \"solution_heading\": \"HOW DATA ENGINEERS HANDLE THIS\",\n    \"pipeline_heading\": \"REAL PIPELINE WITH QUALITY CHECKS\",\n    \"pipeline_steps\": [\n      { \"label\": \"Ingest\", \"icon\": \"cloud\" },\n      { \"label\": \"Validate\","
+  "raw_llm": "{\n  \"post_text\": \"dbt isn't a load tool. It's where your SQL logic lives. In healthcare, separating transformation from ingestion means clinicians get trustworthy metrics, not just raw tables. Stop treating ETL as a black box.\",\n  \"hashtags\": \"#DBT #AnalyticsEngineering #HealthTech #DataEngineering #SQL\",\n  \"infographic\": {\n    \"title\": \"STOP TREATING ETLS AS BLACK BOXES\",\n    \"subtitle\": \"How dbt forces clarity in complex healthcare data models.\",\n    \"badge\": \"DBT\",\n    \"problem_heading\": \"THE REAL PROBLEM\",\n    \"problem_points\": [\n      \"Logic trapped in opaque scripts\",\n      \"Version control nightmare\",\n      \"No easy unit testing\",\n      \"Business teams trust nobody\"\n    ],\n    \"solution_heading\": \"HOW MODERN PLATFORMS HANDLE THIS\",\n    \"pipeline_heading\": \"REAL DBT WORKFLOW\",\n    \"pipeline_steps\": [\n      {\n        \"label\": \"Stage Sources\",\n        \"icon\": \"database\"\n      },\n      {\n        \"label\": \"Transform Logic\",\n        \"icon\": \"gear\"\n      },\n      {\n        \"label\": \"Run Tests\",\n        \"icon\": \"shield\"\n      },\n      {\n        \"label\": \"Document Models\",\n        \"icon\": \"magnify\"\n      },\n      {\n        \"label\": \"Deploy Marts\",\n        \"icon\": \"rocket\"\n      }\n    ],\n    \"why_heading\": \"WHY THIS MATTERS\",\n    \"why_matters\": [\n      {\n        \"title\": \"Audit-Ready Data\",\n        \"desc\": \"Full lineage for regulatory compliance.\",\n        \"icon\": \"check\"\n      },\n      {\n        \"title\": \"Faster Iteration\",\n        \"desc\": \"Git-based logic changes instantly.\",\n        \"icon\": \"clock\"\n      },\n      {\n        \"title\": \"Self-Healing Docs\",\n        \"desc\": \"Auto-generated, always current docs.\",\n        \"icon\": \"document\"\n      },\n      {\n        \"title\": \"Shared Ownership\",\n        \"desc\": \"Analysts can query trusted marts.\",\n        \"icon\": \"scale\"\n      }\n    ],\n    \"mindset_heading\": \"KEY MINDSET OF A DATA ENGINEER\",\n    \"mindset_before\": \"Write SQL to move data silently.\",\n    \"mindset_after\": \"Model data as versioned, testable code.\",\n    \"simple_words_heading\": \"IN SIMPLE WORDS\",\n    \"simple_words_chain\": [\n      \"Raw Data\",\n      \"Trusted Metrics\"\n    ],\n    \"tagline\": \"Transparent logic builds clinical trust.\"\n  }\n}"
 }

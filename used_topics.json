@@ -1,11 +1,5 @@
 [
   {
-    "type": "concept_explainer",
-    "domain": "databricks",
-    "topic": "Z-ordering and liquid clustering for query optimisation",
-    "date": "2026-08-05"
-  },
-  {
     "type": "project_spotlight",
     "domain": "sql",
     "topic": "Materialised views in Redshift and Databricks SQL",
@@ -238,5 +232,11 @@
     "domain": "databricks",
     "topic": "Delta Live Tables (DLT) pipelines - declarative ETL in practice",
     "date": "2026-10-29"
+  },
+  {
+    "type": "industry_take",
+    "domain": "sql",
+    "topic": "dbt explained simply - how a modern analytics engineering workflow works",
+    "date": "2026-10-31"
   }
 ]

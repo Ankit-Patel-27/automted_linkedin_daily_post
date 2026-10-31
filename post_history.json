@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-06-15",
-    "post_id": "urn:li:share:7472171632099254274",
-    "format_type": "tip",
-    "domain": "AWS",
-    "had_image": true,
-    "preview": "When it comes to managing data infrastructure as code on AWS, choosing the right tool can make all the difference. \nI've..."
-  },
-  {
     "date": "2026-06-16",
     "post_id": "urn:li:share:7472536744614133760",
     "format_type": "open_to_work",
@@ -718,5 +710,13 @@
     "domain": "Databricks",
     "had_image": true,
     "preview": "MIGRATED 10TB DATA TO DELTA LIVE TABLES, SLASHING ETL RUNS BY 40% Declarative pipelines cut manual code and speed insigh..."
+  },
+  {
+    "date": "2026-10-31",
+    "post_id": "urn:li:share:7522186835914227712",
+    "format_type": "industry_take",
+    "domain": "SQL / Analytics Engineering",
+    "had_image": true,
+    "preview": "dbt isn't a load tool. It's where your SQL logic lives. In healthcare, separating transformation from ingestion means cl..."
   }
 ]

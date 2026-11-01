@@ -1,78 +1,78 @@
 {
-  "text": "dbt isn't a load tool. It's where your SQL logic lives. In healthcare, separating transformation from ingestion means clinicians get trustworthy metrics, not just raw tables. Stop treating ETL as a black box.\n\n#DBT #AnalyticsEngineering #HealthTech #DataEngineering #SQL",
-  "format_type": "industry_take",
-  "domain": "SQL / Analytics Engineering",
-  "topic": "dbt explained simply - how a modern analytics engineering workflow works",
-  "date": "2026-10-31",
+  "text": "Stop dumping all data into S3 and calling it a lake. Analytics performance dies without distinct storage classes and lifecycle policies. Choose the layer before you write the Spark code.\n\n#DataEngineering #AWS #BestPractices #TechTips",
+  "format_type": "myth_vs_reality",
+  "domain": "AWS",
+  "topic": "Choosing the right AWS storage layer for analytics workloads",
+  "date": "2026-11-01",
   "model_used": "qwen/qwen3.8-27b",
-  "hashtags": "#DBT #AnalyticsEngineering #HealthTech #DataEngineering #SQL",
+  "hashtags": "#DataEngineering #AWS #BestPractices #TechTips #CloudEngineering #DataPlatform",
   "infographic": {
-    "title": "STOP TREATING ETLS AS BLACK BOXES",
-    "subtitle": "How dbt forces clarity in complex healthcare data models.",
-    "badge": "DBT",
+    "title": "STOP DUMPING EVERYTHING INTO S3",
+    "subtitle": "Analytics fail when you ignore storage class strategy.",
+    "badge": "AWS",
     "problem_heading": "THE REAL PROBLEM",
-    "solution_heading": "HOW MODERN PLATFORMS HANDLE THIS",
-    "pipeline_heading": "REAL DBT WORKFLOW",
+    "solution_heading": "HOW DATA ENGINEERS HANDLE THIS",
+    "pipeline_heading": "OPTIMIZED STORAGE FLOW",
     "why_heading": "WHY THIS MATTERS",
     "mindset_heading": "KEY MINDSET OF A DATA ENGINEER",
-    "mindset_before": "Write SQL to move data silently.",
-    "mindset_after": "Model data as versioned, testable code.",
+    "mindset_before": "One size fits all S3 bucket",
+    "mindset_after": "Right data in right class",
     "simple_words_heading": "IN SIMPLE WORDS",
-    "tagline": "Transparent logic builds clinical trust.",
+    "tagline": "Smart storage. Low costs. High velocity.",
     "problem_points": [
-      "Logic trapped in opaque scripts",
-      "Version control nightmare",
-      "No easy unit testing",
-      "Business teams trust nobody"
+      "S3 Standard costs explode",
+      "Spark reads slow on cold data",
+      "No lifecycle automation",
+      "Manual tiering breaks at scale"
     ],
     "pipeline_steps": [
       {
-        "label": "Stage Sources",
-        "icon": "database"
+        "label": "Ingest Data",
+        "icon": "arrow_up"
       },
       {
-        "label": "Transform Logic",
+        "label": "S3 Intelligent T",
         "icon": "gear"
       },
       {
-        "label": "Run Tests",
-        "icon": "shield"
+        "label": "Lifecycle Rules",
+        "icon": "clock"
       },
       {
-        "label": "Document Models",
-        "icon": "magnify"
+        "label": "Glue Catalog",
+        "icon": "database"
       },
       {
-        "label": "Deploy Marts",
-        "icon": "rocket"
+        "label": "Analytics Query",
+        "icon": "chart"
       }
     ],
     "why_matters": [
       {
-        "title": "Audit-Ready Data",
-        "desc": "Full lineage for regulatory compliance.",
+        "title": "Cost Control",
+        "desc": "Reduces storage bills by 40%",
+        "icon": "coin"
+      },
+      {
+        "title": "Faster Queries",
+        "desc": "Hot data stays performant",
+        "icon": "rocket"
+      },
+      {
+        "title": "Automation Wins",
+        "desc": "Zero manual tiering effort",
         "icon": "check"
       },
       {
-        "title": "Faster Iteration",
-        "desc": "Git-based logic changes instantly.",
-        "icon": "clock"
-      },
-      {
-        "title": "Self-Healing Docs",
-        "desc": "Auto-generated, always current docs.",
-        "icon": "check"
-      },
-      {
-        "title": "Shared Ownership",
-        "desc": "Analysts can query trusted marts.",
+        "title": "Scalable Architecture",
+        "desc": "Handles petabyte-scale growth easily",
         "icon": "scale"
       }
     ],
     "simple_words_chain": [
       "Raw Data",
-      "Trusted Metrics"
+      "Tiered Storage"
     ]
   },
-  "raw_llm": "{\n  \"post_text\": \"dbt isn't a load tool. It's where your SQL logic lives. In healthcare, separating transformation from ingestion means clinicians get trustworthy metrics, not just raw tables. Stop treating ETL as a black box.\",\n  \"hashtags\": \"#DBT #AnalyticsEngineering #HealthTech #DataEngineering #SQL\",\n  \"infographic\": {\n    \"title\": \"STOP TREATING ETLS AS BLACK BOXES\",\n    \"subtitle\": \"How dbt forces clarity in complex healthcare data models.\",\n    \"badge\": \"DBT\",\n    \"problem_heading\": \"THE REAL PROBLEM\",\n    \"problem_points\": [\n      \"Logic trapped in opaque scripts\",\n      \"Version control nightmare\",\n      \"No easy unit testing\",\n      \"Business teams trust nobody\"\n    ],\n    \"solution_heading\": \"HOW MODERN PLATFORMS HANDLE THIS\",\n    \"pipeline_heading\": \"REAL DBT WORKFLOW\",\n    \"pipeline_steps\": [\n      {\n        \"label\": \"Stage Sources\",\n        \"icon\": \"database\"\n      },\n      {\n        \"label\": \"Transform Logic\",\n        \"icon\": \"gear\"\n      },\n      {\n        \"label\": \"Run Tests\",\n        \"icon\": \"shield\"\n      },\n      {\n        \"label\": \"Document Models\",\n        \"icon\": \"magnify\"\n      },\n      {\n        \"label\": \"Deploy Marts\",\n        \"icon\": \"rocket\"\n      }\n    ],\n    \"why_heading\": \"WHY THIS MATTERS\",\n    \"why_matters\": [\n      {\n        \"title\": \"Audit-Ready Data\",\n        \"desc\": \"Full lineage for regulatory compliance.\",\n        \"icon\": \"check\"\n      },\n      {\n        \"title\": \"Faster Iteration\",\n        \"desc\": \"Git-based logic changes instantly.\",\n        \"icon\": \"clock\"\n      },\n      {\n        \"title\": \"Self-Healing Docs\",\n        \"desc\": \"Auto-generated, always current docs.\",\n        \"icon\": \"document\"\n      },\n      {\n        \"title\": \"Shared Ownership\",\n        \"desc\": \"Analysts can query trusted marts.\",\n        \"icon\": \"scale\"\n      }\n    ],\n    \"mindset_heading\": \"KEY MINDSET OF A DATA ENGINEER\",\n    \"mindset_before\": \"Write SQL to move data silently.\",\n    \"mindset_after\": \"Model data as versioned, testable code.\",\n    \"simple_words_heading\": \"IN SIMPLE WORDS\",\n    \"simple_words_chain\": [\n      \"Raw Data\",\n      \"Trusted Metrics\"\n    ],\n    \"tagline\": \"Transparent logic builds clinical trust.\"\n  }\n}"
+  "raw_llm": "{\n  \"post_text\": \"Stop dumping all data into S3 and calling it a lake. Analytics performance dies without distinct storage classes and lifecycle policies. Choose the layer before you write the Spark code.\\n\\n#DataEngineering #AWS #BestPractices #TechTips\",\n  \"hashtags\": \"#DataEngineering #AWS #BestPractices #TechTips #CloudEngineering #DataPlatform\",\n  \"infographic\":\n    {\n    \"title\": \"STOP DUMPING EVERYTHING INTO S3\",\n    \"subtitle\": \"Analytics fail when you ignore storage class strategy.\",\n    \"badge\": \"AWS\",\n    \"problem_heading\": \"THE REAL PROBLEM\",\n    \"problem_points\": [\n      \"S3 Standard costs explode\",\n      \"Spark reads slow on cold data\",\n      \"No lifecycle automation\",\n      \"Manual tiering breaks at scale\"\n    ],\n    \"solution_heading\": \"HOW DATA ENGINEERS HANDLE THIS\",\n    \"pipeline_heading\": \"OPTIMIZED STORAGE FLOW\",\n    \"pipeline_steps\": [\n      {\"label\": \"Ingest Data\", \"icon\": \"arrow_up\"},\n      {\"label\": \"S3 Intelligent Tiering\", \"icon\": \"gear\"},\n      {\"label\": \"Lifecycle Rules\", \"icon\": \"clock\"},\n      {\"label\": \"Glue Catalog\", \"icon\": \"database\"},\n      {\"label\": \"Analytics Query\", \"icon\": \"chart\"}\n    ],\n    \"why_heading\": \"WHY THIS MATTERS\",\n    \"why_matters\": [\n      {\"title\": \"Cost Control\", \"desc\": \"Reduces storage bills by 40%\", \"icon\": \"coin\"},\n      {\"title\": \"Faster Queries\", \"desc\": \"Hot data stays performant\", \"icon\": \"rocket\"},\n      {\"title\": \"Automation Wins\", \"desc\": \"Zero manual tiering effort\", \"icon\": \"check\"},\n      {\"title\": \"Scalable Architecture\", \"desc\": \"Handles petabyte-scale growth easily\", \"icon\": \"scale\"}\n    ],\n    \"mindset_heading\": \"KEY MINDSET OF A DATA ENGINEER\",\n    \"mindset_before\": \"One size fits all S3 bucket\",\n    \"mindset_after\": \"Right data in right class\",\n    \"simple_words_heading\": \"IN SIMPLE WORDS\",\n    \"simple_words_chain\": [\n      \"Raw Data\",\n      \"Tiered Storage\"\n    ],\n    \"tagline\": \"Smart storage. Low costs. High velocity.\"\n  }\n}"
 }

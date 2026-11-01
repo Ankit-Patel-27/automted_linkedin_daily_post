@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-06-16",
-    "post_id": "urn:li:share:7472536744614133760",
-    "format_type": "open_to_work",
-    "domain": "Databricks",
-    "had_image": true,
-    "preview": "I'm currently open to new opportunities as a Senior Data Engineer or Data Platform Lead, particularly in the healthcare ..."
-  },
-  {
     "date": "2026-06-17",
     "post_id": "urn:li:share:7472893256083755011",
     "format_type": "myth_vs_reality",
@@ -718,5 +710,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "dbt isn't a load tool. It's where your SQL logic lives. In healthcare, separating transformation from ingestion means cl..."
+  },
+  {
+    "date": "2026-11-01",
+    "post_id": "urn:li:share:7522556192150249472",
+    "format_type": "myth_vs_reality",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "Stop dumping all data into S3 and calling it a lake. Analytics performance dies without distinct storage classes and lif..."
   }
 ]

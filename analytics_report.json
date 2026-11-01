@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-10-31",
-  "posts_analysed": 6,
+  "generated_date": "2026-11-01",
+  "posts_analysed": 7,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -11,7 +11,8 @@
     "insight": 0.0,
     "tip": 0.0,
     "project_spotlight": 0.0,
-    "industry_take": 0.0
+    "industry_take": 0.0,
+    "myth_vs_reality": 0.0
   },
   "posts": [
     {
@@ -81,6 +82,18 @@
       "domain": "SQL / Analytics Engineering",
       "had_image": true,
       "preview": "dbt isn't a load tool. It's where your SQL logic lives. In healthcare, separating transformation from ingestion means cl...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-11-01",
+      "post_id": "urn:li:share:7522556192150249472",
+      "format_type": "myth_vs_reality",
+      "domain": "AWS",
+      "had_image": true,
+      "preview": "Stop dumping all data into S3 and calling it a lake. Analytics performance dies without distinct storage classes and lif...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

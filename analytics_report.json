@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-11-02",
-  "posts_analysed": 7,
+  "generated_date": "2026-11-03",
+  "posts_analysed": 8,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -94,6 +94,18 @@
       "domain": "AWS",
       "had_image": true,
       "preview": "Stop dumping all data into S3 and calling it a lake. Analytics performance dies without distinct storage classes and lif...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-11-03",
+      "post_id": "urn:li:share:7523288121279655936",
+      "format_type": "concept_explainer",
+      "domain": "Databricks",
+      "had_image": true,
+      "preview": "Understanding the power of Data Engineering: Databricks Feature Store\n\n#DataEngineering #LearnInPublic #TechEducation #D...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

@@ -1,78 +1,74 @@
 {
-  "text": "Stop dumping all data into S3 and calling it a lake. Analytics performance dies without distinct storage classes and lifecycle policies. Choose the layer before you write the Spark code.\n\n#DataEngineering #AWS #BestPractices #TechTips",
-  "format_type": "myth_vs_reality",
-  "domain": "AWS",
-  "topic": "Choosing the right AWS storage layer for analytics workloads",
-  "date": "2026-11-01",
-  "model_used": "qwen/qwen3.8-27b",
-  "hashtags": "#DataEngineering #AWS #BestPractices #TechTips #CloudEngineering #DataPlatform",
+  "text": "Understanding the power of Data Engineering: Databricks Feature Store\n\n#DataEngineering #LearnInPublic #TechEducation #DataPlatform  #Databricks #DeltaLake #ApacheSpark",
+  "format_type": "concept_explainer",
+  "domain": "Databricks",
+  "topic": "Databricks Feature Store for ML pipelines in biotech",
+  "date": "2026-11-03",
+  "model_used": "allam-2-7b",
+  "hashtags": "#DataEngineering #LearnInPublic #TechEducation #DataPlatform  #Databricks #DeltaLake #ApacheSpark",
   "infographic": {
-    "title": "STOP DUMPING EVERYTHING INTO S3",
-    "subtitle": "Analytics fail when you ignore storage class strategy.",
-    "badge": "AWS",
+    "title": "DATABRICKS FEATURE STORE FOR ML PIPELINES IN BIOTECH",
+    "subtitle": "A practical look for data engineers working with Databricks",
+    "badge": "DBX",
     "problem_heading": "THE REAL PROBLEM",
     "solution_heading": "HOW DATA ENGINEERS HANDLE THIS",
-    "pipeline_heading": "OPTIMIZED STORAGE FLOW",
+    "pipeline_heading": "A REAL DATABRICKS WORKFLOW",
     "why_heading": "WHY THIS MATTERS",
     "mindset_heading": "KEY MINDSET OF A DATA ENGINEER",
-    "mindset_before": "One size fits all S3 bucket",
-    "mindset_after": "Right data in right class",
+    "mindset_before": "Anyone can move data around.",
+    "mindset_after": "Great engineers build systems that hold up.",
     "simple_words_heading": "IN SIMPLE WORDS",
-    "tagline": "Smart storage. Low costs. High velocity.",
+    "tagline": "Better data. Better insights. Better impact.",
     "problem_points": [
-      "S3 Standard costs explode",
-      "Spark reads slow on cold data",
-      "No lifecycle automation",
-      "Manual tiering breaks at scale"
+      "Inconsistent or messy inputs",
+      "Manual, error-prone steps",
+      "Hard to scale reliably",
+      "Costly to fix downstream"
     ],
     "pipeline_steps": [
       {
-        "label": "Ingest Data",
-        "icon": "arrow_up"
-      },
-      {
-        "label": "S3 Intelligent T",
-        "icon": "gear"
-      },
-      {
-        "label": "Lifecycle Rules",
-        "icon": "clock"
-      },
-      {
-        "label": "Glue Catalog",
+        "label": "Raw Data",
         "icon": "database"
       },
       {
-        "label": "Analytics Query",
+        "label": "Bronze",
+        "icon": "gear"
+      },
+      {
+        "label": "Silver",
+        "icon": "refresh"
+      },
+      {
+        "label": "Gold",
         "icon": "chart"
       }
     ],
     "why_matters": [
       {
-        "title": "Cost Control",
-        "desc": "Reduces storage bills by 40%",
+        "title": "Builds Trust",
+        "desc": "Stakeholders trust the data",
+        "icon": "shield"
+      },
+      {
+        "title": "Saves Time",
+        "desc": "Less rework, fewer re-runs",
+        "icon": "clock"
+      },
+      {
+        "title": "Cost Efficient",
+        "desc": "Less wasted compute & storage",
         "icon": "coin"
       },
       {
-        "title": "Faster Queries",
-        "desc": "Hot data stays performant",
-        "icon": "rocket"
-      },
-      {
-        "title": "Automation Wins",
-        "desc": "Zero manual tiering effort",
-        "icon": "check"
-      },
-      {
-        "title": "Scalable Architecture",
-        "desc": "Handles petabyte-scale growth easily",
-        "icon": "scale"
+        "title": "Scales Well",
+        "desc": "Holds up as data grows",
+        "icon": "chart"
       }
     ],
     "simple_words_chain": [
-      "Raw Data",
-      "Tiered Storage"
+      "Databricks",
+      "Reliable Data"
     ]
   },
-  "raw_llm": "{\n  \"post_text\": \"Stop dumping all data into S3 and calling it a lake. Analytics performance dies without distinct storage classes and lifecycle policies. Choose the layer before you write the Spark code.\\n\\n#DataEngineering #AWS #BestPractices #TechTips\",\n  \"hashtags\": \"#DataEngineering #AWS #BestPractices #TechTips #CloudEngineering #DataPlatform\",\n  \"infographic\":\n    {\n    \"title\": \"STOP DUMPING EVERYTHING INTO S3\",\n    \"subtitle\": \"Analytics fail when you ignore storage class strategy.\",\n    \"badge\": \"AWS\",\n    \"problem_heading\": \"THE REAL PROBLEM\",\n    \"problem_points\": [\n      \"S3 Standard costs explode\",\n      \"Spark reads slow on cold data\",\n      \"No lifecycle automation\",\n      \"Manual tiering breaks at scale\"\n    ],\n    \"solution_heading\": \"HOW DATA ENGINEERS HANDLE THIS\",\n    \"pipeline_heading\": \"OPTIMIZED STORAGE FLOW\",\n    \"pipeline_steps\": [\n      {\"label\": \"Ingest Data\", \"icon\": \"arrow_up\"},\n      {\"label\": \"S3 Intelligent Tiering\", \"icon\": \"gear\"},\n      {\"label\": \"Lifecycle Rules\", \"icon\": \"clock\"},\n      {\"label\": \"Glue Catalog\", \"icon\": \"database\"},\n      {\"label\": \"Analytics Query\", \"icon\": \"chart\"}\n    ],\n    \"why_heading\": \"WHY THIS MATTERS\",\n    \"why_matters\": [\n      {\"title\": \"Cost Control\", \"desc\": \"Reduces storage bills by 40%\", \"icon\": \"coin\"},\n      {\"title\": \"Faster Queries\", \"desc\": \"Hot data stays performant\", \"icon\": \"rocket\"},\n      {\"title\": \"Automation Wins\", \"desc\": \"Zero manual tiering effort\", \"icon\": \"check\"},\n      {\"title\": \"Scalable Architecture\", \"desc\": \"Handles petabyte-scale growth easily\", \"icon\": \"scale\"}\n    ],\n    \"mindset_heading\": \"KEY MINDSET OF A DATA ENGINEER\",\n    \"mindset_before\": \"One size fits all S3 bucket\",\n    \"mindset_after\": \"Right data in right class\",\n    \"simple_words_heading\": \"IN SIMPLE WORDS\",\n    \"simple_words_chain\": [\n      \"Raw Data\",\n      \"Tiered Storage\"\n    ],\n    \"tagline\": \"Smart storage. Low costs. High velocity.\"\n  }\n}"
+  "raw_llm": "{\"post_text\": \"Understanding the power of Data Engineering: Databricks Feature Store\",\n\"hashtags\": [\"#DataEngineering\", \"#LearnInPublic\", \"#TechEducation\", \"#DataPlatform\", \"#Databricks\", \"#DeltaLake\", \"#ApacheSpark\"],\n\"image\": \"Data Engineering heroes ensure quality throughout ML pipelines with Databricks Feature Store. See how.\",\n\n\"summary\": \"In today's LinkedIn post, I dive into the power of Data Engineering as a backbone for ML pipelines in biotech. The Databricks Feature Store provides a crucial Data Engineering mindset for insights-driven impact. Experience the real-life example.\",\n\"image_alt\": \"Data Engineering heroes ensure quality throughout ML pipelines with Databricks Feature Store.\",\n\"link\": \"Learn from my journey converting healthcare data into actionable insights using Databricks Feature Store.\",\n\"caption\": \"Data Engineering in action: From raw data to insights to impact.\",\n\"tagline\": \"Data Engineering heroes: Quality over quantity.\",\n\"title\": \"Databricks Feature Store - Ensuring Data Quality for ML Pipelines\",\n\"image_info\": \"Data Engineering in action: Understanding Data Quality with Feature Store.\",\n\"content\": \"Data Engineering is a crucial aspect of ML pipeline success in biotech. Understanding quality in action.\",\n\"image\": \"Databricks Feature Store ensures data quality in ML pipelines.\",\n\"section_headers\": [\"Pain Points\", \"The Feature Store\", \"Quality Guardrails\", \"Insights & Impact\"],\n\"section_headers_alt\": [\"Why this matters\", \"How to use Databricks Feature Store\", \"Data Engineering Process\", \"Big Data Impact\"],\n\"icon\": \"gift\",\n\"section_content\": [\"Databricks Feature Store provides a reliable & valid data source for ML models\",\n\"alt_desc\": \"Databricks Feature Store is the secret to data governance, Data Governance\",\n\"desc\": \"Data Engineers create stable pipelines with the Feature Store.\",\n\"image_alt\": \"Data Engineering heroes: ensuring quality ML models.\",\n\"post_time\": \"May 2022\",\n\"section_content_alt\": [\"ML pipeline health check\", \"Data Engineering Quality Control\", \"Data Quality for ML pipelines\", \"Data Governance\"],\n\"section_content_alt\": [\"Healthy ML pipelines depend on good quality data\",\n\"content\": [\n\"Data Governance: Safeguarding Data Quality for Healthcare\",\n\"Data Quality Matters: 4 reasons why\",\n\"Best Practices: Databricks Feature Store\",\n\"Discover: ML performance improvement\",\n\"image\": \"Data engineers safeguard ML pipelines with Feature Store, Data Governance\"],\n\"image_alt\": \"Data Governance for AI success\",\n\"section_content_alt\": [\"ML pipeline health check\", \"Data governance for AI success\", \"Data Quality for ML pipelines\", \"Data Engineering Best Practices\"],\n\"content\": [\n\"Data Engineering process: Quality first approach\",\n\"Data Governance checklist: From AWS to Feature Store\",\n\"Quality Guard: Databricks Feature Store\",\n\"Machine Learning performance: Best practices for Healthcare\",\n\"image\": \"Data Engineers ensure healthcare data pipeline quality\",\n\"section_content\": [\n\"ML pipeline health check\",\n\"Data governance for AI success\",\n\"Data Quality for ML pipelines\",\n\"Data Engineering Best Practices\"],\n\"content_alt\": \"ML success in Healthcare\",\n\"priority\": 4 // Schedule a call to discuss how Feature Store streamlines ML Model Management\",\n\"image_alt\": \"Data Engineering accelerates Healthcare data innovation\",\n\"video\": \"\",\n\"section_content_alt\": [ // No additional content added for alt captions\n\"Data Governance for AI success\",\n\"Data Engineering Best Practices\",\n\"Data Quality for ML pipelines\",\n\"ML pipeline health check\"],\n\"content\": \"Data quality is the core of a successful ML pipeline\",\n\"priority\": 3 // Schedule a call for tailored advice on Feature Store best practices\",\n\"image\": \"Data engineering ensures quality for ML platforms\",\n\"section_content\": [\n\"Data Governance for AI success\",\n\"Data Quality for ML pipelines\",\n\"Data Engineering Best Practices\",\n\"Data Pipeline Health Check\"],\n\"content_alt\": \"Leveraging AWS, Databricks & Feature Store\",\n\"priority\": 2 // Exclusive tailored advice on optimizing Healthcare ML pipelines\",\n\"section_content_alt\": \"Data Engineering guarantees AI success\",\n\"content\": \"Data governance for healthcare data pipelines\",\n\"priority\": 1 // Advanced consulting on Data Engineering practices\",\n\"image_alt\": \"Data engineering tools for ML platforms\",\n\"section_content\": \"Data quality baseline\",\n\"content\": \"Data quality verification\",\n\"priority\": 0 // Meticulous guidance on Pipeline Health & Data Governance for ML projects\",\n\"section_content_alt\": \"Data Engineering for Data Quality\",\n\"content\": \"Data Governance in Healthcare implementations\",\n\"priority\": 5 // Tailored advice on Data Engineering and Data Quality\",\n\"image_alt\": \"Data quality optimization\",\n\"section_content\": \"Data engineering best practices\",\n\"content\": \"Data pipeline health assessment\",\n\"priority\": 3 // Specific tips for Data Governance in healthcare.ai\",\n\"image_alt\": \"Data quality control\",\n\"section_content\": \"Data Governance fundamentals\",\n\"content\": \"Data pipeline health optimization\",\n\"priority\": 2 // Tailored insights into Data Quality in Healthcare\",\n\"image_alt\": \"Data Governance in Data Engineering\",\n\"section_content\": \"Data quality assurance\",\n\"content\": \"Data Engineering for Data Governance in Healthcare\",\n\"priority\": 1 // Leveraging Data Engineering for Data Quality improvements\",\n\"image_alt\": \"Data quality baseline\",\n\"section_content\": \"Data Engineering & Governance\",\n\"content\": \"Data pipeline health & data quality optimization\",\n\"priority\": 0 // Tailored advice for Data Governance in Healthcare & Data Engineering\",\n\"image_alt\": \"Data quality optimization\",\n\"section_content\": \"Data Engineering best practices\",\n\"content\": \"Data Pipeline Health & data quality improvements\",\n\"priority\": 1 // Practical tips for Data Engineering in Healthcare\",\n\"image_alt\": \"Data Governance & Data Engineering\",\n\"section_content\": \"Data quality optimization\",\n\"content\": \"Data Pipeline Health & data"
 }

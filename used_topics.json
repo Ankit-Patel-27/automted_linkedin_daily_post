@@ -1,11 +1,5 @@
 [
   {
-    "type": "open_to_work",
-    "domain": "databricks",
-    "topic": "Optimising small file problems in Delta Lake",
-    "date": "2026-08-08"
-  },
-  {
     "type": "insight",
     "domain": "aws",
     "topic": "AWS Glue vs EMR vs Lambda \u2014 choosing the right compute for ETL",
@@ -238,5 +232,11 @@
     "domain": "databricks",
     "topic": "Databricks Feature Store for ML pipelines in biotech",
     "date": "2026-11-03"
+  },
+  {
+    "type": "open_to_work",
+    "domain": "sql",
+    "topic": "How to choose between views, materialized views, and tables",
+    "date": "2026-11-05"
   }
 ]

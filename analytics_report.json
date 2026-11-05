@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-11-03",
-  "posts_analysed": 8,
+  "generated_date": "2026-11-05",
+  "posts_analysed": 9,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -12,7 +12,8 @@
     "tip": 0.0,
     "project_spotlight": 0.0,
     "industry_take": 0.0,
-    "myth_vs_reality": 0.0
+    "myth_vs_reality": 0.0,
+    "open_to_work": 0.0
   },
   "posts": [
     {
@@ -106,6 +107,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "Understanding the power of Data Engineering: Databricks Feature Store\n\n#DataEngineering #LearnInPublic #TechEducation #D...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-11-05",
+      "post_id": "urn:li:share:7524014181256450049",
+      "format_type": "open_to_work",
+      "domain": "SQL / Analytics Engineering",
+      "had_image": true,
+      "preview": "Mastering Data Engineering - Pick the right SQL hack for complex healthcare analytics!\n\n#OpenToWork #DataEngineering #AW...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

@@ -1,18 +1,18 @@
 {
-  "text": "Understanding the power of Data Engineering: Databricks Feature Store\n\n#DataEngineering #LearnInPublic #TechEducation #DataPlatform  #Databricks #DeltaLake #ApacheSpark",
-  "format_type": "concept_explainer",
-  "domain": "Databricks",
-  "topic": "Databricks Feature Store for ML pipelines in biotech",
-  "date": "2026-11-03",
+  "text": "Mastering Data Engineering - Pick the right SQL hack for complex healthcare analytics!\n\n#OpenToWork #DataEngineering #AWS #Databricks #HiringNow #HealthcareIT  #SQL #dbt #AnalyticsEngineering",
+  "format_type": "open_to_work",
+  "domain": "SQL / Analytics Engineering",
+  "topic": "How to choose between views, materialized views, and tables",
+  "date": "2026-11-05",
   "model_used": "allam-2-7b",
-  "hashtags": "#DataEngineering #LearnInPublic #TechEducation #DataPlatform  #Databricks #DeltaLake #ApacheSpark",
+  "hashtags": "#OpenToWork #DataEngineering #AWS #Databricks #HiringNow #HealthcareIT  #SQL #dbt #AnalyticsEngineering",
   "infographic": {
-    "title": "DATABRICKS FEATURE STORE FOR ML PIPELINES IN BIOTECH",
-    "subtitle": "A practical look for data engineers working with Databricks",
-    "badge": "DBX",
+    "title": "HOW TO CHOOSE BETWEEN VIEWS, MATERIALIZED VIEWS, AND TABLES",
+    "subtitle": "A practical look for data engineers working with SQL / Analytics Engineering",
+    "badge": "SQL",
     "problem_heading": "THE REAL PROBLEM",
     "solution_heading": "HOW DATA ENGINEERS HANDLE THIS",
-    "pipeline_heading": "A REAL DATABRICKS WORKFLOW",
+    "pipeline_heading": "A REAL SQL / ANALYTICS ENGINEERING WORKFLOW",
     "why_heading": "WHY THIS MATTERS",
     "mindset_heading": "KEY MINDSET OF A DATA ENGINEER",
     "mindset_before": "Anyone can move data around.",
@@ -27,19 +27,19 @@
     ],
     "pipeline_steps": [
       {
-        "label": "Raw Data",
+        "label": "Source",
         "icon": "database"
       },
       {
-        "label": "Bronze",
+        "label": "Model",
         "icon": "gear"
       },
       {
-        "label": "Silver",
-        "icon": "refresh"
+        "label": "Test",
+        "icon": "check"
       },
       {
-        "label": "Gold",
+        "label": "Serve",
         "icon": "chart"
       }
     ],
@@ -66,9 +66,9 @@
       }
     ],
     "simple_words_chain": [
-      "Databricks",
+      "SQL / Analytics Engineering",
       "Reliable Data"
     ]
   },
-  "raw_llm": "{\"post_text\": \"Understanding the power of Data Engineering: Databricks Feature Store\",\n\"hashtags\": [\"#DataEngineering\", \"#LearnInPublic\", \"#TechEducation\", \"#DataPlatform\", \"#Databricks\", \"#DeltaLake\", \"#ApacheSpark\"],\n\"image\": \"Data Engineering heroes ensure quality throughout ML pipelines with Databricks Feature Store. See how.\",\n\n\"summary\": \"In today's LinkedIn post, I dive into the power of Data Engineering as a backbone for ML pipelines in biotech. The Databricks Feature Store provides a crucial Data Engineering mindset for insights-driven impact. Experience the real-life example.\",\n\"image_alt\": \"Data Engineering heroes ensure quality throughout ML pipelines with Databricks Feature Store.\",\n\"link\": \"Learn from my journey converting healthcare data into actionable insights using Databricks Feature Store.\",\n\"caption\": \"Data Engineering in action: From raw data to insights to impact.\",\n\"tagline\": \"Data Engineering heroes: Quality over quantity.\",\n\"title\": \"Databricks Feature Store - Ensuring Data Quality for ML Pipelines\",\n\"image_info\": \"Data Engineering in action: Understanding Data Quality with Feature Store.\",\n\"content\": \"Data Engineering is a crucial aspect of ML pipeline success in biotech. Understanding quality in action.\",\n\"image\": \"Databricks Feature Store ensures data quality in ML pipelines.\",\n\"section_headers\": [\"Pain Points\", \"The Feature Store\", \"Quality Guardrails\", \"Insights & Impact\"],\n\"section_headers_alt\": [\"Why this matters\", \"How to use Databricks Feature Store\", \"Data Engineering Process\", \"Big Data Impact\"],\n\"icon\": \"gift\",\n\"section_content\": [\"Databricks Feature Store provides a reliable & valid data source for ML models\",\n\"alt_desc\": \"Databricks Feature Store is the secret to data governance, Data Governance\",\n\"desc\": \"Data Engineers create stable pipelines with the Feature Store.\",\n\"image_alt\": \"Data Engineering heroes: ensuring quality ML models.\",\n\"post_time\": \"May 2022\",\n\"section_content_alt\": [\"ML pipeline health check\", \"Data Engineering Quality Control\", \"Data Quality for ML pipelines\", \"Data Governance\"],\n\"section_content_alt\": [\"Healthy ML pipelines depend on good quality data\",\n\"content\": [\n\"Data Governance: Safeguarding Data Quality for Healthcare\",\n\"Data Quality Matters: 4 reasons why\",\n\"Best Practices: Databricks Feature Store\",\n\"Discover: ML performance improvement\",\n\"image\": \"Data engineers safeguard ML pipelines with Feature Store, Data Governance\"],\n\"image_alt\": \"Data Governance for AI success\",\n\"section_content_alt\": [\"ML pipeline health check\", \"Data governance for AI success\", \"Data Quality for ML pipelines\", \"Data Engineering Best Practices\"],\n\"content\": [\n\"Data Engineering process: Quality first approach\",\n\"Data Governance checklist: From AWS to Feature Store\",\n\"Quality Guard: Databricks Feature Store\",\n\"Machine Learning performance: Best practices for Healthcare\",\n\"image\": \"Data Engineers ensure healthcare data pipeline quality\",\n\"section_content\": [\n\"ML pipeline health check\",\n\"Data governance for AI success\",\n\"Data Quality for ML pipelines\",\n\"Data Engineering Best Practices\"],\n\"content_alt\": \"ML success in Healthcare\",\n\"priority\": 4 // Schedule a call to discuss how Feature Store streamlines ML Model Management\",\n\"image_alt\": \"Data Engineering accelerates Healthcare data innovation\",\n\"video\": \"\",\n\"section_content_alt\": [ // No additional content added for alt captions\n\"Data Governance for AI success\",\n\"Data Engineering Best Practices\",\n\"Data Quality for ML pipelines\",\n\"ML pipeline health check\"],\n\"content\": \"Data quality is the core of a successful ML pipeline\",\n\"priority\": 3 // Schedule a call for tailored advice on Feature Store best practices\",\n\"image\": \"Data engineering ensures quality for ML platforms\",\n\"section_content\": [\n\"Data Governance for AI success\",\n\"Data Quality for ML pipelines\",\n\"Data Engineering Best Practices\",\n\"Data Pipeline Health Check\"],\n\"content_alt\": \"Leveraging AWS, Databricks & Feature Store\",\n\"priority\": 2 // Exclusive tailored advice on optimizing Healthcare ML pipelines\",\n\"section_content_alt\": \"Data Engineering guarantees AI success\",\n\"content\": \"Data governance for healthcare data pipelines\",\n\"priority\": 1 // Advanced consulting on Data Engineering practices\",\n\"image_alt\": \"Data engineering tools for ML platforms\",\n\"section_content\": \"Data quality baseline\",\n\"content\": \"Data quality verification\",\n\"priority\": 0 // Meticulous guidance on Pipeline Health & Data Governance for ML projects\",\n\"section_content_alt\": \"Data Engineering for Data Quality\",\n\"content\": \"Data Governance in Healthcare implementations\",\n\"priority\": 5 // Tailored advice on Data Engineering and Data Quality\",\n\"image_alt\": \"Data quality optimization\",\n\"section_content\": \"Data engineering best practices\",\n\"content\": \"Data pipeline health assessment\",\n\"priority\": 3 // Specific tips for Data Governance in healthcare.ai\",\n\"image_alt\": \"Data quality control\",\n\"section_content\": \"Data Governance fundamentals\",\n\"content\": \"Data pipeline health optimization\",\n\"priority\": 2 // Tailored insights into Data Quality in Healthcare\",\n\"image_alt\": \"Data Governance in Data Engineering\",\n\"section_content\": \"Data quality assurance\",\n\"content\": \"Data Engineering for Data Governance in Healthcare\",\n\"priority\": 1 // Leveraging Data Engineering for Data Quality improvements\",\n\"image_alt\": \"Data quality baseline\",\n\"section_content\": \"Data Engineering & Governance\",\n\"content\": \"Data pipeline health & data quality optimization\",\n\"priority\": 0 // Tailored advice for Data Governance in Healthcare & Data Engineering\",\n\"image_alt\": \"Data quality optimization\",\n\"section_content\": \"Data Engineering best practices\",\n\"content\": \"Data Pipeline Health & data quality improvements\",\n\"priority\": 1 // Practical tips for Data Engineering in Healthcare\",\n\"image_alt\": \"Data Governance & Data Engineering\",\n\"section_content\": \"Data quality optimization\",\n\"content\": \"Data Pipeline Health & data"
+  "raw_llm": "Title: From SQL to Data Engineering Success: Choosing between Views, Materialized Views, and Table Partitioning in Data Platforms\n\nLinkedIn Caption: Mastering Data Engineer Tips: Choosing the right SQL enhancement in complex healthcare analytics pipelines\n\nJSON Object:\n\n{\n  \"post_text\": \"Mastering Data Engineering - Pick the right SQL hack for complex healthcare analytics! #OpenToWork #DataEngineering #AWS #Databricks #HiringNow #HealthcareIT #SQL #dbt #AnalyticsEngineering\",\n  \"hashtags\": [\"OpenToWork\", \"DataEngineering\", \"AWS\", \"Databricks\",\n  \"HiringNow\", \"HealthcareIT\", \"SQL\", \"dbt\", \"AnalyticsEngineering\"],\n  \"infographic\": {\n    \"title\": \"Better Insights, Improved Pipelines\",\n    \"tagline\": \"Elevate healthcare analytics with Data Engineering expertise.\",\n    \"brief_post\": \"In healthcare, clear the data chaos. Choose the winning SQL tool.\",\n    \"problem\": \"Confused by SQL optimizations? Pick the real deal: data partitioning, views, and materialized views.\",\n    \"customer_pain_points\": [\n      \"Incorrect data insights\",\n      \"delayed pipeline execution\",\n      \"Inefficient data storage\",\n      \"Severe performance bottlenecks\"],\n    \"solution_steps\": [\n      \"Apply data partitioning for distributed querying\",\n      \"Leverage materialized views for optimized queries\",\n      \"Use views for flexible data exploration\",\n      \"Optimize SQL with data partitioning, views, and materialized views\"],\n    \"icon\": \"check\",\n    \"customer_benefits\": [\n      \"Faster data analysis\",\n      \"Timely data processing\",\n      \"Future-proof data architecture\",\n      \"Streamlined data analysis\"]\n}\n}"
 }

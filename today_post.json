@@ -1,18 +1,18 @@
 {
-  "text": "Mastering Data Engineering - Pick the right SQL hack for complex healthcare analytics!\n\n#OpenToWork #DataEngineering #AWS #Databricks #HiringNow #HealthcareIT  #SQL #dbt #AnalyticsEngineering",
-  "format_type": "open_to_work",
-  "domain": "SQL / Analytics Engineering",
-  "topic": "How to choose between views, materialized views, and tables",
-  "date": "2026-11-05",
-  "model_used": "allam-2-7b",
-  "hashtags": "#OpenToWork #DataEngineering #AWS #Databricks #HiringNow #HealthcareIT  #SQL #dbt #AnalyticsEngineering",
+  "text": "CloudFormation vs Terraform: The battle of reproducibility. I learned that Terraform\u2019s state file gives us better drift detection than CloudFormation\u2019s drift detection API. Which approach has served you better in production?\n\n#DataEngineering #AWS #CloudEngineering #DataPlatform",
+  "format_type": "insight",
+  "domain": "AWS",
+  "topic": "CloudFormation vs Terraform for data infrastructure as code",
+  "date": "2026-11-07",
+  "model_used": "openai/gpt-oss-20b",
+  "hashtags": "#DataEngineering #AWS #CloudEngineering #DataPlatform",
   "infographic": {
-    "title": "HOW TO CHOOSE BETWEEN VIEWS, MATERIALIZED VIEWS, AND TABLES",
-    "subtitle": "A practical look for data engineers working with SQL / Analytics Engineering",
-    "badge": "SQL",
+    "title": "CLOUDFORMATION VS TERRAFORM FOR DATA INFRASTRUCTURE AS CODE",
+    "subtitle": "A practical look for data engineers working with AWS",
+    "badge": "AWS",
     "problem_heading": "THE REAL PROBLEM",
     "solution_heading": "HOW DATA ENGINEERS HANDLE THIS",
-    "pipeline_heading": "A REAL SQL / ANALYTICS ENGINEERING WORKFLOW",
+    "pipeline_heading": "A REAL AWS WORKFLOW",
     "why_heading": "WHY THIS MATTERS",
     "mindset_heading": "KEY MINDSET OF A DATA ENGINEER",
     "mindset_before": "Anyone can move data around.",
@@ -27,19 +27,23 @@
     ],
     "pipeline_steps": [
       {
-        "label": "Source",
+        "label": "Amazon S3",
         "icon": "database"
       },
       {
-        "label": "Model",
+        "label": "Lambda",
         "icon": "gear"
       },
       {
-        "label": "Test",
-        "icon": "check"
+        "label": "Glue",
+        "icon": "refresh"
       },
       {
-        "label": "Serve",
+        "label": "Redshift",
+        "icon": "database"
+      },
+      {
+        "label": "Analytics",
         "icon": "chart"
       }
     ],
@@ -66,9 +70,9 @@
       }
     ],
     "simple_words_chain": [
-      "SQL / Analytics Engineering",
+      "AWS",
       "Reliable Data"
     ]
   },
-  "raw_llm": "Title: From SQL to Data Engineering Success: Choosing between Views, Materialized Views, and Table Partitioning in Data Platforms\n\nLinkedIn Caption: Mastering Data Engineer Tips: Choosing the right SQL enhancement in complex healthcare analytics pipelines\n\nJSON Object:\n\n{\n  \"post_text\": \"Mastering Data Engineering - Pick the right SQL hack for complex healthcare analytics! #OpenToWork #DataEngineering #AWS #Databricks #HiringNow #HealthcareIT #SQL #dbt #AnalyticsEngineering\",\n  \"hashtags\": [\"OpenToWork\", \"DataEngineering\", \"AWS\", \"Databricks\",\n  \"HiringNow\", \"HealthcareIT\", \"SQL\", \"dbt\", \"AnalyticsEngineering\"],\n  \"infographic\": {\n    \"title\": \"Better Insights, Improved Pipelines\",\n    \"tagline\": \"Elevate healthcare analytics with Data Engineering expertise.\",\n    \"brief_post\": \"In healthcare, clear the data chaos. Choose the winning SQL tool.\",\n    \"problem\": \"Confused by SQL optimizations? Pick the real deal: data partitioning, views, and materialized views.\",\n    \"customer_pain_points\": [\n      \"Incorrect data insights\",\n      \"delayed pipeline execution\",\n      \"Inefficient data storage\",\n      \"Severe performance bottlenecks\"],\n    \"solution_steps\": [\n      \"Apply data partitioning for distributed querying\",\n      \"Leverage materialized views for optimized queries\",\n      \"Use views for flexible data exploration\",\n      \"Optimize SQL with data partitioning, views, and materialized views\"],\n    \"icon\": \"check\",\n    \"customer_benefits\": [\n      \"Faster data analysis\",\n      \"Timely data processing\",\n      \"Future-proof data architecture\",\n      \"Streamlined data analysis\"]\n}\n}"
+  "raw_llm": "{\"post_text\":\"CloudFormation vs Terraform: The battle of reproducibility. I learned that Terraform\u2019s state file gives us better drift detection than CloudFormation\u2019s drift detection API. Which approach has served you better in production?\",\"hashtags\":\"#DataEngineering #AWS #CloudEngineering #DataPlatform\",\"infographic\":{\"title\":\"CHOOSE THE RIGHT TOOL FOR INFRASTRUCTURE\",\"subtitle\":\"AWS"
 }

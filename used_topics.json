@@ -1,11 +1,5 @@
 [
   {
-    "type": "insight",
-    "domain": "aws",
-    "topic": "AWS Glue vs EMR vs Lambda \u2014 choosing the right compute for ETL",
-    "date": "2026-08-09"
-  },
-  {
     "type": "achievement",
     "domain": "sql",
     "topic": "dbt tests and data contracts \u2014 enforcing data quality at the model layer",
@@ -238,5 +232,11 @@
     "domain": "sql",
     "topic": "How to choose between views, materialized views, and tables",
     "date": "2026-11-05"
+  },
+  {
+    "type": "insight",
+    "domain": "aws",
+    "topic": "CloudFormation vs Terraform for data infrastructure as code",
+    "date": "2026-11-07"
   }
 ]

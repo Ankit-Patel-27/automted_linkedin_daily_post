@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-06-19",
-    "post_id": "urn:li:share:7473620049128349696",
-    "format_type": "project_spotlight",
-    "domain": "Databricks",
-    "had_image": true,
-    "preview": "## Project Spotlight: Auto Loader vs COPY INTO for Incremental Ingestion\n\nAs a data engineer working with Databricks, I'..."
-  },
-  {
     "date": "2026-06-20",
     "post_id": "urn:li:share:7473965951961554944",
     "format_type": "achievement",
@@ -718,5 +710,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "Mastering Data Engineering - Pick the right SQL hack for complex healthcare analytics!\n\n#OpenToWork #DataEngineering #AW..."
+  },
+  {
+    "date": "2026-11-07",
+    "post_id": "urn:li:share:7524725632166178816",
+    "format_type": "insight",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "CloudFormation vs Terraform: The battle of reproducibility. I learned that Terraform\u2019s state file gives us better drift ..."
   }
 ]

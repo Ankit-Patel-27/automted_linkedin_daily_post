@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-11-05",
-  "posts_analysed": 9,
+  "generated_date": "2026-11-07",
+  "posts_analysed": 10,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -119,6 +119,18 @@
       "domain": "SQL / Analytics Engineering",
       "had_image": true,
       "preview": "Mastering Data Engineering - Pick the right SQL hack for complex healthcare analytics!\n\n#OpenToWork #DataEngineering #AW...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-11-07",
+      "post_id": "urn:li:share:7524725632166178816",
+      "format_type": "insight",
+      "domain": "AWS",
+      "had_image": true,
+      "preview": "CloudFormation vs Terraform: The battle of reproducibility. I learned that Terraform\u2019s state file gives us better drift ...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

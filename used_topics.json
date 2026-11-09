@@ -1,11 +1,5 @@
 [
   {
-    "type": "achievement",
-    "domain": "sql",
-    "topic": "dbt tests and data contracts \u2014 enforcing data quality at the model layer",
-    "date": "2026-08-10"
-  },
-  {
     "type": "myth_vs_reality",
     "domain": "pyspark",
     "topic": "PySpark UDFs vs Pandas UDFs \u2014 performance difference explained",
@@ -238,5 +232,11 @@
     "domain": "aws",
     "topic": "CloudFormation vs Terraform for data infrastructure as code",
     "date": "2026-11-07"
+  },
+  {
+    "type": "tip",
+    "domain": "databricks",
+    "topic": "Managing Lakehouse data quality with expectations and alerts",
+    "date": "2026-11-09"
   }
 ]

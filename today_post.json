@@ -1,78 +1,74 @@
 {
-  "text": "CloudFormation vs Terraform: The battle of reproducibility. I learned that Terraform\u2019s state file gives us better drift detection than CloudFormation\u2019s drift detection API. Which approach has served you better in production?\n\n#DataEngineering #AWS #CloudEngineering #DataPlatform",
-  "format_type": "insight",
-  "domain": "AWS",
-  "topic": "CloudFormation vs Terraform for data infrastructure as code",
-  "date": "2026-11-07",
-  "model_used": "openai/gpt-oss-20b",
-  "hashtags": "#DataEngineering #AWS #CloudEngineering #DataPlatform",
+  "text": "Stop guessing, start validating. 3 quick tips to enforce Databricks data quality: use Expectations, alert on failure, and document contracts. Save this for your next pipeline build.\n\n#DataEngineering #Databricks #DeltaLake #ApacheSpark #TechTips",
+  "format_type": "tip",
+  "domain": "Databricks",
+  "topic": "Managing Lakehouse data quality with expectations and alerts",
+  "date": "2026-11-09",
+  "model_used": "qwen/qwen3.8-27b",
+  "hashtags": "#DataEngineering #Databricks #DeltaLake #ApacheSpark #TechTips",
   "infographic": {
-    "title": "CLOUDFORMATION VS TERRAFORM FOR DATA INFRASTRUCTURE AS CODE",
-    "subtitle": "A practical look for data engineers working with AWS",
-    "badge": "AWS",
+    "title": "LAKEHOUSE QUALITY IS NON-NEGOTIABLE",
+    "subtitle": "Enforce expectations, not just hope for clean data.",
+    "badge": "DBX",
     "problem_heading": "THE REAL PROBLEM",
     "solution_heading": "HOW DATA ENGINEERS HANDLE THIS",
-    "pipeline_heading": "A REAL AWS WORKFLOW",
+    "pipeline_heading": "REAL PIPELINE WITH QUALITY CHECKS",
     "why_heading": "WHY THIS MATTERS",
     "mindset_heading": "KEY MINDSET OF A DATA ENGINEER",
-    "mindset_before": "Anyone can move data around.",
-    "mindset_after": "Great engineers build systems that hold up.",
+    "mindset_before": "Hope the source schema stays stable",
+    "mindset_after": "Assume data is dirty, validate always",
     "simple_words_heading": "IN SIMPLE WORDS",
     "tagline": "Better data. Better insights. Better impact.",
     "problem_points": [
-      "Inconsistent or messy inputs",
-      "Manual, error-prone steps",
-      "Hard to scale reliably",
-      "Costly to fix downstream"
+      "Silent data drift",
+      "Failed downstream joins",
+      "No context for errors",
+      "Reactive firefighting mode"
     ],
     "pipeline_steps": [
       {
-        "label": "Amazon S3",
+        "label": "Ingest Data",
         "icon": "database"
       },
       {
-        "label": "Lambda",
+        "label": "Run Expectations",
+        "icon": "check"
+      },
+      {
+        "label": "Alter Delta",
         "icon": "gear"
       },
       {
-        "label": "Glue",
-        "icon": "refresh"
-      },
-      {
-        "label": "Redshift",
-        "icon": "database"
-      },
-      {
-        "label": "Analytics",
-        "icon": "chart"
+        "label": "Alert Team",
+        "icon": "warning"
       }
     ],
     "why_matters": [
       {
-        "title": "Builds Trust",
-        "desc": "Stakeholders trust the data",
+        "title": "Trust the Data",
+        "desc": "Stakeholders rely on verified outputs.",
         "icon": "shield"
       },
       {
-        "title": "Saves Time",
-        "desc": "Less rework, fewer re-runs",
-        "icon": "clock"
+        "title": "Faster Debugging",
+        "desc": "Exact failure points identified instantl",
+        "icon": "magnify"
       },
       {
-        "title": "Cost Efficient",
-        "desc": "Less wasted compute & storage",
+        "title": "Cost Efficiency",
+        "desc": "Prevent wasted compute on bad rows.",
         "icon": "coin"
       },
       {
-        "title": "Scales Well",
-        "desc": "Holds up as data grows",
-        "icon": "chart"
+        "title": "Compliance Ready",
+        "desc": "Audit trails for data integrity.",
+        "icon": "lock"
       }
     ],
     "simple_words_chain": [
-      "AWS",
-      "Reliable Data"
+      "Validate",
+      "Alert"
     ]
   },
-  "raw_llm": "{\"post_text\":\"CloudFormation vs Terraform: The battle of reproducibility. I learned that Terraform\u2019s state file gives us better drift detection than CloudFormation\u2019s drift detection API. Which approach has served you better in production?\",\"hashtags\":\"#DataEngineering #AWS #CloudEngineering #DataPlatform\",\"infographic\":{\"title\":\"CHOOSE THE RIGHT TOOL FOR INFRASTRUCTURE\",\"subtitle\":\"AWS"
+  "raw_llm": "{\n  \"post_text\": \"Stop guessing, start validating. 3 quick tips to enforce Databricks data quality: use Expectations, alert on failure, and document contracts. Save this for your next pipeline build.\",\n  \"hashtags\": \"#DataEngineering #Databricks #DeltaLake #ApacheSpark #TechTips\",\n  \"infographic\":\n    {\n      \"title\": \"LAKEHOUSE QUALITY IS NON-NEGOTIABLE\",\n      \"subtitle\": \"Enforce expectations, not just hope for clean data.\",\n      \"badge\": \"DBX\",\n      \"problem_heading\": \"THE REAL PROBLEM\",\n      \"problem_points\": [\n        \"Silent data drift\",\n        \"Failed downstream joins\",\n        \"No context for errors\",\n        \"Reactive firefighting mode\"\n      ],\n      \"solution_heading\": \"HOW DATA ENGINEERS HANDLE THIS\",\n      \"pipeline_heading\": \"REAL PIPELINE WITH QUALITY CHECKS\",\n      \"pipeline_steps\": [\n        {\n          \"label\": \"Ingest Data\",\n          \"icon\": \"database\"\n        },\n        {\n          \"label\": \"Run Expectations\",\n          \"icon\": \"check\"\n        },\n        {\n          \"label\": \"Alter Delta\",\n          \"icon\": \"gear\"\n        },\n        {\n          \"label\": \"Alert Team\",\n          \"icon\": \"warning\"\n        }\n      ],\n      \"why_heading\": \"WHY THIS MATTERS\",\n      \"why_matters\": [\n        {\n          \"title\": \"Trust the Data\",\n          \"desc\": \"Stakeholders rely on verified outputs.\",\n          \"icon\": \"shield\"\n        },\n        {\n          \"title\": \"Faster Debugging\",\n          \"desc\": \"Exact failure points identified instantly.\",\n          \"icon\": \"magnify\"\n        },\n        {\n          \"title\": \"Cost Efficiency\",\n          \"desc\": \"Prevent wasted compute on bad rows.\",\n          \"icon\": \"coin\"\n        },\n        {\n          \"title\": \"Compliance Ready\",\n          \"desc\": \"Audit trails for data integrity.\",\n          \"icon\": \"lock\"\n        }\n      ],\n      \"mindset_heading\": \"KEY MINDSET OF A DATA ENGINEER\",\n      \"mindset_before\": \"Hope the source schema stays stable\",\n      \"mindset_after\": \"Assume data is dirty, validate always\",\n      \"simple_words_heading\": \"IN SIMPLE WORDS\",\n      \"simple_words_chain\": [\n        \"Validate\",\n        \"Alert\"\n      ],\n      \"tagline\": \"Better data. Better insights. Better impact.\"\n    }\n  }"
 }

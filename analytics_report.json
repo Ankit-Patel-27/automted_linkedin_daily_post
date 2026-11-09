@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-11-07",
-  "posts_analysed": 10,
+  "generated_date": "2026-11-09",
+  "posts_analysed": 11,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -131,6 +131,18 @@
       "domain": "AWS",
       "had_image": true,
       "preview": "CloudFormation vs Terraform: The battle of reproducibility. I learned that Terraform\u2019s state file gives us better drift ...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-11-09",
+      "post_id": "urn:li:share:7525463066436657152",
+      "format_type": "tip",
+      "domain": "Databricks",
+      "had_image": true,
+      "preview": "Stop guessing, start validating. 3 quick tips to enforce Databricks data quality: use Expectations, alert on failure, an...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

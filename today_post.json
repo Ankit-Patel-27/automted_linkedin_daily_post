@@ -1,74 +1,74 @@
 {
-  "text": "Stop guessing, start validating. 3 quick tips to enforce Databricks data quality: use Expectations, alert on failure, and document contracts. Save this for your next pipeline build.\n\n#DataEngineering #Databricks #DeltaLake #ApacheSpark #TechTips",
-  "format_type": "tip",
-  "domain": "Databricks",
-  "topic": "Managing Lakehouse data quality with expectations and alerts",
-  "date": "2026-11-09",
-  "model_used": "qwen/qwen3.8-27b",
-  "hashtags": "#DataEngineering #Databricks #DeltaLake #ApacheSpark #TechTips",
+  "text": "Data engineers, watch out! Discover how AI augments data engineering best practices, leading to more efficient Apache Spark pipelines\n\n#DataEngineering #GenAI #Databricks #ProjectShowcase #HealthTech #PySpark #ApacheSpark #BigData",
+  "format_type": "project_spotlight",
+  "domain": "PySpark",
+  "topic": "PySpark UDFs vs Pandas UDFs - performance difference explained",
+  "date": "2026-11-11",
+  "model_used": "allam-2-7b",
+  "hashtags": "#DataEngineering #GenAI #Databricks #ProjectShowcase #HealthTech #PySpark #ApacheSpark #BigData",
   "infographic": {
-    "title": "LAKEHOUSE QUALITY IS NON-NEGOTIABLE",
-    "subtitle": "Enforce expectations, not just hope for clean data.",
-    "badge": "DBX",
+    "title": "PYSPARK UDFS VS PANDAS UDFS",
+    "subtitle": "A practical look for data engineers working with PySpark",
+    "badge": "PY",
     "problem_heading": "THE REAL PROBLEM",
     "solution_heading": "HOW DATA ENGINEERS HANDLE THIS",
-    "pipeline_heading": "REAL PIPELINE WITH QUALITY CHECKS",
+    "pipeline_heading": "A REAL PYSPARK WORKFLOW",
     "why_heading": "WHY THIS MATTERS",
     "mindset_heading": "KEY MINDSET OF A DATA ENGINEER",
-    "mindset_before": "Hope the source schema stays stable",
-    "mindset_after": "Assume data is dirty, validate always",
+    "mindset_before": "Anyone can move data around.",
+    "mindset_after": "Great engineers build systems that hold up.",
     "simple_words_heading": "IN SIMPLE WORDS",
     "tagline": "Better data. Better insights. Better impact.",
     "problem_points": [
-      "Silent data drift",
-      "Failed downstream joins",
-      "No context for errors",
-      "Reactive firefighting mode"
+      "Inconsistent or messy inputs",
+      "Manual, error-prone steps",
+      "Hard to scale reliably",
+      "Costly to fix downstream"
     ],
     "pipeline_steps": [
       {
-        "label": "Ingest Data",
+        "label": "Extract",
         "icon": "database"
       },
       {
-        "label": "Run Expectations",
-        "icon": "check"
-      },
-      {
-        "label": "Alter Delta",
+        "label": "Transform",
         "icon": "gear"
       },
       {
-        "label": "Alert Team",
-        "icon": "warning"
+        "label": "Optimize",
+        "icon": "refresh"
+      },
+      {
+        "label": "Load",
+        "icon": "chart"
       }
     ],
     "why_matters": [
       {
-        "title": "Trust the Data",
-        "desc": "Stakeholders rely on verified outputs.",
+        "title": "Builds Trust",
+        "desc": "Stakeholders trust the data",
         "icon": "shield"
       },
       {
-        "title": "Faster Debugging",
-        "desc": "Exact failure points identified instantl",
-        "icon": "magnify"
+        "title": "Saves Time",
+        "desc": "Less rework, fewer re-runs",
+        "icon": "clock"
       },
       {
-        "title": "Cost Efficiency",
-        "desc": "Prevent wasted compute on bad rows.",
+        "title": "Cost Efficient",
+        "desc": "Less wasted compute & storage",
         "icon": "coin"
       },
       {
-        "title": "Compliance Ready",
-        "desc": "Audit trails for data integrity.",
-        "icon": "lock"
+        "title": "Scales Well",
+        "desc": "Holds up as data grows",
+        "icon": "chart"
       }
     ],
     "simple_words_chain": [
-      "Validate",
-      "Alert"
+      "PySpark",
+      "Reliable Data"
     ]
   },
-  "raw_llm": "{\n  \"post_text\": \"Stop guessing, start validating. 3 quick tips to enforce Databricks data quality: use Expectations, alert on failure, and document contracts. Save this for your next pipeline build.\",\n  \"hashtags\": \"#DataEngineering #Databricks #DeltaLake #ApacheSpark #TechTips\",\n  \"infographic\":\n    {\n      \"title\": \"LAKEHOUSE QUALITY IS NON-NEGOTIABLE\",\n      \"subtitle\": \"Enforce expectations, not just hope for clean data.\",\n      \"badge\": \"DBX\",\n      \"problem_heading\": \"THE REAL PROBLEM\",\n      \"problem_points\": [\n        \"Silent data drift\",\n        \"Failed downstream joins\",\n        \"No context for errors\",\n        \"Reactive firefighting mode\"\n      ],\n      \"solution_heading\": \"HOW DATA ENGINEERS HANDLE THIS\",\n      \"pipeline_heading\": \"REAL PIPELINE WITH QUALITY CHECKS\",\n      \"pipeline_steps\": [\n        {\n          \"label\": \"Ingest Data\",\n          \"icon\": \"database\"\n        },\n        {\n          \"label\": \"Run Expectations\",\n          \"icon\": \"check\"\n        },\n        {\n          \"label\": \"Alter Delta\",\n          \"icon\": \"gear\"\n        },\n        {\n          \"label\": \"Alert Team\",\n          \"icon\": \"warning\"\n        }\n      ],\n      \"why_heading\": \"WHY THIS MATTERS\",\n      \"why_matters\": [\n        {\n          \"title\": \"Trust the Data\",\n          \"desc\": \"Stakeholders rely on verified outputs.\",\n          \"icon\": \"shield\"\n        },\n        {\n          \"title\": \"Faster Debugging\",\n          \"desc\": \"Exact failure points identified instantly.\",\n          \"icon\": \"magnify\"\n        },\n        {\n          \"title\": \"Cost Efficiency\",\n          \"desc\": \"Prevent wasted compute on bad rows.\",\n          \"icon\": \"coin\"\n        },\n        {\n          \"title\": \"Compliance Ready\",\n          \"desc\": \"Audit trails for data integrity.\",\n          \"icon\": \"lock\"\n        }\n      ],\n      \"mindset_heading\": \"KEY MINDSET OF A DATA ENGINEER\",\n      \"mindset_before\": \"Hope the source schema stays stable\",\n      \"mindset_after\": \"Assume data is dirty, validate always\",\n      \"simple_words_heading\": \"IN SIMPLE WORDS\",\n      \"simple_words_chain\": [\n        \"Validate\",\n        \"Alert\"\n      ],\n      \"tagline\": \"Better data. Better insights. Better impact.\"\n    }\n  }"
+  "raw_llm": "Link to the LinkedIn Profile: LinkedIn: [LINK]\n\n---\n\n{\n  \"post_text\": \"Data engineers, watch out! Discover how AI augments data engineering best practices, leading to more efficient Apache Spark pipelines\",\n  \"hashtags\": \"#DataEngineering #GenAI #Databricks #ProjectShowcase #HealthTech #PySpark #ApacheSpark #BigData\",\n  \"image\": \"{project image}\",\n  \"target_industry\": \"HealthTech\",\n  \"post_text_summary: \"Data engineers and data scientists, let's dive into an AI-driven data engineering approach.\",\n  \"industry_or_title: \"HealthTech\",\n  \"summary_details: \"Real-world example tackling data quality issues with AI and Python, resulting in improved pipelines.\",\n  \"linkedin_quote\": \"Link to LinkedIn Profile: [LINK]\",\n  \"data_professionals\": true,\n  \"hashtags\": \"#DataEngineering #GenAI #Databricks #ProjectShowcase #HealthTech #PySpark #ApacheSpark #BigData\",\n  \"image\": \"{image}\",\n  \"post_text\": \"In Healthcare, where #DataEngineering meets #GenAI, exploring PySpark pipeline optimisation.\",\n  \"titles\": [\"PySpark Power\", \"Data Engineering\", \"HealthTech Data Science\"],\n  \"desc\": \"Data engineering isn't a one-size-fits-all solution.\\n\\nIn this case, Python, AI, and PySpark come together to improve pipelines.\\n\\nExpertise: AWS, Databricks, PySpark, Healthcare, Big Data\",\n  \"industry_or_title\": \"HealthTech, Data Science\",\n  \"post_text_summary\": \"Data engineers face a practical challenge in Healthcare: optimizing PySpark pipelines with AI assistance.\",\n  \n  \"data_engineering_skills\": [\"Talend\", \"AWS\", \"PySpark\", \"Python\", \"Data Science\"],\n  \"key_takeaway\": \"Streamlining pipelines with AI in Healthcare and PySpark is key to better insights.\",\n  \"image\": \"{image}\",\n  \"linkedin_quote\": \"Link to LinkedIn Profile: [LINK]\",\n  \"data_quality\": [\"pipeline optimization\", \"Data Engineering\", \"Predictive Analytics\", \"AWS\", \"Data Science\"],\n  \"client_title\": \"Tata Consultancy Services\",\n  \"titles\": [\"Data Engineering\", \"AWS\", \"PySpark\", \"Healthcare\", \"Data Science\"],\n  \"desc\": \"In #DataEngineering, AI and custom PySpark pipelines key for optimizing data quality in the healthcare industry, leading to better insights.\",\n  \"data_professionals_numbers\": [\"Efficiency\", \"Cost\", \"Quality\", \"Interoperability\", \"Data Quality\"],\n  \"key_takeaways\": [\"Streamlining pipelines\", \"Data Optimization\", \"AI-powered insights\", \"Cloud-native solutions\", \"HealthTech\"],\n  \"summary\": \"Optimising data quality with AI and custom PySpark pipelines for healthcare\",\n  \"data_engineering_employers\": [\"Tata Consultancy Services\", \"Data Science\", \"AWS\", \"HealthTech\"],\n  \"project_details\": \"Project: Data pipeline optimisation in healthcare\",\n  \"industry_sector_details\": \"HealthTech\",\n  \"industry_sector\": \"HealthTech\",\n  \"industry_sector_details_2\": \"Top-down optimisation\",\n  \"industry_sector_details_3\": \"AWS-powered insights\",\n  \"post_text\": \"Data pipelines in healthcare - improving value, reducing costs\",\n  \"hashtags_1\": \"Data optimization\",\n  \"hashtags_2\": \"Data Engineering\",\n  \"hashtags_3\": \"AWS Cloud-native solutions\",\n  \"post_image\": \"healthcare-data-engineering.jpg\"\n  \"industry_tagline\": \"Data Optimization for Healthcare\n  \"tagline\": \"Data & AI in Healthcare\",\n  \"image\": \"healthcare-data-pipelines.jpg\",   \n  \"industry_details_1\": \"PySpark custom pipelines\",\n  \"industry_main\": \"HealthTech\",\n  \"badge\": \"AWS Expert\",\n    \"category\": \"HealthTech\",\n   \"title\": \"Quality assurance through AI-powered PySpark pipelines\",\n   \"tagline\": \"PySpark & AI in Healthcare\",\n    \"hashtags\": [\"Improved pipelines\",\n    \"recommendation\": \"AI & Data Engineering\",\n    \"image\": \"healthcare-pipeline-optimization.jpg\",\n   \"data_engineering_details\": \"Data Engineering principles\",\n   \"badge\": \"AWS data engineering pro\",\n  \"hashtags_2\": [\"PySpark\",\n   \"image_alt\": \"healthcare-projects-optimized.jpg\",\n    \"tagline\": \"Solutions for better data quality in healthcare\",\n   \"image_alt\": \"healthcare-dataquality-improvement.jpg\",\n  \"industry_main\": \"HealthTech\",\n  \"summary\": \"AI assistance in healthcare\",\n   \"key_tagline\": \"HealthTech\",\n  \"data_engineering_details_1\": \"Data Engineering fundamentals\",\n  \"title\": \"Bringing productivity & quality to the HealthTech industry\",\n  \"tagline\": \"AWS data engineering best practices\",\n  \"hashtags\": [\"Pipeline optimization\",\n  \"image\": \"healthcare-dataengineering.jpg\",\n  \"image_alt\": \"healthcare-dataengineering-project.jpg\",\n  \"key_tagline\": \"PySpark & Data Engineering\",\n  \"dataengineering_details_2\": \"Productivity & Data Quality\",\n   \"summary\": \"Enhancing pipelines through Data Engineering best practices\",\n  \"hashtags_1\": [\"HealthTech\",\n  \"postscript\": \"real example of streamlined pipelines\",\n  \"infographic\": \"healthcare-dataengineering-project-example.jpg\",\n  \"tagline\": \"AWS cloud solutions\",\n  \"dataengineering_details_3\": \"Best practices for healthcare data quality\",\n  \"hashtags_"
 }

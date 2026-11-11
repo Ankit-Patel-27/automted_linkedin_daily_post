@@ -1,11 +1,5 @@
 [
   {
-    "type": "myth_vs_reality",
-    "domain": "pyspark",
-    "topic": "PySpark UDFs vs Pandas UDFs \u2014 performance difference explained",
-    "date": "2026-08-11"
-  },
-  {
     "type": "tip",
     "domain": "aws",
     "topic": "Redshift Spectrum vs Athena \u2014 when to query S3 directly",
@@ -238,5 +232,11 @@
     "domain": "databricks",
     "topic": "Managing Lakehouse data quality with expectations and alerts",
     "date": "2026-11-09"
+  },
+  {
+    "type": "project_spotlight",
+    "domain": "pyspark",
+    "topic": "PySpark UDFs vs Pandas UDFs - performance difference explained",
+    "date": "2026-11-11"
   }
 ]

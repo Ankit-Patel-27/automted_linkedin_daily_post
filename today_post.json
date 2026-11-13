@@ -1,18 +1,18 @@
 {
-  "text": "Data engineers, watch out! Discover how AI augments data engineering best practices, leading to more efficient Apache Spark pipelines\n\n#DataEngineering #GenAI #Databricks #ProjectShowcase #HealthTech #PySpark #ApacheSpark #BigData",
-  "format_type": "project_spotlight",
-  "domain": "PySpark",
-  "topic": "PySpark UDFs vs Pandas UDFs - performance difference explained",
-  "date": "2026-11-11",
+  "text": "Title: Data Engineers and Data Integrity: From Data Mesh to Data Contracts in Healthcare Posted in: Caption: In healthcare, data integrity is crucial. Bridging teams with , ensure seamless data sharing. \ud83d\udcbc \"hashtags\": [\"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\"] \"title\": \"Data Engineers: From Data Mesh to Data Contracts - Ensuring Healthcare Data Integrity\" \"subtitle\": \"Data Contracts bridge gaps, simplify data handoffs, and prevent data tampering.\n\n#DataEngineering #HealthTech #DataMesh #GenAI #CloudArchitecture  #SQL #dbt #AnalyticsEngineering",
+  "format_type": "industry_take",
+  "domain": "SQL / Analytics Engineering",
+  "topic": "Data contracts for cross-team analytics handoffs",
+  "date": "2026-11-13",
   "model_used": "allam-2-7b",
-  "hashtags": "#DataEngineering #GenAI #Databricks #ProjectShowcase #HealthTech #PySpark #ApacheSpark #BigData",
+  "hashtags": "#DataEngineering #HealthTech #DataMesh #GenAI #CloudArchitecture  #SQL #dbt #AnalyticsEngineering",
   "infographic": {
-    "title": "PYSPARK UDFS VS PANDAS UDFS",
-    "subtitle": "A practical look for data engineers working with PySpark",
-    "badge": "PY",
+    "title": "DATA CONTRACTS FOR CROSS-TEAM ANALYTICS HANDOFFS",
+    "subtitle": "A practical look for data engineers working with SQL / Analytics Engineering",
+    "badge": "SQL",
     "problem_heading": "THE REAL PROBLEM",
     "solution_heading": "HOW DATA ENGINEERS HANDLE THIS",
-    "pipeline_heading": "A REAL PYSPARK WORKFLOW",
+    "pipeline_heading": "A REAL SQL / ANALYTICS ENGINEERING WORKFLOW",
     "why_heading": "WHY THIS MATTERS",
     "mindset_heading": "KEY MINDSET OF A DATA ENGINEER",
     "mindset_before": "Anyone can move data around.",
@@ -27,19 +27,19 @@
     ],
     "pipeline_steps": [
       {
-        "label": "Extract",
+        "label": "Source",
         "icon": "database"
       },
       {
-        "label": "Transform",
+        "label": "Model",
         "icon": "gear"
       },
       {
-        "label": "Optimize",
-        "icon": "refresh"
+        "label": "Test",
+        "icon": "check"
       },
       {
-        "label": "Load",
+        "label": "Serve",
         "icon": "chart"
       }
     ],
@@ -66,9 +66,9 @@
       }
     ],
     "simple_words_chain": [
-      "PySpark",
+      "SQL / Analytics Engineering",
       "Reliable Data"
     ]
   },
-  "raw_llm": "Link to the LinkedIn Profile: LinkedIn: [LINK]\n\n---\n\n{\n  \"post_text\": \"Data engineers, watch out! Discover how AI augments data engineering best practices, leading to more efficient Apache Spark pipelines\",\n  \"hashtags\": \"#DataEngineering #GenAI #Databricks #ProjectShowcase #HealthTech #PySpark #ApacheSpark #BigData\",\n  \"image\": \"{project image}\",\n  \"target_industry\": \"HealthTech\",\n  \"post_text_summary: \"Data engineers and data scientists, let's dive into an AI-driven data engineering approach.\",\n  \"industry_or_title: \"HealthTech\",\n  \"summary_details: \"Real-world example tackling data quality issues with AI and Python, resulting in improved pipelines.\",\n  \"linkedin_quote\": \"Link to LinkedIn Profile: [LINK]\",\n  \"data_professionals\": true,\n  \"hashtags\": \"#DataEngineering #GenAI #Databricks #ProjectShowcase #HealthTech #PySpark #ApacheSpark #BigData\",\n  \"image\": \"{image}\",\n  \"post_text\": \"In Healthcare, where #DataEngineering meets #GenAI, exploring PySpark pipeline optimisation.\",\n  \"titles\": [\"PySpark Power\", \"Data Engineering\", \"HealthTech Data Science\"],\n  \"desc\": \"Data engineering isn't a one-size-fits-all solution.\\n\\nIn this case, Python, AI, and PySpark come together to improve pipelines.\\n\\nExpertise: AWS, Databricks, PySpark, Healthcare, Big Data\",\n  \"industry_or_title\": \"HealthTech, Data Science\",\n  \"post_text_summary\": \"Data engineers face a practical challenge in Healthcare: optimizing PySpark pipelines with AI assistance.\",\n  \n  \"data_engineering_skills\": [\"Talend\", \"AWS\", \"PySpark\", \"Python\", \"Data Science\"],\n  \"key_takeaway\": \"Streamlining pipelines with AI in Healthcare and PySpark is key to better insights.\",\n  \"image\": \"{image}\",\n  \"linkedin_quote\": \"Link to LinkedIn Profile: [LINK]\",\n  \"data_quality\": [\"pipeline optimization\", \"Data Engineering\", \"Predictive Analytics\", \"AWS\", \"Data Science\"],\n  \"client_title\": \"Tata Consultancy Services\",\n  \"titles\": [\"Data Engineering\", \"AWS\", \"PySpark\", \"Healthcare\", \"Data Science\"],\n  \"desc\": \"In #DataEngineering, AI and custom PySpark pipelines key for optimizing data quality in the healthcare industry, leading to better insights.\",\n  \"data_professionals_numbers\": [\"Efficiency\", \"Cost\", \"Quality\", \"Interoperability\", \"Data Quality\"],\n  \"key_takeaways\": [\"Streamlining pipelines\", \"Data Optimization\", \"AI-powered insights\", \"Cloud-native solutions\", \"HealthTech\"],\n  \"summary\": \"Optimising data quality with AI and custom PySpark pipelines for healthcare\",\n  \"data_engineering_employers\": [\"Tata Consultancy Services\", \"Data Science\", \"AWS\", \"HealthTech\"],\n  \"project_details\": \"Project: Data pipeline optimisation in healthcare\",\n  \"industry_sector_details\": \"HealthTech\",\n  \"industry_sector\": \"HealthTech\",\n  \"industry_sector_details_2\": \"Top-down optimisation\",\n  \"industry_sector_details_3\": \"AWS-powered insights\",\n  \"post_text\": \"Data pipelines in healthcare - improving value, reducing costs\",\n  \"hashtags_1\": \"Data optimization\",\n  \"hashtags_2\": \"Data Engineering\",\n  \"hashtags_3\": \"AWS Cloud-native solutions\",\n  \"post_image\": \"healthcare-data-engineering.jpg\"\n  \"industry_tagline\": \"Data Optimization for Healthcare\n  \"tagline\": \"Data & AI in Healthcare\",\n  \"image\": \"healthcare-data-pipelines.jpg\",   \n  \"industry_details_1\": \"PySpark custom pipelines\",\n  \"industry_main\": \"HealthTech\",\n  \"badge\": \"AWS Expert\",\n    \"category\": \"HealthTech\",\n   \"title\": \"Quality assurance through AI-powered PySpark pipelines\",\n   \"tagline\": \"PySpark & AI in Healthcare\",\n    \"hashtags\": [\"Improved pipelines\",\n    \"recommendation\": \"AI & Data Engineering\",\n    \"image\": \"healthcare-pipeline-optimization.jpg\",\n   \"data_engineering_details\": \"Data Engineering principles\",\n   \"badge\": \"AWS data engineering pro\",\n  \"hashtags_2\": [\"PySpark\",\n   \"image_alt\": \"healthcare-projects-optimized.jpg\",\n    \"tagline\": \"Solutions for better data quality in healthcare\",\n   \"image_alt\": \"healthcare-dataquality-improvement.jpg\",\n  \"industry_main\": \"HealthTech\",\n  \"summary\": \"AI assistance in healthcare\",\n   \"key_tagline\": \"HealthTech\",\n  \"data_engineering_details_1\": \"Data Engineering fundamentals\",\n  \"title\": \"Bringing productivity & quality to the HealthTech industry\",\n  \"tagline\": \"AWS data engineering best practices\",\n  \"hashtags\": [\"Pipeline optimization\",\n  \"image\": \"healthcare-dataengineering.jpg\",\n  \"image_alt\": \"healthcare-dataengineering-project.jpg\",\n  \"key_tagline\": \"PySpark & Data Engineering\",\n  \"dataengineering_details_2\": \"Productivity & Data Quality\",\n   \"summary\": \"Enhancing pipelines through Data Engineering best practices\",\n  \"hashtags_1\": [\"HealthTech\",\n  \"postscript\": \"real example of streamlined pipelines\",\n  \"infographic\": \"healthcare-dataengineering-project-example.jpg\",\n  \"tagline\": \"AWS cloud solutions\",\n  \"dataengineering_details_3\": \"Best practices for healthcare data quality\",\n  \"hashtags_"
+  "raw_llm": "Title: Data Engineers and Data Integrity: From Data Mesh to Data Contracts in Healthcare\nPosted in: #DataEngineering #HealthTech #DataMesh #GenAI #CloudArchitecture #SQL #dbt #AnalyticsEngineering\n\nCaption: In healthcare, data integrity is crucial. Bridging teams with #DataContracts, #DataEngineers ensure seamless data sharing. \ud83d\udcbc\n\n\"hashtags\": [\"#DataEngineering\", \"#HealthTech\", \"#DataMesh\", \"#GenAI\", \"#CloudArchitecture\", \"#SQL\", \"#dbt\", \"#AnalyticsEngineering\"]\n\n\"title\": \"Data Engineers: From Data Mesh to Data Contracts - Ensuring Healthcare Data Integrity\"\n\"subtitle\": \"Data Contracts bridge gaps, simplify data handoffs, and prevent data tampering. Learn about the new skillset required for Data Engineers in 2023\"\n\"tagline\": \"Integrity matters: Build a secure #DataContracts foundation now\"\n\n\"tagline_image\": \"Data Contracts for #HealthcareDataInfrastructure\"\n\n```json\n{\n  \"title\": \"Data Engineers and Contracts in Healthcare Data Infrastructure\",\n  \"subtitle\": \"Leveraging Data Contracts for data quality assurance\",\n  \"tagline\": \"Increase trust, simplify data wrangling in Healthcare\",\n  \"tagline_image\": \"Data Contracts in Healthcare\"\n  \"question\": \"Why do healthcare data engineers need to prioritize data contracts?\",\n  \"answer_image\": \"Data Contracts - the key to better data: Ensuring Data Integrity, Simplifying Handoffs\",\n  \"infographic\": [\n    {\n      \"label\": \"Data Engineering\",\n      \"description\": \"Data Engineers + Data Contracts: From data mesh to data contracts\",\n      \"icons\": [\"database\", \"trust\", \"datascience\", \"Cloud\" , \"Lambda\", \"K8s\", \"Data\" ,\"AWS\"]\n    {\n      \"label\": \"Data Contracts in Healthcare\",\n      \"description\": \"Achieve trust and quality in healthcare data infrastructure\",\n      \"icons\": [\"Cloud\", \"AWS\", \"Lambda\", \"Lambda\", \"Trust\", \"Data Architecture\", \"AWS-controlled pipelines\", \"AWS\"],\n    \"questions\": [\n      \"Why data integrity is crucial in healthcare?\",\n      \"Why AI/ML models need trust in data?\",\n      \"Why build AWS-controlled pipelines?\",\n      \"How Lambda Lambda establishes trust?\",\n      \"Key steps for better data architecture?\",\n      \"Data Contracts for confident analytics?\",\n      \"Mindset for successful data engineers?\",\n      \"Defining Data Contracts for secure engineering?\",\n      \"Empowering healthcare with AWS-controlled pipelines?\",\n      \"Integrating AI/ML models as a Data Engineer?\",\n      \"Simplifying data wrangling for clinical researchers?\",\n      \"Opinion: AWS-built pipelines secure data pipelines?\",\n      \"Data contracts for AWS architects?\",\n      \"Data Contracts + AI tools = better health outcomes?\",\n      \"Why AWS-controlled pipelines matter?\",\n      \"Integrating data pipelines for AI tools?\",\n      \"Data Contracts for secure data pipelines?\",\n        \"AI tools with AWS, healthcare success?\",\n      \"Data Contracts, Data Wrangling, and Lambda for data governance?\",\n      \"Data Contracts for data quality assurance?\"\n      \"AWS CloudFormation, Lambda, or IAM for secure pipelines?\",\n    \"AI/ML in healthcare: Data Contracts matter more than ever before?\",\n     \"Amazon S3, Glue, and Glue for data governance?\",\n   {\n    \"Building pipelines with Data Contracts = secure analytics?\",\n    \"Data Contracts for AWS-based pipelines?\",\n    \"Amazon Glue, Glue for Data Contracts?\",\n    \"Healthcare AI: Data Contracts = confident analytics?\",\n     \"CloudFormation and Lambda: The data pipeline success story\"\n    \"AWS Glue, Glue, Lambda: Secure data pipelines count\"\n   \"Data Contracts, AWS Glue: Respectful data pipeline design\"\n   \"AWS Glue Glue: Confident data pipelines for data engineering\"\n   \"CloudFormation, Glue, Glue: Secure data pipelines via Lambda\"\n   \"CloudFormation and Glue, Lambda: Data contracts in plain English\"\n  \"AWS Glue, Glue, Glue: Confident data pipeline utilization\"\n  \"AWS Glue, Glue: Secure data pipelines\"\n  \"CloudFormation, Glue, Glue: Confident data pipelines for AI-driven insights\"\n  \"AWS Glue Glue: Data Contracts ensure data security\"\n  \"Glue, Glue: Secure data pipelines for data insights\"\n  \"AWS Glue, Glue, Glue: Confident data pipelines\"\n  \"CloudFormation, Glue, Glue: Secure data pipelines via Lambda\"\n  \"AWS Glue, Glue, Glue: Confident data pipelines\"\n  \"Data Contracts, Glue, Glue: Data Engineering\"\n  \"CloudFormation, Glue, Glue: Secure data pipelines via Glue\",\n  \"AWS Glue, Glue, Glue: Confident data pipelines for healthcare data engineering\"\n  \"Data Contracts, Glue, Glue: Confident data pipelines for AI insights\",\n  \"CloudFormation, Glue, Glue: Secure data pipelines\"\n  \"AWS Glue, Glue, Glue: Confident data pipelines for healthcare data engineering\", \"Data Contracts, Glue, Glue: Data Engineering\""
 }

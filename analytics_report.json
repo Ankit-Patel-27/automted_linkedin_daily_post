@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-11-11",
-  "posts_analysed": 12,
+  "generated_date": "2026-11-13",
+  "posts_analysed": 13,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -155,6 +155,18 @@
       "domain": "PySpark",
       "had_image": true,
       "preview": "Data engineers, watch out! Discover how AI augments data engineering best practices, leading to more efficient Apache Sp...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-11-13",
+      "post_id": "urn:li:share:7526911808201187328",
+      "format_type": "industry_take",
+      "domain": "SQL / Analytics Engineering",
+      "had_image": true,
+      "preview": "Title: Data Engineers and Data Integrity: From Data Mesh to Data Contracts in Healthcare Posted in: Caption: In healthca...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-06-23",
-    "post_id": "urn:li:share:7475049827119259648",
-    "format_type": "tip",
-    "domain": "Databricks",
-    "had_image": true,
-    "preview": "Boost your query performance in Databricks with these game-changing tips on Z-ordering and liquid clustering!\n\nAs a seas..."
-  },
-  {
     "date": "2026-06-24",
     "post_id": "urn:li:share:7475412790028185601",
     "format_type": "myth_vs_reality",
@@ -718,5 +710,13 @@
     "domain": "SQL / Analytics Engineering",
     "had_image": true,
     "preview": "Title: Data Engineers and Data Integrity: From Data Mesh to Data Contracts in Healthcare Posted in: Caption: In healthca..."
+  },
+  {
+    "date": "2026-11-15",
+    "post_id": "urn:li:share:7527636207992827904",
+    "format_type": "myth_vs_reality",
+    "domain": "AWS",
+    "had_image": true,
+    "preview": "Myth: S3 tagging is optional metadata. Reality: It\u2019s essential for governance and lineage. Use tagging consistently to t..."
   }
 ]

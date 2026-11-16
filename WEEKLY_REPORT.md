@@ -1,6 +1,6 @@
 # 📊 Weekly LinkedIn Analytics Report
 
-**Generated:** 2026-11-09
+**Generated:** 2026-11-16
 **Period:** Last 30 days
 
 ---
@@ -9,7 +9,7 @@
 
 | Metric | Value |
 |---|---|
-| Posts analysed | 11 |
+| Posts analysed | 14 |
 | Total likes | 0 |
 | Total comments | 0 |
 | Total shares | 0 |
@@ -38,6 +38,9 @@
 
 | Date | Format | Domain | ❤️ | 💬 | 🔁 |
 |---|---|---|---|---|---|
+| 2026-11-15 | myth_vs_reality | AWS | 0 | 0 | 0 |
+| 2026-11-13 | industry_take | SQL / Analytics Engineering | 0 | 0 | 0 |
+| 2026-11-11 | project_spotlight | PySpark | 0 | 0 | 0 |
 | 2026-11-09 | tip | Databricks | 0 | 0 | 0 |
 | 2026-11-07 | insight | AWS | 0 | 0 | 0 |
 | 2026-11-05 | open_to_work | SQL / Analytics Engineering | 0 | 0 | 0 |
@@ -45,9 +48,6 @@
 | 2026-11-01 | myth_vs_reality | AWS | 0 | 0 | 0 |
 | 2026-10-31 | industry_take | SQL / Analytics Engineering | 0 | 0 | 0 |
 | 2026-10-29 | project_spotlight | Databricks | 0 | 0 | 0 |
-| 2026-10-27 | tip | AWS | 0 | 0 | 0 |
-| 2026-10-25 | insight | SQL / Analytics Engineering | 0 | 0 | 0 |
-| 2026-10-23 | achievement | Databricks | 0 | 0 | 0 |
 
 ---
 

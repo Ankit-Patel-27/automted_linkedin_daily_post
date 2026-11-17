@@ -1,18 +1,18 @@
 {
-  "text": "Myth: S3 tagging is optional metadata. Reality: It\u2019s essential for governance and lineage. Use tagging consistently to track ownership and compliance.\n\n#DataEngineering #AWS #DataPlatform #BestPractices",
-  "format_type": "myth_vs_reality",
-  "domain": "AWS",
-  "topic": "S3 object tagging and lineage for governance at scale",
-  "date": "2026-11-15",
+  "text": "",
+  "format_type": "achievement",
+  "domain": "Databricks",
+  "topic": "Databricks Repos and CI/CD for governed data projects",
+  "date": "2026-11-17",
   "model_used": "openai/gpt-oss-20b",
-  "hashtags": "#DataEngineering #AWS #DataPlatform #BestPractices",
+  "hashtags": "#DataEngineering #CloudMigration #AWS #CareerGrowth #TechLeadership  #Databricks #DeltaLake #ApacheSpark",
   "infographic": {
-    "title": "S3 OBJECT TAGGING AND LINEAGE FOR GOVERNANCE AT SCALE",
-    "subtitle": "A practical look for data engineers working with AWS",
-    "badge": "AWS",
+    "title": "DATABRICKS REPOS AND CI/CD FOR GOVERNED DATA PROJECTS",
+    "subtitle": "A practical look for data engineers working with Databricks",
+    "badge": "DBX",
     "problem_heading": "THE REAL PROBLEM",
     "solution_heading": "HOW DATA ENGINEERS HANDLE THIS",
-    "pipeline_heading": "A REAL AWS WORKFLOW",
+    "pipeline_heading": "A REAL DATABRICKS WORKFLOW",
     "why_heading": "WHY THIS MATTERS",
     "mindset_heading": "KEY MINDSET OF A DATA ENGINEER",
     "mindset_before": "Anyone can move data around.",
@@ -27,23 +27,19 @@
     ],
     "pipeline_steps": [
       {
-        "label": "Amazon S3",
+        "label": "Raw Data",
         "icon": "database"
       },
       {
-        "label": "Lambda",
+        "label": "Bronze",
         "icon": "gear"
       },
       {
-        "label": "Glue",
+        "label": "Silver",
         "icon": "refresh"
       },
       {
-        "label": "Redshift",
-        "icon": "database"
-      },
-      {
-        "label": "Analytics",
+        "label": "Gold",
         "icon": "chart"
       }
     ],
@@ -70,9 +66,9 @@
       }
     ],
     "simple_words_chain": [
-      "AWS",
+      "Databricks",
       "Reliable Data"
     ]
   },
-  "raw_llm": "{\n  \"post_text\": \"Myth: S3 tagging is optional metadata.\\nReality: It\u2019s essential for governance and lineage.\\nUse tagging consistently to track ownership and compliance.\",\n  \"hashtags\": \"#DataEngineering #AWS #DataPlatform #BestPractices\",\n  \"infographic\": {\n    \"title\": \"S3 OBJECT TAGGING FOR GOVERNANCE\",\n    \"subtitle\": \"Tag every object, track every change\",\n    \"badge\": \"AWS\",\n    \"problem_heading\": \"THE REAL PROBLEM\",\n    \"problem_points\": [\n      \"Missing lineage data\",\n      \"Inconsistent access control\",\n      \"Audit fatigue\",\n      \"Compliance gaps\"\n    ],\n    \"solution_heading\": \"HOW TO TAG EFFECTIVELY\",\n    \"pipeline_heading\": \"REAL PIPELINE WITH TAGGING\",\n    \"pipeline_steps\": [\n      {\"label\": \"Ingest\", \"icon\": \"cloud\"},\n      {\"label\": \"Tag\", \"icon\": \"shield\"},\n      {\"label\": \"Store\", \"icon\": \"database\"},\n      {\"label\": \"Govern\", \"icon\": \"scale\"},\n      {\"label\": \"Audit\", \"icon\": \"chart\"}\n    ],\n    \"why_heading\": \"WHY THIS MATTERS\",\n    \"why_matters\": [\n      {\"title\": \"Compliance\", \"desc\": \"Avoid regulatory fines\", \"icon\": \"shield\"},\n      {\"title\": \"Traceability\", \"desc\": \"Track data origins easily\", \"icon\": \"magnify\"},\n      {\"title\": \"Cost Control\", \"desc\": \"Identify unused buckets\", \"icon\": \"coin\"},\n      {\"title\": \"Security\", \"desc\": \"Enforce role policies\", \"icon\": \"lock\"}"
+  "raw_llm": ""
 }

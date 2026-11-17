@@ -1,11 +1,5 @@
 [
   {
-    "type": "industry_take",
-    "domain": "pyspark",
-    "topic": "PySpark window functions for time-series healthcare data",
-    "date": "2026-08-14"
-  },
-  {
     "type": "open_to_work",
     "domain": "databricks",
     "topic": "Auto Loader vs COPY INTO for incremental ingestion",
@@ -238,5 +232,11 @@
     "domain": "aws",
     "topic": "S3 object tagging and lineage for governance at scale",
     "date": "2026-11-15"
+  },
+  {
+    "type": "achievement",
+    "domain": "databricks",
+    "topic": "Databricks Repos and CI/CD for governed data projects",
+    "date": "2026-11-17"
   }
 ]

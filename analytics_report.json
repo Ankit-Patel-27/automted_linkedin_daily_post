@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-11-16",
-  "posts_analysed": 14,
+  "generated_date": "2026-11-17",
+  "posts_analysed": 15,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -179,6 +179,18 @@
       "domain": "AWS",
       "had_image": true,
       "preview": "Myth: S3 tagging is optional metadata. Reality: It\u2019s essential for governance and lineage. Use tagging consistently to t...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-11-17",
+      "post_id": "urn:li:share:7528379918951510016",
+      "format_type": "achievement",
+      "domain": "Databricks",
+      "had_image": true,
+      "preview": "...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

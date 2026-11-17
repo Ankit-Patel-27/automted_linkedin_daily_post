@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-06-24",
-    "post_id": "urn:li:share:7475412790028185601",
-    "format_type": "myth_vs_reality",
-    "domain": "SQL / Analytics Engineering",
-    "had_image": true,
-    "preview": "Myth vs Reality: dbt Tests and Data Contracts\n\nAs a seasoned data engineer, I've seen many teams struggle with data qual..."
-  },
-  {
     "date": "2026-06-25",
     "post_id": "urn:li:share:7475775944872325120",
     "format_type": "concept_explainer",
@@ -718,5 +710,13 @@
     "domain": "AWS",
     "had_image": true,
     "preview": "Myth: S3 tagging is optional metadata. Reality: It\u2019s essential for governance and lineage. Use tagging consistently to t..."
+  },
+  {
+    "date": "2026-11-17",
+    "post_id": "urn:li:share:7528379918951510016",
+    "format_type": "achievement",
+    "domain": "Databricks",
+    "had_image": true,
+    "preview": "..."
   }
 ]

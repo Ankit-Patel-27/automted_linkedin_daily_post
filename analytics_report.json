@@ -1,6 +1,6 @@
 {
-  "generated_date": "2026-11-17",
-  "posts_analysed": 15,
+  "generated_date": "2026-11-19",
+  "posts_analysed": 16,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
@@ -191,6 +191,18 @@
       "domain": "Databricks",
       "had_image": true,
       "preview": "...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-11-19",
+      "post_id": "urn:li:share:7529098627634327552",
+      "format_type": "open_to_work",
+      "domain": "SQL / Analytics Engineering",
+      "had_image": true,
+      "preview": "Currently open to Senior Data Engineer or Data Platform Lead roles in Healthcare/Biotech. I build high-performance SQL l...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

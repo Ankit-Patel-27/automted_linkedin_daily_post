@@ -1,74 +1,78 @@
 {
-  "text": "",
-  "format_type": "achievement",
-  "domain": "Databricks",
-  "topic": "Databricks Repos and CI/CD for governed data projects",
-  "date": "2026-11-17",
-  "model_used": "openai/gpt-oss-20b",
-  "hashtags": "#DataEngineering #CloudMigration #AWS #CareerGrowth #TechLeadership  #Databricks #DeltaLake #ApacheSpark",
+  "text": "Currently open to Senior Data Engineer or Data Platform Lead roles in Healthcare/Biotech. I build high-performance SQL layers that turn raw data into instant clinical insights. Let's connect.\n\n#OpenToWork #DataEngineering #AWS #Databricks #HealthcareIT #SQL",
+  "format_type": "open_to_work",
+  "domain": "SQL / Analytics Engineering",
+  "topic": "Materialised views in Redshift and Databricks SQL",
+  "date": "2026-11-19",
+  "model_used": "qwen/qwen3.8-27b",
+  "hashtags": "#OpenToWork #DataEngineering #AWS #Databricks #HealthcareIT #SQL",
   "infographic": {
-    "title": "DATABRICKS REPOS AND CI/CD FOR GOVERNED DATA PROJECTS",
-    "subtitle": "A practical look for data engineers working with Databricks",
-    "badge": "DBX",
+    "title": "ACCELERATE ANALYTICS WITH MATERIALIZED VIEWS",
+    "subtitle": "Stop recomputing. Start serving pre-aggregated, sub-second insights.",
+    "badge": "SQL",
     "problem_heading": "THE REAL PROBLEM",
     "solution_heading": "HOW DATA ENGINEERS HANDLE THIS",
-    "pipeline_heading": "A REAL DATABRICKS WORKFLOW",
+    "pipeline_heading": "REAL PIPELINE FLOW",
     "why_heading": "WHY THIS MATTERS",
     "mindset_heading": "KEY MINDSET OF A DATA ENGINEER",
-    "mindset_before": "Anyone can move data around.",
-    "mindset_after": "Great engineers build systems that hold up.",
+    "mindset_before": "Always compute on the fly for freshness.",
+    "mindset_after": "Pre-aggregate for speed; refresh strategically for accuracy.",
     "simple_words_heading": "IN SIMPLE WORDS",
-    "tagline": "Better data. Better insights. Better impact.",
+    "tagline": "Better data. Faster insights. Better care.",
     "problem_points": [
-      "Inconsistent or messy inputs",
-      "Manual, error-prone steps",
-      "Hard to scale reliably",
-      "Costly to fix downstream"
+      "High latency on complex aggregations",
+      "Repeated expensive daily full scans",
+      "Dashboard timeouts during peak usage",
+      "Complex joins slowing down BI tools"
     ],
     "pipeline_steps": [
       {
-        "label": "Raw Data",
+        "label": "Raw Ingestion",
         "icon": "database"
       },
       {
-        "label": "Bronze",
+        "label": "Transformation",
         "icon": "gear"
       },
       {
-        "label": "Silver",
+        "label": "MV Creation",
+        "icon": "chart"
+      },
+      {
+        "label": "Auto Refresh",
         "icon": "refresh"
       },
       {
-        "label": "Gold",
-        "icon": "chart"
+        "label": "BI Serving",
+        "icon": "rocket"
       }
     ],
     "why_matters": [
       {
-        "title": "Builds Trust",
-        "desc": "Stakeholders trust the data",
-        "icon": "shield"
-      },
-      {
-        "title": "Saves Time",
-        "desc": "Less rework, fewer re-runs",
+        "title": "Sub-Second Latency",
+        "desc": "Instant answers for critical patient que",
         "icon": "clock"
       },
       {
-        "title": "Cost Efficient",
-        "desc": "Less wasted compute & storage",
+        "title": "Reduced Compute Cost",
+        "desc": "Lower resource usage via pre-computation",
         "icon": "coin"
       },
       {
-        "title": "Scales Well",
-        "desc": "Holds up as data grows",
-        "icon": "chart"
+        "title": "Simplified Query Logic",
+        "desc": "Complex joins replaced by simple selects",
+        "icon": "puzzle"
+      },
+      {
+        "title": "Audit Compliance",
+        "desc": "Immutable snapshots for regulatory repor",
+        "icon": "shield"
       }
     ],
     "simple_words_chain": [
-      "Databricks",
-      "Reliable Data"
+      "Compute Heavy",
+      "Cache Smart"
     ]
   },
-  "raw_llm": ""
+  "raw_llm": "{\n  \"post_text\": \"Currently open to Senior Data Engineer or Data Platform Lead roles in Healthcare/Biotech. I build high-performance SQL layers that turn raw data into instant clinical insights. Let's connect.\",\n  \"hashtags\": \"#OpenToWork #DataEngineering #AWS #Databricks #HealthcareIT #SQL\",\n  \"infographic\":\n    {\n      \"title\": \"ACCELERATE ANALYTICS WITH MATERIALIZED VIEWS\",\n      \"subtitle\": \"Stop recomputing. Start serving pre-aggregated, sub-second insights.\",\n      \"badge\": \"SQL\",\n      \"problem_heading\": \"THE REAL PROBLEM\",\n      \"problem_points\": [\n        \"High latency on complex aggregations\",\n        \"Repeated expensive daily full scans\",\n        \"Dashboard timeouts during peak usage\",\n        \"Complex joins slowing down BI tools\"\n      ],\n      \"solution_heading\": \"HOW DATA ENGINEERS HANDLE THIS\",\n      \"pipeline_heading\": \"REAL PIPELINE FLOW\",\n      \"pipeline_steps\": [\n        {\"label\": \"Raw Ingestion\", \"icon\": \"database\"},\n        {\"label\": \"Transformation\", \"icon\": \"gear\"},\n        {\"label\": \"MV Creation\", \"icon\": \"chart\"},\n        {\"label\": \"Auto Refresh\", \"icon\": \"refresh\"},\n        {\"label\": \"BI Serving\", \"icon\": \"rocket\"}\n      ],\n      \"why_heading\": \"WHY THIS MATTERS\",\n      \"why_matters\": [\n        {\"title\": \"Sub-Second Latency\", \"desc\": \"Instant answers for critical patient queries\", \"icon\": \"clock\"},\n        {\"title\": \"Reduced Compute Cost\", \"desc\": \"Lower resource usage via pre-computation\", \"icon\": \"coin\"},\n        {\"title\": \"Simplified Query Logic\", \"desc\": \"Complex joins replaced by simple selects\", \"icon\": \"puzzle\"},\n        {\"title\": \"Audit Compliance\", \"desc\": \"Immutable snapshots for regulatory reporting\", \"icon\": \"shield\"}\n      ],\n      \"mindset_heading\": \"KEY MINDSET OF A DATA ENGINEER\",\n      \"mindset_before\": \"Always compute on the fly for freshness.\",\n      \"mindset_after\": \"Pre-aggregate for speed; refresh strategically for accuracy.\",\n      \"simple_words_heading\": \"IN SIMPLE WORDS\",\n      \"simple_words_chain\": [\n        \"Compute Heavy\",\n        \"Cache Smart\"\n      ],\n      \"tagline\": \"Better data. Faster insights. Better care.\"\n    }\n  }"
 }

@@ -1,78 +1,74 @@
 {
-  "text": "Currently open to Senior Data Engineer or Data Platform Lead roles in Healthcare/Biotech. I build high-performance SQL layers that turn raw data into instant clinical insights. Let's connect.\n\n#OpenToWork #DataEngineering #AWS #Databricks #HealthcareIT #SQL",
-  "format_type": "open_to_work",
-  "domain": "SQL / Analytics Engineering",
-  "topic": "Materialised views in Redshift and Databricks SQL",
-  "date": "2026-11-19",
-  "model_used": "qwen/qwen3.8-27b",
-  "hashtags": "#OpenToWork #DataEngineering #AWS #Databricks #HealthcareIT #SQL",
+  "text": "Data Engineering Strategy: Prioritising Data Quality in PySpark Jobs\n\n#DataEngineering #LearnInPublic #TechEducation #DataPlatform  #PySpark #ApacheSpark #BigData",
+  "format_type": "concept_explainer",
+  "domain": "PySpark",
+  "topic": "PySpark broadcast joins - when and how to use them",
+  "date": "2026-11-21",
+  "model_used": "allam-2-7b",
+  "hashtags": "#DataEngineering #LearnInPublic #TechEducation #DataPlatform  #PySpark #ApacheSpark #BigData",
   "infographic": {
-    "title": "ACCELERATE ANALYTICS WITH MATERIALIZED VIEWS",
-    "subtitle": "Stop recomputing. Start serving pre-aggregated, sub-second insights.",
-    "badge": "SQL",
+    "title": "PYSPARK BROADCAST JOINS",
+    "subtitle": "A practical look for data engineers working with PySpark",
+    "badge": "PY",
     "problem_heading": "THE REAL PROBLEM",
     "solution_heading": "HOW DATA ENGINEERS HANDLE THIS",
-    "pipeline_heading": "REAL PIPELINE FLOW",
+    "pipeline_heading": "A REAL PYSPARK WORKFLOW",
     "why_heading": "WHY THIS MATTERS",
     "mindset_heading": "KEY MINDSET OF A DATA ENGINEER",
-    "mindset_before": "Always compute on the fly for freshness.",
-    "mindset_after": "Pre-aggregate for speed; refresh strategically for accuracy.",
+    "mindset_before": "Anyone can move data around.",
+    "mindset_after": "Great engineers build systems that hold up.",
     "simple_words_heading": "IN SIMPLE WORDS",
-    "tagline": "Better data. Faster insights. Better care.",
+    "tagline": "Better data. Better insights. Better impact.",
     "problem_points": [
-      "High latency on complex aggregations",
-      "Repeated expensive daily full scans",
-      "Dashboard timeouts during peak usage",
-      "Complex joins slowing down BI tools"
+      "Inconsistent or messy inputs",
+      "Manual, error-prone steps",
+      "Hard to scale reliably",
+      "Costly to fix downstream"
     ],
     "pipeline_steps": [
       {
-        "label": "Raw Ingestion",
+        "label": "Extract",
         "icon": "database"
       },
       {
-        "label": "Transformation",
+        "label": "Transform",
         "icon": "gear"
       },
       {
-        "label": "MV Creation",
-        "icon": "chart"
-      },
-      {
-        "label": "Auto Refresh",
+        "label": "Optimize",
         "icon": "refresh"
       },
       {
-        "label": "BI Serving",
-        "icon": "rocket"
+        "label": "Load",
+        "icon": "chart"
       }
     ],
     "why_matters": [
       {
-        "title": "Sub-Second Latency",
-        "desc": "Instant answers for critical patient que",
+        "title": "Builds Trust",
+        "desc": "Stakeholders trust the data",
+        "icon": "shield"
+      },
+      {
+        "title": "Saves Time",
+        "desc": "Less rework, fewer re-runs",
         "icon": "clock"
       },
       {
-        "title": "Reduced Compute Cost",
-        "desc": "Lower resource usage via pre-computation",
+        "title": "Cost Efficient",
+        "desc": "Less wasted compute & storage",
         "icon": "coin"
       },
       {
-        "title": "Simplified Query Logic",
-        "desc": "Complex joins replaced by simple selects",
-        "icon": "puzzle"
-      },
-      {
-        "title": "Audit Compliance",
-        "desc": "Immutable snapshots for regulatory repor",
-        "icon": "shield"
+        "title": "Scales Well",
+        "desc": "Holds up as data grows",
+        "icon": "chart"
       }
     ],
     "simple_words_chain": [
-      "Compute Heavy",
-      "Cache Smart"
+      "PySpark",
+      "Reliable Data"
     ]
   },
-  "raw_llm": "{\n  \"post_text\": \"Currently open to Senior Data Engineer or Data Platform Lead roles in Healthcare/Biotech. I build high-performance SQL layers that turn raw data into instant clinical insights. Let's connect.\",\n  \"hashtags\": \"#OpenToWork #DataEngineering #AWS #Databricks #HealthcareIT #SQL\",\n  \"infographic\":\n    {\n      \"title\": \"ACCELERATE ANALYTICS WITH MATERIALIZED VIEWS\",\n      \"subtitle\": \"Stop recomputing. Start serving pre-aggregated, sub-second insights.\",\n      \"badge\": \"SQL\",\n      \"problem_heading\": \"THE REAL PROBLEM\",\n      \"problem_points\": [\n        \"High latency on complex aggregations\",\n        \"Repeated expensive daily full scans\",\n        \"Dashboard timeouts during peak usage\",\n        \"Complex joins slowing down BI tools\"\n      ],\n      \"solution_heading\": \"HOW DATA ENGINEERS HANDLE THIS\",\n      \"pipeline_heading\": \"REAL PIPELINE FLOW\",\n      \"pipeline_steps\": [\n        {\"label\": \"Raw Ingestion\", \"icon\": \"database\"},\n        {\"label\": \"Transformation\", \"icon\": \"gear\"},\n        {\"label\": \"MV Creation\", \"icon\": \"chart\"},\n        {\"label\": \"Auto Refresh\", \"icon\": \"refresh\"},\n        {\"label\": \"BI Serving\", \"icon\": \"rocket\"}\n      ],\n      \"why_heading\": \"WHY THIS MATTERS\",\n      \"why_matters\": [\n        {\"title\": \"Sub-Second Latency\", \"desc\": \"Instant answers for critical patient queries\", \"icon\": \"clock\"},\n        {\"title\": \"Reduced Compute Cost\", \"desc\": \"Lower resource usage via pre-computation\", \"icon\": \"coin\"},\n        {\"title\": \"Simplified Query Logic\", \"desc\": \"Complex joins replaced by simple selects\", \"icon\": \"puzzle\"},\n        {\"title\": \"Audit Compliance\", \"desc\": \"Immutable snapshots for regulatory reporting\", \"icon\": \"shield\"}\n      ],\n      \"mindset_heading\": \"KEY MINDSET OF A DATA ENGINEER\",\n      \"mindset_before\": \"Always compute on the fly for freshness.\",\n      \"mindset_after\": \"Pre-aggregate for speed; refresh strategically for accuracy.\",\n      \"simple_words_heading\": \"IN SIMPLE WORDS\",\n      \"simple_words_chain\": [\n        \"Compute Heavy\",\n        \"Cache Smart\"\n      ],\n      \"tagline\": \"Better data. Faster insights. Better care.\"\n    }\n  }"
+  "raw_llm": "{\n\"hashtags\": [\"#DataEngineering\", \"#LearnInPublic\", \"#TechEducation\", \"#DataPlatform\", \"#PySpark\", \"#ApacheSpark\", \"#BigData\"],\n\"tagline\": \"Streamline data processing with PySpark & Apache Spark: Boosting data quality for better insights.\",\n\"mindset_before\": \"Engineers often overlook quality checkpoints in PySpark jobs.\",\n\"mindset_after\": \"Senior engineers prioritize data quality in PySpark pipelines.\",\n\"problem_heading\": \"Data Integrity Issues in PySpark Jobs\",\n\"problem_points\": [\n  \"Old PySpark jobs lack quality checks.\",\n  \"Approaches unnecessarily slow processing\",\n  \"Quality issues lead to unreliable insights.\",\n  \"Lack of quality monitoring causes resource waste.\"\n],\n\"solution_heading\": \"Crafting Quality in PySpark Jobs\",\n\"solution_steps\": [\n  \"Incorporate PySpark's PySpark Data Quality Checkpoints.\",\n  \"Use Apache Spark's AlterEgo for quality monitoring.\",\n  \"Integrate with AWS Glue data pipelines.\",\n  \"Perform end-to-end data quality checks.\"\n],\n\"takeaway\": \"Great data quality = Great data-driven insights.\",\n\"icon\": \"lock\",\n\"title\": \"Data Engineering Strategy: Prioritizing Data Quality in PySpark Jobs\",\n\"section_icons\": [\"gear\", \"lock\", \"lock\", \"arrow_forward\", \"arrow_forward\"]\n}\n\nTo ensure reliable and efficient data processing pipeline, prioritise data quality checks by leveraging PySpark and AWS Glue. Here's how senior engineers tackle this in real projects: {\n\"post_text\": \"Data Engineering Strategy: Prioritising Data Quality in PySpark Jobs\",\n\"content_type\": \"Infographic\",\n\"section_headers\": [\"Exploring the problem\", \"Crafting a solution\", \"PySpark and AWS Glue\", \"Clients side benefits\"],\n\"pipeline_headers\": [\"Data Integrity Checkpoints\", \"AlterEgo for quality monitoring\", \"AWS Glue data pipelines\", \"Seamless integration\"],\n\"infrastructure_headers\": [\"PySpark Data Quality strategy\", \"AWS Glue for data quality control\", \"Data pipelines efficiency\", \"More trustworthy insights\"],\n\"data_quality_highlights\": [\n  {\"icon\": \"lock\", \"text\": \"Security & Privacy\",\n  \"icon\": \"database\", \"text\": \"Data Source Integrity\",\n  \"icon\": \"wrench\", \"text\": \"Data Engineer Mindset\",\n  \"icon\": \"team\", \"text\": \"Collaboration\",\n  \"icon\": \"bell\", \"text\": \"Alerting\",\n  \"icon\": \"chart\", \"text\": \"Performance Metrics\",\n  \"icon\": \"gear\", \"text\": \"CI/CD integration\"],\n\"pySpark_data_quality_icons\": [{\"icon\": \"lock\", \"text\": \"Security & Privacy\",\n    \"icon\": \"database\", \"text\": \"Data Source Integrity\",\n    \"icon\": \"wrench\", \"text\": \"Data Engineer Mindset\",\n    \"icon\": \"team\", \"text\": \"Collaboration\",\n    \"icon\": \"bell\", \"text\": \"Alerting\",\n    \"icon\": \"chart\", \"text\": \"Performance Metrics\",\n    \"icon\": \"gear\", \"text\": \"CI/CD integration\"],\n\"AWS_Glue_data_quality_icons\": [{\"icon\": \"lock\", \"text\": \"Security & Privacy\",\n  \"icon\": \"database\", \"text\": \"Data Source Integrity\",\n  \"icon\": \"wrench\", \"text\": \"Data Engineer Mindset\",\n  \"icon\": \"team\", \"text\": \"Collaboration\",\n  \"icon\": \"bell\", \"text\": \"Alerting\",\n  \"icon\": \"chart\", \"text\": \"Performance Metrics\",\n  \"icon\": \"gear\", \"text\": \"CI/CD integration\",\n\"infrastructure\": {\n  \"icon\":\"cloud\",\"text\":\"Infrastructure integration\",\n  \"icon\":\"magic_wand\",\"text\":\"Data Quality Elements\",\n  \"icon\":\"database\",\"text\":\"Data Science Methodologies\",\n  \"icon\":\"team\",\"text\":\"Collaboration mindset\",\n  \"icon\":\"alerting\",\"text\":\"alerts in real-time\",\n  \"icon\":\"performance_metrics\",\"text\":\"Metrics for success\",\n  \"icon\":\"integration\",\"text\":\"Continuous Integration & Deployment actions\",\n  \"icon\":\"glue_data_quality_infographic\":\"Infrastructure and CI/CD\",\n  \"icon\":\"data_engineering\":\"QA and data quality assurance\",\n    \"icon\":\"database\":\"Continuous Integration\",\n   \"icon\":\"datascience\":\"Methodologies for industry-grade insights\",\n  \"icon\":\"team\":\"Connecting engineers\",\n   \"icon\":\"alerting\":\"Real-time data quality assurance\",\n   \"icon\":\"PerformanceMetrics\":\"In-depth performance measurements\",\n   \"icon\":\"integration\":\"CI/CD pipelines built\",\n  \"icon\":\"glue\":\"QA and data quality assurance\",\n  \"icon\":\"data_engineering\":\"Quality Control\",\n  \"icon\":\"database\":\"Continuous Automation\",\n  \"icon\":\"datascience\":\"Collaboration practices\",\n   \"icon\":\"team\":\"Integration and QA\",\n  \"icon\":\"alerting\":\"Data Quality Assurance\",\n   \"icon\":\"Performance Metrics\":\"Data Engineering best practices\",\n  \"icon\":\"integration\":\"Data Quality Solution\",\n  \"icon\":\"glue\":\"Continuous Quality Improvement\",\n  \"icon\":\"data_engineering\":\"Quality Control Framework\",\n  \"icon\":\"datascience\":\"QA and Data Quality Assurance\",\n  \"icon\":\"team\":\"Connection & QA in actionable insights\",\n  \"icon\":\"alerting\":\"Data Quality Assurance with CI/CD\",\n  \"icon\":\"Performance Metrics\":\"Data Engineering strategy\",\n  \"icon\":\"integration\":\"Framework for continuous improvement\",\n  \"icon\":\"glue\":\"Data Quality Improvement tools\",\n  \"icon\":\"data_engineering\":\"Quality Control for data-driven insights\",\n  \"icon\":\"datascience\":\"Data Quality Solution methodology\",\n  \"icon\":\"team\":\"Connection and QA"
 }

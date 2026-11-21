@@ -1,33 +1,21 @@
 {
-  "generated_date": "2026-11-19",
+  "generated_date": "2026-11-21",
   "posts_analysed": 16,
   "total_likes": 0,
   "total_comments": 0,
   "total_shares": 0,
-  "best_format": "concept_explainer",
+  "best_format": "achievement",
   "format_avg_scores": {
-    "concept_explainer": 0.0,
     "achievement": 0.0,
     "insight": 0.0,
     "tip": 0.0,
     "project_spotlight": 0.0,
     "industry_take": 0.0,
     "myth_vs_reality": 0.0,
+    "concept_explainer": 0.0,
     "open_to_work": 0.0
   },
   "posts": [
-    {
-      "date": "2026-10-21",
-      "post_id": "urn:li:share:7518621400715268096",
-      "format_type": "concept_explainer",
-      "domain": "PySpark",
-      "had_image": true,
-      "preview": "Spark shuffle is the hidden cost in production. It moves data between nodes, killing performance. By tuning partitioning...",
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "impressions": 0
-    },
     {
       "date": "2026-10-23",
       "post_id": "urn:li:share:7519274414937468928",
@@ -203,6 +191,18 @@
       "domain": "SQL / Analytics Engineering",
       "had_image": true,
       "preview": "Currently open to Senior Data Engineer or Data Platform Lead roles in Healthcare/Biotech. I build high-performance SQL l...",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "impressions": 0
+    },
+    {
+      "date": "2026-11-21",
+      "post_id": "urn:li:share:7529817021488967681",
+      "format_type": "concept_explainer",
+      "domain": "PySpark",
+      "had_image": true,
+      "preview": "Data Engineering Strategy: Prioritising Data Quality in PySpark Jobs\n\n#DataEngineering #LearnInPublic #TechEducation #Da...",
       "likes": 0,
       "comments": 0,
       "shares": 0,

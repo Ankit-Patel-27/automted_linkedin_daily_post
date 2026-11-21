@@ -1,11 +1,5 @@
 [
   {
-    "type": "concept_explainer",
-    "domain": "sql",
-    "topic": "SQL query optimisation patterns for large analytical workloads",
-    "date": "2026-08-16"
-  },
-  {
     "type": "achievement",
     "domain": "pyspark",
     "topic": "Caching and persistence in Spark \u2014 .cache() vs .persist()",
@@ -238,5 +232,11 @@
     "domain": "sql",
     "topic": "Materialised views in Redshift and Databricks SQL",
     "date": "2026-11-19"
+  },
+  {
+    "type": "concept_explainer",
+    "domain": "pyspark",
+    "topic": "PySpark broadcast joins - when and how to use them",
+    "date": "2026-11-21"
   }
 ]
